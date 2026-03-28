@@ -181,6 +181,12 @@
       "type": "directory"
     },
     {
+      "path": "pipeline/.env",
+      "accessCount": 2,
+      "lastAccessed": 1774712789098,
+      "type": "file"
+    },
+    {
       "path": "research/micro-tool-factory.md",
       "accessCount": 1,
       "lastAccessed": 1774604718726,
@@ -232,12 +238,6 @@
       "path": "pipeline/loop.py",
       "accessCount": 1,
       "lastAccessed": 1774680118448,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/.env",
-      "accessCount": 1,
-      "lastAccessed": 1774705720141,
       "type": "file"
     },
     {
@@ -316,6 +316,12 @@
       "path": "pipeline/data/promotions/H-006_twitter_variant_B.md",
       "accessCount": 1,
       "lastAccessed": 1774711527371,
+      "type": "file"
+    },
+    {
+      "path": "research/competitor-analysis.md",
+      "accessCount": 1,
+      "lastAccessed": 1774712978219,
       "type": "file"
     }
   ],
