@@ -7,6 +7,8 @@ Usage:
     result = ask("이 텍스트를 분석해줘: ...")
 """
 
+from __future__ import annotations
+
 import json
 import re
 import subprocess

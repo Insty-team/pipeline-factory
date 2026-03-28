@@ -11,44 +11,208 @@
     body { font-family: 'Inter', sans-serif; }
     .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
     .price-strike { text-decoration: line-through; color: #9ca3af; }
+    @keyframes pulse-dot { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
+    .dot1 { animation: pulse-dot 1.4s infinite 0s; }
+    .dot2 { animation: pulse-dot 1.4s infinite 0.2s; }
+    .dot3 { animation: pulse-dot 1.4s infinite 0.4s; }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fade-up 0.4s ease-out forwards; }
+    .step-card { transition: all 0.3s ease; }
+    .progress-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: all 0.3s; }
+    .progress-dot.active { background: #fbbf24; transform: scale(1.3); }
+    .progress-dot.done { background: #4ade80; }
+    .option-btn { transition: all 0.15s ease; }
+    .option-btn.selected { background: rgba(251,191,36,0.25); box-shadow: 0 0 0 2px #fbbf24; }
+    .preview-page { background: white; border-radius: 12px; padding: 24px; color: #1f2937; text-align: center; }
   </style>
 </head>
 <body class="bg-white text-gray-900">
 
   <!-- Hero -->
-  <section class="gradient-bg text-white py-20 px-4">
-    <div class="max-w-3xl mx-auto text-center">
+  <section class="gradient-bg text-white py-16 md:py-20 px-4 min-h-[90vh] flex items-center">
+    <div class="max-w-3xl mx-auto text-center w-full">
       <div class="inline-block bg-white/20 rounded-full px-4 py-1 text-sm font-medium mb-6">
         Early Access — Limited spots
       </div>
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
         Stop paying <span class="price-strike">$12/mo</span> for scheduling.
       </h1>
       <p class="text-xl md:text-2xl font-medium opacity-90 mb-8">
         Pay <span class="text-yellow-300 font-bold">$49 once</span>. Get everything. Forever.
       </p>
-      <p class="text-lg opacity-80 mb-10 max-w-xl mx-auto">
-        CalOnce gives you all the scheduling features you need — multiple event types, team scheduling, custom branding, calendar sync — without the monthly bill.
-      </p>
 
-      <!-- Email Capture -->
-      <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input
-          type="email"
-          id="email"
-          placeholder="you@example.com"
-          required
-          class="flex-1 px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-        >
-        <button
-          type="submit"
-          class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold px-6 py-3 rounded-lg text-lg transition"
-        >
-          Get Early Access
+      <!-- Progress Indicator -->
+      <div id="progress" class="flex justify-center gap-3 mb-8">
+        <div class="progress-dot active" data-step="1"></div>
+        <div class="progress-dot" data-step="2"></div>
+        <div class="progress-dot" data-step="3"></div>
+        <div class="progress-dot" data-step="4"></div>
+        <div class="progress-dot" data-step="5"></div>
+      </div>
+
+      <!-- Step 1: Team + Tool -->
+      <div id="step-1" class="step-card bg-white/10 backdrop-blur rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium opacity-70 mb-1">Step 1 of 5</div>
+        <div class="text-xl font-bold mb-6">Tell us about your setup</div>
+        <div class="space-y-6">
+          <div>
+            <label class="block text-left text-sm font-medium opacity-80 mb-2">Team size</label>
+            <div class="flex gap-3">
+              <button type="button" data-team="1" class="team-btn option-btn flex-1 py-3 rounded-lg bg-white/20 hover:bg-white/30 font-bold">Just me</button>
+              <button type="button" data-team="3" class="team-btn option-btn flex-1 py-3 rounded-lg bg-white/20 hover:bg-white/30 font-bold">2-5</button>
+              <button type="button" data-team="8" class="team-btn option-btn flex-1 py-3 rounded-lg bg-white/20 hover:bg-white/30 font-bold">6-10</button>
+              <button type="button" data-team="15" class="team-btn option-btn flex-1 py-3 rounded-lg bg-white/20 hover:bg-white/30 font-bold">10+</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-left text-sm font-medium opacity-80 mb-2">Current scheduling tool</label>
+            <div class="flex gap-3 flex-wrap">
+              <button type="button" data-tool="calendly" class="tool-btn option-btn py-2 px-4 rounded-lg bg-white/20 hover:bg-white/30 font-medium text-sm">Calendly</button>
+              <button type="button" data-tool="acuity" class="tool-btn option-btn py-2 px-4 rounded-lg bg-white/20 hover:bg-white/30 font-medium text-sm">Acuity</button>
+              <button type="button" data-tool="savvycal" class="tool-btn option-btn py-2 px-4 rounded-lg bg-white/20 hover:bg-white/30 font-medium text-sm">SavvyCal</button>
+              <button type="button" data-tool="other" class="tool-btn option-btn py-2 px-4 rounded-lg bg-white/20 hover:bg-white/30 font-medium text-sm">Other / None</button>
+            </div>
+          </div>
+          <button id="step1-next" disabled class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg text-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+            See how much you'd save →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 2: Savings Result -->
+      <div id="step-2" class="hidden step-card max-w-lg mx-auto">
+        <!-- Analyzing -->
+        <div id="analyzing" class="bg-white/10 backdrop-blur rounded-2xl p-8">
+          <div class="text-2xl font-bold mb-3">
+            Crunching the numbers<span class="dot1">.</span><span class="dot2">.</span><span class="dot3">.</span>
+          </div>
+          <p class="opacity-70">Comparing your setup against CalOnce</p>
+        </div>
+        <!-- Result -->
+        <div id="savings-result" class="hidden bg-white/10 backdrop-blur rounded-2xl p-8">
+          <div class="text-sm font-medium opacity-70 mb-1">Step 2 of 5</div>
+          <div class="text-sm opacity-70 mb-2">With CalOnce, you'd save</div>
+          <div id="savings-amount" class="text-5xl md:text-6xl font-extrabold text-yellow-300 mb-1"></div>
+          <div id="savings-period" class="text-lg opacity-80 mb-5"></div>
+          <div id="savings-breakdown" class="text-left space-y-2 mb-6 text-sm"></div>
+          <button id="step2-next" class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg text-lg transition">
+            Nice! Set up my CalOnce →
+          </button>
+        </div>
+      </div>
+
+      <!-- Step 3: Meeting Types -->
+      <div id="step-3" class="hidden step-card bg-white/10 backdrop-blur rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium opacity-70 mb-1">Step 3 of 5</div>
+        <div class="text-xl font-bold mb-2">What meetings do you schedule?</div>
+        <p class="text-sm opacity-70 mb-6">Select all that apply. You can change these later.</p>
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <button type="button" data-meeting="1on1" class="meeting-btn option-btn py-4 px-4 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-2xl mb-1">👤</div>
+            <div class="font-bold text-sm">1-on-1</div>
+            <div class="text-xs opacity-70">Client calls, interviews</div>
+          </button>
+          <button type="button" data-meeting="group" class="meeting-btn option-btn py-4 px-4 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-2xl mb-1">👥</div>
+            <div class="font-bold text-sm">Group</div>
+            <div class="text-xs opacity-70">Workshops, webinars</div>
+          </button>
+          <button type="button" data-meeting="roundrobin" class="meeting-btn option-btn py-4 px-4 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-2xl mb-1">🔄</div>
+            <div class="font-bold text-sm">Round Robin</div>
+            <div class="text-xs opacity-70">Sales, support rotation</div>
+          </button>
+          <button type="button" data-meeting="collective" class="meeting-btn option-btn py-4 px-4 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-2xl mb-1">📋</div>
+            <div class="font-bold text-sm">Collective</div>
+            <div class="text-xs opacity-70">Multi-host coordination</div>
+          </button>
+        </div>
+        <button id="step3-next" disabled class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg text-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+          Next: Connect calendar →
         </button>
-      </form>
-      <p id="form-message" class="mt-3 text-sm opacity-80 hidden"></p>
-      <p class="mt-4 text-sm opacity-60">No spam. Just launch updates.</p>
+      </div>
+
+      <!-- Step 4: Calendar -->
+      <div id="step-4" class="hidden step-card bg-white/10 backdrop-blur rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium opacity-70 mb-1">Step 4 of 5</div>
+        <div class="text-xl font-bold mb-2">Which calendar do you use?</div>
+        <p class="text-sm opacity-70 mb-6">We'll sync your availability automatically.</p>
+        <div class="space-y-3 mb-6">
+          <button type="button" data-cal="google" class="cal-btn option-btn w-full flex items-center gap-4 py-4 px-5 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-3xl">📅</div>
+            <div>
+              <div class="font-bold">Google Calendar</div>
+              <div class="text-xs opacity-70">Gmail, Google Workspace</div>
+            </div>
+          </button>
+          <button type="button" data-cal="outlook" class="cal-btn option-btn w-full flex items-center gap-4 py-4 px-5 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-3xl">📧</div>
+            <div>
+              <div class="font-bold">Outlook / Microsoft 365</div>
+              <div class="text-xs opacity-70">Outlook, Hotmail, Office 365</div>
+            </div>
+          </button>
+          <button type="button" data-cal="apple" class="cal-btn option-btn w-full flex items-center gap-4 py-4 px-5 rounded-xl bg-white/20 hover:bg-white/30 text-left">
+            <div class="text-3xl">🍎</div>
+            <div>
+              <div class="font-bold">Apple Calendar</div>
+              <div class="text-xs opacity-70">iCloud Calendar</div>
+            </div>
+          </button>
+        </div>
+        <button id="step4-next" disabled class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold py-3 rounded-lg text-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+          Next: Preview your page →
+        </button>
+      </div>
+
+      <!-- Step 5: Preview + Email -->
+      <div id="step-5" class="hidden step-card max-w-lg mx-auto">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
+          <div class="text-sm font-medium opacity-70 mb-1">Step 5 of 5</div>
+          <div class="text-xl font-bold mb-2">Your booking page is ready</div>
+          <p class="text-sm opacity-70 mb-6">Here's a preview of what your clients will see.</p>
+
+          <!-- Mini Preview -->
+          <div class="preview-page mb-6 shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full mx-auto mb-3 flex items-center justify-center text-white text-2xl font-bold" id="preview-avatar">Y</div>
+            <div class="font-bold text-lg text-gray-900 mb-1" id="preview-name">Your Name</div>
+            <div class="text-sm text-gray-500 mb-4">Pick a time that works for you</div>
+            <div id="preview-meetings" class="space-y-2 text-left max-w-xs mx-auto"></div>
+            <div class="mt-4 pt-3 border-t text-xs text-gray-400">Powered by CalOnce</div>
+          </div>
+
+          <!-- Final CTA -->
+          <div class="border-t border-white/20 pt-6">
+            <div class="text-lg font-bold mb-1">Almost done!</div>
+            <p class="text-sm opacity-80 mb-4">Enter your email to save your setup and get early access when we launch.</p>
+            <form id="waitlist-form" class="space-y-3">
+              <input
+                type="text"
+                id="user-name"
+                placeholder="Your name"
+                required
+                class="w-full px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              >
+              <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+                class="w-full px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
+              >
+              <button
+                type="submit"
+                class="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold px-6 py-3 rounded-lg text-lg transition"
+              >
+                Save my setup & get early access
+              </button>
+            </form>
+            <p id="form-message" class="mt-3 text-sm opacity-80 hidden"></p>
+            <p class="mt-3 text-sm opacity-60">No spam. Just launch updates + your saved config.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -107,7 +271,7 @@
     </div>
   </section>
 
-  <!-- Social Proof / FAQ -->
+  <!-- FAQ -->
   <section class="py-16 px-4 bg-gray-50">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold text-center mb-10">FAQ</h2>
@@ -132,29 +296,6 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="gradient-bg text-white py-16 px-4">
-    <div class="max-w-2xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Stop renting your scheduling tool.</h2>
-      <p class="text-xl opacity-90 mb-8">Own it. $49. Forever.</p>
-      <form id="waitlist-form-bottom" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-        <input
-          type="email"
-          placeholder="you@example.com"
-          required
-          class="flex-1 px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
-        >
-        <button
-          type="submit"
-          class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold px-6 py-3 rounded-lg text-lg transition"
-        >
-          Get Early Access
-        </button>
-      </form>
-      <p id="form-message-bottom" class="mt-3 text-sm opacity-80 hidden"></p>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="py-8 px-4 text-center text-gray-400 text-sm">
     <p>CalOnce &copy; 2026. Built for people tired of subscription fatigue.</p>
@@ -164,6 +305,234 @@
     const SUPABASE_URL = 'https://hnoxlznbghhavnrsunij.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
 
+    const TOOL_PRICES = {
+      calendly: { name: 'Calendly', monthly: 12 },
+      acuity: { name: 'Acuity Scheduling', monthly: 16 },
+      savvycal: { name: 'SavvyCal', monthly: 12 },
+      other: { name: 'your current tool', monthly: 10 },
+    };
+
+    const MEETING_LABELS = {
+      '1on1': '30 min meeting',
+      'group': 'Group session',
+      'roundrobin': 'Sales call',
+      'collective': 'Team sync',
+    };
+
+    let selectedTeam = null;
+    let selectedTool = null;
+    let selectedMeetings = new Set();
+    let selectedCal = null;
+    let currentStep = 1;
+
+    // --- Utility ---
+    function showStep(n) {
+      for (let i = 1; i <= 5; i++) {
+        const el = document.getElementById(`step-${i}`);
+        if (el) el.classList.toggle('hidden', i !== n);
+      }
+      document.querySelectorAll('.progress-dot').forEach(dot => {
+        const s = parseInt(dot.dataset.step);
+        dot.classList.toggle('active', s === n);
+        dot.classList.toggle('done', s < n);
+      });
+      currentStep = n;
+      // scroll hero into view
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setupToggle(selector, key, multiSelect, onSelect) {
+      document.querySelectorAll(selector).forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (multiSelect) {
+            btn.classList.toggle('selected');
+          } else {
+            document.querySelectorAll(selector).forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+          }
+          if (onSelect) onSelect(btn);
+        });
+      });
+    }
+
+    // --- Step 1: Team + Tool ---
+    setupToggle('.team-btn', 'team', false, (btn) => {
+      selectedTeam = parseInt(btn.dataset.team);
+      checkStep1();
+    });
+    setupToggle('.tool-btn', 'tool', false, (btn) => {
+      selectedTool = btn.dataset.tool;
+      checkStep1();
+    });
+
+    function checkStep1() {
+      document.getElementById('step1-next').disabled = !(selectedTeam && selectedTool);
+    }
+
+    document.getElementById('step1-next').addEventListener('click', () => {
+      trackEvent('step1_complete', { team: selectedTeam, tool: selectedTool });
+      showStep(2);
+
+      // Show analyzing, then result
+      document.getElementById('analyzing').classList.remove('hidden');
+      document.getElementById('savings-result').classList.add('hidden');
+
+      setTimeout(() => {
+        const tool = TOOL_PRICES[selectedTool];
+        const threeYear = tool.monthly * selectedTeam * 36;
+        const savings = threeYear - 49;
+
+        document.getElementById('savings-amount').textContent = `$${savings.toLocaleString()}`;
+        document.getElementById('savings-period').textContent = 'saved over 3 years';
+        document.getElementById('savings-breakdown').innerHTML = `
+          <div class="flex justify-between items-center bg-white/10 rounded-lg px-4 py-3 fade-up">
+            <span class="opacity-80">${tool.name} (${selectedTeam} seat${selectedTeam > 1 ? 's' : ''} × 3yr)</span>
+            <span class="font-bold text-red-300">$${threeYear.toLocaleString()}</span>
+          </div>
+          <div class="flex justify-between items-center bg-white/10 rounded-lg px-4 py-3 fade-up" style="animation-delay:0.1s">
+            <span class="opacity-80">CalOnce (forever)</span>
+            <span class="font-bold text-green-300">$49</span>
+          </div>
+          <div class="flex justify-between items-center bg-yellow-400/20 rounded-lg px-4 py-3 font-bold fade-up" style="animation-delay:0.2s">
+            <span>You keep</span>
+            <span class="text-yellow-300">$${savings.toLocaleString()}</span>
+          </div>
+        `;
+
+        document.getElementById('analyzing').classList.add('hidden');
+        document.getElementById('savings-result').classList.remove('hidden');
+
+        trackEvent('step2_result', { team: selectedTeam, tool: selectedTool, savings_3yr: savings });
+      }, 2200);
+    });
+
+    document.getElementById('step2-next').addEventListener('click', () => {
+      showStep(3);
+    });
+
+    // --- Step 3: Meeting Types (multi-select) ---
+    setupToggle('.meeting-btn', 'meeting', true, (btn) => {
+      const val = btn.dataset.meeting;
+      if (selectedMeetings.has(val)) selectedMeetings.delete(val);
+      else selectedMeetings.add(val);
+      document.getElementById('step3-next').disabled = selectedMeetings.size === 0;
+    });
+
+    document.getElementById('step3-next').addEventListener('click', () => {
+      trackEvent('step3_complete', { meetings: [...selectedMeetings] });
+      showStep(4);
+    });
+
+    // --- Step 4: Calendar ---
+    setupToggle('.cal-btn', 'cal', false, (btn) => {
+      selectedCal = btn.dataset.cal;
+      document.getElementById('step4-next').disabled = false;
+    });
+
+    document.getElementById('step4-next').addEventListener('click', () => {
+      trackEvent('step4_complete', { calendar: selectedCal });
+      buildPreview();
+      showStep(5);
+    });
+
+    // --- Step 5: Preview + Email ---
+    function buildPreview() {
+      const meetings = document.getElementById('preview-meetings');
+      meetings.innerHTML = '';
+      for (const m of selectedMeetings) {
+        const label = MEETING_LABELS[m] || m;
+        meetings.innerHTML += `
+          <div class="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 hover:border-indigo-400 cursor-pointer transition">
+            <div class="w-2 h-2 bg-indigo-500 rounded-full"></div>
+            <div>
+              <div class="font-medium text-gray-900 text-sm">${label}</div>
+              <div class="text-xs text-gray-400">30 min</div>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Update preview avatar/name live
+    const nameInput = document.getElementById('user-name');
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        const val = nameInput.value.trim();
+        document.getElementById('preview-name').textContent = val || 'Your Name';
+        document.getElementById('preview-avatar').textContent = val ? val.charAt(0).toUpperCase() : 'Y';
+      });
+    }
+
+    // --- Waitlist Submit ---
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value;
+      const name = document.getElementById('user-name')?.value || '';
+      const msgEl = document.getElementById('form-message');
+      const btn = form.querySelector('button');
+
+      btn.disabled = true;
+      btn.textContent = 'Saving your setup...';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({
+            email,
+            hypothesis: 'H-006',
+            source: document.referrer || 'direct',
+            metadata: {
+              name,
+              team_size: selectedTeam,
+              current_tool: selectedTool,
+              meeting_types: [...selectedMeetings],
+              calendar: selectedCal,
+            },
+          }),
+        });
+
+        if (res.ok) {
+          msgEl.textContent = "You're in! Your setup is saved. We'll email you when CalOnce launches.";
+          msgEl.classList.remove('hidden');
+          trackEvent('waitlist_signup', {
+            email_domain: email.split('@')[1],
+            team: selectedTeam,
+            tool: selectedTool,
+            meetings: [...selectedMeetings],
+            calendar: selectedCal,
+          });
+          // Replace form with success
+          form.innerHTML = `
+            <div class="bg-green-500/20 rounded-lg py-4 px-6 text-center">
+              <div class="text-2xl mb-2">🎉</div>
+              <div class="font-bold text-lg">You're on the list!</div>
+              <div class="text-sm opacity-80 mt-1">We'll notify you at ${email}</div>
+            </div>
+          `;
+        } else {
+          msgEl.textContent = "Something went wrong. Try again?";
+          msgEl.classList.remove('hidden');
+          btn.disabled = false;
+          btn.textContent = 'Save my setup & get early access';
+        }
+      } catch (err) {
+        msgEl.textContent = "Network error. Try again?";
+        msgEl.classList.remove('hidden');
+        btn.disabled = false;
+        btn.textContent = 'Save my setup & get early access';
+      }
+    }
+
+    document.getElementById('waitlist-form').addEventListener('submit', handleSubmit);
+
+    // --- Tracking ---
     async function trackEvent(event, metadata = {}) {
       try {
         await fetch(`${SUPABASE_URL}/rest/v1/events`, {
@@ -184,52 +553,8 @@
       } catch (e) { /* silent */ }
     }
 
-    async function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector('input[type="email"]').value;
-      const msgEl = form.nextElementSibling;
-      const btn = form.querySelector('button');
-
-      btn.disabled = true;
-      btn.textContent = 'Joining...';
-
-      try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
-          method: 'POST',
-          headers: {
-            'apikey': SUPABASE_KEY,
-            'Authorization': `Bearer ${SUPABASE_KEY}`,
-            'Content-Type': 'application/json',
-            'Prefer': 'return=minimal',
-          },
-          body: JSON.stringify({
-            email,
-            hypothesis: 'H-006',
-            source: document.referrer || 'direct',
-          }),
-        });
-
-        if (res.ok) {
-          msgEl.textContent = "You're in! We'll notify you when we launch.";
-          trackEvent('waitlist_signup', { email_domain: email.split('@')[1] });
-        } else {
-          msgEl.textContent = "Something went wrong. Try again?";
-        }
-      } catch (err) {
-        msgEl.textContent = "Network error. Try again?";
-      }
-
-      msgEl.classList.remove('hidden');
-      form.querySelector('input').value = '';
-      btn.disabled = false;
-      btn.textContent = 'Get Early Access';
-    }
-
-    // Track page view
     trackEvent('page_view', { path: location.pathname });
 
-    // Track scroll depth
     let maxScroll = 0;
     window.addEventListener('scroll', () => {
       const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -238,9 +563,6 @@
         trackEvent('scroll', { depth: pct });
       }
     });
-
-    document.getElementById('waitlist-form').addEventListener('submit', handleSubmit);
-    document.getElementById('waitlist-form-bottom').addEventListener('submit', handleSubmit);
   </script>
 </body>
 </html>

@@ -32,56 +32,134 @@
   "hotPaths": [
     {
       "path": "PLAYBOOK.md",
-      "accessCount": 83,
-      "lastAccessed": 1774675482399,
+      "accessCount": 86,
+      "lastAccessed": 1774708039350,
       "type": "file"
     },
     {
       "path": "pipeline/collectors/reference.py",
-      "accessCount": 13,
-      "lastAccessed": 1774681936585,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/generators/hypothesis.py",
-      "accessCount": 6,
-      "lastAccessed": 1774680841781,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/sources.json",
-      "accessCount": 6,
-      "lastAccessed": 1774681227493,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/orchestrator.py",
-      "accessCount": 4,
-      "lastAccessed": 1774678217295,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/analyzers/scorer.py",
-      "accessCount": 3,
-      "lastAccessed": 1774676508301,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/collectors/reference_kr.py",
-      "accessCount": 3,
-      "lastAccessed": 1774678919759,
+      "accessCount": 14,
+      "lastAccessed": 1774707799635,
       "type": "file"
     },
     {
       "path": "landing-pages/h006-scheduling/index.html",
-      "accessCount": 3,
-      "lastAccessed": 1774683003646,
+      "accessCount": 11,
+      "lastAccessed": 1774707943689,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h007-passive-income/index.html",
+      "accessCount": 11,
+      "lastAccessed": 1774708515315,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/config/sources.json",
+      "accessCount": 8,
+      "lastAccessed": 1774707873663,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/generators/hypothesis.py",
+      "accessCount": 7,
+      "lastAccessed": 1774707797357,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/config/validation_targets.json",
+      "accessCount": 7,
+      "lastAccessed": 1774708097215,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/validate_loop.py",
+      "accessCount": 7,
+      "lastAccessed": 1774708217689,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/orchestrator.py",
+      "accessCount": 6,
+      "lastAccessed": 1774708039747,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/README.md",
+      "accessCount": 6,
+      "lastAccessed": 1774708734834,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/ai.py",
+      "accessCount": 5,
+      "lastAccessed": 1774708380335,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/analyzers/scorer.py",
+      "accessCount": 4,
+      "lastAccessed": 1774707799518,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/validators/validator.py",
+      "accessCount": 4,
+      "lastAccessed": 1774707801645,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/collectors/reference_kr.py",
+      "accessCount": 4,
+      "lastAccessed": 1774707814280,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/channels.py",
+      "accessCount": 4,
+      "lastAccessed": 1774708187282,
       "type": "file"
     },
     {
       "path": "pipeline/Dockerfile",
       "accessCount": 2,
       "lastAccessed": 1774681013843,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/config/.env.example",
+      "accessCount": 2,
+      "lastAccessed": 1774707796930,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_saas_research_based.md",
+      "accessCount": 2,
+      "lastAccessed": 1774708474367,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_indie_hackers_research_based.md",
+      "accessCount": 2,
+      "lastAccessed": 1774708474509,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
+      "accessCount": 2,
+      "lastAccessed": 1774708474890,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_research_based.md",
+      "accessCount": 2,
+      "lastAccessed": 1774708475370,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_research_based.md",
+      "accessCount": 2,
+      "lastAccessed": 1774708475841,
       "type": "file"
     },
     {
@@ -94,18 +172,6 @@
       "path": "research/hypothesis-scoring.md",
       "accessCount": 1,
       "lastAccessed": 1774604735787,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/README.md",
-      "accessCount": 1,
-      "lastAccessed": 1774676054299,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/.env.example",
-      "accessCount": 1,
-      "lastAccessed": 1774676056545,
       "type": "file"
     },
     {
@@ -139,12 +205,6 @@
       "type": "file"
     },
     {
-      "path": "pipeline/ai.py",
-      "accessCount": 1,
-      "lastAccessed": 1774676457258,
-      "type": "file"
-    },
-    {
       "path": "pipeline/docker-compose.yml",
       "accessCount": 1,
       "lastAccessed": 1774680113790,
@@ -154,6 +214,54 @@
       "path": "pipeline/loop.py",
       "accessCount": 1,
       "lastAccessed": 1774680118448,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/.env",
+      "accessCount": 1,
+      "lastAccessed": 1774705720141,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/__init__.py",
+      "accessCount": 1,
+      "lastAccessed": 1774707079310,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/post_tracker.py",
+      "accessCount": 1,
+      "lastAccessed": 1774707130017,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_saas_20260328_231728.md",
+      "accessCount": 1,
+      "lastAccessed": 1774707525550,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_indie_hackers_20260328_231728.md",
+      "accessCount": 1,
+      "lastAccessed": 1774707526345,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_twitter_20260328_231728.md",
+      "accessCount": 1,
+      "lastAccessed": 1774707526409,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/hypotheses/H-007_20260328.json",
+      "accessCount": 1,
+      "lastAccessed": 1774707904220,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/researcher.py",
+      "accessCount": 1,
+      "lastAccessed": 1774708153276,
       "type": "file"
     }
   ],

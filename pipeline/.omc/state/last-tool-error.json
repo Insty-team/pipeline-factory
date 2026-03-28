@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"docker stop ce6db2d1da8d 2>/dev/null && docker rm ce6db2d1da8d 2>/dev/null && echo \\\"이전 컨테이너 정리 완료\\\"\",\"description\":\"Stop old container\"}",
-  "error": "Exit code 1\nce6db2d1da8d",
-  "timestamp": "2026-03-28T07:02:27.312Z",
+  "tool_input_preview": "{\"command\":\"open /Users/mac/projects/pipeline-factory/pipeline/data/promotions/H-006_reddit_saas_research_based.md\",\"description\":\"Open Reddit /r/SaaS post\"}",
+  "error": "Exit code 1\nNo application knows how to open URL file:///Users/mac/projects/pipeline-factory/pipeline/data/promotions/H-006_reddit_saas_research_based.md (Error Domain=NSOSStatusErrorDomain Code=-10814 \"kLSApplicationNotFoundErr: E.g. no application claims the file\" UserInfo={_LSLine=1569, _LSFunction=runEvaluator}).",
+  "timestamp": "2026-03-28T14:36:28.759Z",
   "retry_count": 1
 }

@@ -27,18 +27,111 @@
     "promotion_hypotheses": [
       {
         "channel": "Indie Hackers",
+        "channel_key": "indie_hackers",
         "message": "Stop paying monthly for scheduling. $49 once, forever.",
+        "utm_link": "https://calonce.pages.dev?ref=indiehackers",
+        "post_url": "https://www.indiehackers.com/post/new",
         "expected_signal": "초기 page_view와 댓글 반응"
       },
       {
-        "channel": "Reddit /r/SaaS, /r/Entrepreneur",
+        "channel": "Reddit /r/SaaS",
+        "channel_key": "reddit_saas",
         "message": "Calendly pricing/free tier pain point에 대한 대안 소개",
+        "utm_link": "https://calonce.pages.dev?ref=reddit_saas",
+        "post_url": "https://www.reddit.com/r/SaaS/submit",
         "expected_signal": "CTR + waitlist 전환"
       },
       {
-        "channel": "Product Hunt upcoming / X thread",
+        "channel": "Reddit /r/Entrepreneur",
+        "channel_key": "reddit_entrepreneur",
+        "message": "Calendly pricing/free tier pain point에 대한 대안 소개",
+        "utm_link": "https://calonce.pages.dev?ref=reddit_entrepreneur",
+        "post_url": "https://www.reddit.com/r/Entrepreneur/submit",
+        "expected_signal": "CTR + waitlist 전환"
+      },
+      {
+        "channel": "Reddit /r/smallbusiness",
+        "channel_key": "reddit_smallbusiness",
+        "message": "Lifetime Deal + no per-seat pricing for small businesses",
+        "utm_link": "https://calonce.pages.dev?ref=reddit_smallbiz",
+        "post_url": "https://www.reddit.com/r/smallbusiness/submit",
+        "expected_signal": "CTR + waitlist 전환"
+      },
+      {
+        "channel": "X / Twitter",
+        "channel_key": "twitter",
         "message": "Lifetime Deal + no per-seat pricing",
+        "utm_link": "https://calonce.pages.dev?ref=twitter",
+        "post_url": "https://twitter.com/compose/tweet",
         "expected_signal": "day-1 트래픽 부스팅"
+      }
+    ]
+  },
+  "H-007": {
+    "title": "AI 자동 부업 리서치 에이전트 — 자는 동안 패시브 인컴 기회 발굴",
+    "landing_page_dir": "../landing-pages/h007-passive-income",
+    "pages_project": "sleepnfind",
+    "live_url": "https://sleepnfind.pages.dev",
+    "metric_window_hours": 24,
+    "success_criteria": {
+      "min_pageviews": 100,
+      "min_waitlist_signups": 15,
+      "target_conversion_rate": 0.1,
+      "strong_conversion_rate": 0.2,
+      "min_scroll_50_rate": 0.35
+    },
+    "data_collection_hypotheses": [
+      "page_view 수로 유입량을 추적하면 트래픽 부족 vs 오퍼 문제를 구분할 수 있다.",
+      "scroll depth 50% 이상 비율이 낮으면 자는 동안이라는 후크가 충분히 전달되지 않는 것이다.",
+      "waitlist 전환율로 가격 저항감 vs 컨셉 매력도를 분리할 수 있다.",
+      "referrer/source로 부업 관심층이 모이는 채널을 식별할 수 있다."
+    ],
+    "analysis_hypotheses": [
+      "24시간 내 page_view < 100이면 홍보 채널/메시지 문제가 더 크다.",
+      "page_view 충분 + conversion < 10%면 가격 또는 리포트 샘플 부재가 원인이다.",
+      "scroll 50% 높은데 signup 낮으면 CTA나 가격 표기 문제이다.",
+      "conversion >= 20%면 같은 메시지로 트래픽 확대한다."
+    ],
+    "promotion_hypotheses": [
+      {
+        "channel": "Reddit /r/passive_income",
+        "channel_key": "reddit_passive_income",
+        "message": "관심 분야만 입력하면 AI가 밤새 리서치해서 아침에 부업 리포트 전달",
+        "utm_link": "https://sleepnfind.pages.dev?ref=reddit_passive",
+        "post_url": "https://www.reddit.com/r/passive_income/submit",
+        "expected_signal": "핵심 타겟 — CTR + waitlist 전환"
+      },
+      {
+        "channel": "Reddit /r/sidehustle",
+        "channel_key": "reddit_sidehustle",
+        "message": "부업 리서치에 매일 2시간 쓰고 있다면 — AI가 대신 해줌",
+        "utm_link": "https://sleepnfind.pages.dev?ref=reddit_sidehustle",
+        "post_url": "https://www.reddit.com/r/sidehustle/submit",
+        "expected_signal": "시간 절약 프레이밍 반응 확인"
+      },
+      {
+        "channel": "Reddit /r/Entrepreneur",
+        "channel_key": "reddit_entrepreneur",
+        "message": "AI agent가 자는 동안 패시브 인컴 기회를 찾아주는 서비스",
+        "utm_link": "https://sleepnfind.pages.dev?ref=reddit_entrepreneur",
+        "post_url": "https://www.reddit.com/r/Entrepreneur/submit",
+        "expected_signal": "AI + 부업 조합 관심도"
+      },
+      {
+        "channel": "Indie Hackers",
+        "channel_key": "indie_hackers",
+        "message": "Sleep & Find — 관심사 입력하면 아침에 맞춤 부업 리포트가 와있음",
+        "utm_link": "https://sleepnfind.pages.dev?ref=indiehackers",
+        "post_url": "https://www.indiehackers.com/post/new",
+        "expected_signal": "빌더 커뮤니티 반응 + 초기 트래픽"
+      },
+      {
+        "channel": "X / Twitter",
+        "channel_key": "twitter",
+        "message": "Tell AI what you're interested in. Wake up to a passive income report.",
+        "utm_link": "https://sleepnfind.pages.dev?ref=twitter",
+        "post_url": "https://twitter.com/compose/tweet",
+        "expected_signal": "바이럴 가능성 + day-1 트래픽"
       }
     ]
   }
