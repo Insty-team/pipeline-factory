@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"python -c \\\"\\nfrom collectors.reference import collect_for_service\\nfrom analyzers.scorer import run as analyze\\nfrom generators.hypothesis import run as hypothesize\\n\\n# Step 1: Calendly ...",
+  "error": "Exit code 1\n  File \"<string>\", line 21\n    print(f'\\n{=*60}')\n               ^\nSyntaxError: f-string: valid expression required before '='",
+  "timestamp": "2026-03-28T05:42:55.208Z",
+  "retry_count": 1
+}

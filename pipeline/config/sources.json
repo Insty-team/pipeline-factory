@@ -1,0 +1,63 @@
+{
+  "mode_b": {
+    "description": "레퍼런스 기반 — 기존 서비스 불만에서 차별화 기회 탐색",
+    "review_sources": [
+      {
+        "name": "g2",
+        "base_url": "https://www.g2.com/products/{slug}/reviews",
+        "filter": "star_rating=1,2,3",
+        "enabled": true
+      },
+      {
+        "name": "capterra",
+        "base_url": "https://www.capterra.com/p/{id}/reviews",
+        "filter": "rating=1,2,3",
+        "enabled": true
+      },
+      {
+        "name": "reddit",
+        "subreddits": ["smallbusiness", "entrepreneur", "solopreneur", "SaaS"],
+        "search_template": "{service_name} sucks OR hate OR alternative OR switching from",
+        "enabled": true
+      },
+      {
+        "name": "producthunt",
+        "base_url": "https://www.producthunt.com",
+        "description": "타겟 서비스 발굴용",
+        "enabled": true
+      }
+    ],
+    "target_services": [
+      {
+        "name": "Calendly",
+        "category": "scheduling",
+        "g2_slug": "calendly",
+        "known_complaints": ["free plan limits", "pricing", "complexity"]
+      },
+      {
+        "name": "QuickBooks",
+        "category": "accounting",
+        "g2_slug": "intuit-quickbooks-online",
+        "known_complaints": ["pricing increases", "forced migration", "complexity"]
+      },
+      {
+        "name": "Mailchimp",
+        "category": "email-marketing",
+        "g2_slug": "mailchimp",
+        "known_complaints": ["pricing", "ui complexity", "automation limits"]
+      }
+    ]
+  },
+  "mode_a": {
+    "description": "커뮤니티 기반 — 새로운 pain point 발굴",
+    "subreddits": ["smallbusiness", "entrepreneur", "solopreneur", "freelance"],
+    "hn_keywords": ["frustrated", "wish there was", "looking for alternative"],
+    "enabled": true
+  },
+  "settings": {
+    "initial_weight": { "mode_b": 0.7, "mode_a": 0.3 },
+    "confidence_threshold": 0.7,
+    "max_hypotheses_per_cycle": 3,
+    "cycle_interval_hours": 6
+  }
+}
