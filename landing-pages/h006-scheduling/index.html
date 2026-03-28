@@ -305,6 +305,50 @@
     const SUPABASE_URL = 'https://hnoxlznbghhavnrsunij.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
 
+    // --- A/B Test: pricing variant ---
+    // A = $49 lifetime (one-time), B = $29/year (annual)
+    const VARIANTS = {
+      A: { price: '$49', label: '$49 once', period: 'once', yearly: 49, tagline: 'one payment, forever', ctaPrice: '$49', comparison1yr: '$49', comparison3yr: '$49' },
+      B: { price: '$29', label: '$29/year', period: '/year', yearly: 29, tagline: 'less than $2.50/month', ctaPrice: '$29/yr', comparison1yr: '$29', comparison3yr: '$87' },
+    };
+
+    // Sticky assignment via localStorage
+    let abVariant = localStorage.getItem('calonce_ab');
+    if (!abVariant || !VARIANTS[abVariant]) {
+      abVariant = Math.random() < 0.5 ? 'A' : 'B';
+      localStorage.setItem('calonce_ab', abVariant);
+    }
+    const V = VARIANTS[abVariant];
+
+    // Apply variant to all price references in page
+    function applyVariant() {
+      // Hero
+      document.querySelector('h1').innerHTML = `Stop paying <span class="price-strike">$12/mo</span> for scheduling.`;
+      document.querySelector('h1').nextElementSibling.innerHTML = `Pay <span class="text-yellow-300 font-bold">${V.price}</span>${abVariant === 'A' ? ' once' : '/year'}. Get everything. ${abVariant === 'A' ? 'Forever.' : V.tagline + '.'}`;
+      // Comparison table
+      document.querySelectorAll('th').forEach(th => {
+        if (th.innerHTML.includes('$49 once')) th.innerHTML = th.innerHTML.replace('$49 once', V.label);
+      });
+      const rows = document.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length >= 2) {
+          const firstCell = cells[0];
+          if (firstCell.textContent.includes('Price (1 year)')) {
+            cells[1].innerHTML = `<span class="text-green-600 font-bold text-lg">${V.comparison1yr}</span>`;
+          }
+          if (firstCell.textContent.includes('Price (3 years)')) {
+            cells[1].innerHTML = `<span class="text-green-600 font-bold text-lg">${V.comparison3yr}</span>`;
+          }
+        }
+      });
+      // FAQ
+      document.querySelectorAll('.text-gray-600').forEach(el => {
+        if (el.textContent.includes('$49 once')) el.textContent = el.textContent.replace(/\$49 once/g, V.label);
+        if (el.textContent.includes('$49 launch price')) el.textContent = el.textContent.replace('$49 launch price', `${V.label} launch price`);
+      });
+    }
+
     const TOOL_PRICES = {
       calendly: { name: 'Calendly', monthly: 12 },
       acuity: { name: 'Acuity Scheduling', monthly: 16 },
@@ -380,7 +424,8 @@
       setTimeout(() => {
         const tool = TOOL_PRICES[selectedTool];
         const threeYear = tool.monthly * selectedTeam * 36;
-        const savings = threeYear - 49;
+        const ourCost3yr = abVariant === 'A' ? 49 : V.yearly * 3;
+        const savings = threeYear - ourCost3yr;
 
         document.getElementById('savings-amount').textContent = `$${savings.toLocaleString()}`;
         document.getElementById('savings-period').textContent = 'saved over 3 years';
@@ -390,8 +435,8 @@
             <span class="font-bold text-red-300">$${threeYear.toLocaleString()}</span>
           </div>
           <div class="flex justify-between items-center bg-white/10 rounded-lg px-4 py-3 fade-up" style="animation-delay:0.1s">
-            <span class="opacity-80">CalOnce (forever)</span>
-            <span class="font-bold text-green-300">$49</span>
+            <span class="opacity-80">CalOnce (${abVariant === 'A' ? 'forever' : '3 years'})</span>
+            <span class="font-bold text-green-300">$${ourCost3yr}</span>
           </div>
           <div class="flex justify-between items-center bg-yellow-400/20 rounded-lg px-4 py-3 font-bold fade-up" style="animation-delay:0.2s">
             <span>You keep</span>
@@ -402,7 +447,7 @@
         document.getElementById('analyzing').classList.add('hidden');
         document.getElementById('savings-result').classList.remove('hidden');
 
-        trackEvent('step2_result', { team: selectedTeam, tool: selectedTool, savings_3yr: savings });
+        trackEvent('step2_result', { team: selectedTeam, tool: selectedTool, savings_3yr: savings, variant: abVariant });
       }, 2200);
     });
 
@@ -545,7 +590,7 @@
           body: JSON.stringify({
             hypothesis: 'H-006',
             event,
-            metadata,
+            metadata: { ...metadata, variant: abVariant },
             referrer: document.referrer || null,
             user_agent: navigator.userAgent,
           }),
@@ -553,7 +598,10 @@
       } catch (e) { /* silent */ }
     }
 
-    trackEvent('page_view', { path: location.pathname });
+    // Apply A/B variant to page content
+    applyVariant();
+
+    trackEvent('page_view', { path: location.pathname, variant: abVariant });
 
     let maxScroll = 0;
     window.addEventListener('scroll', () => {
