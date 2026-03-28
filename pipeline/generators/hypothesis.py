@@ -7,6 +7,7 @@ Step 3: 가설 생성 모듈
 """
 
 import json
+import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -70,12 +71,14 @@ def generate_hypotheses(top_pain_points: list[dict], insights: list[dict]) -> li
 이전 실험에서 얻은 인사이트 (다음 가설에 반영할 것):
 {json.dumps(recent, ensure_ascii=False, indent=2)}"""
 
-    prompt = f"""다음은 기존 서비스의 분석된 pain point 상위 목록이다:
+    max_hyp = int(os.environ.get("MAX_HYPOTHESES", len(top_pain_points) * 2))
+
+    prompt = f"""다음은 기존 서비스의 분석된 pain point 목록이다 ({len(top_pain_points)}개):
 
 {pp_text}
 {insight_text}
 
-이 pain point들을 기반으로 **차별화된 비즈니스 가설 3개**를 생성해줘.
+각 pain point에 대해 **1~2개의 차별화된 비즈니스 가설**을 생성해줘. 총 {max_hyp}개 이내.
 
 각 가설:
 1. hypothesis_id: "H-TBD"
@@ -84,19 +87,17 @@ def generate_hypotheses(top_pain_points: list[dict], insights: list[dict]) -> li
 4. reference_service: 레퍼런스가 된 기존 서비스
 5. pain_point: 해결하려는 불만 (한 줄)
 6. differentiation: 어떻게 차별화하는지 (2~3줄)
-7. target_audience: 구체적 타겟 (누구)
-8. revenue_model: 수익 모델 (freemium, subscription, one-time 등)
+7. target_audience: 구체적 타겟
+8. revenue_model: 수익 모델
 9. expected_mrr: 예상 월 MRR 범위
-10. build_estimate: 빌드 예상 기간
-11. validation_method: 검증 방법 (랜딩페이지, 광고, 커뮤니티 포스팅 등)
+10. build_estimate: 빌드 예상 기간 (솔직하게)
+11. validation_method: 검증 방법
 12. validation_cost: 검증 비용
 13. go_criteria: GO 판정 기준 (구체적 수치)
 14. confidence: 0.0~1.0
 
-3개 가설은 다양성을 가질 것:
-- 1개는 빠르게 빌드 가능한 것 (easy, 1~3일)
-- 1개는 수익 잠재력이 가장 큰 것
-- 1개는 가장 독특한 차별화 각도
+다양한 카테고리, 시장(US/KR), 빌드 난이도를 고루 포함할 것.
+중복되는 아이디어는 하나로 합치고, 각각 독립적으로 가치가 있어야 함.
 
 JSON 배열로 응답."""
 
@@ -149,11 +150,29 @@ def run(scored_points: list[dict] | None = None) -> list[dict]:
         with open(path, "w") as f:
             json.dump(h, f, ensure_ascii=False, indent=2)
 
-    print(f"\n✅ {len(hypotheses)}개 가설 생성 완료")
+    # 선별: confidence + MRR 기반 정렬
+    top_n = int(os.environ.get("TOP_HYPOTHESES", 10))
+    hypotheses.sort(key=lambda h: h.get("confidence", 0), reverse=True)
+
+    for i, h in enumerate(hypotheses):
+        if i < top_n:
+            h["status"] = "test"  # 상위 N개: 테스트 대상
+        elif h.get("confidence", 0) >= 0.5:
+            h["status"] = "keep"  # 중간: 보관 (다음 사이클에서 재평가)
+        else:
+            h["status"] = "discard"  # 하위: 버림
+
+    test_count = sum(1 for h in hypotheses if h["status"] == "test")
+    keep_count = sum(1 for h in hypotheses if h["status"] == "keep")
+    discard_count = sum(1 for h in hypotheses if h["status"] == "discard")
+
+    print(f"\n✅ {len(hypotheses)}개 가설 생성 → test: {test_count} | keep: {keep_count} | discard: {discard_count}")
+    print(f"\n📌 Top {test_count} (테스트 대상):")
     for h in hypotheses:
+        if h["status"] != "test":
+            continue
         print(f"  {h['hypothesis_id']}: {h.get('title', '?')}")
-        print(f"    레퍼런스: {h.get('reference_service', '?')} → 차별화: {h.get('differentiation', '?')[:50]}")
-        print(f"    빌드: {h.get('build_estimate', '?')} | MRR: {h.get('expected_mrr', '?')} | 검증비: {h.get('validation_cost', '?')}")
+        print(f"    레퍼런스: {h.get('reference_service', '?')} | 빌드: {h.get('build_estimate', '?')} | MRR: {h.get('expected_mrr', '?')}")
 
     return hypotheses
 

@@ -15,7 +15,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from collectors.reference import run as collect
+from collectors.reference import run as collect_us
+from collectors.reference_kr import run as collect_kr
 from analyzers.scorer import run as analyze
 from generators.hypothesis import run as hypothesize
 
@@ -69,9 +70,9 @@ def run_full_cycle():
     print(f"🔄 Pipeline Factory — Cycle #{cycle}")
     print(f"{'='*60}")
 
-    # Step 1: 수집 (모드 B: 레퍼런스 기반)
+    # Step 1: 수집 (모드 B: 레퍼런스 기반, 시장별)
     print("\n📡 Step 1: 수집")
-    pain_points = collect()
+    pain_points = collect_us() + collect_kr()
 
     if not pain_points:
         print("\n❌ 수집 실패 — 사이클 중단")
@@ -121,10 +122,17 @@ def main():
     parser.add_argument("--collect", action="store_true", help="수집만 실행")
     parser.add_argument("--analyze", action="store_true", help="분석만 실행")
     parser.add_argument("--hypothesize", action="store_true", help="가설 생성만 실행")
+    parser.add_argument("--market", choices=["US", "KR", "all"], default="all", help="시장 선택")
     args = parser.parse_args()
 
     if args.collect:
-        collect()
+        if args.market == "US":
+            collect_us()
+        elif args.market == "KR":
+            collect_kr()
+        else:
+            collect_us()
+            collect_kr()
     elif args.analyze:
         analyze()
     elif args.hypothesize:

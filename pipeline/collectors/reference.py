@@ -2,7 +2,7 @@
 모드 B: 레퍼런스 기반 수집
 기존 서비스의 불만/리뷰를 크롤링하여 차별화 기회를 탐색한다.
 
-소스: G2 리뷰, Reddit 불만, 웹 검색 ("X alternative")
+소스: G2 리뷰, Reddit 불만, 웹 검색 ("X alternative"), Twitter/X 불만
 """
 
 import json
@@ -13,10 +13,13 @@ from pathlib import Path
 
 import httpx
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from ai import ask_json
+
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data" / "pain_points"
@@ -133,6 +136,53 @@ def search_web_complaints(service_name: str) -> list[dict]:
     return results
 
 
+def search_twitter_complaints(service_name: str) -> list[dict]:
+    """Twitter/X API로 서비스 불만 트윗 검색"""
+    bearer = os.getenv("TWITTER_BEARER_TOKEN", "")
+    if not bearer:
+        return []
+
+    results = []
+    queries = [
+        f"{service_name} alternative -is:retweet",
+        f"{service_name} frustrating OR expensive OR hate -is:retweet",
+    ]
+
+    for query in queries:
+        try:
+            resp = httpx.get(
+                "https://api.twitter.com/2/tweets/search/recent",
+                params={
+                    "query": query,
+                    "max_results": 10,
+                    "tweet.fields": "created_at,public_metrics,text",
+                },
+                headers={"Authorization": f"Bearer {bearer}"},
+                timeout=15,
+            )
+            if resp.status_code != 200:
+                print(f"  Twitter API {resp.status_code}: {resp.text[:100]}")
+                continue
+
+            data = resp.json()
+            for tweet in data.get("data", []):
+                metrics = tweet.get("public_metrics", {})
+                results.append({
+                    "source": "twitter",
+                    "service": service_name,
+                    "title": "",
+                    "text": tweet.get("text", ""),
+                    "score": metrics.get("like_count", 0) + metrics.get("retweet_count", 0),
+                    "url": f"https://twitter.com/i/web/status/{tweet['id']}",
+                    "created_at": tweet.get("created_at", ""),
+                })
+        except Exception as e:
+            print(f"  Twitter search error ({query}): {e}")
+            continue
+
+    return results
+
+
 def extract_pain_points_with_ai(raw_data: list[dict], service_name: str) -> list[dict]:
     """Claude CLI로 수집된 원본 데이터에서 pain point를 추출"""
     if not raw_data:
@@ -192,8 +242,13 @@ def collect_for_service(service: dict) -> list[dict]:
     web_data = search_web_complaints(name)
     print(f"  웹: {len(web_data)}건 수집")
 
-    # 3. 전체 데이터 합치기
-    all_data = reddit_data + web_data
+    # 3. Twitter 불만 검색
+    print(f"  Twitter 검색 중...")
+    twitter_data = search_twitter_complaints(name)
+    print(f"  Twitter: {len(twitter_data)}건 수집")
+
+    # 4. 전체 데이터 합치기
+    all_data = reddit_data + web_data + twitter_data
     print(f"  합계: {len(all_data)}건")
 
     if not all_data:
@@ -213,7 +268,7 @@ def run(services: list[dict] | None = None) -> list[dict]:
     config = load_config()
 
     if services is None:
-        services = config["mode_b"]["target_services"]
+        services = config["mode_b"]["target_services"].get("US", [])
 
     all_pain_points = []
     for service in services:
