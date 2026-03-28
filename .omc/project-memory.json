@@ -38,14 +38,14 @@
     },
     {
       "path": "landing-pages/h006-scheduling/index.html",
-      "accessCount": 20,
-      "lastAccessed": 1774711123126,
+      "accessCount": 21,
+      "lastAccessed": 1774711377925,
       "type": "file"
     },
     {
       "path": "landing-pages/h007-passive-income/index.html",
-      "accessCount": 19,
-      "lastAccessed": 1774710859485,
+      "accessCount": 21,
+      "lastAccessed": 1774711422376,
       "type": "file"
     },
     {
@@ -79,6 +79,12 @@
       "type": "file"
     },
     {
+      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
+      "accessCount": 8,
+      "lastAccessed": 1774711578781,
+      "type": "file"
+    },
+    {
       "path": "pipeline/generators/hypothesis.py",
       "accessCount": 7,
       "lastAccessed": 1774707797357,
@@ -109,6 +115,12 @@
       "type": "file"
     },
     {
+      "path": "pipeline/data/promotions/H-006_indie_hackers_research_based.md",
+      "accessCount": 5,
+      "lastAccessed": 1774711548246,
+      "type": "file"
+    },
+    {
       "path": "pipeline/analyzers/scorer.py",
       "accessCount": 4,
       "lastAccessed": 1774707799518,
@@ -127,6 +139,24 @@
       "type": "file"
     },
     {
+      "path": "pipeline/data/promotions/H-006_reddit_saas_research_based.md",
+      "accessCount": 4,
+      "lastAccessed": 1774711534198,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_research_based.md",
+      "accessCount": 4,
+      "lastAccessed": 1774711534956,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_research_based.md",
+      "accessCount": 4,
+      "lastAccessed": 1774711536239,
+      "type": "file"
+    },
+    {
       "path": "pipeline/Dockerfile",
       "accessCount": 2,
       "lastAccessed": 1774681013843,
@@ -139,40 +169,16 @@
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_reddit_saas_research_based.md",
-      "accessCount": 2,
-      "lastAccessed": 1774708474367,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_indie_hackers_research_based.md",
-      "accessCount": 2,
-      "lastAccessed": 1774708474509,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
-      "accessCount": 2,
-      "lastAccessed": 1774708474890,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_research_based.md",
-      "accessCount": 2,
-      "lastAccessed": 1774708475370,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_research_based.md",
-      "accessCount": 2,
-      "lastAccessed": 1774708475841,
-      "type": "file"
-    },
-    {
       "path": "pipeline/data/hypotheses/H-007_20260328.json",
       "accessCount": 2,
       "lastAccessed": 1774710829790,
       "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions",
+      "accessCount": 2,
+      "lastAccessed": 1774711571251,
+      "type": "directory"
     },
     {
       "path": "research/micro-tool-factory.md",
@@ -281,6 +287,36 @@
       "accessCount": 1,
       "lastAccessed": 1774710947046,
       "type": "directory"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_saas_variant_B.md",
+      "accessCount": 1,
+      "lastAccessed": 1774711425846,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_variant_B.md",
+      "accessCount": 1,
+      "lastAccessed": 1774711448351,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_variant_B.md",
+      "accessCount": 1,
+      "lastAccessed": 1774711469537,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_indie_hackers_variant_B.md",
+      "accessCount": 1,
+      "lastAccessed": 1774711506234,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/promotions/H-006_twitter_variant_B.md",
+      "accessCount": 1,
+      "lastAccessed": 1774711527371,
+      "type": "file"
     }
   ],
   "userDirectives": []

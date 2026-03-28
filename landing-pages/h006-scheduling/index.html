@@ -312,12 +312,14 @@
       B: { price: '$29', label: '$29/year', period: '/year', yearly: 29, tagline: 'less than $2.50/month', ctaPrice: '$29/yr', comparison1yr: '$29', comparison3yr: '$87' },
     };
 
-    // Sticky assignment via localStorage
-    let abVariant = localStorage.getItem('calonce_ab');
+    // Sticky assignment: URL param > localStorage > random
+    const urlParams = new URLSearchParams(window.location.search);
+    const forcedVariant = (urlParams.get('variant') || '').toUpperCase();
+    let abVariant = VARIANTS[forcedVariant] ? forcedVariant : localStorage.getItem('calonce_ab');
     if (!abVariant || !VARIANTS[abVariant]) {
       abVariant = Math.random() < 0.5 ? 'A' : 'B';
-      localStorage.setItem('calonce_ab', abVariant);
     }
+    localStorage.setItem('calonce_ab', abVariant);
     const V = VARIANTS[abVariant];
 
     // Apply variant to all price references in page

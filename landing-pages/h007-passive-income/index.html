@@ -582,11 +582,6 @@
             email,
             hypothesis: 'H-007',
             source: document.referrer || 'direct',
-            metadata: {
-              interests: [...selectedInterests],
-              time_per_week: selectedTime,
-              budget: selectedBudget,
-            },
           }),
         });
 
@@ -596,8 +591,9 @@
           trackEvent('waitlist_signup', {
             email_domain: email.split('@')[1],
             interests: [...selectedInterests],
-            time: selectedTime,
+            time_per_week: selectedTime,
             budget: selectedBudget,
+            source: document.referrer || 'direct',
           });
           form.innerHTML = '<div class="bg-green-500/20 border border-green-500/30 rounded-lg py-4 px-6 text-center"><div class="text-2xl mb-2">&#127881;</div><div class="font-bold text-lg">You\'re on the list!</div><div class="text-sm text-slate-300 mt-1">Your first report will arrive at ' + email + '</div></div>';
         } else {
