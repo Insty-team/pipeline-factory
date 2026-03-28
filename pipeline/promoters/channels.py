@@ -26,18 +26,12 @@ from ai import ask  # noqa: E402
 CONFIG_PATH = BASE_DIR / "config" / "validation_targets.json"
 PROMOTIONS_DIR = BASE_DIR / "data" / "promotions"
 
-UTM_TEMPLATES: dict[str, str] = {
-    "reddit_saas": "https://calonce.pages.dev?ref=reddit_saas",
-    "reddit_entrepreneur": "https://calonce.pages.dev?ref=reddit_entrepreneur",
-    "reddit_smallbusiness": "https://calonce.pages.dev?ref=reddit_smallbiz",
-    "indie_hackers": "https://calonce.pages.dev?ref=indiehackers",
-    "twitter": "https://calonce.pages.dev?ref=twitter",
-}
-
 CHANNEL_LABELS = {
     "reddit_saas": "Reddit /r/SaaS",
     "reddit_entrepreneur": "Reddit /r/Entrepreneur",
     "reddit_smallbusiness": "Reddit /r/smallbusiness",
+    "reddit_passive_income": "Reddit /r/passive_income",
+    "reddit_sidehustle": "Reddit /r/sidehustle",
     "indie_hackers": "Indie Hackers",
     "twitter": "X / Twitter",
 }
@@ -46,6 +40,8 @@ POSTING_INSTRUCTIONS = {
     "reddit_saas": "https://www.reddit.com/r/SaaS/submit",
     "reddit_entrepreneur": "https://www.reddit.com/r/Entrepreneur/submit",
     "reddit_smallbusiness": "https://www.reddit.com/r/smallbusiness/submit",
+    "reddit_passive_income": "https://www.reddit.com/r/passive_income/submit",
+    "reddit_sidehustle": "https://www.reddit.com/r/sidehustle/submit",
     "indie_hackers": "https://www.indiehackers.com/post/new",
     "twitter": "https://twitter.com/compose/tweet",
 }
@@ -105,18 +101,32 @@ def _build_post_prompt(
     title: str,
     utm_url: str,
     research: dict | None,
+    hypothesis_config: dict | None = None,
 ) -> str:
     channel_label = CHANNEL_LABELS.get(channel, channel)
+
+    # Build dynamic product block from hypothesis config
+    product_lines = [
+        f"- Name: {title}",
+        f"- Landing page: {live_url}",
+        f"- UTM link for this channel: {utm_url}",
+    ]
+
+    if hypothesis_config:
+        # Pull channel-specific message from promotion_hypotheses
+        promo_hyps = hypothesis_config.get("promotion_hypotheses", [])
+        channel_message = ""
+        for ph in promo_hyps:
+            if ph.get("channel_key") == channel:
+                channel_message = ph.get("message", "")
+                break
+        if channel_message:
+            product_lines.append(f"- Channel value prop / angle: {channel_message}")
 
     base_prompt = f"""You are writing an authentic, non-promotional launch post for {channel_label}.
 
 ## Product
-- Name: CalOnce
-- Positioning: $49 one-time payment scheduling tool (Calendly alternative)
-- Landing page: {live_url}
-- UTM link for this channel: {utm_url}
-- Value prop: Pay once, own it forever. No monthly fees, no per-seat pricing.
-- Target: Solopreneurs, freelancers, small teams frustrated with recurring SaaS subscriptions.
+{chr(10).join(product_lines)}
 
 """
 
@@ -148,6 +158,15 @@ Write the complete post now. No preamble, no meta-commentary — just the post c
     return base_prompt
 
 
+def _get_utm_url(hypothesis_config: dict, channel: str) -> str:
+    """Derive the UTM URL for a channel from promotion_hypotheses, falling back to live_url."""
+    live_url = hypothesis_config.get("live_url", "")
+    for ph in hypothesis_config.get("promotion_hypotheses", []):
+        if ph.get("channel_key") == channel:
+            return ph.get("utm_link", live_url)
+    return live_url
+
+
 def generate_post(
     hypothesis_config: dict,
     channel: str,
@@ -165,9 +184,9 @@ def generate_post(
     """
     live_url = hypothesis_config.get("live_url", "")
     title = hypothesis_config.get("title", "")
-    utm_url = UTM_TEMPLATES.get(channel, live_url)
+    utm_url = _get_utm_url(hypothesis_config, channel)
 
-    prompt = _build_post_prompt(channel, live_url, title, utm_url, research)
+    prompt = _build_post_prompt(channel, live_url, title, utm_url, research, hypothesis_config)
     return ask(prompt)
 
 
@@ -195,7 +214,7 @@ def generate_posts(
     if promo_hyps:
         channels = [ph["channel_key"] for ph in promo_hyps]
     else:
-        channels = list(UTM_TEMPLATES.keys())
+        channels = list(CHANNEL_LABELS.keys())
 
     # If no research provided, attempt to load saved research from disk
     if research_map is None:
@@ -223,7 +242,7 @@ def generate_posts(
         header = f"""# Promotion Post — {label}
 # Hypothesis: {hypothesis_id} — {target.get('title', '')}
 # Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
-# UTM link: {UTM_TEMPLATES.get(channel_key, '')}
+# UTM link: {_get_utm_url(target, channel_key)}
 # Post at: {post_url}
 # research_based: {str(research_based).lower()}
 # Status: PENDING — post manually, then track in tracker.json

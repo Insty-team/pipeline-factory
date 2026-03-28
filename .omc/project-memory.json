@@ -38,8 +38,14 @@
     },
     {
       "path": "landing-pages/h006-scheduling/index.html",
-      "accessCount": 17,
-      "lastAccessed": 1774709170843,
+      "accessCount": 20,
+      "lastAccessed": 1774711123126,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h007-passive-income/index.html",
+      "accessCount": 19,
+      "lastAccessed": 1774710859485,
       "type": "file"
     },
     {
@@ -49,9 +55,15 @@
       "type": "file"
     },
     {
-      "path": "landing-pages/h007-passive-income/index.html",
-      "accessCount": 11,
-      "lastAccessed": 1774708515315,
+      "path": "pipeline/promoters/channels.py",
+      "accessCount": 14,
+      "lastAccessed": 1774710955825,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/researcher.py",
+      "accessCount": 9,
+      "lastAccessed": 1774710956314,
       "type": "file"
     },
     {
@@ -61,15 +73,15 @@
       "type": "file"
     },
     {
-      "path": "pipeline/generators/hypothesis.py",
-      "accessCount": 7,
-      "lastAccessed": 1774707797357,
+      "path": "pipeline/config/validation_targets.json",
+      "accessCount": 8,
+      "lastAccessed": 1774710827478,
       "type": "file"
     },
     {
-      "path": "pipeline/config/validation_targets.json",
+      "path": "pipeline/generators/hypothesis.py",
       "accessCount": 7,
-      "lastAccessed": 1774708097215,
+      "lastAccessed": 1774707797357,
       "type": "file"
     },
     {
@@ -115,12 +127,6 @@
       "type": "file"
     },
     {
-      "path": "pipeline/promoters/channels.py",
-      "accessCount": 4,
-      "lastAccessed": 1774708187282,
-      "type": "file"
-    },
-    {
       "path": "pipeline/Dockerfile",
       "accessCount": 2,
       "lastAccessed": 1774681013843,
@@ -160,6 +166,12 @@
       "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_research_based.md",
       "accessCount": 2,
       "lastAccessed": 1774708475841,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/hypotheses/H-007_20260328.json",
+      "accessCount": 2,
+      "lastAccessed": 1774710829790,
       "type": "file"
     },
     {
@@ -253,16 +265,22 @@
       "type": "file"
     },
     {
-      "path": "pipeline/data/hypotheses/H-007_20260328.json",
+      "path": "",
       "accessCount": 1,
-      "lastAccessed": 1774707904220,
-      "type": "file"
+      "lastAccessed": 1774710652873,
+      "type": "directory"
     },
     {
-      "path": "pipeline/promoters/researcher.py",
+      "path": "pipeline/data/hypotheses",
       "accessCount": 1,
-      "lastAccessed": 1774708153276,
-      "type": "file"
+      "lastAccessed": 1774710827138,
+      "type": "directory"
+    },
+    {
+      "path": "pipeline/promoters",
+      "accessCount": 1,
+      "lastAccessed": 1774710947046,
+      "type": "directory"
     }
   ],
   "userDirectives": []

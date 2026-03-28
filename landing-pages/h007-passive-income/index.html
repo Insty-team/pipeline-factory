@@ -144,7 +144,7 @@
           <div class="text-sm font-medium text-slate-400 mb-1">Step 3 of 4</div>
           <div class="text-xl font-bold mb-4">Here's a taste of your report</div>
 
-          <div class="bg-slate-800/80 rounded-xl p-5 text-left mb-4 space-y-4">
+          <div class="bg-slate-800/80 rounded-xl p-5 text-left mb-2 space-y-4">
             <div class="flex items-start gap-3 fade-up">
               <div class="text-green-400 text-lg mt-0.5">&#9679;</div>
               <div>
@@ -168,6 +168,16 @@
                 <div class="text-xs text-slate-400" id="opp-3-detail"></div>
                 <div class="text-xs text-indigo-400 mt-1" id="opp-3-revenue"></div>
               </div>
+            </div>
+          </div>
+
+          <!-- Blurred locked opportunities -->
+          <div class="relative bg-slate-800/80 rounded-xl p-5 text-left mb-4 overflow-hidden">
+            <div id="blurred-opps" class="space-y-3" style="filter: blur(5px); -webkit-filter: blur(5px); user-select: none; pointer-events: none;"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/40 backdrop-blur-[1px]">
+              <div class="text-2xl mb-2">&#128274;</div>
+              <div class="text-sm font-bold text-slate-200">More opportunities found</div>
+              <div class="text-xs text-slate-400 mt-1">Join to unlock full results</div>
             </div>
           </div>
 
@@ -349,36 +359,90 @@
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
 
     const SAMPLE_OPPS = {
-      tech: [
-        { title: 'Niche SaaS micro-tool', detail: 'Build a single-feature tool solving one pain point. Low competition in micro-niches.', revenue: 'Est. $500-2K/mo after 3 months' },
-        { title: 'API wrapper service', detail: 'Simplify complex APIs for non-technical users. Charge per request.', revenue: 'Est. $300-1.5K/mo passive' },
-        { title: 'Browser extension', detail: 'Productivity extension with freemium model. Chrome Web Store distribution.', revenue: 'Est. $200-1K/mo from premium tier' },
-      ],
-      content: [
-        { title: 'AI-curated newsletter', detail: 'Automated niche newsletter with sponsorship revenue. 1hr/week to manage.', revenue: 'Est. $500-3K/mo at 5K subscribers' },
-        { title: 'Faceless YouTube channel', detail: 'AI-assisted script + stock footage. Monetize via AdSense + affiliates.', revenue: 'Est. $300-2K/mo after 6 months' },
-        { title: 'SEO blog + affiliates', detail: 'Programmatic content in underserved niches. Affiliate commission passive income.', revenue: 'Est. $400-1.5K/mo after 4 months' },
-      ],
-      ecommerce: [
-        { title: 'Print-on-demand store', detail: 'Trending niche designs on Etsy/Shopify. Zero inventory risk.', revenue: 'Est. $300-2K/mo after 2 months' },
-        { title: 'Digital product bundle', detail: 'Templates, presets, or planners. Create once, sell forever.', revenue: 'Est. $500-3K/mo passive after setup' },
-        { title: 'Curated product box', detail: 'Subscription box with dropship fulfillment. Niche hobby markets.', revenue: 'Est. $1K-5K/mo at 100 subscribers' },
-      ],
-      education: [
-        { title: 'Micro-course on Gumroad', detail: 'Solve one specific problem in 30 minutes. Low production, high margin.', revenue: 'Est. $200-1K/mo passive' },
-        { title: 'Community + templates', detail: 'Paid community with template library. Notion/Figma templates in demand.', revenue: 'Est. $500-2K/mo recurring' },
-        { title: 'Cohort-based workshop', detail: 'Monthly live workshop, recorded for async. Premium pricing.', revenue: 'Est. $1K-5K/mo with 20 students' },
-      ],
-      finance: [
-        { title: 'Dividend tracker tool', detail: 'Portfolio tracking dashboard for income investors. Subscription model.', revenue: 'Est. $500-2K/mo SaaS' },
-        { title: 'Financial data newsletter', detail: 'Weekly market insights for retail investors. Automated data pipeline.', revenue: 'Est. $300-1.5K/mo from sponsors' },
-        { title: 'Tax optimization guide', detail: 'Region-specific tax guides updated annually. Evergreen digital product.', revenue: 'Est. $200-1K/mo passive' },
-      ],
-      design: [
-        { title: 'Figma template store', detail: 'UI kits, wireframe sets, icon packs. Sell on Gumroad or own store.', revenue: 'Est. $500-3K/mo passive' },
-        { title: 'Notion template empire', detail: 'Niche productivity templates. Notion marketplace + direct sales.', revenue: 'Est. $300-2K/mo passive' },
-        { title: 'Brand-in-a-box service', detail: 'Productized logo + brand kit. Automated delivery with AI assist.', revenue: 'Est. $1K-4K/mo semi-passive' },
-      ],
+      tech: {
+        visible: [
+          { title: 'AI resume screener for recruiters', detail: 'Recruiters pay $49/mo to auto-filter 500+ applications. 3 competitors, all overpriced. Gap: SMB-focused pricing.', revenue: '$2.1K/mo avg in this niche' },
+          { title: 'Slack bot for standup automation', detail: '12K teams searched "async standup" last month. Existing tools charge per-seat. Flat $29/mo wins.', revenue: '$800-3K/mo at 50 teams' },
+          { title: 'Chrome extension: one-click proposal generator', detail: 'Freelancers spend 4hrs/week on proposals. 8.1K monthly searches, only 2 weak competitors.', revenue: '$1.5K/mo at 200 users' },
+        ],
+        blurred: [
+          'Automated competitor price tracker for...',
+          'API usage dashboard for teams that...',
+          'AI-powered changelog generator...',
+          'No-code webhook relay service...',
+          '7 more opportunities found...',
+        ]
+      },
+      content: {
+        visible: [
+          { title: 'Weekly AI tool review newsletter', detail: '22K people search "best AI tools" weekly. No quality curation exists. Sponsors pay $200-500/issue at 3K subs.', revenue: '$1.2-4K/mo at 5K subs' },
+          { title: 'Faceless "money explained" YouTube channel', detail: 'Finance explainers avg 45K views. AI script + stock footage = 2hr/video. Top channels: $3-8K/mo AdSense.', revenue: '$1-5K/mo after 30 videos' },
+          { title: 'Niche comparison blog: CRM for realtors', detail: '"Best CRM for real estate" gets 14K searches/mo. Top affiliate: $150/conversion. Only 3 quality articles exist.', revenue: '$2K/mo from affiliate commissions' },
+        ],
+        blurred: [
+          'Automated Twitter thread repurposing...',
+          'Podcast clip distribution service...',
+          'AI-generated infographic newsletter...',
+          'Localized content syndication for...',
+          '9 more opportunities found...',
+        ]
+      },
+      ecommerce: {
+        visible: [
+          { title: 'Custom pet portrait print-on-demand', detail: '"Custom pet portrait" — 33K searches/mo, avg order $39. AI generates art, Printful fulfills. Zero inventory.', revenue: '$1.5-4K/mo at 100 orders' },
+          { title: 'Digital planner bundle for iPad', detail: 'GoodNotes planner market grew 340% in 2025. Top sellers: $15-29 per bundle. Create once, sell forever.', revenue: '$2-6K/mo on Etsy + Gumroad' },
+          { title: 'Niche subscription box: home barista', detail: '"Coffee subscription" — 40K searches/mo but home barista accessories = underserved. $35/box, dropship model.', revenue: '$3-8K/mo at 150 subscribers' },
+        ],
+        blurred: [
+          'Seasonal holiday decor print-on-demand...',
+          'AI-personalized gift recommendation...',
+          'B2B branded merch storefront...',
+          'Curated wellness sample box...',
+          '6 more opportunities found...',
+        ]
+      },
+      education: {
+        visible: [
+          { title: 'Notion template: freelancer client portal', detail: '"Freelancer client management" — 9K searches/mo. Top Notion templates sell 200+/mo at $19. No good client portal exists.', revenue: '$1-3K/mo passive' },
+          { title: '30-min micro-course: AI for Excel users', detail: '91% of office workers use Excel. "AI Excel" searched 18K/mo. $29 course, Gumroad delivery. Zero competition under $50.', revenue: '$2-5K/mo at launch' },
+          { title: 'Paid Discord: job-switchers accountability', detail: 'Career change communities avg 40% retention at $9/mo. Automated daily prompts + peer matching. 0hr/week after setup.', revenue: '$900-2K/mo at 150 members' },
+        ],
+        blurred: [
+          'Certification prep flashcard app...',
+          'AI-graded writing practice for...',
+          'Cohort-based Excel-to-Python bridge...',
+          'Parenting milestone tracker template...',
+          '8 more opportunities found...',
+        ]
+      },
+      finance: {
+        visible: [
+          { title: 'Dividend income tracker + tax report', detail: '"Dividend tracker" — 12K searches/mo. Existing tools ignore tax optimization. $7/mo SaaS, sticky once data is in.', revenue: '$1.5-4K/mo at 400 users' },
+          { title: 'Weekly "hidden stock" newsletter', detail: 'Micro-cap stock newsletters convert at 8%. Charge $15/mo. AI scans SEC filings for unusual insider buying patterns.', revenue: '$2-6K/mo at 300 subscribers' },
+          { title: 'Real estate cash flow calculator', detail: '"Rental property calculator" — 27K searches/mo. Free tool + premium report upsell ($4.99). Lead gen for affiliate.', revenue: '$1-3K/mo from upsells + affiliates' },
+        ],
+        blurred: [
+          'Crypto tax-loss harvesting alert...',
+          'Side hustle income/expense tracker...',
+          'FIRE calculator with coast-FI...',
+          'AI-generated market sentiment report...',
+          '11 more opportunities found...',
+        ]
+      },
+      design: {
+        visible: [
+          { title: 'Figma UI kit: SaaS dashboard components', detail: '"SaaS dashboard template" — 8K searches/mo. Top kits sell $49-79. Only 4 quality options exist. Gap: dark mode + analytics.', revenue: '$2-5K/mo on Gumroad' },
+          { title: 'AI-assisted brand kit generator', detail: 'Input company name → get logo, colors, fonts, social templates. Charge $29 one-time. "Logo generator" = 110K searches/mo.', revenue: '$3-8K/mo at scale' },
+          { title: 'Notion + Framer portfolio template bundle', detail: 'Designers need portfolios but hate building them. $19-39 per bundle. "Portfolio template" — 22K monthly searches.', revenue: '$1.5-4K/mo passive' },
+        ],
+        blurred: [
+          'Social media template subscription...',
+          'AI icon pack generator for...',
+          'Presentation template marketplace...',
+          'Email signature design tool...',
+          '7 more opportunities found...',
+        ]
+      },
     };
 
     let selectedInterests = new Set();
@@ -462,15 +526,26 @@
       document.getElementById('report-preview').classList.add('hidden');
 
       setTimeout(() => {
-        // Pick sample opportunities based on first selected interest
         const primary = [...selectedInterests][0] || 'tech';
-        const opps = SAMPLE_OPPS[primary] || SAMPLE_OPPS.tech;
+        const data = SAMPLE_OPPS[primary] || SAMPLE_OPPS.tech;
+        const opps = data.visible;
+        const blurred = data.blurred;
 
         for (let i = 0; i < 3; i++) {
           document.getElementById('opp-' + (i + 1) + '-title').textContent = opps[i].title;
           document.getElementById('opp-' + (i + 1) + '-detail').textContent = opps[i].detail;
           document.getElementById('opp-' + (i + 1) + '-revenue').textContent = opps[i].revenue;
         }
+
+        // Render blurred items
+        const blurredEl = document.getElementById('blurred-opps');
+        blurredEl.innerHTML = blurred.map((text, i) =>
+          '<div class="flex items-start gap-3' + (i > 0 ? ' mt-1' : '') + '">' +
+            '<div class="text-slate-500 text-lg mt-0.5">&#9679;</div>' +
+            '<div><div class="font-bold text-sm text-slate-300">' + text + '</div>' +
+            '<div class="text-xs text-slate-500">Market data available after signup</div></div>' +
+          '</div>'
+        ).join('');
 
         document.getElementById('analyzing').classList.add('hidden');
         document.getElementById('report-preview').classList.remove('hidden');

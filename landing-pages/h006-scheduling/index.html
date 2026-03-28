@@ -533,13 +533,6 @@
             email,
             hypothesis: 'H-006',
             source: document.referrer || 'direct',
-            metadata: {
-              name,
-              team_size: selectedTeam,
-              current_tool: selectedTool,
-              meeting_types: [...selectedMeetings],
-              calendar: selectedCal,
-            },
           }),
         });
 
@@ -548,6 +541,7 @@
           msgEl.classList.remove('hidden');
           trackEvent('waitlist_signup', {
             email_domain: email.split('@')[1],
+            name,
             team: selectedTeam,
             tool: selectedTool,
             meetings: [...selectedMeetings],

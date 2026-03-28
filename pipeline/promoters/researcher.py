@@ -25,6 +25,7 @@ sys.path.insert(0, str(BASE_DIR))
 from ai import ask, ask_json  # noqa: E402
 
 CONFIG_PATH = BASE_DIR / "config" / "validation_targets.json"
+HYPOTHESES_DIR = BASE_DIR / "data" / "hypotheses"
 RESEARCH_DIR = BASE_DIR / "data" / "promotions" / "research"
 
 # Channel-specific context injected into prompts to guide the AI
@@ -51,6 +52,22 @@ CHANNEL_CONTEXT: dict[str, str] = {
         "Use H.E.L.P. comment framework: mirror problem, explain why it occurs, list steps, "
         "optionally mention product as one solution."
     ),
+    "reddit_passive_income": (
+        "r/passive_income (800K+ members). Highly receptive to AI-powered and automated income tools. "
+        "Community values concrete numbers, realistic timelines, and proof over hype. "
+        "Best post type: personal story or 'I tried X' experiment format. "
+        "Avoid overpromising — members are skeptical of 'get rich quick' framing. "
+        "Genuine curiosity questions ('Has anyone tried automating X?') outperform direct pitches. "
+        "Include specific details: time saved, effort required, realistic income range."
+    ),
+    "reddit_sidehustle": (
+        "r/sidehustle (200K+ members). Action-oriented community focused on practical side income. "
+        "Members want specific, actionable advice — not vague inspiration. "
+        "Best post type: 'How I did X in Y time' or 'Tool I use for Z'. "
+        "Time-saving angle resonates strongly: quantify hours saved per week. "
+        "Skeptical of AI hype — ground claims in what the tool actually does step by step. "
+        "Comments asking for feedback perform better than hard launches."
+    ),
     "indie_hackers": (
         "Indie Hackers — builder community. High tolerance for lifetime deals (LTD). "
         "Community values transparency, honest failures, and revenue numbers. "
@@ -73,7 +90,20 @@ def _load_config() -> dict[str, Any]:
     return json.loads(CONFIG_PATH.read_text())
 
 
-def _build_research_prompt(hypothesis_config: dict, channel: str) -> str:
+def _load_hypothesis_file(hypothesis_id: str) -> dict:
+    """Load the hypothesis JSON file from data/hypotheses/ if it exists."""
+    if not hypothesis_id:
+        return {}
+    pattern = list(HYPOTHESES_DIR.glob(f"{hypothesis_id}_*.json"))
+    if pattern:
+        try:
+            return json.loads(pattern[0].read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def _build_research_prompt(hypothesis_config: dict, channel: str, hypothesis_id: str = "") -> str:
     title = hypothesis_config.get("title", "")
     live_url = hypothesis_config.get("live_url", "")
     channel_ctx = CHANNEL_CONTEXT.get(channel, f"Channel: {channel}")
@@ -81,19 +111,39 @@ def _build_research_prompt(hypothesis_config: dict, channel: str) -> str:
     # Extract promotion_hypotheses entry for this channel if present
     promo_hyps = hypothesis_config.get("promotion_hypotheses", [])
     channel_message = ""
+    utm_link = live_url
     for ph in promo_hyps:
         if ph.get("channel_key") == channel:
             channel_message = ph.get("message", "")
+            utm_link = ph.get("utm_link", live_url)
             break
+
+    # Load additional product details from hypothesis JSON file
+    hyp_data = _load_hypothesis_file(hypothesis_id)
+    description = hyp_data.get("differentiation", hyp_data.get("pain_point", ""))
+    target_audience = hyp_data.get("target_audience", "")
+    revenue_model = hyp_data.get("revenue_model", "")
+
+    # Build product block dynamically
+    product_lines = [
+        f"- Title: {title}",
+        f"- URL: {live_url}",
+        f"- UTM link for {channel}: {utm_link}",
+    ]
+    if description:
+        product_lines.append(f"- Description: {description}")
+    if target_audience:
+        product_lines.append(f"- Target audience: {target_audience}")
+    if revenue_model:
+        product_lines.append(f"- Revenue model / pricing: {revenue_model}")
+    product_lines.append(f"- Channel message goal: {channel_message or 'Drive awareness and waitlist signups'}")
+
+    product_block = "\n".join(product_lines)
 
     prompt = f"""You are a community marketing expert specializing in authentic, non-promotional launch posts that perform well on developer/builder communities.
 
 ## Product
-- Title: {title}
-- URL: {live_url}
-- Core value prop: One-time $49 payment for a Calendly-alternative scheduling tool. No monthly fees, no per-seat pricing. Built for solopreneurs and small teams.
-- Target audience: Freelancers, solopreneurs, small business owners who are frustrated with recurring SaaS subscriptions.
-- Channel message goal: {channel_message or "Drive awareness and waitlist signups"}
+{product_block}
 
 ## Channel
 {channel_ctx}
@@ -115,18 +165,18 @@ Respond in JSON with this exact structure:
   "recommended_post_type": "Which type of post (e.g. Weekly Feedback Thread, comment, thread, journey post)"
 }}
 
-Be specific to this product and channel combination. Include concrete title examples adapted for CalOnce's $49 lifetime deal positioning."""
+Be specific to this product and channel combination. Include concrete title examples adapted for the product's actual positioning."""
 
     return prompt
 
 
-def research_channel(hypothesis_config: dict, channel: str) -> dict:
+def research_channel(hypothesis_config: dict, channel: str, hypothesis_id: str = "") -> dict:
     """Research what works on a specific channel for this type of product.
 
     Returns: { channel, patterns, title_formulas, structure, tone, avoid, examples,
                cta_approach, channel_specific_rules, recommended_post_type }
     """
-    prompt = _build_research_prompt(hypothesis_config, channel)
+    prompt = _build_research_prompt(hypothesis_config, channel, hypothesis_id)
 
     try:
         result = ask_json(prompt)
@@ -188,7 +238,7 @@ def research_all_channels(hypothesis_id: str) -> dict[str, dict]:
     results: dict[str, dict] = {}
     for channel in channels:
         print(f"  Researching {channel}...")
-        research = research_channel(hypothesis_config, channel)
+        research = research_channel(hypothesis_config, channel, hypothesis_id)
         results[channel] = research
 
         # Save to disk
