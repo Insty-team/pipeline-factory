@@ -3,10 +3,11 @@ Pipeline Factory 오케스트레이터
 수집 → 분석 → 가설 → (검증) 전체 루프를 실행한다.
 
 Usage:
-  python orchestrator.py              # 전체 1사이클
-  python orchestrator.py --collect    # 수집만
-  python orchestrator.py --analyze    # 분석만
-  python orchestrator.py --hypothesize # 가설 생성만
+  python orchestrator.py                 # 전체 1사이클
+  python orchestrator.py --collect       # 수집만
+  python orchestrator.py --analyze       # 분석만
+  python orchestrator.py --hypothesize   # 가설 생성만
+  python orchestrator.py --validate --hypothesis-id H-006 --deploy
 """
 
 import argparse
@@ -19,6 +20,7 @@ from collectors.reference import run as collect_us
 from collectors.reference_kr import run as collect_kr
 from analyzers.scorer import run as analyze
 from generators.hypothesis import run as hypothesize
+from validators.validator import run_validation, print_report
 
 BASE_DIR = Path(__file__).parent
 INSIGHTS_DIR = BASE_DIR / "data" / "insights"
@@ -122,6 +124,10 @@ def main():
     parser.add_argument("--collect", action="store_true", help="수집만 실행")
     parser.add_argument("--analyze", action="store_true", help="분석만 실행")
     parser.add_argument("--hypothesize", action="store_true", help="가설 생성만 실행")
+    parser.add_argument("--validate", action="store_true", help="단일 가설 검증 실행")
+    parser.add_argument("--hypothesis-id", help="검증할 가설 ID (예: H-006)")
+    parser.add_argument("--hours", type=int, help="검증 시 최근 N시간 데이터만 사용")
+    parser.add_argument("--deploy", action="store_true", help="검증 전에 랜딩페이지 재배포")
     parser.add_argument("--market", choices=["US", "KR", "all"], default="all", help="시장 선택")
     args = parser.parse_args()
 
@@ -137,6 +143,11 @@ def main():
         analyze()
     elif args.hypothesize:
         hypothesize()
+    elif args.validate:
+        if not args.hypothesis_id:
+            parser.error("--validate 사용 시 --hypothesis-id 필요")
+        report = run_validation(args.hypothesis_id, hours=args.hours, deploy=args.deploy)
+        print_report(report)
     else:
         run_full_cycle()
 

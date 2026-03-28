@@ -1,0 +1,45 @@
+{
+  "H-006": {
+    "title": "Lifetime Deal 스케줄링 툴 (Calendly 킬러)",
+    "landing_page_dir": "../landing-pages/h006-scheduling",
+    "pages_project": "calonce",
+    "live_url": "https://calonce.pages.dev",
+    "metric_window_hours": 24,
+    "success_criteria": {
+      "min_pageviews": 100,
+      "min_waitlist_signups": 10,
+      "target_conversion_rate": 0.1,
+      "strong_conversion_rate": 0.2,
+      "min_scroll_50_rate": 0.35
+    },
+    "data_collection_hypotheses": [
+      "page_view 수로 유입량을 추적하면 트래픽 부족 vs 오퍼 문제를 구분할 수 있다.",
+      "scroll depth 50% 이상 비율이 낮으면 헤드라인/히어로 섹션 메시지가 약한 것이다.",
+      "waitlist 수와 signup event를 함께 보면 폼 마찰이나 CTA 문제를 빠르게 식별할 수 있다.",
+      "referrer/source를 남기면 어떤 홍보 채널이 실제 전환을 만드는지 분리할 수 있다."
+    ],
+    "analysis_hypotheses": [
+      "24시간 내 page_view < 100이면 오퍼보다 유통(홍보) 문제가 더 크다.",
+      "page_view는 충분한데 conversion < 10%면 메시지/가격/신뢰 요소를 수정해야 한다.",
+      "scroll 50%는 높은데 signup이 낮으면 CTA 위치/문구/폼 마찰 문제가 크다.",
+      "conversion >= 20%면 같은 메시지로 더 많은 트래픽을 태워도 된다."
+    ],
+    "promotion_hypotheses": [
+      {
+        "channel": "Indie Hackers",
+        "message": "Stop paying monthly for scheduling. $49 once, forever.",
+        "expected_signal": "초기 page_view와 댓글 반응"
+      },
+      {
+        "channel": "Reddit /r/SaaS, /r/Entrepreneur",
+        "message": "Calendly pricing/free tier pain point에 대한 대안 소개",
+        "expected_signal": "CTR + waitlist 전환"
+      },
+      {
+        "channel": "Product Hunt upcoming / X thread",
+        "message": "Lifetime Deal + no per-seat pricing",
+        "expected_signal": "day-1 트래픽 부스팅"
+      }
+    ]
+  }
+}

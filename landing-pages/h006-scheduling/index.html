@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalOnce — Scheduling, one payment, forever</title>
+  <meta name="description" content="All the scheduling features you need. $49 once. No monthly fees. No per-seat pricing. Forever yours.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .price-strike { text-decoration: line-through; color: #9ca3af; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Hero -->
+  <section class="gradient-bg text-white py-20 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-block bg-white/20 rounded-full px-4 py-1 text-sm font-medium mb-6">
+        Early Access — Limited spots
+      </div>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Stop paying <span class="price-strike">$12/mo</span> for scheduling.
+      </h1>
+      <p class="text-xl md:text-2xl font-medium opacity-90 mb-8">
+        Pay <span class="text-yellow-300 font-bold">$49 once</span>. Get everything. Forever.
+      </p>
+      <p class="text-lg opacity-80 mb-10 max-w-xl mx-auto">
+        CalOnce gives you all the scheduling features you need — multiple event types, team scheduling, custom branding, calendar sync — without the monthly bill.
+      </p>
+
+      <!-- Email Capture -->
+      <form id="waitlist-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          id="email"
+          placeholder="you@example.com"
+          required
+          class="flex-1 px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        >
+        <button
+          type="submit"
+          class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold px-6 py-3 rounded-lg text-lg transition"
+        >
+          Get Early Access
+        </button>
+      </form>
+      <p id="form-message" class="mt-3 text-sm opacity-80 hidden"></p>
+      <p class="mt-4 text-sm opacity-60">No spam. Just launch updates.</p>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">The scheduling tax is real</h2>
+      <p class="text-lg text-gray-600 mb-8">
+        You use 20% of Calendly's features but pay 100% of the price. Every month. Per seat.
+      </p>
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl mb-3">💸</div>
+          <h3 class="font-bold mb-2">$144/year minimum</h3>
+          <p class="text-gray-600 text-sm">Calendly Standard is $12/mo/seat. For a 3-person team, that's $432/year. Every year.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl mb-3">🔒</div>
+          <h3 class="font-bold mb-2">Features behind paywalls</h3>
+          <p class="text-gray-600 text-sm">Custom branding? Team scheduling? Reminders? All locked unless you pay up.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl mb-3">📈</div>
+          <h3 class="font-bold mb-2">Prices only go up</h3>
+          <p class="text-gray-600 text-sm">SaaS companies raise prices. You're locked in. Your scheduling data hostage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">CalOnce vs Calendly</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b-2">
+              <th class="py-3 px-4 font-bold">Feature</th>
+              <th class="py-3 px-4 font-bold text-center">CalOnce<br><span class="text-sm font-normal text-green-600">$49 once</span></th>
+              <th class="py-3 px-4 font-bold text-center">Calendly<br><span class="text-sm font-normal text-gray-400">$12/mo</span></th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b"><td class="py-3 px-4">Multiple event types</td><td class="py-3 px-4 text-center text-green-600 font-bold">Unlimited</td><td class="py-3 px-4 text-center">1 on free</td></tr>
+            <tr class="border-b bg-gray-50"><td class="py-3 px-4">Calendar sync (Google, Outlook)</td><td class="py-3 px-4 text-center text-green-600 font-bold">Yes</td><td class="py-3 px-4 text-center">Yes</td></tr>
+            <tr class="border-b"><td class="py-3 px-4">Custom branding</td><td class="py-3 px-4 text-center text-green-600 font-bold">Yes</td><td class="py-3 px-4 text-center">Paid only</td></tr>
+            <tr class="border-b bg-gray-50"><td class="py-3 px-4">Team scheduling</td><td class="py-3 px-4 text-center text-green-600 font-bold">Yes</td><td class="py-3 px-4 text-center">Paid only</td></tr>
+            <tr class="border-b"><td class="py-3 px-4">Email reminders</td><td class="py-3 px-4 text-center text-green-600 font-bold">Yes</td><td class="py-3 px-4 text-center">Paid only</td></tr>
+            <tr class="border-b bg-gray-50"><td class="py-3 px-4">Booking page</td><td class="py-3 px-4 text-center text-green-600 font-bold">Yes</td><td class="py-3 px-4 text-center">Yes</td></tr>
+            <tr class="border-b"><td class="py-3 px-4 font-bold">Price (1 year)</td><td class="py-3 px-4 text-center text-green-600 font-bold text-lg">$49</td><td class="py-3 px-4 text-center text-red-500 font-bold text-lg">$144</td></tr>
+            <tr class="border-b bg-gray-50"><td class="py-3 px-4 font-bold">Price (3 years)</td><td class="py-3 px-4 text-center text-green-600 font-bold text-lg">$49</td><td class="py-3 px-4 text-center text-red-500 font-bold text-lg">$432</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof / FAQ -->
+  <section class="py-16 px-4 bg-gray-50">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10">FAQ</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-bold text-lg">Is this really a one-time payment?</h3>
+          <p class="text-gray-600 mt-1">Yes. $49 once. No hidden fees, no annual renewals, no per-seat charges. You own it forever.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg">How is this possible?</h3>
+          <p class="text-gray-600 mt-1">We're built on open-source scheduling infrastructure. Low overhead = sustainable pricing without monthly subscriptions.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg">When does it launch?</h3>
+          <p class="text-gray-600 mt-1">Early access starts soon. Join the waitlist to be first in line and lock in the $49 launch price.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg">What if I need more features later?</h3>
+          <p class="text-gray-600 mt-1">We'll offer optional premium add-ons (like Zapier integration or advanced analytics) for small one-time fees. Core scheduling stays free forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="gradient-bg text-white py-16 px-4">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Stop renting your scheduling tool.</h2>
+      <p class="text-xl opacity-90 mb-8">Own it. $49. Forever.</p>
+      <form id="waitlist-form-bottom" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input
+          type="email"
+          placeholder="you@example.com"
+          required
+          class="flex-1 px-4 py-3 rounded-lg text-gray-900 text-lg focus:outline-none focus:ring-2 focus:ring-yellow-300"
+        >
+        <button
+          type="submit"
+          class="bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-bold px-6 py-3 rounded-lg text-lg transition"
+        >
+          Get Early Access
+        </button>
+      </form>
+      <p id="form-message-bottom" class="mt-3 text-sm opacity-80 hidden"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-4 text-center text-gray-400 text-sm">
+    <p>CalOnce &copy; 2026. Built for people tired of subscription fatigue.</p>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://hnoxlznbghhavnrsunij.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
+
+    async function trackEvent(event, metadata = {}) {
+      try {
+        await fetch(`${SUPABASE_URL}/rest/v1/events`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            hypothesis: 'H-006',
+            event,
+            metadata,
+            referrer: document.referrer || null,
+            user_agent: navigator.userAgent,
+          }),
+        });
+      } catch (e) { /* silent */ }
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const email = form.querySelector('input[type="email"]').value;
+      const msgEl = form.nextElementSibling;
+      const btn = form.querySelector('button');
+
+      btn.disabled = true;
+      btn.textContent = 'Joining...';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal',
+          },
+          body: JSON.stringify({
+            email,
+            hypothesis: 'H-006',
+            source: document.referrer || 'direct',
+          }),
+        });
+
+        if (res.ok) {
+          msgEl.textContent = "You're in! We'll notify you when we launch.";
+          trackEvent('waitlist_signup', { email_domain: email.split('@')[1] });
+        } else {
+          msgEl.textContent = "Something went wrong. Try again?";
+        }
+      } catch (err) {
+        msgEl.textContent = "Network error. Try again?";
+      }
+
+      msgEl.classList.remove('hidden');
+      form.querySelector('input').value = '';
+      btn.disabled = false;
+      btn.textContent = 'Get Early Access';
+    }
+
+    // Track page view
+    trackEvent('page_view', { path: location.pathname });
+
+    // Track scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', () => {
+      const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      if (pct > maxScroll && pct % 25 === 0) {
+        maxScroll = pct;
+        trackEvent('scroll', { depth: pct });
+      }
+    });
+
+    document.getElementById('waitlist-form').addEventListener('submit', handleSubmit);
+    document.getElementById('waitlist-form-bottom').addEventListener('submit', handleSubmit);
+  </script>
+</body>
+</html>

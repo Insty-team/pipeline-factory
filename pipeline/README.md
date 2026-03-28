@@ -60,7 +60,38 @@ python orchestrator.py
 python -m collectors.reference    # 수집만
 python -m analyzers.scorer        # 분석만
 python -m generators.hypothesis   # 가설 생성만
+python orchestrator.py --validate --hypothesis-id H-006 --deploy
 ```
+
+## 오늘 바로 돌릴 검증 루프 (1개 가설용)
+
+현재는 `H-006`용 검증 타깃이 `config/validation_targets.json` 에 정리되어 있다.
+
+```bash
+# 1) 랜딩페이지 재배포 + 최근 24시간 데이터 분석
+python orchestrator.py --validate --hypothesis-id H-006 --deploy
+
+# 2) 1시간마다 반복 분석 (배포는 첫 1회만)
+python -m validators.validator --hypothesis H-006 --loop --interval-minutes 60
+```
+
+검증 루프가 하는 일:
+1. Cloudflare Pages로 랜딩페이지 배포
+2. Supabase `events`, `waitlist` 테이블에서 가설별 데이터 조회
+3. 전환율/스크롤/referrer를 요약해서 `data/metrics/*.json` 저장
+4. 다음 액션(`promote_distribution`, `rewrite_hero`, `improve_offer_or_cta`, `double_down`) 추천
+
+### 오늘 배포에 필요한 것
+- Cloudflare Pages 프로젝트 (`calonce`)
+- Supabase 프로젝트 + `events`, `waitlist` 테이블 + insert/select 정책
+- `pipeline/.env` 의 `SUPABASE_URL`, `SUPABASE_ANON_KEY`
+- `wrangler` 로그인 상태
+
+### 빠르고 저렴한 배포 권장안
+- 정적 랜딩: **Cloudflare Pages** (테스트 반복에 가장 저렴)
+- 이벤트 저장: **Supabase** free/pro 저가 티어
+- 반복 실행: 우선 **맥북 로컬 루프/cron**, 안정화 후 GitHub Actions 또는 Cloudflare cron으로 이전
+- 홍보 채널은 유료 광고보다 **Indie Hackers / Reddit / X / Product Hunt upcoming** 순으로 먼저 테스트
 
 ## 모드 B (레퍼런스 기반) — 초기 70% 비중
 
