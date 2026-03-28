@@ -242,12 +242,14 @@ def collect_for_service(service: dict) -> list[dict]:
     web_data = search_web_complaints(name)
     print(f"  웹: {len(web_data)}건 수집")
 
-    # 3. Twitter 불만 검색
-    print(f"  Twitter 검색 중...")
-    twitter_data = search_twitter_complaints(name)
-    print(f"  Twitter: {len(twitter_data)}건 수집")
+    # 3. Twitter 불만 검색 (Bearer Token 있을 때만)
+    twitter_data = []
+    if os.getenv("TWITTER_BEARER_TOKEN") and os.getenv("TWITTER_ENABLED", "false") == "true":
+        print(f"  Twitter 검색 중...")
+        twitter_data = search_twitter_complaints(name)
+        print(f"  Twitter: {len(twitter_data)}건 수집")
 
-    # 4. 전체 데이터 합치기
+    # 4. 전체 ��이터 합치기
     all_data = reddit_data + web_data + twitter_data
     print(f"  합계: {len(all_data)}건")
 

@@ -1,7 +1,7 @@
 {
-  "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"/home/samwoo/.claude/projects/-home-samwoo-github-repos-polsia-case-study/5bded241-af08-42f0-a702-9cd94750bbf6/tool-results/bi8h2u51x.txt\",\"offset\":100}",
-  "error": "File content (12215 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
-  "timestamp": "2026-03-28T06:34:36.640Z",
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"docker stop ce6db2d1da8d 2>/dev/null && docker rm ce6db2d1da8d 2>/dev/null && echo \\\"이전 컨테이너 정리 완료\\\"\",\"description\":\"Stop old container\"}",
+  "error": "Exit code 1\nce6db2d1da8d",
+  "timestamp": "2026-03-28T07:02:27.312Z",
   "retry_count": 1
 }

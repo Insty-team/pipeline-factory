@@ -22,4 +22,6 @@ COPY . .
 # 데이터 디렉토리 (볼륨으로 마운트)
 RUN mkdir -p data/pain_points data/hypotheses data/insights data/cycles data/metrics
 
+ENV PYTHONUNBUFFERED=1
+
 CMD ["python", "orchestrator.py"]
