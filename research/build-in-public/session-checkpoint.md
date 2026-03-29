@@ -1,83 +1,80 @@
-# 세션 체크포인트 — 2026-03-30
+# 세션 체크포인트 — 2026-03-30 08:30
 
-## 여기서부터 이어서 작업
+## 완료된 작업 (이번 세션)
 
-### 즉시 해야 할 것
+1. **Weekly pipeline 재시도 로직 구현**
+   - `weekly_pipeline_runner.sh` 생성 (성공 마커로 중복 방지)
+   - plist 수정: 금 20:00 → 토 00:00 → 토 04:10 (3회 자동 재시도)
+   - launchd 재등록 완료
 
-1. **Daily pipeline이 오전 9시에 안 돌았음**
-   - launchd 상태: registered but "not running"
-   - 맥이 잠들지는 않았음 (uptime 확인)
-   - StartCalendarInterval 설정 문제일 수 있음 — 디버깅 필요
-   - 수동 실행으로 먼저 동작 확인: ./daily_pipeline.sh
+2. **Daily pipeline 디버깅**
+   - 원인: 아직 9시 전이라 안 돌았던 것 (정상)
+   - ProcessType=Background 추가하여 화면 잠김 시에도 동작하도록 개선
+   - plist 재등록 완료
 
-2. **Weekly pipeline 결과 확인**
-   - 어젯밤 21:33→22:03 완료됨 (30분 소요)
-   - 수집: Calendly 9건, QuickBooks 6건, Mailchimp 9건, HubSpot 10건 등
-   - FreshBooks에서 AI 파싱 에러 (무관한 데이터 수집됨)
-   - 새 가설이 생성됐는지 확인 필요 (hypotheses/ 폴더에 새 파일 없음 — 가설 생성 단계까지 갔는지 로그 확인)
-   - landing-pages/h007v3-ai/ 생성됨 (builders/landing.py 테스트 결과)
+3. **Sources.json 축소 (51→10)**
+   - US 5개: Calendly, Mailchimp, Notion, Gumroad, Canva
+   - KR 5개: 채널톡, 스티비, 크몽, 네이버 스마트스토어, 아임웹
+   - max_hypotheses_per_cycle: 100→2
 
-3. **Bluesky 유령 포스트 정리**
-   - 수동 삭제한 "Day 2 scheduling" 포스트가 history에서 제거됨
-   - 대시보드는 다음 monitor 실행 시 최신화
+4. **Orchestrator --limit 옵션 추가**
+   - `python3 orchestrator.py --limit 3` 으로 서비스 수 제한 가능
+   - collect 단계에서 US/KR 각각 limit 적용
 
-4. **Claude CLI 사용량 절약 방안 적용**
-   - weekly pipeline이 51개 서비스 전부 크롤링 + AI 분석 → 30분 + 대량 토큰
-   - 절약 방법:
-     a. sources.json에서 서비스 수 줄이기 (51→10개로 시작)
-     b. orchestrator.py에 --limit 옵션 추가 (한 번에 처리할 서비스 수)
-     c. AI 분석 전에 Reddit 데이터 필터링 (관련 없는 건 AI 호출 안 함)
-     d. 가설 생성 시 MAX_HYPOTHESES=2 환경변수 설정
-     e. daily_content.py 폴백 템플릿 사용 (AI 실패 시)
+5. **대시보드 버그 수정**
+   - Title 컬럼에 실제 제목 표시 (TITLES 맵)
+   - Bluesky 포스트 데이터 파싱 개선
+   - Recent Events "Loading..." → 정상 렌더링
+   - Weekly Pipeline 스케줄 표시 업데이트
+   - HTML 파일 맥에 전송 완료
+   - **배포 미완**: wrangler OAuth가 SSH(non-interactive)에서 안 됨
 
-### 우선순위 (내일 순서)
+6. **SNS Day 3 콘텐츠 준비**
+   - day3_bluesky.md: 주말 빌드 로그 (281자)
+   - day3_threads.md: 자동화 과정 공유 + 질문
+   - day3_linkedin.md: 일요일 스킵, 월요일 드래프트
 
-1. daily pipeline launchd 디버깅 + 수동 실행 테스트
-2. weekly pipeline 로그 전체 확인 (가설 생성 결과)
-3. Claude 사용량 절약 — sources.json 서비스 10개로 축소
-4. --init-hypothesis "에이전트 마켓플레이스" 맥에서 테스트
-5. SNS 포스팅 (페르소나 유지):
-   - Bluesky (자동 or 수동)
-   - Threads (수동 — 질문형, 이미지)
-   - LinkedIn (수동 — 구조적)
-   - Medium (주간 업데이트)
-6. Slack 알림 연결
-7. 대시보드 Bluesky 데이터 확인
+## 맥에서 직접 해야 할 것
 
-### 맥에서 직접 해야 할 것 (Claude CLI 필요)
 ```bash
-# daily pipeline 수동 실행
-cd /Users/mac/projects/pipeline-factory
-./daily_pipeline.sh
+# 1. 대시보드 배포
+cd /Users/mac/projects/pipeline-factory/dashboard-site
+npx wrangler pages deploy . --project-name pipeline-dashboard --commit-dirty=true
 
-# init-hypothesis 테스트
-cd pipeline
+# 2. Threads 수동 포스팅 (day3_threads.md 복붙)
+cat /Users/mac/projects/pipeline-factory/pipeline/data/promotions/day3_threads.md
+
+# 3. 내일 LinkedIn 포스팅 (8-10am)
+cat /Users/mac/projects/pipeline-factory/pipeline/data/promotions/day3_linkedin.md
+
+# 4. init-hypothesis 테스트 (Claude CLI 필요)
+cd /Users/mac/projects/pipeline-factory/pipeline
 python3 orchestrator.py --init-hypothesis "에이전트 마켓플레이스"
-
-# 로그 확인
-cat /tmp/weekly-pipeline.log | tail -50
-cat /tmp/daily-pipeline.log | tail -20
 ```
 
-### 현재 배포 상태
+## 자동화 상태
+- auto-backup: 20분마다 ✅
+- bluesky-monitor: 1시간마다 ✅
+- daily-pipeline: 매일 9시 ✅ (ProcessType=Background 추가됨)
+- weekly-pipeline: 금 20:00 / 토 00:00 / 토 04:10 ✅ (재시도 로직)
+
+## 현재 메트릭
+- H-006: views=15, signups=3, conversion=20.0%
+- H-007-v3: views=19, signups=3, conversion=15.8%
+- Bluesky: 1 라이브 포스트 (7L 3R)
+
+## 배포 URL
 - sleepnfind.pages.dev — H-007-v3 랜딩
 - sleepnfind.pages.dev/blog/ai-digital-product-tools-2026 — GEO 블로그
 - pipeline-dashboard-46g.pages.dev — 대시보드
 
-### 현재 메트릭
-- H-006: views=15, signups=3, conversion=20.0%
-- H-007-v3: views=19, signups=3, conversion=15.8%
-- Bluesky: 3 라이브 포스트 (1건 7L 3R)
-
-### 자동화 상태
-- auto-backup: 20분마다 ✅
-- bluesky-monitor: 1시간마다 ✅
-- daily-pipeline: 매일 9시 ⚠️ (오늘 미실행 — 디버깅 필요)
-- weekly-pipeline: 매주 토요일 9시 ✅ (어젯밤 수동 실행 완료)
-
-### Claude 사용량 절약 TODO
-- [ ] sources.json 서비스 51→10개로 축소
-- [ ] orchestrator.py에 --limit N 옵션
-- [ ] Reddit 데이터 사전 필터링 (AI 호출 전)
-- [ ] .env에 MAX_HYPOTHESES=2 설정
-- [ ] daily_content.py AI 실패 시 템플릿 폴백 확인
+## 다음 세션 TODO
+- [ ] 대시보드 배포 (맥에서 wrangler)
+- [ ] daily pipeline 9시 실행 결과 확인 (오늘 첫 자동 실행)
+- [ ] Threads 수동 포스팅
+- [ ] LinkedIn 월요일 포스팅
+- [ ] init-hypothesis "에이전트 마켓플레이스" 테스트
+- [ ] GEO 블로그 side hustle로 수정 (현재 digital product)
+- [ ] Slack 알림 연결
+- [ ] Cloudflare API 토큰 설정 (SSH에서 wrangler 사용 가능하게)
+- [ ] weekly pipeline --limit 옵션 적용 (weekly_pipeline.sh에서 orchestrator에 --limit 전달)

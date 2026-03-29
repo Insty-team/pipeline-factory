@@ -64,7 +64,7 @@
 
   <h2 class="text-xl font-bold mb-3">Recent Events</h2>
   <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 mb-8">
-    <div class="space-y-1 text-xs font-mono text-gray-400 max-h-48 overflow-auto" id="recent-events"></div>
+    <div class="space-y-1 text-xs font-mono text-gray-400 max-h-48 overflow-auto" id="recent-events">No events yet</div>
   </div>
 
   <h2 class="text-xl font-bold mb-3">Automation Status</h2>
@@ -73,7 +73,7 @@
       <div class="flex justify-between"><span>Auto-backup</span><span class="text-green-400">Every 20min</span></div>
       <div class="flex justify-between"><span>Bluesky Monitor</span><span class="text-green-400">Every 1hr</span></div>
       <div class="flex justify-between"><span>Daily Pipeline</span><span class="text-green-400">Daily 9:00 AM</span></div>
-      <div class="flex justify-between"><span>Weekly Pipeline</span><span class="text-green-400">Sat 9:00 AM</span></div>
+      <div class="flex justify-between"><span>Weekly Pipeline</span><span class="text-green-400">Fri 8PM / Sat 12AM / Sat 4:10AM</span></div>
     </div>
   </div>
 
@@ -82,86 +82,136 @@
     const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
     const hd = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY };
 
-    // Map old H-007 data to H-007-v3
+    const TITLES = {
+      'H-006': 'Lifetime Deal Scheduling Tool',
+      'H-007-v3': 'AI Side Hustle Co-Pilot'
+    };
+
     function normalizeHyp(h) {
       if (h === 'H-007') return 'H-007-v3';
       return h;
     }
 
+    function esc(s) {
+      var d = document.createElement('div');
+      d.textContent = s;
+      return d.innerHTML;
+    }
+
     async function loadData() {
-      document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString();
+      try {
+        document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString();
 
-      const [eventsResp, wlResp, bskyResp] = await Promise.all([
-        fetch(SB_URL + '/rest/v1/events?order=created_at.desc&limit=500', { headers: hd }),
-        fetch(SB_URL + '/rest/v1/waitlist?order=created_at.desc&limit=100', { headers: hd }),
-        fetch(SB_URL + '/rest/v1/events?hypothesis=eq.bluesky-monitor&order=created_at.desc&limit=20', { headers: hd }),
-      ]);
-      const events = await eventsResp.json();
-      const waitlist = await wlResp.json();
-      const bskyEvents = await bskyResp.json();
+        var [eventsResp, wlResp, bskyResp] = await Promise.all([
+          fetch(SB_URL + '/rest/v1/events?order=created_at.desc&limit=500', { headers: hd }),
+          fetch(SB_URL + '/rest/v1/waitlist?order=created_at.desc&limit=100', { headers: hd }),
+          fetch(SB_URL + '/rest/v1/events?hypothesis=eq.bluesky-monitor&order=created_at.desc&limit=50', { headers: hd })
+        ]);
+        var events = await eventsResp.json();
+        var waitlist = await wlResp.json();
+        var bskyEvents = await bskyResp.json();
 
-      // Group by hypothesis (merge H-007 into H-007-v3)
-      const hyps = {};
-      events.forEach(e => {
-        const h = normalizeHyp(e.hypothesis || 'unknown');
-        if (h.includes('geo') || h.includes('monitor')) return;
-        if (!hyps[h]) hyps[h] = { views: 0, signups: 0 };
-        if (e.event === 'page_view') hyps[h].views++;
-        if (e.event === 'waitlist_signup') hyps[h].signups++;
-      });
-      waitlist.forEach(w => {
-        const h = normalizeHyp(w.hypothesis || 'unknown');
-        if (!hyps[h]) hyps[h] = { views: 0, signups: 0 };
-        hyps[h].signups++;
-      });
+        var hyps = {};
+        events.forEach(function(e) {
+          var h = normalizeHyp(e.hypothesis || 'unknown');
+          if (h.indexOf('geo') >= 0 || h.indexOf('monitor') >= 0 || h === 'unknown') return;
+          if (!hyps[h]) hyps[h] = { views: 0, signups: 0 };
+          if (e.event === 'page_view') hyps[h].views++;
+          if (e.event === 'waitlist_signup') hyps[h].signups++;
+        });
+        waitlist.forEach(function(w) {
+          var h = normalizeHyp(w.hypothesis || 'unknown');
+          if (h === 'unknown') return;
+          if (!hyps[h]) hyps[h] = { views: 0, signups: 0 };
+          hyps[h].signups++;
+        });
 
-      // Summary
-      let totalViews = 0, totalSignups = 0;
-      Object.values(hyps).forEach(h => { totalViews += h.views; totalSignups += h.signups; });
-      const activeCount = Object.keys(hyps).length;
-      const avgConv = totalViews > 0 ? (totalSignups / totalViews * 100).toFixed(1) + '%' : '0%';
+        var totalViews = 0, totalSignups = 0;
+        Object.values(hyps).forEach(function(h) { totalViews += h.views; totalSignups += h.signups; });
+        var activeCount = Object.keys(hyps).length;
+        var avgConv = totalViews > 0 ? (totalSignups / totalViews * 100).toFixed(1) + '%' : '0%';
 
-      document.getElementById('active-count').textContent = activeCount;
-      document.getElementById('total-views').textContent = totalViews;
-      document.getElementById('total-signups').textContent = totalSignups;
-      document.getElementById('avg-conversion').textContent = avgConv;
+        document.getElementById('active-count').textContent = activeCount;
+        document.getElementById('total-views').textContent = totalViews;
+        document.getElementById('total-signups').textContent = totalSignups;
+        document.getElementById('avg-conversion').textContent = avgConv;
 
-      // Hypothesis table
-      const tbody = document.getElementById('hyp-table');
-      tbody.innerHTML = '';
-      Object.entries(hyps).sort((a, b) => b[1].views - a[1].views).forEach(([id, data]) => {
-        const conv = data.views > 0 ? (data.signups / data.views * 100).toFixed(1) : '0.0';
-        const status = data.views >= 100 ? (parseFloat(conv) >= 10 ? '<span class="text-green-400">GO</span>' : '<span class="text-yellow-400">Testing</span>') : '<span class="text-gray-500">Need traffic</span>';
-        tbody.innerHTML += '<tr class="border-t border-gray-800"><td class="p-3 font-mono">' + id + '</td><td class="p-3">' + id + '</td><td class="p-3 text-right">' + data.views + '</td><td class="p-3 text-right">' + data.signups + '</td><td class="p-3 text-right">' + conv + '%</td><td class="p-3">' + status + '</td></tr>';
-      });
+        var tbody = document.getElementById('hyp-table');
+        tbody.innerHTML = '';
+        var sorted = Object.entries(hyps).sort(function(a, b) { return b[1].views - a[1].views; });
+        sorted.forEach(function(entry) {
+          var id = entry[0], data = entry[1];
+          var conv = data.views > 0 ? (data.signups / data.views * 100).toFixed(1) : '0.0';
+          var title = TITLES[id] || id;
+          var statusText;
+          if (data.views >= 100) {
+            statusText = parseFloat(conv) >= 10 ? 'GO' : 'Testing';
+          } else {
+            statusText = 'Need traffic';
+          }
+          var statusColor = statusText === 'GO' ? 'green' : (statusText === 'Testing' ? 'yellow' : 'gray');
+          var tr = document.createElement('tr');
+          tr.className = 'border-t border-gray-800';
+          var td1 = document.createElement('td'); td1.className = 'p-3 font-mono'; td1.textContent = id;
+          var td2 = document.createElement('td'); td2.className = 'p-3'; td2.textContent = title;
+          var td3 = document.createElement('td'); td3.className = 'p-3 text-right'; td3.textContent = data.views;
+          var td4 = document.createElement('td'); td4.className = 'p-3 text-right'; td4.textContent = data.signups;
+          var td5 = document.createElement('td'); td5.className = 'p-3 text-right'; td5.textContent = conv + '%';
+          var td6 = document.createElement('td'); td6.className = 'p-3 text-' + statusColor + '-400'; td6.textContent = statusText;
+          tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+          tr.appendChild(td4); tr.appendChild(td5); tr.appendChild(td6);
+          tbody.appendChild(tr);
+        });
 
-      // Bluesky from Supabase engagement snapshots
-      const bskyTbody = document.getElementById('bsky-table');
-      bskyTbody.innerHTML = '';
-      const seenPosts = new Set();
-      bskyEvents.forEach(e => {
-        try {
-          const meta = typeof e.metadata === 'string' ? JSON.parse(e.metadata) : e.metadata;
-          const text = (meta.text || '').substring(0, 60);
-          const key = text;
-          if (seenPosts.has(key)) return;
-          seenPosts.add(key);
-          const date = (meta.created_at || e.created_at || '').substring(0, 10);
-          bskyTbody.innerHTML += '<tr class="border-t border-gray-800"><td class="p-3">' + date + '</td><td class="p-3">' + text + '...</td><td class="p-3 text-right">' + (meta.likes || 0) + '</td><td class="p-3 text-right">' + (meta.replies || 0) + '</td><td class="p-3 text-right">' + (meta.reposts || 0) + '</td></tr>';
-        } catch(err) {}
-      });
-      if (bskyTbody.innerHTML === '') {
-        bskyTbody.innerHTML = '<tr><td class="p-3 text-gray-500" colspan="5">Bluesky data will appear after next monitor run</td></tr>';
+        var bskyTbody = document.getElementById('bsky-table');
+        bskyTbody.innerHTML = '';
+        var seenPosts = {};
+        bskyEvents.forEach(function(e) {
+          try {
+            var meta = typeof e.metadata === 'string' ? JSON.parse(e.metadata) : (e.metadata || {});
+            if (!meta.text) return;
+            var text = meta.text.substring(0, 80);
+            if (seenPosts[text]) return;
+            seenPosts[text] = true;
+            var date = (meta.created_at || e.created_at || '').substring(0, 10);
+            var tr = document.createElement('tr');
+            tr.className = 'border-t border-gray-800';
+            var td1 = document.createElement('td'); td1.className = 'p-3'; td1.textContent = date;
+            var td2 = document.createElement('td'); td2.className = 'p-3'; td2.textContent = text + '...';
+            var td3 = document.createElement('td'); td3.className = 'p-3 text-right'; td3.textContent = meta.likes || 0;
+            var td4 = document.createElement('td'); td4.className = 'p-3 text-right'; td4.textContent = meta.replies || 0;
+            var td5 = document.createElement('td'); td5.className = 'p-3 text-right'; td5.textContent = meta.reposts || 0;
+            tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4); tr.appendChild(td5);
+            bskyTbody.appendChild(tr);
+          } catch(err) {}
+        });
+        if (bskyTbody.children.length === 0) {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td');
+          td.className = 'p-3 text-gray-500';
+          td.colSpan = 5;
+          td.textContent = 'Waiting for next Bluesky monitor run...';
+          tr.appendChild(td);
+          bskyTbody.appendChild(tr);
+        }
+
+        var recentDiv = document.getElementById('recent-events');
+        if (events.length === 0) {
+          recentDiv.textContent = 'No events yet';
+        } else {
+          recentDiv.innerHTML = '';
+          events.slice(0, 20).forEach(function(e) {
+            var time = (e.created_at || '').replace('T', ' ').substring(0, 19);
+            var hyp = normalizeHyp(e.hypothesis || '');
+            var div = document.createElement('div');
+            div.textContent = time + ' [' + hyp + '] ' + (e.event || '');
+            recentDiv.appendChild(div);
+          });
+        }
+      } catch(err) {
+        console.error('Dashboard load error:', err);
+        document.getElementById('last-updated').textContent = 'Error: ' + err.message;
       }
-
-      // Recent events
-      const recentDiv = document.getElementById('recent-events');
-      recentDiv.innerHTML = '';
-      events.slice(0, 15).forEach(e => {
-        const time = (e.created_at || '').substring(11, 19);
-        const hyp = normalizeHyp(e.hypothesis || '');
-        recentDiv.innerHTML += '<div>' + time + ' [' + hyp + '] ' + (e.event || '') + '</div>';
-      });
     }
 
     loadData();

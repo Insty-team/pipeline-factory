@@ -65,7 +65,7 @@ def get_cycle_number() -> int:
     return len(list(log_dir.glob("cycle_*.json"))) + 1
 
 
-def run_full_cycle():
+def run_full_cycle(limit: int = 0):
     """전체 파이프라인 1사이클 실행"""
     cycle = get_cycle_number()
     print(f"\n{'='*60}")
@@ -74,7 +74,16 @@ def run_full_cycle():
 
     # Step 1: 수집 (모드 B: 레퍼런스 기반, 시장별)
     print("\n📡 Step 1: 수집")
-    pain_points = collect_us() + collect_kr()
+    if limit > 0:
+        import json
+        with open(BASE_DIR / "config" / "sources.json") as f:
+            cfg = json.load(f)
+        us_svcs = cfg["mode_b"]["target_services"].get("US", [])[:limit]
+        kr_svcs = cfg["mode_b"]["target_services"].get("KR", [])[:limit]
+        print(f"  --limit {limit}: US={len(us_svcs)}, KR={len(kr_svcs)}")
+        pain_points = collect_us(us_svcs) + collect_kr(kr_svcs)
+    else:
+        pain_points = collect_us() + collect_kr()
 
     if not pain_points:
         print("\n❌ 수집 실패 — 사이클 중단")
@@ -130,6 +139,7 @@ def main():
     parser.add_argument("--deploy", action="store_true", help="검증 전에 랜딩페이지 재배포")
     parser.add_argument("--init-hypothesis", help="Idea to turn into hypothesis")
     parser.add_argument("--market", choices=["US", "KR", "all"], default="all", help="시장 선택")
+    parser.add_argument("--limit", type=int, default=0, help="서비스 수 제한 (0=전체)")
     args = parser.parse_args()
 
     if args.init_hypothesis:
@@ -152,7 +162,7 @@ def main():
         report = run_validation(args.hypothesis_id, hours=args.hours, deploy=args.deploy)
         print_report(report)
     else:
-        run_full_cycle()
+        run_full_cycle(limit=args.limit)
 
 
 if __name__ == "__main__":

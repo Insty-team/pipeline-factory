@@ -17,7 +17,12 @@
         },
         {
           "name": "reddit",
-          "subreddits": ["smallbusiness", "entrepreneur", "solopreneur", "SaaS"],
+          "subreddits": [
+            "smallbusiness",
+            "entrepreneur",
+            "solopreneur",
+            "SaaS"
+          ],
           "search_template": "{service_name} sucks OR hate OR alternative OR switching from",
           "enabled": true
         },
@@ -55,217 +60,55 @@
           "market": "US",
           "category": "scheduling",
           "g2_slug": "calendly",
-          "known_complaints": ["free plan limits to 1 event type", "pricing jumps steeply at team tier", "no native payment collection on basic plan"]
-        },
-        {
-          "name": "QuickBooks",
-          "market": "US",
-          "category": "accounting",
-          "g2_slug": "intuit-quickbooks-online",
-          "known_complaints": ["annual price increases of 20-40%", "forced migration from desktop to cloud", "overwhelming complexity for solo operators"]
+          "known_complaints": [
+            "free plan limits to 1 event type",
+            "pricing jumps steeply at team tier",
+            "no native payment collection on basic plan"
+          ]
         },
         {
           "name": "Mailchimp",
           "market": "US",
           "category": "email-marketing",
           "g2_slug": "mailchimp",
-          "known_complaints": ["charges for unsubscribed contacts", "automation limited on free plan", "UI redesign made workflows harder"]
-        },
-        {
-          "name": "HubSpot CRM",
-          "market": "US",
-          "category": "crm",
-          "g2_slug": "hubspot-crm",
-          "known_complaints": ["free plan is a loss-leader that forces upgrades", "contact limits hit quickly", "reporting locked behind expensive tiers"]
-        },
-        {
-          "name": "FreshBooks",
-          "market": "US",
-          "category": "invoicing",
-          "g2_slug": "freshbooks",
-          "known_complaints": ["client seat limits on base plan", "double-entry accounting missing on lower tiers", "mobile app lags behind desktop"]
-        },
-        {
-          "name": "Wave",
-          "market": "US",
-          "category": "accounting",
-          "g2_slug": "wave-accounting",
-          "known_complaints": ["payroll only in select US states", "customer support is near-zero on free tier", "bank sync breaks frequently"]
-        },
-        {
-          "name": "Honeybook",
-          "market": "US",
-          "category": "invoicing",
-          "g2_slug": "honeybook",
-          "known_complaints": ["learning curve for contract templates", "scheduler UX feels dated", "payment processing fee on top of subscription"]
-        },
-        {
-          "name": "Dubsado",
-          "market": "US",
-          "category": "crm",
-          "g2_slug": "dubsado",
-          "known_complaints": ["steep onboarding learning curve", "workflow automation is fragile", "no mobile app"]
-        },
-        {
-          "name": "Asana",
-          "market": "US",
-          "category": "project-management",
-          "g2_slug": "asana",
-          "known_complaints": ["timeline view locked to premium", "notification overload", "pricing per seat is expensive for small teams"]
+          "known_complaints": [
+            "charges for unsubscribed contacts",
+            "automation limited on free plan",
+            "UI redesign made workflows harder"
+          ]
         },
         {
           "name": "Notion",
           "market": "US",
           "category": "project-management",
           "g2_slug": "notion",
-          "known_complaints": ["slow load times on large pages", "offline mode is unreliable", "API rate limits frustrate power users"]
-        },
-        {
-          "name": "Trello",
-          "market": "US",
-          "category": "project-management",
-          "g2_slug": "trello",
-          "known_complaints": ["power-ups capped at 1 on free plan", "no native time tracking", "board view only — no list or Gantt without add-ons"]
-        },
-        {
-          "name": "Squarespace",
-          "market": "US",
-          "category": "landing-pages",
-          "g2_slug": "squarespace",
-          "known_complaints": ["transaction fees on basic commerce plan", "template customization is rigid", "SEO tooling is basic vs competitors"]
-        },
-        {
-          "name": "Webflow",
-          "market": "US",
-          "category": "no-code-builders",
-          "g2_slug": "webflow",
-          "known_complaints": ["steep learning curve for non-designers", "CMS item limits on starter plans", "hosting costs add up quickly"]
-        },
-        {
-          "name": "Typeform",
-          "market": "US",
-          "category": "form-builders",
-          "g2_slug": "typeform",
-          "known_complaints": ["response limits on free plan (10/month)", "logic jumps locked to paid tier", "expensive relative to simpler form tools"]
-        },
-        {
-          "name": "Google Forms",
-          "market": "US",
-          "category": "form-builders",
-          "g2_slug": "google-forms",
-          "known_complaints": ["no conditional logic branching", "no payment integrations natively", "design customization is minimal"]
-        },
-        {
-          "name": "ConvertKit",
-          "market": "US",
-          "category": "email-marketing",
-          "g2_slug": "convertkit",
-          "known_complaints": ["landing page editor is basic", "billing counts same subscriber on multiple lists", "visual automation can be confusing to debug"]
-        },
-        {
-          "name": "ActiveCampaign",
-          "market": "US",
-          "category": "email-marketing",
-          "g2_slug": "activecampaign",
-          "known_complaints": ["UI feels cluttered and outdated", "contact limits trigger unexpected overage charges", "deliverability issues reported on shared IPs"]
-        },
-        {
-          "name": "Stripe",
-          "market": "US",
-          "category": "payments",
-          "g2_slug": "stripe",
-          "known_complaints": ["account freezes with no advance warning", "dispute resolution heavily favors buyers", "complex payout schedule for new accounts"]
-        },
-        {
-          "name": "PayPal",
-          "market": "US",
-          "category": "payments",
-          "g2_slug": "paypal",
-          "known_complaints": ["sudden account holds and fund freezes", "high fees for international transfers", "chargeback process disadvantages sellers"]
-        },
-        {
-          "name": "Shopify",
-          "market": "US",
-          "category": "ecommerce",
-          "g2_slug": "shopify",
-          "known_complaints": ["transaction fees unless using Shopify Payments", "app costs stack up quickly", "basic plan lacks key analytics"]
+          "known_complaints": [
+            "slow load times on large pages",
+            "offline mode is unreliable",
+            "API rate limits frustrate power users"
+          ]
         },
         {
           "name": "Gumroad",
           "market": "US",
           "category": "ecommerce",
           "g2_slug": "gumroad",
-          "known_complaints": ["10% flat fee on all sales", "limited storefront customization", "no affiliate management on lower tiers"]
-        },
-        {
-          "name": "Loom",
-          "market": "US",
-          "category": "video-conferencing",
-          "g2_slug": "loom",
-          "known_complaints": ["5-minute recording limit on free plan", "video storage auto-deleted after 90 days on free", "transcription accuracy is inconsistent"]
-        },
-        {
-          "name": "Zoom",
-          "market": "US",
-          "category": "video-conferencing",
-          "g2_slug": "zoom",
-          "known_complaints": ["40-minute limit on free group calls", "recordings stored only locally on free plan", "per-host pricing model is expensive for agencies"]
+          "known_complaints": [
+            "10% flat fee on all sales",
+            "limited storefront customization",
+            "no affiliate management on lower tiers"
+          ]
         },
         {
           "name": "Canva",
           "market": "US",
           "category": "design-tools",
           "g2_slug": "canva",
-          "known_complaints": ["brand kit locked to Pro plan", "export resolution limited on free", "team collaboration features require paid upgrade"]
-        },
-        {
-          "name": "Figma",
-          "market": "US",
-          "category": "design-tools",
-          "g2_slug": "figma",
-          "known_complaints": ["3 project limit on free plan", "offline mode is limited", "dev mode pricing added friction after acquisition"]
-        },
-        {
-          "name": "Zendesk",
-          "market": "US",
-          "category": "customer-support",
-          "g2_slug": "zendesk",
-          "known_complaints": ["too complex for solo or small teams", "price per agent makes small teams expensive", "setup and customization requires a consultant"]
-        },
-        {
-          "name": "Intercom",
-          "market": "US",
-          "category": "customer-support",
-          "g2_slug": "intercom",
-          "known_complaints": ["pricing model is opaque and expensive at scale", "resolution-based billing surprises users", "AI features require add-on purchases"]
-        },
-        {
-          "name": "Dropbox",
-          "market": "US",
-          "category": "file-storage",
-          "g2_slug": "dropbox",
-          "known_complaints": ["2GB free tier is far too small", "desktop client uses excessive RAM", "pricing jumped significantly in recent years"]
-        },
-        {
-          "name": "Google Analytics 4",
-          "market": "US",
-          "category": "analytics",
-          "g2_slug": "google-analytics",
-          "known_complaints": ["GA4 migration broke historical data comparison", "event-based model is confusing for beginners", "data sampling issues on free tier"]
-        },
-        {
-          "name": "Later",
-          "market": "US",
-          "category": "social-media",
-          "g2_slug": "later",
-          "known_complaints": ["post limits on free plan (30/month)", "TikTok scheduling reliability issues", "analytics only on paid plans"]
-        },
-        {
-          "name": "Buffer",
-          "market": "US",
-          "category": "social-media",
-          "g2_slug": "buffer",
-          "known_complaints": ["3-channel limit on free plan", "no bulk scheduling on free", "Instagram story scheduling requires manual push notification"]
+          "known_complaints": [
+            "brand kit locked to Pro plan",
+            "export resolution limited on free",
+            "team collaboration features require paid upgrade"
+          ]
         }
       ],
       "KR": [
@@ -273,141 +116,76 @@
           "name": "채널톡",
           "market": "KR",
           "category": "customer-support",
-          "known_complaints": ["유료 전환 비쌈", "소규모 사업자에겐 과한 기능", "설정 복잡"],
-          "search_keywords_kr": ["채널톡 비싸", "채널톡 대안", "채널톡 단점"]
+          "known_complaints": [
+            "유료 전환 비쌈",
+            "소규모 사업자에겐 과한 기능",
+            "설정 복잡"
+          ],
+          "search_keywords_kr": [
+            "채널톡 비싸",
+            "채널톡 대안",
+            "채널톡 단점"
+          ]
         },
         {
           "name": "스티비",
           "market": "KR",
           "category": "email-marketing",
-          "known_complaints": ["무료 제한 (500명/월2회)", "디자인 자유도 낮음", "자동화 부족"],
-          "search_keywords_kr": ["스티비 단점", "스티비 대안", "이메일 마케팅 추천"]
+          "known_complaints": [
+            "무료 제한 (500명/월2회)",
+            "디자인 자유도 낮음",
+            "자동화 부족"
+          ],
+          "search_keywords_kr": [
+            "스티비 단점",
+            "스티비 대안",
+            "이메일 마케팅 추천"
+          ]
         },
         {
           "name": "크몽",
           "market": "KR",
           "category": "freelance-platform",
-          "known_complaints": ["수수료 높음 (20%)", "품질 편차 크고 검증 어려움", "단발성 작업 위주라 장기 관계 형성 힘듦"],
-          "search_keywords_kr": ["크몽 수수료", "크몽 불만", "크몽 대안"]
+          "known_complaints": [
+            "수수료 높음 (20%)",
+            "품질 편차 크고 검증 어려움",
+            "단발성 작업 위주라 장기 관계 형성 힘듦"
+          ],
+          "search_keywords_kr": [
+            "크몽 수수료",
+            "크몽 불만",
+            "크몽 대안"
+          ]
         },
         {
           "name": "네이버 스마트스토어",
           "market": "KR",
           "category": "ecommerce",
-          "known_complaints": ["광고비 없으면 노출 안 됨", "정산 주기 느림 (D+1~3)", "CS 자동화 도구 부족"],
-          "search_keywords_kr": ["스마트스토어 단점", "스마트스토어 힘든점", "스마트스토어 대안"]
-        },
-        {
-          "name": "토스페이먼츠",
-          "market": "KR",
-          "category": "payments",
-          "known_complaints": ["소규모 가맹점 심사 기간 김", "정산 주기 협상 안 됨", "수수료 체계 불투명"],
-          "search_keywords_kr": ["토스페이먼츠 수수료", "PG 비교", "결제 대안"]
+          "known_complaints": [
+            "광고비 없으면 노출 안 됨",
+            "정산 주기 느림 (D+1~3)",
+            "CS 자동화 도구 부족"
+          ],
+          "search_keywords_kr": [
+            "스마트스토어 단점",
+            "스마트스토어 힘든점",
+            "스마트스토어 대안"
+          ]
         },
         {
           "name": "아임웹",
           "market": "KR",
           "category": "no-code-builders",
-          "known_complaints": ["월 유지비가 매출 대비 높음", "커스텀 도메인 이메일 설정 복잡", "결제 연동이 까다로움"],
-          "search_keywords_kr": ["아임웹 단점", "아임웹 비싸", "아임웹 대안"]
-        },
-        {
-          "name": "카카오 비즈메시지",
-          "market": "KR",
-          "category": "messaging",
-          "known_complaints": ["채널 개설 심사 기간 길고 기준 불명확", "발송 단가가 SMS 대비 비쌈", "알림톡 템플릿 승인 반려율 높음"],
-          "search_keywords_kr": ["카카오 비즈메시지 단점", "알림톡 대안", "카카오 채널 불편"]
-        },
-        {
-          "name": "클래스101",
-          "market": "KR",
-          "category": "online-education",
-          "known_complaints": ["크리에이터 수익 배분율 낮음 (30~40%)", "플랫폼 노출 알고리즘 불투명", "고객 데이터 크리에이터에게 안 줌"],
-          "search_keywords_kr": ["클래스101 수익 배분", "클래스101 단점", "온라인 강의 플랫폼 대안"]
-        },
-        {
-          "name": "탈잉",
-          "market": "KR",
-          "category": "online-education",
-          "known_complaints": ["수수료 20% + 결제 수수료 중복", "튜터 지원 응대 느림", "프리즈드 콘텐츠 판매 기능 약함"],
-          "search_keywords_kr": ["탈잉 수수료", "탈잉 단점", "튜터 플랫폼 비교"]
-        },
-        {
-          "name": "숨고",
-          "market": "KR",
-          "category": "freelance-platform",
-          "known_complaints": ["견적 요청 1건에 코인 차감 방식이 프리랜서에게 부담", "낚시성 요청 거르기 어려움", "후기 조작 의심 사례 많음"],
-          "search_keywords_kr": ["숨고 단점", "숨고 코인 비싸", "숨고 대안"]
-        },
-        {
-          "name": "네이버 예약",
-          "market": "KR",
-          "category": "scheduling",
-          "known_complaints": ["예약 확정 후 변경/취소 알림 UX 불편", "결제 연동이 스마트스토어 종속적", "서비스 카테고리 커스텀 어려움"],
-          "search_keywords_kr": ["네이버 예약 단점", "네이버 예약 불편", "온라인 예약 솔루션 비교"]
-        },
-        {
-          "name": "카카오워크",
-          "market": "KR",
-          "category": "project-management",
-          "known_complaints": ["대용량 파일 전송 제한", "외부 협력사 초대 기능 제한적", "타사 협업툴 연동 부족"],
-          "search_keywords_kr": ["카카오워크 단점", "카카오워크 대안", "협업툴 비교"]
-        },
-        {
-          "name": "플로우",
-          "market": "KR",
-          "category": "project-management",
-          "known_complaints": ["모바일 앱 버그 빈번", "알림 커스텀 옵션 부족", "무료 플랜 용량 제한 빠르게 소진"],
-          "search_keywords_kr": ["플로우 단점", "플로우 앱 불편", "프로젝트 관리 툴 추천"]
-        },
-        {
-          "name": "두들린",
-          "market": "KR",
-          "category": "scheduling",
-          "known_complaints": ["소규모 팀 외 사용 경험 제한적", "캘린더 연동 싱크 오류 간헐적", "커스텀 브랜딩 불가"],
-          "search_keywords_kr": ["두들린 단점", "일정 조율 툴 대안", "미팅 예약 솔루션"]
-        },
-        {
-          "name": "아이디어스",
-          "market": "KR",
-          "category": "ecommerce",
-          "known_complaints": ["수수료 구조 불투명 (카드 수수료 별도)", "작가 정산 주기 월 1회로 느림", "외부 SNS 연동 제한"],
-          "search_keywords_kr": ["아이디어스 수수료", "아이디어스 단점", "핸드메이드 판매 플랫폼 비교"]
-        },
-        {
-          "name": "그믐",
-          "market": "KR",
-          "category": "invoicing",
-          "known_complaints": ["세금계산서 자동 발행 연동 약함", "프리랜서용 계약서 템플릿 부족", "모바일 UI 불편"],
-          "search_keywords_kr": ["프리랜서 세금계산서 툴", "인보이스 앱 추천", "그믐 대안"]
-        },
-        {
-          "name": "네이버 클라우드",
-          "market": "KR",
-          "category": "file-storage",
-          "known_complaints": ["무료 용량 30GB로 금방 부족", "공유 링크 만료 기간 짧음", "PC와 모바일 싱크 속도 느림"],
-          "search_keywords_kr": ["네이버 클라우드 단점", "클라우드 스토리지 비교", "네이버 마이박스 불편"]
-        },
-        {
-          "name": "캐치패션 / 지그재그",
-          "market": "KR",
-          "category": "ecommerce",
-          "known_complaints": ["입점 수수료 높고 정산 느림", "광고 없이 노출 불가", "셀러 데이터 접근 제한적"],
-          "search_keywords_kr": ["지그재그 셀러 단점", "패션 플랫폼 수수료 비교", "온라인 쇼핑몰 입점 대안"]
-        },
-        {
-          "name": "빠른정산 / 페이업",
-          "market": "KR",
-          "category": "payments",
-          "known_complaints": ["수수료 1.5~3% 빠른정산 비용 부담", "한도 낮아 고매출 셀러엔 비효율", "심사 기준 불투명"],
-          "search_keywords_kr": ["빠른정산 수수료", "정산 대출 대안", "셀러 운전자금 솔루션"]
-        },
-        {
-          "name": "네이버 폼 / 서베이몽키 KR",
-          "market": "KR",
-          "category": "form-builders",
-          "known_complaints": ["조건부 논리 분기 기능 약함", "응답 데이터 내보내기 포맷 제한적", "브랜드 커스텀 불가"],
-          "search_keywords_kr": ["설문 폼 툴 추천", "구글폼 대안 한국", "온라인 설문 솔루션 비교"]
+          "known_complaints": [
+            "월 유지비가 매출 대비 높음",
+            "커스텀 도메인 이메일 설정 복잡",
+            "결제 연동이 까다로움"
+          ],
+          "search_keywords_kr": [
+            "아임웹 단점",
+            "아임웹 비싸",
+            "아임웹 대안"
+          ]
         }
       ]
     }
@@ -416,21 +194,45 @@
     "description": "커뮤니티 기반 — 새로운 pain point 발굴",
     "communities": {
       "global": {
-        "subreddits": ["smallbusiness", "entrepreneur", "solopreneur", "freelance"],
-        "hn_keywords": ["frustrated", "wish there was", "looking for alternative"]
+        "subreddits": [
+          "smallbusiness",
+          "entrepreneur",
+          "solopreneur",
+          "freelance"
+        ],
+        "hn_keywords": [
+          "frustrated",
+          "wish there was",
+          "looking for alternative"
+        ]
       },
       "kr": {
-        "naver_cafes": ["셀프서비스창업", "1인기업", "스마트스토어"],
-        "keywords": ["불편", "자동화", "대안 없나", "해결 방법"]
+        "naver_cafes": [
+          "셀프서비스창업",
+          "1인기업",
+          "스마트스토어"
+        ],
+        "keywords": [
+          "불편",
+          "자동화",
+          "대안 없나",
+          "해결 방법"
+        ]
       }
     },
     "enabled": true
   },
   "settings": {
-    "markets": ["US", "KR"],
-    "initial_weight": { "mode_b": 0.7, "mode_a": 0.3 },
+    "markets": [
+      "US",
+      "KR"
+    ],
+    "initial_weight": {
+      "mode_b": 0.7,
+      "mode_a": 0.3
+    },
     "confidence_threshold": 0.7,
-    "max_hypotheses_per_cycle": 100,
+    "max_hypotheses_per_cycle": 2,
     "cycle_interval_hours": 6
   }
 }
