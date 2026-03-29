@@ -1,0 +1,489 @@
+{
+  "name": "Reddit Keyword Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-0001-0001-0001-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "kw-1",
+              "name": "keywords",
+              "value": "={{ [\"digital product AI\", \"side hustle AI tool\", \"Etsy templates AI\", \"sell digital products\"] }}",
+              "type": "array"
+            },
+            {
+              "id": "kw-2",
+              "name": "searchQueries",
+              "value": "={{ [\"digital product AI\", \"side hustle AI tool\", \"Etsy templates AI\", \"sell digital products\"] }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0002-0002-0002-000000000002",
+      "name": "Set Keywords",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.reddit.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "digital product AI"
+            },
+            {
+              "name": "sort",
+              "value": "new"
+            },
+            {
+              "name": "limit",
+              "value": "25"
+            },
+            {
+              "name": "t",
+              "value": "day"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-reddit-monitor/1.0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0003-0003-0003-000000000003",
+      "name": "Reddit Search: digital product AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 180]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.reddit.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "side hustle AI tool"
+            },
+            {
+              "name": "sort",
+              "value": "new"
+            },
+            {
+              "name": "limit",
+              "value": "25"
+            },
+            {
+              "name": "t",
+              "value": "day"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-reddit-monitor/1.0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0004-0004-0004-000000000004",
+      "name": "Reddit Search: side hustle AI tool",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.reddit.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "Etsy templates AI"
+            },
+            {
+              "name": "sort",
+              "value": "new"
+            },
+            {
+              "name": "limit",
+              "value": "25"
+            },
+            {
+              "name": "t",
+              "value": "day"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-reddit-monitor/1.0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0005-0005-0005-000000000005",
+      "name": "Reddit Search: Etsy templates AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 420]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.reddit.com/search.json",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "q",
+              "value": "sell digital products"
+            },
+            {
+              "name": "sort",
+              "value": "new"
+            },
+            {
+              "name": "limit",
+              "value": "25"
+            },
+            {
+              "name": "t",
+              "value": "day"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-reddit-monitor/1.0"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0006-0006-0006-000000000006",
+      "name": "Reddit Search: sell digital products",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 540]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "a1b2c3d4-0007-0007-0007-000000000007",
+      "name": "Merge All Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [900, 360]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Flatten all Reddit API responses into individual posts\nconst allPosts = [];\n\nfor (const item of $input.all()) {\n  const data = item.json;\n  const children = data?.data?.children || [];\n  for (const child of children) {\n    const post = child.data;\n    if (post) {\n      allPosts.push({\n        json: {\n          id: post.id,\n          title: post.title,\n          selftext: post.selftext || '',\n          subreddit: post.subreddit,\n          author: post.author,\n          score: post.score || 0,\n          num_comments: post.num_comments || 0,\n          url: `https://reddit.com${post.permalink}`,\n          created_utc: post.created_utc,\n          created_date: new Date(post.created_utc * 1000).toISOString()\n        }\n      });\n    }\n  }\n}\n\nreturn allPosts;"
+      },
+      "id": "a1b2c3d4-0008-0008-0008-000000000008",
+      "name": "Flatten Posts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 360]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "filter-score",
+              "leftValue": "={{ $json.score }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            },
+            {
+              "id": "filter-age",
+              "leftValue": "={{ (Date.now() / 1000) - $json.created_utc }}",
+              "rightValue": 14400,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0009-0009-0009-000000000009",
+      "name": "Filter: Recent + Score > 3",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [1340, 360]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Remove duplicate posts by ID\nconst seen = new Set();\nconst unique = [];\n\nfor (const item of $input.all()) {\n  const id = item.json.id;\n  if (!seen.has(id)) {\n    seen.add(id);\n    unique.push(item);\n  }\n}\n\n// Sort by score descending\nunique.sort((a, b) => b.json.score - a.json.score);\n\nreturn unique;"
+      },
+      "id": "a1b2c3d4-0010-0010-0010-000000000010",
+      "name": "Deduplicate + Sort",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1560, 360]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Format results into a clean notification summary\nconst posts = $input.all();\nconst now = new Date().toISOString();\n\nif (posts.length === 0) {\n  return [{\n    json: {\n      summary: '📭 No new qualifying Reddit posts found in the last 4 hours.',\n      post_count: 0,\n      run_time: now,\n      posts: []\n    }\n  }];\n}\n\nconst lines = posts.map((item, i) => {\n  const p = item.json;\n  const age = Math.round(((Date.now() / 1000) - p.created_utc) / 60);\n  return `${i + 1}. [r/${p.subreddit}] ${p.title}\\n   Score: ${p.score} | Comments: ${p.num_comments} | ${age}m ago\\n   ${p.url}`;\n});\n\nconst summary = [\n  `🔍 Reddit Monitor Report — ${now}`,\n  `Found ${posts.length} qualifying post(s) (score > 3, last 4h):`,\n  '',\n  ...lines\n].join('\\n');\n\nreturn [{\n  json: {\n    summary,\n    post_count: posts.length,\n    run_time: now,\n    posts: posts.map(i => i.json)\n  }\n}];"
+      },
+      "id": "a1b2c3d4-0011-0011-0011-000000000011",
+      "name": "Format Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1780, 360]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "out-1",
+              "name": "notification_text",
+              "value": "={{ $json.summary }}",
+              "type": "string"
+            },
+            {
+              "id": "out-2",
+              "name": "post_count",
+              "value": "={{ $json.post_count }}",
+              "type": "number"
+            },
+            {
+              "id": "out-3",
+              "name": "run_time",
+              "value": "={{ $json.run_time }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-0012-0012-0012-000000000012",
+      "name": "Output (connect Slack/Telegram here)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [2000, 360]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Keywords": {
+      "main": [
+        [
+          {
+            "node": "Reddit Search: digital product AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reddit Search: side hustle AI tool",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reddit Search: Etsy templates AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reddit Search: sell digital products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit Search: digital product AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit Search: side hustle AI tool": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Reddit Search: Etsy templates AI": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Reddit Search: sell digital products": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Merge All Results": {
+      "main": [
+        [
+          {
+            "node": "Flatten Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flatten Posts": {
+      "main": [
+        [
+          {
+            "node": "Filter: Recent + Score > 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: Recent + Score > 3": {
+      "main": [
+        [
+          {
+            "node": "Deduplicate + Sort",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Deduplicate + Sort": {
+      "main": [
+        [
+          {
+            "node": "Format Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Summary": {
+      "main": [
+        [
+          {
+            "node": "Output (connect Slack/Telegram here)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "meta": {
+    "templateId": "reddit-keyword-monitor-v1",
+    "instanceId": ""
+  },
+  "tags": [
+    {
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z",
+      "id": "tag-reddit-monitor",
+      "name": "social-monitoring"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2026-03-29T00:00:00.000Z",
+  "versionId": "v1"
+}
