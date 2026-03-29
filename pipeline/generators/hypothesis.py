@@ -1,3 +1,4 @@
+from typing import Optional, List, Dict, Any
 """
 Step 3: 가설 생성 모듈
 분석된 상위 pain point에서 차별화 가설 3개를 자동 생성한다.
@@ -22,7 +23,7 @@ HYPOTHESES_DIR = BASE_DIR / "data" / "hypotheses"
 INSIGHTS_DIR = BASE_DIR / "data" / "insights"
 
 
-def load_latest_scored() -> list[dict]:
+def load_latest_scored() -> List[dict]:
     """가장 최근 분석된 pain point 로드"""
     files = sorted(SCORED_DIR.glob("scored_*.json"), reverse=True)
     if not files:
@@ -35,7 +36,7 @@ def load_latest_scored() -> list[dict]:
     return data
 
 
-def load_previous_insights() -> list[dict]:
+def load_previous_insights() -> List[dict]:
     """이전 인사이트 로드 (다음 가설에 반영)"""
     db_path = INSIGHTS_DIR / "db.json"
     if db_path.exists():
@@ -59,7 +60,7 @@ def get_next_hypothesis_number() -> int:
     return max(numbers) + 1 if numbers else 1
 
 
-def generate_hypotheses(top_pain_points: list[dict], insights: list[dict]) -> list[dict]:
+def generate_hypotheses(top_pain_points: list[dict], insights: list[dict]) -> List[dict]:
     """상위 pain point에서 가설 3개 생성"""
     pp_text = json.dumps(top_pain_points[:5], ensure_ascii=False, indent=2)
 
@@ -118,7 +119,7 @@ JSON 배열로 응답."""
     return []
 
 
-def run(scored_points: list[dict] | None = None) -> list[dict]:
+def run(scored_points: Optional[List[dict]] = None) -> List[dict]:
     """가설 생성 파이프라인 실행"""
     if scored_points is None:
         scored_points = load_latest_scored()

@@ -16,7 +16,7 @@ from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any
+from typing import Optional, List, Dict, Any
 
 import httpx
 from dotenv import load_dotenv
@@ -59,7 +59,7 @@ def load_targets() -> dict[str, ValidationTarget]:
     return targets
 
 
-def find_latest_hypothesis_file(hypothesis_id: str) -> Path | None:
+def find_latest_hypothesis_file(hypothesis_id: str) -> Optional[Path]:
     matches = sorted(HYPOTHESES_DIR.glob(f"{hypothesis_id}_*.json"))
     return matches[-1] if matches else None
 
@@ -128,7 +128,7 @@ def fetch_rows(table: str, hypothesis_id: str, since_hours: int) -> list[dict[st
         return response.json()
 
 
-def _event_depth(event: dict[str, Any]) -> int | None:
+def _event_depth(event: dict[str, Any]) -> Optional[int]:
     if event.get("event") != "scroll":
         return None
     metadata = event.get("metadata") or {}
@@ -219,7 +219,7 @@ def decide_next_action(metrics: dict[str, Any], criteria: dict[str, Any]) -> dic
     }
 
 
-def save_snapshot(target: ValidationTarget, hours: int, deployment: dict[str, Any] | None, metrics: dict[str, Any], action: dict[str, str]) -> Path:
+def save_snapshot(target: ValidationTarget, hours: int, deployment: Optional[Dict[str, Any]], metrics: dict[str, Any], action: dict[str, str]) -> Path:
     METRICS_DIR.mkdir(parents=True, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     hypothesis_file = find_latest_hypothesis_file(target.hypothesis_id)
@@ -242,7 +242,7 @@ def save_snapshot(target: ValidationTarget, hours: int, deployment: dict[str, An
     return path
 
 
-def run_validation(hypothesis_id: str, hours: int | None = None, deploy: bool = False) -> dict[str, Any]:
+def run_validation(hypothesis_id: str, hours: Optional[int] = None, deploy: bool = False) -> dict[str, Any]:
     targets = load_targets()
     if hypothesis_id not in targets:
         raise KeyError(f"Unknown hypothesis target: {hypothesis_id}")

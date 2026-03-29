@@ -1,3 +1,4 @@
+from typing import Optional, List, Dict, Any
 """
 모드 B: 레퍼런스 기반 수집
 기존 서비스의 불만/리뷰를 크롤링하여 차별화 기회를 탐색한다.
@@ -35,7 +36,7 @@ def load_config() -> dict:
         return json.load(f)
 
 
-def search_reddit_complaints(service_name: str, subreddits: list[str]) -> list[dict]:
+def search_reddit_complaints(service_name: str, subreddits: list[str]) -> List[dict]:
     """Reddit에서 특정 서비스에 대한 불만 검색 (웹 스크래핑 대신 검색 API 활용)"""
     results = []
     search_queries = [
@@ -93,7 +94,7 @@ def search_reddit_complaints(service_name: str, subreddits: list[str]) -> list[d
     return unique
 
 
-def search_web_complaints(service_name: str) -> list[dict]:
+def search_web_complaints(service_name: str) -> List[dict]:
     """'X alternative' 등 웹 검색으로 불만/비교 콘텐츠 수집"""
     results = []
     queries = [
@@ -136,7 +137,7 @@ def search_web_complaints(service_name: str) -> list[dict]:
     return results
 
 
-def search_twitter_complaints(service_name: str) -> list[dict]:
+def search_twitter_complaints(service_name: str) -> List[dict]:
     """Twitter/X API로 서비스 불만 트윗 검색"""
     bearer = os.getenv("TWITTER_BEARER_TOKEN", "")
     if not bearer:
@@ -183,7 +184,7 @@ def search_twitter_complaints(service_name: str) -> list[dict]:
     return results
 
 
-def extract_pain_points_with_ai(raw_data: list[dict], service_name: str) -> list[dict]:
+def extract_pain_points_with_ai(raw_data: list[dict], service_name: str) -> List[dict]:
     """Claude CLI로 수집된 원본 데이터에서 pain point를 추출"""
     if not raw_data:
         return []
@@ -222,7 +223,7 @@ JSON 배열로 응답. 최소 3개, 최대 10개. 데이터가 부족하면 conf
     return []
 
 
-def collect_for_service(service: dict) -> list[dict]:
+def collect_for_service(service: dict) -> List[dict]:
     """단일 서비스에 대해 전체 수집 + AI 추출 실행"""
     name = service["name"]
     print(f"\n{'='*50}")
@@ -265,7 +266,7 @@ def collect_for_service(service: dict) -> list[dict]:
     return pain_points
 
 
-def run(services: list[dict] | None = None) -> list[dict]:
+def run(services: Optional[List[dict]] = None) -> List[dict]:
     """모드 B 수집 실행. 서비스 목록이 없으면 config에서 로드."""
     config = load_config()
 

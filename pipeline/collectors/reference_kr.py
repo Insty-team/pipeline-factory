@@ -1,3 +1,4 @@
+from typing import Optional, List, Dict, Any
 """
 모드 B (한국): 레퍼런스 기반 수집
 한국 서비스의 불만/리뷰를 네이버 검색으로 크롤링하여 차별화 기회 탐색.
@@ -46,7 +47,7 @@ def _naver_api_headers() -> dict:
     return {}
 
 
-def search_naver(query: str, display: int = 10) -> list[dict]:
+def search_naver(query: str, display: int = 10) -> List[dict]:
     """네이버 검색 API (웹 문서)"""
     api_headers = _naver_api_headers()
     if not api_headers:
@@ -80,7 +81,7 @@ def search_naver(query: str, display: int = 10) -> list[dict]:
     return results
 
 
-def search_naver_blog(query: str, display: int = 10) -> list[dict]:
+def search_naver_blog(query: str, display: int = 10) -> List[dict]:
     """네이버 블로그 검색 API"""
     api_headers = _naver_api_headers()
     if not api_headers:
@@ -113,7 +114,7 @@ def search_naver_blog(query: str, display: int = 10) -> list[dict]:
     return results
 
 
-def _search_naver_html(query: str, display: int = 10) -> list[dict]:
+def _search_naver_html(query: str, display: int = 10) -> List[dict]:
     """네이버 HTML 스크래핑 (API 키 없을 때 폴백)"""
     results = []
     try:
@@ -143,7 +144,7 @@ def _search_naver_html(query: str, display: int = 10) -> list[dict]:
     return results
 
 
-def search_duckduckgo_kr(query: str) -> list[dict]:
+def search_duckduckgo_kr(query: str) -> List[dict]:
     """DuckDuckGo로 한국어 검색 (네이버 차단 시 백업)"""
     results = []
     try:
@@ -173,7 +174,7 @@ def search_duckduckgo_kr(query: str) -> list[dict]:
     return results
 
 
-def collect_for_service(service: dict) -> list[dict]:
+def collect_for_service(service: dict) -> List[dict]:
     """한국 서비스 1개에 대해 수집 + AI 추출"""
     name = service["name"]
     keywords = service.get("search_keywords_kr", [f"{name} 단점", f"{name} 대안"])
@@ -246,7 +247,7 @@ JSON 배열로 응답. 최소 3개, 최대 10개."""
     return []
 
 
-def run(services: list[dict] | None = None) -> list[dict]:
+def run(services: Optional[List[dict]] = None) -> List[dict]:
     """한국 시장 모드 B 수집 실행"""
     config = load_config()
 

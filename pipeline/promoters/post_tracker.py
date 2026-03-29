@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Optional, List, Dict, Any
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 TRACKER_PATH = BASE_DIR / "data" / "promotions" / "tracker.json"
@@ -60,7 +60,7 @@ def get_posts_for_hypothesis(hypothesis_id: str) -> list[dict[str, Any]]:
     return [e for e in _load_tracker() if e.get("hypothesis_id") == hypothesis_id]
 
 
-def mark_post_status(entry_id: str, status: str, url_posted: str = "", notes: str = "") -> dict[str, Any] | None:
+def mark_post_status(entry_id: str, status: str, url_posted: str = "", notes: str = "") -> Optional[Dict[str, Any]]:
     """Update the status of a tracked post. Returns updated entry or None if not found."""
     if status not in VALID_STATUSES:
         raise ValueError(f"Invalid status '{status}'. Must be one of: {', '.join(sorted(VALID_STATUSES))}")

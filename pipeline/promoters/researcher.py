@@ -17,7 +17,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Optional, List, Dict, Any
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR))
@@ -254,7 +254,7 @@ def research_all_channels(hypothesis_id: str) -> dict[str, dict]:
     return results
 
 
-def load_research(hypothesis_id: str, channel: str) -> dict | None:
+def load_research(hypothesis_id: str, channel: str) -> Optional[dict]:
     """Load saved research for a channel from disk. Returns None if not found."""
     path = RESEARCH_DIR / f"{hypothesis_id}_{channel}.json"
     if not path.exists():

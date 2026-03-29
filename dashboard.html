@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline Factory — Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', monospace; }
+    .pulse { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  </style>
+</head>
+<body class="bg-gray-950 text-white p-6">
+  <h1 class="text-2xl font-bold mb-2">Pipeline Factory Dashboard</h1>
+  <p class="text-gray-500 mb-6" id="last-updated">Loading...</p>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-4 gap-4 mb-8" id="summary-cards">
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm">Active Hypotheses</div>
+      <div class="text-3xl font-bold" id="active-count">-</div>
+    </div>
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm">Total Page Views</div>
+      <div class="text-3xl font-bold" id="total-views">-</div>
+    </div>
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm">Total Signups</div>
+      <div class="text-3xl font-bold" id="total-signups">-</div>
+    </div>
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm">Avg Conversion</div>
+      <div class="text-3xl font-bold" id="avg-conversion">-</div>
+    </div>
+  </div>
+
+  <!-- Hypothesis Table -->
+  <h2 class="text-xl font-bold mb-3">Hypotheses</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden mb-8">
+    <table class="w-full text-sm">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="text-left p-3">ID</th>
+          <th class="text-left p-3">Title</th>
+          <th class="text-right p-3">Views</th>
+          <th class="text-right p-3">Signups</th>
+          <th class="text-right p-3">Conv %</th>
+          <th class="text-left p-3">Status</th>
+        </tr>
+      </thead>
+      <tbody id="hyp-table"></tbody>
+    </table>
+  </div>
+
+  <!-- Bluesky Engagement -->
+  <h2 class="text-xl font-bold mb-3">Bluesky Posts</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden mb-8">
+    <table class="w-full text-sm">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="text-left p-3">Date</th>
+          <th class="text-left p-3">Post</th>
+          <th class="text-right p-3">Likes</th>
+          <th class="text-right p-3">Replies</th>
+          <th class="text-right p-3">Reposts</th>
+        </tr>
+      </thead>
+      <tbody id="bsky-table"></tbody>
+    </table>
+  </div>
+
+  <!-- Pipeline Status -->
+  <h2 class="text-xl font-bold mb-3">Automation Status</h2>
+  <div class="grid grid-cols-2 gap-4 mb-8">
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm mb-2">Scheduled Jobs</div>
+      <div class="space-y-2 text-sm">
+        <div class="flex justify-between"><span>Auto-backup</span><span class="text-green-400">Every 20min</span></div>
+        <div class="flex justify-between"><span>Bluesky Monitor</span><span class="text-green-400">Every 1hr</span></div>
+        <div class="flex justify-between"><span>Daily Pipeline</span><span class="text-green-400">9:00 AM</span></div>
+        <div class="flex justify-between"><span>Weekly Pipeline</span><span class="text-green-400">Mon 9:00 AM</span></div>
+      </div>
+    </div>
+    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
+      <div class="text-gray-500 text-sm mb-2">Recent Logs</div>
+      <pre class="text-xs text-gray-400 overflow-auto max-h-32" id="recent-logs">Loading...</pre>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://hnoxlznbghhavnrsunij.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
+    const headers = { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY };
+
+    async function loadData() {
+      document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString();
+
+      // Fetch events
+      const eventsResp = await fetch(SUPABASE_URL + '/rest/v1/events?order=created_at.desc&limit=500', { headers });
+      const events = await eventsResp.json();
+
+      // Fetch waitlist
+      const wlResp = await fetch(SUPABASE_URL + '/rest/v1/waitlist?order=created_at.desc&limit=100', { headers });
+      const waitlist = await wlResp.json();
+
+      // Group by hypothesis
+      const hyps = {};
+      events.forEach(e => {
+        const h = e.hypothesis || 'unknown';
+        if (!hyps[h]) hyps[h] = { views: 0, signups: 0, events: [] };
+        if (e.event === 'page_view') hyps[h].views++;
+        hyps[h].events.push(e);
+      });
+      waitlist.forEach(w => {
+        const h = w.hypothesis || 'unknown';
+        if (!hyps[h]) hyps[h] = { views: 0, signups: 0, events: [] };
+        hyps[h].signups++;
+      });
+
+      // Summary
+      let totalViews = 0, totalSignups = 0;
+      Object.values(hyps).forEach(h => { totalViews += h.views; totalSignups += h.signups; });
+      const activeCount = Object.keys(hyps).filter(k => !k.includes('geo') && !k.includes('monitor')).length;
+      const avgConv = totalViews > 0 ? (totalSignups / totalViews * 100).toFixed(1) + '%' : '0%';
+
+      document.getElementById('active-count').textContent = activeCount;
+      document.getElementById('total-views').textContent = totalViews;
+      document.getElementById('total-signups').textContent = totalSignups;
+      document.getElementById('avg-conversion').textContent = avgConv;
+
+      // Hypothesis table
+      const tbody = document.getElementById('hyp-table');
+      tbody.innerHTML = '';
+      Object.entries(hyps).filter(([k]) => !k.includes('monitor')).forEach(([id, data]) => {
+        const conv = data.views > 0 ? (data.signups / data.views * 100).toFixed(1) : '0.0';
+        const status = data.views >= 100 ? (parseFloat(conv) >= 10 ? 'GO' : 'Testing') : 'Need traffic';
+        const statusColor = status === 'GO' ? 'text-green-400' : status === 'Testing' ? 'text-yellow-400' : 'text-gray-500';
+        tbody.innerHTML += '<tr class="border-t border-gray-800"><td class="p-3 font-mono">' + id + '</td><td class="p-3">' + id + '</td><td class="p-3 text-right">' + data.views + '</td><td class="p-3 text-right">' + data.signups + '</td><td class="p-3 text-right">' + conv + '%</td><td class="p-3 ' + statusColor + '">' + status + '</td></tr>';
+      });
+
+      // Load bluesky history
+      try {
+        const bskyResp = await fetch('./pipeline/data/promotions/bluesky_history.json');
+        if (bskyResp.ok) {
+          const bsky = await bskyResp.json();
+          const bskyTbody = document.getElementById('bsky-table');
+          bskyTbody.innerHTML = '';
+          bsky.forEach(p => {
+            const eng = p.engagement || {};
+            const date = p.date ? p.date.substring(0, 10) : '-';
+            bskyTbody.innerHTML += '<tr class="border-t border-gray-800"><td class="p-3">' + date + '</td><td class="p-3">' + (p.text || '').substring(0, 60) + '...</td><td class="p-3 text-right">' + (eng.likes || 0) + '</td><td class="p-3 text-right">' + (eng.replies || 0) + '</td><td class="p-3 text-right">' + (eng.reposts || 0) + '</td></tr>';
+          });
+        }
+      } catch(e) {}
+    }
+
+    loadData();
+    setInterval(loadData, 60000); // Refresh every 60s
+  </script>
+</body>
+</html>

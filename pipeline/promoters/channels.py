@@ -16,7 +16,7 @@ import json
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Optional, List, Dict, Any
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR))
@@ -100,8 +100,8 @@ def _build_post_prompt(
     live_url: str,
     title: str,
     utm_url: str,
-    research: dict | None,
-    hypothesis_config: dict | None = None,
+    research: Optional[dict],
+    hypothesis_config: Optional[dict] = None,
 ) -> str:
     channel_label = CHANNEL_LABELS.get(channel, channel)
 
@@ -170,7 +170,7 @@ def _get_utm_url(hypothesis_config: dict, channel: str) -> str:
 def generate_post(
     hypothesis_config: dict,
     channel: str,
-    research: dict | None = None,
+    research: Optional[dict] = None,
 ) -> str:
     """Generate a channel-specific post. Uses research if available.
 
@@ -192,7 +192,7 @@ def generate_post(
 
 def generate_posts(
     hypothesis_id: str,
-    research_map: dict[str, dict] | None = None,
+    research_map: Optional[Dict[str, dict]] = None,
 ) -> list[Path]:
     """Generate promotion posts for all channels for a given hypothesis.
 

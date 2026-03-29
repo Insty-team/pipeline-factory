@@ -1,3 +1,4 @@
+from typing import Optional, List, Dict, Any
 """
 Step 2: 분석 모듈
 수집된 pain point를 필터링하고 신뢰도 점수를 매겨 차별화 기회를 평가한다.
@@ -19,7 +20,7 @@ DATA_DIR = BASE_DIR / "data" / "pain_points"
 CONFIG_PATH = BASE_DIR / "config" / "sources.json"
 
 
-def load_latest_pain_points() -> list[dict]:
+def load_latest_pain_points() -> List[dict]:
     """가장 최근 수집된 pain point 파일 로드"""
     files = sorted(DATA_DIR.glob("mode_*.json"), reverse=True)
     if not files:
@@ -32,7 +33,7 @@ def load_latest_pain_points() -> list[dict]:
     return data
 
 
-def filter_by_confidence(pain_points: list[dict], threshold: float = 0.7) -> list[dict]:
+def filter_by_confidence(pain_points: list[dict], threshold: float = 0.7) -> List[dict]:
     """신뢰도 기준 필터링"""
     passed = [pp for pp in pain_points if pp.get("confidence", 0) >= threshold]
     filtered = len(pain_points) - len(passed)
@@ -40,7 +41,7 @@ def filter_by_confidence(pain_points: list[dict], threshold: float = 0.7) -> lis
     return passed
 
 
-def deduplicate(pain_points: list[dict]) -> list[dict]:
+def deduplicate(pain_points: list[dict]) -> List[dict]:
     """같은 서비스+카테고리 중복 제거 (confidence 높은 것 유지)"""
     seen = {}
     for pp in pain_points:
@@ -55,7 +56,7 @@ def deduplicate(pain_points: list[dict]) -> list[dict]:
     return result
 
 
-def enrich_with_market_analysis(pain_points: list[dict]) -> list[dict]:
+def enrich_with_market_analysis(pain_points: list[dict]) -> List[dict]:
     """Claude CLI로 각 pain point에 시장 분석 추가"""
     if not pain_points:
         return []
@@ -85,7 +86,7 @@ def enrich_with_market_analysis(pain_points: list[dict]) -> list[dict]:
     return pain_points
 
 
-def score_and_rank(pain_points: list[dict]) -> list[dict]:
+def score_and_rank(pain_points: list[dict]) -> List[dict]:
     """최종 점수 계산 + 랭킹"""
     for pp in pain_points:
         # 복합 점수 = 신뢰도(30%) + 시장 크기(25%) + 빌드 용이성(25%) + 수익 잠재력(20%)
@@ -113,7 +114,7 @@ def score_and_rank(pain_points: list[dict]) -> list[dict]:
     return pain_points
 
 
-def run(pain_points: list[dict] | None = None) -> list[dict]:
+def run(pain_points: Optional[List[dict]] = None) -> List[dict]:
     """분석 파이프라인 실행"""
     if pain_points is None:
         pain_points = load_latest_pain_points()
