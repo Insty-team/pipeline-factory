@@ -534,7 +534,7 @@
           body: JSON.stringify({
             email,
             hypothesis: 'H-006',
-            source: document.referrer || 'direct',
+            source: utmSource || document.referrer || 'direct',
           }),
         });
 
@@ -574,6 +574,9 @@
     document.getElementById('waitlist-form').addEventListener('submit', handleSubmit);
 
     // --- Tracking ---
+    const utmRef = urlParams.get('ref') || '';
+    const utmSource = urlParams.get('utm_source') || utmRef || '';
+
     async function trackEvent(event, metadata = {}) {
       try {
         await fetch(`${SUPABASE_URL}/rest/v1/events`, {
@@ -586,8 +589,9 @@
           body: JSON.stringify({
             hypothesis: 'H-006',
             event,
-            metadata: { ...metadata, variant: abVariant },
+            metadata: { ...metadata, variant: abVariant, ref: utmSource },
             referrer: document.referrer || null,
+            source: utmSource || document.referrer || 'direct',
             user_agent: navigator.userAgent,
           }),
         });

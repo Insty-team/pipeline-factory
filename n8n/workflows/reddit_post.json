@@ -1,0 +1,87 @@
+{
+  "name": "Reddit Post",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "reddit-post",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "reddit-post"
+    },
+    {
+      "parameters": {
+        "operation": "submit",
+        "subreddit": "={{ $json.body.subreddit }}",
+        "kind": "self",
+        "title": "={{ $json.body.title }}",
+        "text": "={{ $json.body.text }}",
+        "additionalFields": {}
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000002",
+      "name": "Reddit",
+      "type": "n8n-nodes-base.reddit",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "credentials": {
+        "redditOAuth2Api": {
+          "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID",
+          "name": "Reddit account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, hypothesis_id: $('Webhook').item.json.body.hypothesis_id, variant: $('Webhook').item.json.body.variant, subreddit: $('Webhook').item.json.body.subreddit, post_id: $json.name, post_url: 'https://reddit.com' + $json.permalink }) }}"
+      },
+      "id": "b2c3d4e5-0002-0002-0002-000000000003",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Reddit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reddit": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "pipeline-factory"
+  },
+  "id": "reddit-post-workflow",
+  "tags": ["social-media", "reddit", "pipeline-factory"],
+  "notes": "Receives: { title, text, subreddit, hypothesis_id, variant }. Credentials: configure Reddit OAuth2 in n8n UI under Credentials > Reddit OAuth2 API."
+}

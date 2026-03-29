@@ -1,0 +1,237 @@
+{
+  "name": "Scheduled Validation Check",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000001",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "trigger-validation",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000002",
+      "name": "Manual Trigger Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 500],
+      "webhookId": "trigger-validation"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/api/validate",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "hypothesis_id",
+              "value": "H-006"
+            },
+            {
+              "name": "action",
+              "value": "check"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000003",
+      "name": "Run Validation",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [480, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.metrics?.page_views || 0 }}",
+              "operation": "largerEqual",
+              "value2": 100
+            }
+          ]
+        }
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000004",
+      "name": "Enough Traffic?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [700, 400]
+    },
+    {
+      "parameters": {
+        "functionCode": "const metrics = $input.first().json.metrics || {};\nconst action = $input.first().json.action || {};\nconst hypothesis_id = $input.first().json.hypothesis_id || 'H-006';\n\nconst summary = [\n  `Validation Report: ${hypothesis_id}`,\n  `Status: ${$input.first().json.status || 'unknown'}`,\n  ``,\n  `Page views: ${metrics.page_views || 0}`,\n  `Waitlist signups: ${metrics.waitlist_signups || 0}`,\n  `Conversion rate: ${((metrics.conversion_rate || 0) * 100).toFixed(1)}%`,\n  `Scroll 50% rate: ${((metrics.scroll_50_rate || 0) * 100).toFixed(1)}%`,\n  ``,\n  `Decision: ${action.decision || 'N/A'}`,\n  `Reason: ${action.reason || 'N/A'}`,\n  `Next step: ${action.next_step || 'N/A'}`\n].join('\\n');\n\nreturn [{ json: { summary, hypothesis_id, metrics, action, needs_attention: true } }];"
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000005",
+      "name": "Format Alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [920, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "const metrics = $input.first().json.metrics || {};\nconst hypothesis_id = $input.first().json.hypothesis_id || 'H-006';\n\nconst summary = [\n  `${hypothesis_id}: Still collecting traffic`,\n  `Page views: ${metrics.page_views || 0} / 100 needed`,\n  `Waitlist: ${metrics.waitlist_signups || 0}`\n].join('\\n');\n\nreturn [{ json: { summary, hypothesis_id, metrics, needs_attention: false } }];"
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000006",
+      "name": "Format Status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 1,
+      "position": [920, 500]
+    },
+    {
+      "parameters": {
+        "url": "={{ $env.NOTIFICATION_WEBHOOK_URL || 'http://host.docker.internal:8000/api/notify' }}",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.summary }}"
+            },
+            {
+              "name": "needs_attention",
+              "value": "={{ $json.needs_attention }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000007",
+      "name": "Send Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [1140, 400]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ triggered: true, timestamp: new Date().toISOString() }) }}"
+      },
+      "id": "e5f6a7b8-0005-0005-0005-000000000008",
+      "name": "Respond Manual",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1340, 500]
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Run Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger Webhook": {
+      "main": [
+        [
+          {
+            "node": "Run Validation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Validation": {
+      "main": [
+        [
+          {
+            "node": "Enough Traffic?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enough Traffic?": {
+      "main": [
+        [
+          {
+            "node": "Format Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Format Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Alert": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Status": {
+      "main": [
+        [
+          {
+            "node": "Send Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Notification": {
+      "main": [
+        [
+          {
+            "node": "Respond Manual",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "pipeline-factory"
+  },
+  "id": "scheduled-validation-workflow",
+  "tags": ["validation", "scheduling", "pipeline-factory"],
+  "notes": "Runs validation check every 30 minutes via cron, or on-demand via POST /webhook/trigger-validation. Calls the pipeline API to run metrics check, formats results, and sends notification. Set NOTIFICATION_WEBHOOK_URL env var for Slack/Discord/Telegram webhook."
+}

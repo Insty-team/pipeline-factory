@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774604591888,
-  "projectRoot": "/home/samwoo/github_repos/polsia-case-study",
+  "lastScanned": 1774714736160,
+  "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
     "frameworks": [],
@@ -25,304 +25,237 @@
     "isMonorepo": false,
     "workspaces": [],
     "mainDirectories": [],
-    "gitBranches": null
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
   },
   "customNotes": [],
-  "directoryMap": {},
+  "directoryMap": {
+    "landing-pages": {
+      "path": "landing-pages",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1774714736151,
+      "keyFiles": []
+    },
+    "n8n": {
+      "path": "n8n",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1774714736152,
+      "keyFiles": [
+        "README.md",
+        "docker-compose.yml"
+      ]
+    },
+    "pipeline": {
+      "path": "pipeline",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1774714736152,
+      "keyFiles": [
+        "Dockerfile",
+        "README.md",
+        "ai.py",
+        "docker-compose.yml",
+        "loop.py"
+      ]
+    },
+    "research": {
+      "path": "research",
+      "purpose": null,
+      "fileCount": 4,
+      "lastAccessed": 1774714736152,
+      "keyFiles": [
+        "competitor-analysis.md",
+        "hypothesis-scoring.md",
+        "micro-tool-factory.md",
+        "reddit-pain-points.md"
+      ]
+    },
+    "n8n/data": {
+      "path": "n8n/data",
+      "purpose": "Data files",
+      "fileCount": 0,
+      "lastAccessed": 1774714736153,
+      "keyFiles": []
+    },
+    "pipeline/config": {
+      "path": "pipeline/config",
+      "purpose": "Configuration files",
+      "fileCount": 4,
+      "lastAccessed": 1774714736153,
+      "keyFiles": [
+        "n8n_config.json",
+        "sources.json",
+        "validation_targets.json"
+      ]
+    },
+    "pipeline/data": {
+      "path": "pipeline/data",
+      "purpose": "Data files",
+      "fileCount": 0,
+      "lastAccessed": 1774714736153,
+      "keyFiles": []
+    }
+  },
   "hotPaths": [
     {
-      "path": "PLAYBOOK.md",
-      "accessCount": 86,
-      "lastAccessed": 1774708039350,
+      "path": "n8n/workflows/multi_channel_post.json",
+      "accessCount": 6,
+      "lastAccessed": 1774715071594,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/promoters/n8n_poster.py",
+      "accessCount": 6,
+      "lastAccessed": 1774718440512,
       "type": "file"
     },
     {
       "path": "landing-pages/h006-scheduling/index.html",
-      "accessCount": 21,
-      "lastAccessed": 1774711377925,
-      "type": "file"
-    },
-    {
-      "path": "landing-pages/h007-passive-income/index.html",
-      "accessCount": 21,
-      "lastAccessed": 1774711422376,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/collectors/reference.py",
-      "accessCount": 14,
-      "lastAccessed": 1774707799635,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/channels.py",
-      "accessCount": 14,
-      "lastAccessed": 1774710955825,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/researcher.py",
-      "accessCount": 9,
-      "lastAccessed": 1774710956314,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/sources.json",
-      "accessCount": 8,
-      "lastAccessed": 1774707873663,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/validation_targets.json",
-      "accessCount": 8,
-      "lastAccessed": 1774710827478,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
-      "accessCount": 8,
-      "lastAccessed": 1774711578781,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/generators/hypothesis.py",
-      "accessCount": 7,
-      "lastAccessed": 1774707797357,
+      "accessCount": 6,
+      "lastAccessed": 1774721316789,
       "type": "file"
     },
     {
       "path": "pipeline/validate_loop.py",
-      "accessCount": 7,
-      "lastAccessed": 1774708217689,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/orchestrator.py",
-      "accessCount": 6,
-      "lastAccessed": 1774708039747,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/README.md",
-      "accessCount": 6,
-      "lastAccessed": 1774708734834,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/ai.py",
       "accessCount": 5,
-      "lastAccessed": 1774708380335,
+      "lastAccessed": 1774715123341,
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_indie_hackers_research_based.md",
-      "accessCount": 5,
-      "lastAccessed": 1774711548246,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/analyzers/scorer.py",
+      "path": "n8n/docker-compose.yml",
       "accessCount": 4,
-      "lastAccessed": 1774707799518,
+      "lastAccessed": 1774716040242,
       "type": "file"
-    },
-    {
-      "path": "pipeline/validators/validator.py",
-      "accessCount": 4,
-      "lastAccessed": 1774707801645,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/collectors/reference_kr.py",
-      "accessCount": 4,
-      "lastAccessed": 1774707814280,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_saas_research_based.md",
-      "accessCount": 4,
-      "lastAccessed": 1774711534198,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_research_based.md",
-      "accessCount": 4,
-      "lastAccessed": 1774711534956,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_research_based.md",
-      "accessCount": 4,
-      "lastAccessed": 1774711536239,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/Dockerfile",
-      "accessCount": 2,
-      "lastAccessed": 1774681013843,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/.env.example",
-      "accessCount": 2,
-      "lastAccessed": 1774707796930,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/hypotheses/H-007_20260328.json",
-      "accessCount": 2,
-      "lastAccessed": 1774710829790,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions",
-      "accessCount": 2,
-      "lastAccessed": 1774711571251,
-      "type": "directory"
     },
     {
       "path": "pipeline/.env",
+      "accessCount": 4,
+      "lastAccessed": 1774718405936,
+      "type": "file"
+    },
+    {
+      "path": "n8n/README.md",
+      "accessCount": 3,
+      "lastAccessed": 1774715148737,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/config/n8n_config.json",
+      "accessCount": 3,
+      "lastAccessed": 1774718467677,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 3,
+      "lastAccessed": 1774721262669,
+      "type": "directory"
+    },
+    {
+      "path": "landing-pages/h007-passive-income/index.html",
       "accessCount": 2,
-      "lastAccessed": 1774712789098,
+      "lastAccessed": 1774714866194,
       "type": "file"
     },
     {
-      "path": "research/micro-tool-factory.md",
-      "accessCount": 1,
-      "lastAccessed": 1774604718726,
+      "path": "pipeline/config/validation_targets.json",
+      "accessCount": 2,
+      "lastAccessed": 1774714926849,
       "type": "file"
     },
     {
-      "path": "research/hypothesis-scoring.md",
+      "path": "n8n/workflows/twitter_post.json",
       "accessCount": 1,
-      "lastAccessed": 1774604735787,
+      "lastAccessed": 1774714789696,
       "type": "file"
     },
     {
-      "path": "pipeline/requirements.txt",
+      "path": "n8n/workflows/reddit_post.json",
       "accessCount": 1,
-      "lastAccessed": 1774676057878,
+      "lastAccessed": 1774714790145,
       "type": "file"
     },
     {
-      "path": "pipeline/collectors/__init__.py",
+      "path": "pipeline/promoters/channels.py",
       "accessCount": 1,
-      "lastAccessed": 1774676082010,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/analyzers/__init__.py",
-      "accessCount": 1,
-      "lastAccessed": 1774676082147,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/generators/__init__.py",
-      "accessCount": 1,
-      "lastAccessed": 1774676082583,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/validators/__init__.py",
-      "accessCount": 1,
-      "lastAccessed": 1774676083100,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/docker-compose.yml",
-      "accessCount": 1,
-      "lastAccessed": 1774680113790,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/loop.py",
-      "accessCount": 1,
-      "lastAccessed": 1774680118448,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/__init__.py",
-      "accessCount": 1,
-      "lastAccessed": 1774707079310,
+      "lastAccessed": 1774714790736,
       "type": "file"
     },
     {
       "path": "pipeline/promoters/post_tracker.py",
       "accessCount": 1,
-      "lastAccessed": 1774707130017,
+      "lastAccessed": 1774714804705,
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_reddit_saas_20260328_231728.md",
+      "path": "pipeline/data/promotions/tracker.json",
       "accessCount": 1,
-      "lastAccessed": 1774707525550,
+      "lastAccessed": 1774714834659,
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_indie_hackers_20260328_231728.md",
+      "path": "PLAYBOOK.md",
       "accessCount": 1,
-      "lastAccessed": 1774707526345,
+      "lastAccessed": 1774714866796,
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_twitter_20260328_231728.md",
+      "path": "n8n/workflows/linkedin_post.json",
       "accessCount": 1,
-      "lastAccessed": 1774707526409,
+      "lastAccessed": 1774714950675,
       "type": "file"
     },
     {
-      "path": "",
+      "path": "n8n/workflows/scheduled_validation.json",
       "accessCount": 1,
-      "lastAccessed": 1774710652873,
+      "lastAccessed": 1774714989609,
+      "type": "file"
+    },
+    {
+      "path": "pipeline",
+      "accessCount": 1,
+      "lastAccessed": 1774714995957,
       "type": "directory"
     },
     {
-      "path": "pipeline/data/hypotheses",
+      "path": "pipeline/api_server.py",
       "accessCount": 1,
-      "lastAccessed": 1774710827138,
-      "type": "directory"
-    },
-    {
-      "path": "pipeline/promoters",
-      "accessCount": 1,
-      "lastAccessed": 1774710947046,
-      "type": "directory"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_saas_variant_B.md",
-      "accessCount": 1,
-      "lastAccessed": 1774711425846,
+      "lastAccessed": 1774715016604,
       "type": "file"
     },
     {
-      "path": "pipeline/data/promotions/H-006_reddit_entrepreneur_variant_B.md",
+      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
       "accessCount": 1,
-      "lastAccessed": 1774711448351,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_reddit_smallbusiness_variant_B.md",
-      "accessCount": 1,
-      "lastAccessed": 1774711469537,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_indie_hackers_variant_B.md",
-      "accessCount": 1,
-      "lastAccessed": 1774711506234,
+      "lastAccessed": 1774716507563,
       "type": "file"
     },
     {
       "path": "pipeline/data/promotions/H-006_twitter_variant_B.md",
       "accessCount": 1,
-      "lastAccessed": 1774711527371,
+      "lastAccessed": 1774716576458,
       "type": "file"
     },
     {
-      "path": "research/competitor-analysis.md",
+      "path": "n8n/workflows/bluesky_post.json",
       "accessCount": 1,
-      "lastAccessed": 1774712978219,
+      "lastAccessed": 1774718428676,
       "type": "file"
+    },
+    {
+      "path": "pipeline/config/channel_personas.json",
+      "accessCount": 1,
+      "lastAccessed": 1774718810697,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h006-scheduling",
+      "accessCount": 1,
+      "lastAccessed": 1774721268269,
+      "type": "directory"
     }
   ],
   "userDirectives": []

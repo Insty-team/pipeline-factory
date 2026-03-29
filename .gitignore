@@ -1,4 +1,5 @@
 data/
+n8n/data/
 .env
 __pycache__/
 .omc/sessions/
@@ -7,3 +8,4 @@ __pycache__/
 .wrangler/
 pipeline/.omc/
 pipeline/data/
+n8n/.omc/

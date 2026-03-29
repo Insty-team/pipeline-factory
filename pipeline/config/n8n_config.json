@@ -1,0 +1,23 @@
+{
+  "n8n_base_url": "http://localhost:5678",
+  "webhooks": {
+    "twitter": "/webhook/twitter-post",
+    "reddit": "/webhook/reddit-post",
+    "linkedin": "/webhook/linkedin-post",
+    "multi": "/webhook/multi-post",
+    "bluesky": "/webhook/bluesky-post",
+    "trigger_validation": "/webhook/trigger-validation"
+  },
+  "api_server": {
+    "base_url": "http://localhost:8000",
+    "endpoints": {
+      "validate": "/api/validate",
+      "notify": "/api/notify",
+      "health": "/api/health"
+    }
+  },
+  "schedule": {
+    "validation_interval_minutes": 30,
+    "notification_webhook_url": ""
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "name": "Bluesky Post",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bluesky-post",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "bsky-001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "bluesky-post"
+    },
+    {
+      "parameters": {
+        "url": "https://bsky.social/xrpc/com.atproto.server.createSession",
+        "method": "POST",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ identifier: $json.body.bluesky_handle || $env.BLUESKY_HANDLE || 'threecows92.bsky.social', password: $json.body.bluesky_password || $env.BLUESKY_PASSWORD }) }}",
+        "options": { "timeout": 10000 }
+      },
+      "id": "bsky-002",
+      "name": "Bluesky Login",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [460, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "https://bsky.social/xrpc/com.atproto.repo.createRecord",
+        "method": "POST",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ repo: $json.did, collection: 'app.bsky.feed.post', record: { '$type': 'app.bsky.feed.post', text: $('Webhook').item.json.body.content, createdAt: new Date().toISOString() } }) }}",
+        "options": {
+          "timeout": 10000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.accessJwt }}"
+            }
+          ]
+        }
+      },
+      "id": "bsky-003",
+      "name": "Create Post",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [680, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: !$json.error, channel: 'bluesky', hypothesis_id: $('Webhook').item.json.body.hypothesis_id, variant: $('Webhook').item.json.body.variant, post_url: $json.uri ? 'https://bsky.app/profile/' + ($('Webhook').item.json.body.bluesky_handle || 'threecows92.bsky.social') + '/post/' + $json.uri.split('/').pop() : '', error: $json.error || $json.message || '' }) }}"
+      },
+      "id": "bsky-004",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          { "node": "Bluesky Login", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Bluesky Login": {
+      "main": [
+        [
+          { "node": "Create Post", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Create Post": {
+      "main": [
+        [
+          { "node": "Respond", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": { "executionOrder": "v1" }
+}

@@ -41,6 +41,12 @@ from promoters.post_tracker import (
     get_posts_for_hypothesis,
     get_posted_channels,
 )
+from promoters.n8n_poster import (
+    post_to_all_channels,
+    get_n8n_status,
+    classify_channels,
+    trigger_validation,
+)
 from validators.validator import (
     load_targets,
     fetch_rows,
@@ -317,6 +323,68 @@ def run_cycle(hypothesis_id: str, hours: int | None = None, verbose: bool = True
 
 
 # ---------------------------------------------------------------------------
+# Auto-promote via n8n
+# ---------------------------------------------------------------------------
+
+def run_auto_promote(hypothesis_id: str, variant: str = "A") -> None:
+    """Check n8n is running, then post all promotion content via webhooks."""
+    print(f"\n  AUTO-PROMOTE — {hypothesis_id} (variant {variant})")
+    print("=" * 64)
+
+    # 1. Check n8n is reachable
+    status = get_n8n_status()
+    if not status["running"]:
+        print(f"\n  ERROR: n8n is not running.")
+        print(f"  {status.get('error', '')}")
+        print("\n  Start it with:")
+        print("    cd n8n && docker compose up -d")
+        return
+
+    print(f"\n  n8n is running at {status['base_url']}")
+
+    # 2. Ensure promotion posts exist
+    existing = get_existing_posts(hypothesis_id)
+    if not existing:
+        print(f"\n  No promotion posts found for {hypothesis_id}.")
+        print("  Generate them first:")
+        print(f"    python3 validate_loop.py --hypothesis {hypothesis_id} --generate-promos")
+        return
+
+    print(f"  Found {len(existing)} promotion file(s) to post.\n")
+
+    # 3. Send to n8n
+    results = post_to_all_channels(hypothesis_id, variant=variant)
+
+    # 4. Print results
+    success_count = sum(1 for r in results if r.get("success"))
+    fail_count = len(results) - success_count
+
+    manual_count = sum(1 for r in results if r.get("manual"))
+    auto_success = success_count - manual_count
+    print(f"  Results: {auto_success} posted, {manual_count} manual, {fail_count} failed\n")
+    for result in results:
+        channel_key = result.get("channel_key", result.get("channel", "unknown"))
+        label = CHANNEL_LABELS.get(channel_key, channel_key)
+        if result.get("manual"):
+            post_url = result.get("post_url", "")
+            print(f"  [MANUAL] {label}  -> post at: {post_url}")
+        elif result.get("success"):
+            post_url = result.get("post_url", "")
+            url_str = f"  -> {post_url}" if post_url else ""
+            print(f"  [OK]   {label}{url_str}")
+        else:
+            error = result.get("error", "unknown error")
+            print(f"  [FAIL] {label}: {error}")
+
+    print("\n" + "=" * 64)
+    if fail_count:
+        print("\n  Some posts failed. Check:")
+        print("    1. Workflows are active in n8n UI")
+        print("    2. Credentials are connected for each platform")
+        print(f"    3. n8n logs: docker compose -f n8n/docker-compose.yml logs n8n")
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -339,7 +407,39 @@ Examples:
     parser.add_argument("--interval", type=int, default=30, help="Loop interval in minutes (default: 30)")
     parser.add_argument("--generate-promos", action="store_true", help="Only generate promotion posts and exit (runs research first)")
     parser.add_argument("--research-only", action="store_true", help="Only run channel research phase, no post generation")
+    parser.add_argument("--auto-promote", action="store_true", help="Post promotion content to all channels via n8n webhooks")
+    parser.add_argument("--variant", default="A", help="A/B variant label for auto-promote (default: A)")
+    parser.add_argument("--trigger", action="store_true", help="Trigger validation check via n8n scheduled workflow")
+    parser.add_argument("--classify", action="store_true", help="Show auto vs manual channel breakdown")
     args = parser.parse_args()
+
+    # trigger validation via n8n
+    if args.trigger:
+        print(f"\nTriggering validation via n8n for {args.hypothesis}...")
+        result = trigger_validation(args.hypothesis)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return
+
+    # classify channels
+    if args.classify:
+        channels = classify_channels(args.hypothesis)
+        print(f"\n  CHANNEL CLASSIFICATION — {args.hypothesis}")
+        print("=" * 64)
+        print(f"\n  Auto-postable ({len(channels['auto'])}):")
+        for ch in channels["auto"]:
+            label = CHANNEL_LABELS.get(ch["channel_key"], ch["channel_key"])
+            print(f"    [{label}] -> n8n:{ch['n8n_channel']}")
+        print(f"\n  Manual ({len(channels['manual'])}):")
+        for ch in channels["manual"]:
+            label = CHANNEL_LABELS.get(ch["channel_key"], ch["channel_key"])
+            print(f"    [{label}] -> post at: https://www.indiehackers.com/post/new")
+        print("=" * 64)
+        return
+
+    # auto-promote mode
+    if args.auto_promote:
+        run_auto_promote(args.hypothesis, args.variant)
+        return
 
     # research-only mode
     if args.research_only:

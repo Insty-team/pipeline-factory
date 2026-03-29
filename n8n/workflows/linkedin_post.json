@@ -1,0 +1,83 @@
+{
+  "name": "LinkedIn Post",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "linkedin-post",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "d4e5f6a7-0004-0004-0004-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "linkedin-post"
+    },
+    {
+      "parameters": {
+        "text": "={{ $json.body.text || $json.body.content }}",
+        "additionalFields": {}
+      },
+      "id": "d4e5f6a7-0004-0004-0004-000000000002",
+      "name": "LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "credentials": {
+        "linkedInOAuth2Api": {
+          "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID",
+          "name": "LinkedIn account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, hypothesis_id: $('Webhook').item.json.body.hypothesis_id, variant: $('Webhook').item.json.body.variant, post_id: $json.id }) }}"
+      },
+      "id": "d4e5f6a7-0004-0004-0004-000000000003",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "LinkedIn",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LinkedIn": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false,
+    "instanceId": "pipeline-factory"
+  },
+  "id": "linkedin-post-workflow",
+  "tags": ["social-media", "linkedin", "pipeline-factory"],
+  "notes": "Receives: { text/content, hypothesis_id, variant }. Credentials: configure LinkedIn OAuth2 in n8n UI under Credentials > LinkedIn OAuth2 API."
+}
