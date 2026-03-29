@@ -3,645 +3,423 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sleep & Find — AI builds your passive income while you sleep</title>
-  <meta name="description" content="Tell AI your interests. It finds opportunities, launches them, optimizes 24/7. You wake up to revenue — not homework.">
+  <title>SideKick AI — Your AI Co-Builder for Digital Products</title>
+  <meta name="description" content="Tell AI your interests. It creates digital products, lists them on marketplaces, and optimizes. You approve and steer. From $20/mo.">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SideKick AI",
+    "description": "AI-powered digital product studio. AI creates products, lists on marketplaces, optimizes. You steer and approve.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier: market analysis + 3 opportunity suggestions"
+    }
+  }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     body { font-family: 'Inter', sans-serif; }
-    .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); }
-    @keyframes pulse-dot { 0%, 80%, 100% { opacity: 0; } 40% { opacity: 1; } }
-    .dot1 { animation: pulse-dot 1.4s infinite 0s; }
-    .dot2 { animation: pulse-dot 1.4s infinite 0.2s; }
-    .dot3 { animation: pulse-dot 1.4s infinite 0.4s; }
-    @keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-up { animation: fade-up 0.4s ease-out forwards; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    .float { animation: float 3s ease-in-out infinite; }
-    .step-card { transition: all 0.3s ease; }
+    .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%); }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fade-up 0.5s ease-out forwards; }
+    .interest-btn { transition: all 0.15s ease; cursor: pointer; }
+    .interest-btn.selected { background: rgba(99,102,241,0.25); box-shadow: 0 0 0 2px #6366f1; }
+    .step { display: none; }
+    .step.active { display: block; }
     .progress-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.3s; }
-    .progress-dot.active { background: #818cf8; transform: scale(1.3); }
-    .progress-dot.done { background: #4ade80; }
-    .interest-btn { transition: all 0.15s ease; }
-    .interest-btn.selected { background: rgba(129,140,248,0.25); box-shadow: 0 0 0 2px #818cf8; }
-    .star { position: absolute; width: 2px; height: 2px; background: white; border-radius: 50%; }
+    .progress-dot.active { background: #6366f1; transform: scale(1.3); }
+    .progress-dot.done { background: #22c55e; }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    .typewriter { overflow: hidden; white-space: nowrap; border-right: 2px solid #6366f1; animation: typing 2s steps(40) forwards, blink 0.8s step-end infinite; }
+    @keyframes blink { 50% { border-color: transparent; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 1s linear infinite; }
   </style>
 </head>
 <body class="bg-slate-950 text-white">
 
   <!-- Hero -->
   <section class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
-    <!-- Stars background -->
-    <div id="stars" class="absolute inset-0 pointer-events-none"></div>
-
     <div class="max-w-3xl mx-auto text-center w-full px-4 py-16 relative z-10">
+
       <div class="inline-block bg-indigo-500/20 border border-indigo-500/30 rounded-full px-4 py-1 text-sm font-medium text-indigo-300 mb-6">
-        Early Access — Limited spots
+        Free to try — No credit card needed
       </div>
 
-      <div class="text-5xl mb-4 float">&#127769;</div>
-
-      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-        You sleep.<br>
-        <span class="text-indigo-400">AI builds your passive income.</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+        No side hustle idea?<br>
+        <span class="text-indigo-400">AI builds it with you.</span>
       </h1>
-      <p class="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
-        Tell AI your interests. It finds opportunities, launches them, and optimizes 24/7. You just collect the revenue.
+      <p class="text-lg md:text-xl text-slate-300 mb-2 max-w-2xl mx-auto">
+        Tell AI your interests. It creates digital products, lists them on marketplaces, and optimizes.
+      </p>
+      <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+        <strong class="text-white">You approve and steer. AI does the heavy lifting.</strong>
       </p>
 
-      <!-- Progress -->
+      <!-- Progress dots -->
       <div id="progress" class="flex justify-center gap-3 mb-8">
         <div class="progress-dot active" data-step="1"></div>
         <div class="progress-dot" data-step="2"></div>
         <div class="progress-dot" data-step="3"></div>
-        <div class="progress-dot" data-step="4"></div>
       </div>
 
-      <!-- Step 1: Interests -->
-      <div id="step-1" class="step-card bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
-        <div class="text-sm font-medium text-slate-400 mb-1">Step 1 of 4</div>
-        <div class="text-xl font-bold mb-2">What are you interested in?</div>
-        <p class="text-sm text-slate-400 mb-6">Pick all that apply. We'll find passive income opportunities in these areas.</p>
+      <!-- Step 1: Interest Selection -->
+      <div id="step-1" class="step active bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium text-slate-400 mb-1">Step 1 of 3</div>
+        <div class="text-xl font-bold mb-2">What are you into?</div>
+        <p class="text-sm text-slate-400 mb-6">Pick your interests. AI will find product opportunities in these areas.</p>
         <div class="grid grid-cols-2 gap-3 mb-6">
-          <button type="button" data-interest="tech" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#128187;</div>
-            <div class="font-bold text-sm">Tech / SaaS</div>
-            <div class="text-xs text-slate-400">Apps, tools, automation</div>
-          </button>
-          <button type="button" data-interest="content" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#9997;&#65039;</div>
-            <div class="font-bold text-sm">Content / Media</div>
-            <div class="text-xs text-slate-400">Newsletter, YouTube, blog</div>
-          </button>
-          <button type="button" data-interest="ecommerce" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#128722;</div>
-            <div class="font-bold text-sm">E-commerce</div>
-            <div class="text-xs text-slate-400">Dropship, print-on-demand</div>
-          </button>
-          <button type="button" data-interest="education" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#127891;</div>
-            <div class="font-bold text-sm">Education</div>
-            <div class="text-xs text-slate-400">Courses, coaching, ebooks</div>
-          </button>
-          <button type="button" data-interest="finance" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#128176;</div>
-            <div class="font-bold text-sm">Finance / Investing</div>
-            <div class="text-xs text-slate-400">Dividends, crypto, real estate</div>
-          </button>
-          <button type="button" data-interest="design" class="interest-btn py-4 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
-            <div class="text-2xl mb-1">&#127912;</div>
+          <button type="button" data-interest="design" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
             <div class="font-bold text-sm">Design / Creative</div>
-            <div class="text-xs text-slate-400">Templates, assets, Figma</div>
+            <div class="text-xs text-slate-400">Templates, graphics, fonts</div>
+          </button>
+          <button type="button" data-interest="education" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
+            <div class="font-bold text-sm">Education</div>
+            <div class="text-xs text-slate-400">Worksheets, guides, planners</div>
+          </button>
+          <button type="button" data-interest="business" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
+            <div class="font-bold text-sm">Business / Productivity</div>
+            <div class="text-xs text-slate-400">Spreadsheets, Notion, tools</div>
+          </button>
+          <button type="button" data-interest="lifestyle" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
+            <div class="font-bold text-sm">Lifestyle / Wellness</div>
+            <div class="text-xs text-slate-400">Journals, trackers, recipes</div>
+          </button>
+          <button type="button" data-interest="tech" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
+            <div class="font-bold text-sm">Tech / Dev</div>
+            <div class="text-xs text-slate-400">Prompts, code snippets, APIs</div>
+          </button>
+          <button type="button" data-interest="finance" class="interest-btn py-3 px-4 rounded-xl bg-white/10 hover:bg-white/15 text-left">
+            <div class="font-bold text-sm">Finance / Investing</div>
+            <div class="text-xs text-slate-400">Trackers, calculators, guides</div>
           </button>
         </div>
-        <button id="step1-next" disabled class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 rounded-lg text-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
-          Next: Your situation &#8594;
+        <button id="btn-step1" disabled class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
+          See what AI finds &rarr;
         </button>
       </div>
 
-      <!-- Step 2: Situation -->
-      <div id="step-2" class="hidden step-card bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
-        <div class="text-sm font-medium text-slate-400 mb-1">Step 2 of 4</div>
-        <div class="text-xl font-bold mb-2">Tell us about yourself</div>
-        <p class="text-sm text-slate-400 mb-6">So we can find opportunities that actually fit your life.</p>
-        <div class="space-y-6">
-          <div>
-            <label class="block text-left text-sm font-medium text-slate-300 mb-2">Time you can invest per week</label>
-            <div class="flex gap-3">
-              <button type="button" data-time="0" class="time-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">0h<br><span class="text-xs font-normal text-slate-400">Fully passive</span></button>
-              <button type="button" data-time="2" class="time-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">1-3h</button>
-              <button type="button" data-time="5" class="time-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">3-5h</button>
-              <button type="button" data-time="10" class="time-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">5h+</button>
-            </div>
-          </div>
-          <div>
-            <label class="block text-left text-sm font-medium text-slate-300 mb-2">Budget to start</label>
-            <div class="flex gap-3">
-              <button type="button" data-budget="0" class="budget-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">$0</button>
-              <button type="button" data-budget="100" class="budget-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">&lt;$100</button>
-              <button type="button" data-budget="500" class="budget-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">&lt;$500</button>
-              <button type="button" data-budget="1000" class="budget-btn interest-btn flex-1 py-3 rounded-lg bg-white/10 hover:bg-white/15 font-bold text-sm">$500+</button>
-            </div>
-          </div>
-          <button id="step2-next" disabled class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 rounded-lg text-lg transition disabled:opacity-40 disabled:cursor-not-allowed">
-            See what AI found &#8594;
-          </button>
+      <!-- Step 2: AI Analysis Result -->
+      <div id="step-2" class="step bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium text-slate-400 mb-1">Step 2 of 3</div>
+        <div class="text-xl font-bold mb-4">AI found 3 opportunities for you</div>
+        <div id="analysis-loading" class="py-8 text-center">
+          <div class="inline-block w-8 h-8 border-2 border-indigo-400 border-t-transparent rounded-full spinner mb-3"></div>
+          <div class="text-slate-400">Analyzing market data...</div>
         </div>
+        <div id="analysis-results" class="hidden space-y-3">
+          <div class="bg-white/5 rounded-xl p-4 border border-white/10 text-left">
+            <div class="flex justify-between items-start mb-1">
+              <div class="font-bold text-sm" id="opp-1-title">Loading...</div>
+              <div class="text-xs bg-green-500/20 text-green-300 px-2 py-0.5 rounded-full">High demand</div>
+            </div>
+            <div class="text-xs text-slate-400" id="opp-1-desc">Loading...</div>
+            <div class="text-xs text-indigo-300 mt-1" id="opp-1-est">Loading...</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border border-white/10 text-left">
+            <div class="flex justify-between items-start mb-1">
+              <div class="font-bold text-sm" id="opp-2-title">Loading...</div>
+              <div class="text-xs bg-yellow-500/20 text-yellow-300 px-2 py-0.5 rounded-full">Growing</div>
+            </div>
+            <div class="text-xs text-slate-400" id="opp-2-desc">Loading...</div>
+            <div class="text-xs text-indigo-300 mt-1" id="opp-2-est">Loading...</div>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border border-white/10 text-left opacity-50 relative">
+            <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm rounded-xl flex items-center justify-center">
+              <span class="text-xs bg-indigo-600 px-3 py-1 rounded-full">Unlock with free account</span>
+            </div>
+            <div class="font-bold text-sm">+ 1 more opportunity</div>
+            <div class="text-xs text-slate-400">Sign up to see full analysis</div>
+          </div>
+        </div>
+        <button id="btn-step2" class="hidden w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition mt-4">
+          Get started free &rarr;
+        </button>
       </div>
 
-      <!-- Step 3: Sample Report Preview -->
-      <div id="step-3" class="hidden step-card max-w-lg mx-auto">
-        <!-- Analyzing -->
-        <div id="analyzing" class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-          <div class="text-5xl mb-4">&#129302;</div>
-          <div class="text-2xl font-bold mb-3">
-            AI is researching<span class="dot1">.</span><span class="dot2">.</span><span class="dot3">.</span>
-          </div>
-          <p class="text-slate-400">Scanning trends, market gaps, and revenue data in your interest areas</p>
-        </div>
-        <!-- Result -->
-        <div id="report-preview" class="hidden bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-          <div class="text-sm font-medium text-slate-400 mb-1">Step 3 of 4</div>
-          <div class="text-xl font-bold mb-4">Here's a taste of your report</div>
-
-          <div class="bg-slate-800/80 rounded-xl p-5 text-left mb-2 space-y-4">
-            <div class="flex items-start gap-3 fade-up">
-              <div class="text-green-400 text-lg mt-0.5">&#9679;</div>
-              <div>
-                <div class="font-bold text-sm" id="opp-1-title">Loading...</div>
-                <div class="text-xs text-slate-400" id="opp-1-detail"></div>
-                <div class="text-xs text-indigo-400 mt-1" id="opp-1-revenue"></div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 fade-up" style="animation-delay:0.15s">
-              <div class="text-yellow-400 text-lg mt-0.5">&#9679;</div>
-              <div>
-                <div class="font-bold text-sm" id="opp-2-title">Loading...</div>
-                <div class="text-xs text-slate-400" id="opp-2-detail"></div>
-                <div class="text-xs text-indigo-400 mt-1" id="opp-2-revenue"></div>
-              </div>
-            </div>
-            <div class="flex items-start gap-3 fade-up" style="animation-delay:0.3s">
-              <div class="text-blue-400 text-lg mt-0.5">&#9679;</div>
-              <div>
-                <div class="font-bold text-sm" id="opp-3-title">Loading...</div>
-                <div class="text-xs text-slate-400" id="opp-3-detail"></div>
-                <div class="text-xs text-indigo-400 mt-1" id="opp-3-revenue"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Blurred locked opportunities -->
-          <div class="relative bg-slate-800/80 rounded-xl p-5 text-left mb-4 overflow-hidden">
-            <div id="blurred-opps" class="space-y-3" style="filter: blur(5px); -webkit-filter: blur(5px); user-select: none; pointer-events: none;"></div>
-            <div class="absolute inset-0 flex flex-col items-center justify-center bg-slate-900/40 backdrop-blur-[1px]">
-              <div class="text-2xl mb-2">&#128274;</div>
-              <div class="text-sm font-bold text-slate-200">More opportunities found</div>
-              <div class="text-xs text-slate-400 mt-1">Join to unlock full results</div>
-            </div>
-          </div>
-
-          <div class="bg-indigo-500/10 border border-indigo-500/20 rounded-lg p-4 text-sm text-slate-300 mb-6">
-            <span class="font-bold text-indigo-400">This is just the research phase.</span> After this, AI will automatically launch the best opportunity, promote it, track revenue, and optimize — all while you sleep.
-          </div>
-
-          <button id="step3-next" class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 rounded-lg text-lg transition">
-            Let AI run this for me &#8594;
-          </button>
-        </div>
+      <!-- Step 3: Signup -->
+      <div id="step-3" class="step bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
+        <div class="text-sm font-medium text-slate-400 mb-1">Step 3 of 3</div>
+        <div class="text-xl font-bold mb-2">Join the waitlist</div>
+        <p class="text-sm text-slate-400 mb-6">We're onboarding the first 100 users. Get early access + free tier forever.</p>
+        <input id="email-input" type="email" placeholder="your@email.com" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-slate-500 mb-3 focus:outline-none focus:border-indigo-500">
+        <button id="btn-signup" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition">
+          Get early access
+        </button>
+        <p class="text-xs text-slate-500 mt-3">No spam. No income guarantees. Just a tool to help you build.</p>
       </div>
 
-      <!-- Step 4: Email -->
-      <div id="step-4" class="hidden step-card bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto">
-        <div class="text-sm font-medium text-slate-400 mb-1">Step 4 of 4</div>
-        <div class="text-xl font-bold mb-2">Let AI start building for you</div>
-        <p class="text-sm text-slate-400 mb-6">Join the waitlist. When we launch, AI will start finding and executing passive income opportunities for you — automatically.</p>
-        <form id="waitlist-form" class="space-y-3">
-          <input
-            type="email"
-            id="email"
-            placeholder="you@example.com"
-            required
-            class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 placeholder-slate-500"
-          >
-          <button
-            type="submit"
-            class="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold px-6 py-3 rounded-lg text-lg transition"
-          >
-            Join waitlist — first cycle free
-          </button>
-        </form>
-        <p id="form-message" class="mt-3 text-sm text-slate-400 hidden"></p>
-        <p class="mt-3 text-sm text-slate-500">No spam. First report is free. Cancel anytime.</p>
+      <!-- Success -->
+      <div id="step-success" class="step bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8 max-w-lg mx-auto text-center">
+        <div class="text-4xl mb-4">&#9989;</div>
+        <div class="text-xl font-bold mb-2">You're on the list!</div>
+        <p class="text-slate-400 mb-4">We'll email you when it's your turn. Early users get the free tier forever.</p>
+        <p class="text-sm text-slate-500">Meanwhile, want to help shape the product?</p>
+        <a href="https://twitter.com/intent/tweet?text=Just%20signed%20up%20for%20SideKick%20AI%20%E2%80%94%20an%20AI%20that%20creates%20digital%20products%20and%20lists%20them%20for%20you.%20No%20side%20hustle%20idea%20needed.&url=https://sleepnfind.pages.dev?ref=twitter_share" target="_blank" class="inline-block mt-3 text-indigo-400 hover:text-indigo-300 text-sm underline">Share on X/Twitter</a>
       </div>
+
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="py-16 px-4 bg-slate-900">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">How it works</h2>
-      <div class="grid md:grid-cols-4 gap-6">
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-4xl mb-4">&#127769;</div>
-          <h3 class="font-bold text-lg mb-2">1. Set interests</h3>
-          <p class="text-slate-400 text-sm">Tell AI what you're into. 30 seconds. One time.</p>
-        </div>
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-4xl mb-4">&#129302;</div>
-          <h3 class="font-bold text-lg mb-2">2. AI researches</h3>
-          <p class="text-slate-400 text-sm">Scans markets, trends, gaps. Finds real opportunities with data.</p>
-        </div>
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-4xl mb-4">&#128640;</div>
-          <h3 class="font-bold text-lg mb-2">3. AI executes</h3>
-          <p class="text-slate-400 text-sm">Launches the side hustle. Sets up, promotes, collects data. Automatically.</p>
-        </div>
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-4xl mb-4">&#128257;</div>
-          <h3 class="font-bold text-lg mb-2">4. Optimize & repeat</h3>
-          <p class="text-slate-400 text-sm">Analyzes results, improves, tries new angles. 24/7 loop. You just watch the revenue.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pain points -->
-  <section class="py-16 px-4 bg-slate-950">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Why most side hustles fail</h2>
-      <p class="text-lg text-slate-400 mb-8">The problem isn't ideas — it's execution:</p>
-      <div class="grid md:grid-cols-3 gap-6 text-left">
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-3xl mb-3">&#128553;</div>
-          <h3 class="font-bold mb-2">Research rabbit hole</h3>
-          <p class="text-slate-400 text-sm">3 hours googling, 47 tabs open, zero progress. Repeat next weekend.</p>
-        </div>
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-3xl mb-3">&#9989;</div>
-          <h3 class="font-bold mb-2">You found an idea... now what?</h3>
-          <p class="text-slate-400 text-sm">Reports and guides pile up. Launching, promoting, iterating — that's where people quit.</p>
-        </div>
-        <div class="bg-slate-800/50 border border-slate-700/50 p-6 rounded-xl">
-          <div class="text-3xl mb-3">&#128164;</div>
-          <h3 class="font-bold mb-2">No time to manage it</h3>
-          <p class="text-slate-400 text-sm">You have a full-time job. Even a great side hustle dies if nobody's running it.</p>
-        </div>
-      </div>
-      <p class="text-lg text-slate-300 mt-8 font-medium">Sleep & Find doesn't just give you ideas. <span class="text-indigo-400 font-bold">It runs them for you.</span></p>
-    </div>
-  </section>
-
-  <!-- What's in the report -->
-  <section class="py-16 px-4 bg-slate-900">
+  <section class="py-20 px-4 bg-slate-900">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">What AI does for you — 24/7</h2>
-      <div class="space-y-4">
-        <div class="flex items-start gap-4 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-          <div class="text-green-400 text-xl">&#10003;</div>
+      <h2 class="text-3xl font-bold text-center mb-12">How it works</h2>
+      <div class="space-y-8">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center font-bold">1</div>
           <div>
-            <div class="font-bold">Finds opportunities in your interest areas</div>
-            <div class="text-sm text-slate-400">Scans trends, market gaps, and demand signals — matched to your profile</div>
+            <div class="font-bold text-lg">You pick your interests</div>
+            <div class="text-slate-400">Design, education, business, tech — whatever you're into. No idea needed.</div>
           </div>
         </div>
-        <div class="flex items-start gap-4 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-          <div class="text-green-400 text-xl">&#10003;</div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center font-bold">2</div>
           <div>
-            <div class="font-bold">Launches and tests automatically</div>
-            <div class="text-sm text-slate-400">Sets up landing pages, content, or storefronts. Promotes them. Collects real data.</div>
+            <div class="font-bold text-lg">AI analyzes the market</div>
+            <div class="text-slate-400">Finds what's selling, what's missing, and what you could create. Shows you 3 opportunities with data.</div>
           </div>
         </div>
-        <div class="flex items-start gap-4 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-          <div class="text-green-400 text-xl">&#10003;</div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center font-bold">3</div>
           <div>
-            <div class="font-bold">Analyzes & improves continuously</div>
-            <div class="text-sm text-slate-400">What's working gets scaled. What's not gets dropped or reworked. No manual effort.</div>
+            <div class="font-bold text-lg">AI creates the products</div>
+            <div class="text-slate-400">Templates, guides, planners, prompt packs — whatever fits. You review and approve before anything goes live.</div>
           </div>
         </div>
-        <div class="flex items-start gap-4 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-          <div class="text-green-400 text-xl">&#10003;</div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center font-bold">4</div>
           <div>
-            <div class="font-bold">Revenue goes to you</div>
-            <div class="text-sm text-slate-400">Passive income deposited to your account. Dashboard shows everything in real time.</div>
+            <div class="font-bold text-lg">AI lists and optimizes</div>
+            <div class="text-slate-400">Publishes to Etsy, Gumroad, or your preferred marketplace. Handles titles, tags, SEO. You steer the direction.</div>
           </div>
         </div>
-        <div class="flex items-start gap-4 bg-slate-800/50 border border-slate-700/50 rounded-xl p-5">
-          <div class="text-green-400 text-xl">&#10003;</div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center font-bold">5</div>
           <div>
-            <div class="font-bold">You choose your level of involvement</div>
-            <div class="text-sm text-slate-400">Jump in and steer anytime, or leave it fully autonomous. Both work.</div>
+            <div class="font-bold text-lg">You grow it together</div>
+            <div class="text-slate-400">Weekly reports show what's working. You decide what to double down on. AI adapts. It's your business — AI is the co-builder.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-16 px-4 bg-slate-950">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">FAQ</h2>
-      <div class="space-y-6">
-        <div>
-          <h3 class="font-bold text-lg">Is the free trial really free?</h3>
-          <p class="text-slate-400 mt-1">Yes. Join the waitlist, get your first cycle at no cost. AI finds an opportunity and starts executing — no credit card needed.</p>
+  <!-- Trust / Honesty section -->
+  <section class="py-20 px-4 bg-slate-950">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Let's be honest</h2>
+      <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">We're not going to promise you'll get rich. Here's what we actually promise:</p>
+      <div class="grid md:grid-cols-2 gap-4 text-left">
+        <div class="bg-white/5 rounded-xl p-5 border border-white/10">
+          <div class="font-bold mb-1 text-green-400">What this IS</div>
+          <ul class="text-sm text-slate-300 space-y-2">
+            <li>A tool that saves you 10+ hours/week on product creation</li>
+            <li>AI that handles the tedious parts (SEO, listings, optimization)</li>
+            <li>Market data to help you make better decisions</li>
+            <li>Your products, your accounts, your revenue</li>
+          </ul>
         </div>
-        <div>
-          <h3 class="font-bold text-lg">How is this different from ChatGPT?</h3>
-          <p class="text-slate-400 mt-1">ChatGPT gives you text. We give you execution. Our AI doesn't just suggest ideas — it actually launches them, promotes them, measures results, and iterates. 24/7. Autonomously.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg">Do I need to do anything?</h3>
-          <p class="text-slate-400 mt-1">Nope. You can be fully hands-off — the AI runs everything. But if you want to steer, approve ideas, or tweak strategy, you can jump in anytime via the dashboard.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg">How does pricing work?</h3>
-          <p class="text-slate-400 mt-1">Monthly subscription covers AI compute costs. The AI works within your budget — it won't spend more than your plan allows. Think of it as hiring a tireless employee for a fraction of the cost.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg">What kind of passive income can I expect?</h3>
-          <p class="text-slate-400 mt-1">It depends on your interests and market conditions. The AI runs multiple experiments in parallel — some will fail, some will stick. Over time, the winners compound. Early testers are seeing their first revenue within weeks.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-lg">What if I want to stop?</h3>
-          <p class="text-slate-400 mt-1">Cancel anytime. Any revenue streams the AI built keep running — they're yours. You just won't get new ones generated.</p>
+        <div class="bg-white/5 rounded-xl p-5 border border-white/10">
+          <div class="font-bold mb-1 text-red-400">What this is NOT</div>
+          <ul class="text-sm text-slate-300 space-y-2">
+            <li>Not a get-rich-quick scheme</li>
+            <li>Not passive income on autopilot</li>
+            <li>Not a guarantee of any revenue</li>
+            <li>Not an investment — it's a tool subscription</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 px-4 text-center text-slate-600 text-sm">
-    <p>Sleep & Find &copy; 2026. Your passive income starts while you rest.</p>
+  <!-- Pricing -->
+  <section class="py-20 px-4 bg-slate-900">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-8">Simple pricing</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+          <div class="text-sm text-slate-400 mb-1">Free</div>
+          <div class="text-3xl font-bold mb-2">$0</div>
+          <div class="text-sm text-slate-400 mb-4">See what's possible</div>
+          <ul class="text-sm text-slate-300 space-y-1 text-left">
+            <li>Market analysis</li>
+            <li>3 opportunity suggestions</li>
+            <li>No credit card needed</li>
+          </ul>
+        </div>
+        <div class="bg-indigo-600/20 rounded-xl p-6 border border-indigo-500/40">
+          <div class="text-sm text-indigo-300 mb-1">Starter</div>
+          <div class="text-3xl font-bold mb-2">$20<span class="text-lg font-normal text-slate-400">/mo</span></div>
+          <div class="text-sm text-slate-400 mb-4">Start building</div>
+          <ul class="text-sm text-slate-300 space-y-1 text-left">
+            <li>3 AI-created products/month</li>
+            <li>Listing drafts</li>
+            <li>Basic optimization</li>
+          </ul>
+        </div>
+        <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+          <div class="text-sm text-slate-400 mb-1">Pro</div>
+          <div class="text-3xl font-bold mb-2">$49<span class="text-lg font-normal text-slate-400">/mo</span></div>
+          <div class="text-sm text-slate-400 mb-4">Scale up</div>
+          <ul class="text-sm text-slate-300 space-y-1 text-left">
+            <li>Unlimited products</li>
+            <li>Auto-listing + SEO</li>
+            <li>Weekly performance reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-20 px-4 bg-slate-950 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to build your first product?</h2>
+    <p class="text-slate-400 mb-6">First 100 users get the free tier forever.</p>
+    <button onclick="document.getElementById('step-1').scrollIntoView({behavior:'smooth'})" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition text-lg">
+      Start free &rarr;
+    </button>
+  </section>
+
+  <footer class="py-8 px-4 bg-slate-900 text-center text-sm text-slate-500">
+    SideKick AI &mdash; AI-powered digital product studio.
+    <br>No income guarantees. Results depend on your effort, market conditions, and product quality.
   </footer>
 
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
     const SUPABASE_URL = 'https://hnoxlznbghhavnrsunij.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const HYP = 'H-007-v3';
+    const ref = new URLSearchParams(location.search).get('ref') || 'direct';
 
-    const SAMPLE_OPPS = {
-      tech: {
-        visible: [
-          { title: 'AI resume screener for recruiters', detail: 'Recruiters pay $49/mo to auto-filter 500+ applications. 3 competitors, all overpriced. Gap: SMB-focused pricing.', revenue: '$2.1K/mo avg in this niche' },
-          { title: 'Slack bot for standup automation', detail: '12K teams searched "async standup" last month. Existing tools charge per-seat. Flat $29/mo wins.', revenue: '$800-3K/mo at 50 teams' },
-          { title: 'Chrome extension: one-click proposal generator', detail: 'Freelancers spend 4hrs/week on proposals. 8.1K monthly searches, only 2 weak competitors.', revenue: '$1.5K/mo at 200 users' },
-        ],
-        blurred: [
-          'Automated competitor price tracker for...',
-          'API usage dashboard for teams that...',
-          'AI-powered changelog generator...',
-          'No-code webhook relay service...',
-          '7 more opportunities found...',
-        ]
-      },
-      content: {
-        visible: [
-          { title: 'Weekly AI tool review newsletter', detail: '22K people search "best AI tools" weekly. No quality curation exists. Sponsors pay $200-500/issue at 3K subs.', revenue: '$1.2-4K/mo at 5K subs' },
-          { title: 'Faceless "money explained" YouTube channel', detail: 'Finance explainers avg 45K views. AI script + stock footage = 2hr/video. Top channels: $3-8K/mo AdSense.', revenue: '$1-5K/mo after 30 videos' },
-          { title: 'Niche comparison blog: CRM for realtors', detail: '"Best CRM for real estate" gets 14K searches/mo. Top affiliate: $150/conversion. Only 3 quality articles exist.', revenue: '$2K/mo from affiliate commissions' },
-        ],
-        blurred: [
-          'Automated Twitter thread repurposing...',
-          'Podcast clip distribution service...',
-          'AI-generated infographic newsletter...',
-          'Localized content syndication for...',
-          '9 more opportunities found...',
-        ]
-      },
-      ecommerce: {
-        visible: [
-          { title: 'Custom pet portrait print-on-demand', detail: '"Custom pet portrait" — 33K searches/mo, avg order $39. AI generates art, Printful fulfills. Zero inventory.', revenue: '$1.5-4K/mo at 100 orders' },
-          { title: 'Digital planner bundle for iPad', detail: 'GoodNotes planner market grew 340% in 2025. Top sellers: $15-29 per bundle. Create once, sell forever.', revenue: '$2-6K/mo on Etsy + Gumroad' },
-          { title: 'Niche subscription box: home barista', detail: '"Coffee subscription" — 40K searches/mo but home barista accessories = underserved. $35/box, dropship model.', revenue: '$3-8K/mo at 150 subscribers' },
-        ],
-        blurred: [
-          'Seasonal holiday decor print-on-demand...',
-          'AI-personalized gift recommendation...',
-          'B2B branded merch storefront...',
-          'Curated wellness sample box...',
-          '6 more opportunities found...',
-        ]
-      },
-      education: {
-        visible: [
-          { title: 'Notion template: freelancer client portal', detail: '"Freelancer client management" — 9K searches/mo. Top Notion templates sell 200+/mo at $19. No good client portal exists.', revenue: '$1-3K/mo passive' },
-          { title: '30-min micro-course: AI for Excel users', detail: '91% of office workers use Excel. "AI Excel" searched 18K/mo. $29 course, Gumroad delivery. Zero competition under $50.', revenue: '$2-5K/mo at launch' },
-          { title: 'Paid Discord: job-switchers accountability', detail: 'Career change communities avg 40% retention at $9/mo. Automated daily prompts + peer matching. 0hr/week after setup.', revenue: '$900-2K/mo at 150 members' },
-        ],
-        blurred: [
-          'Certification prep flashcard app...',
-          'AI-graded writing practice for...',
-          'Cohort-based Excel-to-Python bridge...',
-          'Parenting milestone tracker template...',
-          '8 more opportunities found...',
-        ]
-      },
-      finance: {
-        visible: [
-          { title: 'Dividend income tracker + tax report', detail: '"Dividend tracker" — 12K searches/mo. Existing tools ignore tax optimization. $7/mo SaaS, sticky once data is in.', revenue: '$1.5-4K/mo at 400 users' },
-          { title: 'Weekly "hidden stock" newsletter', detail: 'Micro-cap stock newsletters convert at 8%. Charge $15/mo. AI scans SEC filings for unusual insider buying patterns.', revenue: '$2-6K/mo at 300 subscribers' },
-          { title: 'Real estate cash flow calculator', detail: '"Rental property calculator" — 27K searches/mo. Free tool + premium report upsell ($4.99). Lead gen for affiliate.', revenue: '$1-3K/mo from upsells + affiliates' },
-        ],
-        blurred: [
-          'Crypto tax-loss harvesting alert...',
-          'Side hustle income/expense tracker...',
-          'FIRE calculator with coast-FI...',
-          'AI-generated market sentiment report...',
-          '11 more opportunities found...',
-        ]
-      },
-      design: {
-        visible: [
-          { title: 'Figma UI kit: SaaS dashboard components', detail: '"SaaS dashboard template" — 8K searches/mo. Top kits sell $49-79. Only 4 quality options exist. Gap: dark mode + analytics.', revenue: '$2-5K/mo on Gumroad' },
-          { title: 'AI-assisted brand kit generator', detail: 'Input company name → get logo, colors, fonts, social templates. Charge $29 one-time. "Logo generator" = 110K searches/mo.', revenue: '$3-8K/mo at scale' },
-          { title: 'Notion + Framer portfolio template bundle', detail: 'Designers need portfolios but hate building them. $19-39 per bundle. "Portfolio template" — 22K monthly searches.', revenue: '$1.5-4K/mo passive' },
-        ],
-        blurred: [
-          'Social media template subscription...',
-          'AI icon pack generator for...',
-          'Presentation template marketplace...',
-          'Email signature design tool...',
-          '7 more opportunities found...',
-        ]
-      },
+    function track(event, data = {}) {
+      sb.from('events').insert({
+        hypothesis: HYP, event, source: ref, url: location.href,
+        metadata: JSON.stringify(data), created_at: new Date().toISOString()
+      }).then(() => {});
+    }
+
+    track('page_view');
+
+    // Interest selection
+    const interests = new Set();
+    document.querySelectorAll('.interest-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const v = btn.dataset.interest;
+        btn.classList.toggle('selected');
+        interests.has(v) ? interests.delete(v) : interests.add(v);
+        document.getElementById('btn-step1').disabled = interests.size === 0;
+      });
+    });
+
+    // Opportunity data based on interest
+    const oppData = {
+      design: [
+        { title: 'Canva Social Media Templates', desc: '12,000+ monthly searches for "Instagram template pack"', est: 'Top sellers: $15-45/pack, 50-200 sales/month' },
+        { title: 'Wedding Invitation Templates', desc: 'Seasonal demand peaks, low competition in modern minimalist', est: 'Etsy avg: $8-25/template, recurring seasonal sales' }
+      ],
+      education: [
+        { title: 'Homeschool Worksheet Bundles', desc: '28,000+ monthly searches, parents actively buying', est: 'Top sellers: $5-15/bundle, 100-500 sales/month' },
+        { title: 'Study Planner / Academic Tracker', desc: 'Back-to-school surge, year-round baseline demand', est: 'Etsy avg: $4-12, strong review-driven discovery' }
+      ],
+      business: [
+        { title: 'Notion Business Dashboard Templates', desc: '18,000+ monthly searches, growing 40% YoY', est: 'Gumroad avg: $19-49, digital delivery' },
+        { title: 'Invoice / Proposal Templates', desc: 'Freelancer market 72M in US alone', est: 'Etsy avg: $8-20, repeat buyers common' }
+      ],
+      lifestyle: [
+        { title: 'Digital Wellness Journal', desc: 'Mental health awareness driving demand', est: 'Top sellers: $5-15, bundle upsells work well' },
+        { title: 'Meal Planner + Grocery List', desc: '35,000+ searches/month, health-conscious buyers', est: 'Etsy avg: $4-10, high volume category' }
+      ],
+      tech: [
+        { title: 'ChatGPT Prompt Packs (Niche)', desc: 'AI prompt market growing 200%+ YoY', est: 'Gumroad avg: $9-29, low production cost' },
+        { title: 'Developer Cheat Sheets', desc: 'GitHub stars correlate with sales potential', est: 'Gumroad avg: $5-15, evergreen content' }
+      ],
+      finance: [
+        { title: 'Budget Tracker Spreadsheet', desc: '45,000+ monthly searches, evergreen demand', est: 'Etsy avg: $8-20, Google Sheets format popular' },
+        { title: 'Investment Portfolio Tracker', desc: 'Growing retail investor population', est: 'Gumroad avg: $15-35, higher price tolerance' }
+      ]
     };
 
-    let selectedInterests = new Set();
-    let selectedTime = null;
-    let selectedBudget = null;
-    let currentStep = 1;
-
-    // Stars
-    (function createStars() {
-      const container = document.getElementById('stars');
-      for (let i = 0; i < 60; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.opacity = Math.random() * 0.7 + 0.1;
-        container.appendChild(star);
-      }
-    })();
-
     function showStep(n) {
-      for (let i = 1; i <= 4; i++) {
-        const el = document.getElementById('step-' + i);
-        if (el) el.classList.toggle('hidden', i !== n);
-      }
-      document.querySelectorAll('.progress-dot').forEach(dot => {
-        const s = parseInt(dot.dataset.step);
-        dot.classList.toggle('active', s === n);
-        dot.classList.toggle('done', s < n);
-      });
-      currentStep = n;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function setupToggle(selector, multiSelect, onSelect) {
-      document.querySelectorAll(selector).forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (multiSelect) {
-            btn.classList.toggle('selected');
-          } else {
-            document.querySelectorAll(selector).forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-          }
-          if (onSelect) onSelect(btn);
-        });
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + n)?.classList.add('active');
+      document.querySelectorAll('.progress-dot').forEach(d => {
+        const s = parseInt(d.dataset.step);
+        d.classList.toggle('active', s === n);
+        d.classList.toggle('done', s < n);
       });
     }
 
-    // Step 1: Interests
-    setupToggle('.interest-btn', true, btn => {
-      const val = btn.dataset.interest;
-      if (selectedInterests.has(val)) selectedInterests.delete(val);
-      else selectedInterests.add(val);
-      document.getElementById('step1-next').disabled = selectedInterests.size === 0;
-    });
-
-    document.getElementById('step1-next').addEventListener('click', () => {
-      trackEvent('step1_complete', { interests: [...selectedInterests] });
+    // Step 1 -> 2
+    document.getElementById('btn-step1').addEventListener('click', () => {
+      const selected = [...interests];
+      track('step1_interests', { interests: selected });
       showStep(2);
-    });
 
-    // Step 2: Time + Budget
-    setupToggle('.time-btn', false, btn => {
-      selectedTime = parseInt(btn.dataset.time);
-      checkStep2();
-    });
-    setupToggle('.budget-btn', false, btn => {
-      selectedBudget = parseInt(btn.dataset.budget);
-      checkStep2();
-    });
-
-    function checkStep2() {
-      document.getElementById('step2-next').disabled = !(selectedTime !== null && selectedBudget !== null);
-    }
-
-    document.getElementById('step2-next').addEventListener('click', () => {
-      trackEvent('step2_complete', { time: selectedTime, budget: selectedBudget });
-      showStep(3);
-
-      document.getElementById('analyzing').classList.remove('hidden');
-      document.getElementById('report-preview').classList.add('hidden');
-
+      // Simulate AI analysis
       setTimeout(() => {
-        const primary = [...selectedInterests][0] || 'tech';
-        const data = SAMPLE_OPPS[primary] || SAMPLE_OPPS.tech;
-        const opps = data.visible;
-        const blurred = data.blurred;
+        const primary = selected[0] || 'business';
+        const opps = oppData[primary] || oppData.business;
+        document.getElementById('opp-1-title').textContent = opps[0].title;
+        document.getElementById('opp-1-desc').textContent = opps[0].desc;
+        document.getElementById('opp-1-est').textContent = opps[0].est;
+        document.getElementById('opp-2-title').textContent = opps[1].title;
+        document.getElementById('opp-2-desc').textContent = opps[1].desc;
+        document.getElementById('opp-2-est').textContent = opps[1].est;
 
-        for (let i = 0; i < 3; i++) {
-          document.getElementById('opp-' + (i + 1) + '-title').textContent = opps[i].title;
-          document.getElementById('opp-' + (i + 1) + '-detail').textContent = opps[i].detail;
-          document.getElementById('opp-' + (i + 1) + '-revenue').textContent = opps[i].revenue;
-        }
-
-        // Render blurred items
-        const blurredEl = document.getElementById('blurred-opps');
-        blurredEl.innerHTML = blurred.map((text, i) =>
-          '<div class="flex items-start gap-3' + (i > 0 ? ' mt-1' : '') + '">' +
-            '<div class="text-slate-500 text-lg mt-0.5">&#9679;</div>' +
-            '<div><div class="font-bold text-sm text-slate-300">' + text + '</div>' +
-            '<div class="text-xs text-slate-500">Market data available after signup</div></div>' +
-          '</div>'
-        ).join('');
-
-        document.getElementById('analyzing').classList.add('hidden');
-        document.getElementById('report-preview').classList.remove('hidden');
-
-        trackEvent('step3_preview', { primary_interest: primary, time: selectedTime, budget: selectedBudget });
+        document.getElementById('analysis-loading').classList.add('hidden');
+        document.getElementById('analysis-results').classList.remove('hidden');
+        document.getElementById('btn-step2').classList.remove('hidden');
+        track('step2_results_shown', { primary_interest: primary });
       }, 2500);
     });
 
-    document.getElementById('step3-next').addEventListener('click', () => {
-      showStep(4);
+    // Step 2 -> 3
+    document.getElementById('btn-step2').addEventListener('click', () => {
+      track('step2_signup_clicked');
+      showStep(3);
     });
 
-    // Step 4: Waitlist
-    async function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const email = form.querySelector('input[type="email"]').value;
-      const msgEl = document.getElementById('form-message');
-      const btn = form.querySelector('button');
-
-      btn.disabled = true;
-      btn.textContent = 'Joining...';
-
-      try {
-        const res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
-          method: 'POST',
-          headers: {
-            'apikey': SUPABASE_KEY,
-            'Authorization': 'Bearer ' + SUPABASE_KEY,
-            'Content-Type': 'application/json',
-            'Prefer': 'return=minimal',
-          },
-          body: JSON.stringify({
-            email,
-            hypothesis: 'H-007',
-            source: document.referrer || 'direct',
-          }),
-        });
-
-        if (res.ok) {
-          msgEl.textContent = "You're in! We'll send your first report when we launch.";
-          msgEl.classList.remove('hidden');
-          trackEvent('waitlist_signup', {
-            email_domain: email.split('@')[1],
-            interests: [...selectedInterests],
-            time_per_week: selectedTime,
-            budget: selectedBudget,
-            source: document.referrer || 'direct',
-          });
-          form.innerHTML = '<div class="bg-green-500/20 border border-green-500/30 rounded-lg py-4 px-6 text-center"><div class="text-2xl mb-2">&#127881;</div><div class="font-bold text-lg">You\'re on the list!</div><div class="text-sm text-slate-300 mt-1">Your first report will arrive at ' + email + '</div></div>';
-        } else {
-          msgEl.textContent = "Something went wrong. Try again?";
-          msgEl.classList.remove('hidden');
-          btn.disabled = false;
-          btn.textContent = 'Join waitlist — first cycle free';
-        }
-      } catch (err) {
-        msgEl.textContent = "Network error. Try again?";
-        msgEl.classList.remove('hidden');
-        btn.disabled = false;
-        btn.textContent = 'Join waitlist — first cycle free';
+    // Signup
+    document.getElementById('btn-signup').addEventListener('click', async () => {
+      const email = document.getElementById('email-input').value.trim();
+      if (!email || !email.includes('@')) {
+        document.getElementById('email-input').style.borderColor = '#ef4444';
+        return;
       }
-    }
 
-    document.getElementById('waitlist-form').addEventListener('submit', handleSubmit);
+      track('waitlist_signup', { email, interests: [...interests] });
 
-    // Tracking
-    async function trackEvent(event, metadata) {
-      try {
-        await fetch(SUPABASE_URL + '/rest/v1/events', {
-          method: 'POST',
-          headers: {
-            'apikey': SUPABASE_KEY,
-            'Authorization': 'Bearer ' + SUPABASE_KEY,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            hypothesis: 'H-007',
-            event: event,
-            metadata: metadata || {},
-            referrer: document.referrer || null,
-            user_agent: navigator.userAgent,
-          }),
-        });
-      } catch (e) { /* silent */ }
-    }
+      await sb.from('waitlist').insert({
+        hypothesis: HYP, email, source: ref,
+        metadata: JSON.stringify({ interests: [...interests] }),
+        created_at: new Date().toISOString()
+      });
 
-    trackEvent('page_view', { path: location.pathname });
+      showStep('success');
+      track('signup_complete', { email });
+    });
 
-    let maxScroll = 0;
+    // Scroll tracking
+    let scrollTracked = {};
     window.addEventListener('scroll', () => {
-      const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-      if (pct > maxScroll && pct % 25 === 0) {
-        maxScroll = pct;
-        trackEvent('scroll', { depth: pct });
-      }
+      const pct = Math.round(100 * window.scrollY / (document.body.scrollHeight - window.innerHeight));
+      [25, 50, 75, 90].forEach(threshold => {
+        if (pct >= threshold && !scrollTracked[threshold]) {
+          scrollTracked[threshold] = true;
+          track('scroll', { depth: threshold });
+        }
+      });
     });
   </script>
 </body>
