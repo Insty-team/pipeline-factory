@@ -1,0 +1,99 @@
+{
+  "persona": "Sam — Solo builder testing new ideas to solve everyday problems",
+  "content_ratio": {
+    "process_updates": "40% — 뭘 만들고 있는지, 뭐가 깨졌는지",
+    "metrics_milestones": "25% — 실제 숫자 (유저, 매출, 전환율)",
+    "opinions_questions": "25% — 핫테이크, 질문, 인사이트",
+    "product_mention": "10% — CTA는 자연스럽게, 댓글이나 바이오에"
+  },
+  "daily_schedule": {
+    "monday": {
+      "theme": "Week start — 이번 주 실험 목표",
+      "bluesky": "이번 주 뭘 테스트할지 짧게",
+      "threads": "질문형: 이런 문제 겪어본 사람? (이미지 포함)",
+      "linkedin": "주간 계획 + 지난주 배운 점",
+      "twitter": "한 줄 목표 + 숫자"
+    },
+    "tuesday": {
+      "theme": "Building — 만드는 과정",
+      "bluesky": "오늘 빌드한 것 스크린샷",
+      "threads": "과정 공유 + 질문 (뭐가 더 나을까?)",
+      "linkedin": "skip (주 2-3회면 충분)",
+      "twitter": "빌드 업데이트 1줄"
+    },
+    "wednesday": {
+      "theme": "Insight — 배운 것, 발견한 것",
+      "bluesky": "의외의 발견 공유",
+      "threads": "핫테이크 또는 반직관적 인사이트 (이미지)",
+      "linkedin": "인사이트 딥다이브 + 데이터",
+      "twitter": "인사이트 1줄 + 스레드"
+    },
+    "thursday": {
+      "theme": "Numbers — 실제 데이터 공유",
+      "bluesky": "이번 주 숫자 (유저, 전환, 트래픽)",
+      "threads": "숫자 스크린샷 + 솔직한 분석 (이미지 필수)",
+      "linkedin": "주간 메트릭 리포트",
+      "twitter": "숫자 트윗 (숫자가 들어간 트윗이 리트윗 높음)"
+    },
+    "friday": {
+      "theme": "Reflection — 이번 주 회고",
+      "bluesky": "이번 주 성공/실패 요약",
+      "threads": "주간 회고 스레드 체인 (3-4개 연결)",
+      "linkedin": "이번 주 배운 것 + 다음 주 계획",
+      "twitter": "한 줄 회고"
+    },
+    "weekend": {
+      "theme": "가벼운 것 or 쉬기",
+      "all": "올려도 되고 안 올려도 됨. 올리면 캐주얼하게."
+    }
+  },
+  "platform_rules": {
+    "bluesky": {
+      "limit": "300자",
+      "style": "짧고 솔직. 빌드 로그.",
+      "link": "본문에 OK",
+      "frequency": "매일 1개",
+      "best_time": "오전 9-11시 EST"
+    },
+    "threads": {
+      "limit": "500자 (+ 10,000자 첨부 가능)",
+      "style": "대화체. 질문형. 이미지 필수.",
+      "link": "댓글에. 본문에 넣으면 도달 감소.",
+      "frequency": "매일 1-2개 + 다른 사람 댓글 5개",
+      "best_time": "화-목 오전 9-11시",
+      "key": "올린 후 60분 내 모든 댓글에 답변"
+    },
+    "linkedin": {
+      "limit": "3000자",
+      "style": "구조적. 리스트. 질문으로 마무리.",
+      "link": "본문에 OK",
+      "frequency": "주 2-3회 (월/수/금 or 월/목)",
+      "best_time": "화-목 오전 8-10시",
+      "key": "올린 후 2시간 수정 금지"
+    },
+    "twitter": {
+      "limit": "280자",
+      "style": "펀치있게. 숫자. 스레드.",
+      "link": "마지막 트윗에만",
+      "frequency": "매일 1-2개",
+      "best_time": "화-목 오전 9-11시 EST"
+    },
+    "medium": {
+      "style": "장문 딥다이브. GEO 효과.",
+      "frequency": "주 1회 (목 or 금)",
+      "key": "오리지널 데이터 + 구조화된 답변"
+    }
+  },
+  "content_bank_ideas": [
+    "Day X update: 숫자 + 배운 것",
+    "이 문제를 겪어본 사람? (공감 질문)",
+    "X를 해봤더니 Y가 나왔다 (실험 결과)",
+    "Hot take: [반직관적 의견]",
+    "실패 공유: 이건 안 됐다. 이유는...",
+    "Before/After: X시간 걸리던 게 Y분으로",
+    "이번 주 가장 의외의 발견",
+    "스크린샷 + 한 줄 설명",
+    "다음 주 뭘 테스트할까? (의견 요청)",
+    "유저 0에서 X까지 — 뭘 했나"
+  ]
+}
