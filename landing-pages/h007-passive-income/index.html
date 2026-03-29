@@ -283,7 +283,7 @@
   <section class="py-20 px-4 bg-slate-950 text-center">
     <h2 class="text-3xl font-bold mb-4">Ready to build your first product?</h2>
     <p class="text-slate-400 mb-6">First 100 users get the free tier forever.</p>
-    <button onclick="document.getElementById('step-1').scrollIntoView({behavior:'smooth'})" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition text-lg">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg transition text-lg">
       Start free &rarr;
     </button>
   </section>
@@ -304,8 +304,8 @@
 
     function track(event, data = {}) {
       sb.from('events').insert({
-        hypothesis: HYP, event, source: ref, url: location.href,
-        metadata: JSON.stringify(data), created_at: new Date().toISOString()
+        hypothesis: HYP, event,
+        metadata: JSON.stringify({...data, source: ref, url: location.href}), created_at: new Date().toISOString()
       }).then(() => {});
     }
 
