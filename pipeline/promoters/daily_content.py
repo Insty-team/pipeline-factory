@@ -216,15 +216,20 @@ def post_to_bluesky(text: str, live_url: str = "") -> str:
     # Build facets for URL if present in text
     facets = []
     if live_url:
-        url = live_url + "?ref=bluesky"
+        target_url = live_url + "?ref=bluesky"
         text_bytes = text.encode("utf-8")
-        url_bytes = url.encode("utf-8")
-        url_start = text_bytes.find(url_bytes)
-        if url_start >= 0:
-            facets.append({
-                "index": {"byteStart": url_start, "byteEnd": url_start + len(url_bytes)},
-                "features": [{"$type": "app.bsky.richtext.facet#link", "uri": url}]
-            })
+        # Try matching: full URL with ref, full URL without ref, or domain only
+        import re
+        domain = live_url.replace("https://", "").replace("http://", "").rstrip("/")
+        for pattern in [live_url + "?ref=bluesky", live_url, domain]:
+            pat_bytes = pattern.encode("utf-8")
+            idx = text_bytes.find(pat_bytes)
+            if idx >= 0:
+                facets.append({
+                    "index": {"byteStart": idx, "byteEnd": idx + len(pat_bytes)},
+                    "features": [{"$type": "app.bsky.richtext.facet#link", "uri": target_url}]
+                })
+                break
 
     record = {
         "$type": "app.bsky.feed.post",
@@ -263,6 +268,21 @@ def save_drafts(hypothesis_id: str, content: dict, theme: dict) -> Path:
     path = DRAFTS_DIR / f"draft_{hypothesis_id}_{date_str}.json"
     with open(path, "w") as f:
         json.dump(draft, f, ensure_ascii=False, indent=2)
+
+    # Save to Supabase for dashboard access
+    try:
+        sb_url = os.environ.get("SUPABASE_URL", "")
+        sb_key = os.environ.get("SUPABASE_ANON_KEY", "")
+        if sb_url and sb_key:
+            requests.post(
+                f"{sb_url}/rest/v1/events",
+                headers={"apikey": sb_key, "Authorization": f"Bearer {sb_key}", "Content-Type": "application/json", "Prefer": "return=minimal"},
+                json={"hypothesis": "daily-content", "event": "draft", "metadata": json.dumps(draft, ensure_ascii=False)},
+                timeout=10
+            )
+    except Exception:
+        pass
+
     return path
 
 
@@ -320,6 +340,15 @@ def run():
 
     print("  Posting to Bluesky...")
     bsky_text = content.get("bluesky", "")
+    if bsky_text and len(bsky_text) > 300:
+        # Trim to 300 graphemes: cut at last newline or space before limit
+        trimmed = bsky_text[:297]
+        cut = max(trimmed.rfind("\n"), trimmed.rfind(" "))
+        if cut > 200:
+            bsky_text = bsky_text[:cut] + "..."
+        else:
+            bsky_text = trimmed + "..."
+        print(f"  Trimmed to {len(bsky_text)} chars (was {len(content.get("bluesky", ""))})")
     if bsky_text:
         uri = post_to_bluesky(bsky_text, live_url)
         if uri:

@@ -29,6 +29,11 @@
     </div>
   </div>
 
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Today's Content</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 p-3 sm:p-4 mb-6 sm:mb-8" id="todays-content">
+    <p class="text-gray-500 text-xs">Loading drafts...</p>
+  </div>
+
   <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Hypotheses</h2>
   <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-x-auto mb-6 sm:mb-8">
     <table class="w-full text-xs sm:text-sm min-w-[600px]">
@@ -122,14 +127,58 @@
       try {
         document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleString();
 
-        var [eventsResp, wlResp, bskyResp] = await Promise.all([
+        var [eventsResp, wlResp, bskyResp, draftResp] = await Promise.all([
           fetch(SB_URL + '/rest/v1/events?order=created_at.desc&limit=500', { headers: hd }),
           fetch(SB_URL + '/rest/v1/waitlist?order=created_at.desc&limit=100', { headers: hd }),
-          fetch(SB_URL + '/rest/v1/events?hypothesis=eq.bluesky-monitor&order=created_at.desc&limit=50', { headers: hd })
+          fetch(SB_URL + '/rest/v1/events?hypothesis=eq.bluesky-monitor&order=created_at.desc&limit=50', { headers: hd }),
+          fetch(SB_URL + '/rest/v1/events?hypothesis=eq.daily-content&event=eq.draft&order=created_at.desc&limit=1', { headers: hd })
         ]);
         var events = await eventsResp.json();
         var waitlist = await wlResp.json();
         var bskyEvents = await bskyResp.json();
+        var drafts = await draftResp.json();
+
+        // Today's Content
+        var contentDiv = document.getElementById('todays-content');
+        contentDiv.innerHTML = '';
+        if (drafts.length > 0) {
+          var d = drafts[0];
+          var meta = typeof d.metadata === 'string' ? JSON.parse(d.metadata) : (d.metadata || {});
+          var content = meta.content || {};
+          var dateStr = (meta.date || d.created_at || '').substring(0, 10);
+          var hypId = meta.hypothesis_id || '';
+          var theme = meta.theme || '';
+
+          var header = document.createElement('div');
+          header.className = 'flex flex-wrap items-center gap-2 mb-3';
+          header.innerHTML = '<span class="text-xs sm:text-sm font-mono text-blue-400">' + hypId + '</span><span class="text-xs text-gray-500">' + dateStr + '</span><span class="text-xs text-gray-600">' + theme + '</span>';
+          contentDiv.appendChild(header);
+
+          var channels = [
+            {name: 'Bluesky', key: 'bluesky', color: 'blue', status: (meta.status || {}).bluesky || ''},
+            {name: 'Threads', key: 'threads', color: 'purple', status: (meta.status || {}).threads || ''},
+            {name: 'LinkedIn', key: 'linkedin', color: 'cyan', status: (meta.status || {}).linkedin || ''},
+            {name: 'Twitter', key: 'twitter', color: 'gray', status: (meta.status || {}).twitter || ''}
+          ];
+
+          channels.forEach(function(ch) {
+            var text = content[ch.key];
+            if (!text) return;
+            var section = document.createElement('div');
+            section.className = 'mb-3 border-l-2 border-' + ch.color + '-500 pl-3';
+            var label = document.createElement('div');
+            label.className = 'flex items-center gap-2 mb-1';
+            label.innerHTML = '<span class="text-xs font-bold text-' + ch.color + '-400">' + ch.name + '</span><span class="text-[10px] text-gray-600">' + ch.status + '</span>';
+            var body = document.createElement('pre');
+            body.className = 'text-[11px] sm:text-xs text-gray-300 whitespace-pre-wrap font-sans leading-relaxed max-h-32 overflow-auto';
+            body.textContent = text;
+            section.appendChild(label);
+            section.appendChild(body);
+            contentDiv.appendChild(section);
+          });
+        } else {
+          contentDiv.innerHTML = '<p class="text-gray-500 text-xs">No drafts today. Daily pipeline runs at 9:00 AM.</p>';
+        }
 
         var hyps = {};
         events.forEach(function(e) {
@@ -175,7 +224,11 @@
           var tr = document.createElement('tr');
           tr.className = 'border-t border-gray-800';
           var td1 = document.createElement('td'); td1.className = 'p-2 sm:p-3 font-mono'; td1.textContent = id;
-          var td2 = document.createElement('td'); td2.className = 'p-2 sm:p-3'; td2.textContent = title;
+          var td2 = document.createElement('td'); td2.className = 'p-2 sm:p-3';
+          if (meta.url) {
+            var a = document.createElement('a'); a.href = meta.url; a.target = '_blank';
+            a.className = 'text-blue-400 underline'; a.textContent = title; td2.appendChild(a);
+          } else { td2.textContent = title; }
           var tdDesc = document.createElement('td'); tdDesc.className = 'p-2 sm:p-3 text-gray-400 text-xs hidden sm:table-cell'; tdDesc.textContent = desc;
           var td3 = document.createElement('td'); td3.className = 'p-2 sm:p-3 text-right'; td3.textContent = data.views;
           var td4 = document.createElement('td'); td4.className = 'p-2 sm:p-3 text-right'; td4.textContent = data.signups;
