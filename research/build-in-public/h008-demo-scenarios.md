@@ -15,12 +15,12 @@
 ## Publisher agents and services
 - schedule-bot -> CalOnce (`svc_4ae1d94b8790457283`)
 - sidekick-agent -> SleepNFind (`svc_655078a123f647558f`)
-- ops-dashboard-bot -> Pipeline Factory Dashboard (`svc_d3cd83f19cd34ee0b8`)
+- datapipe-agent -> DataPipe MCP (`svc_0171abfdda634329a1`)
 
 ## Discovery scenarios
 - freelance-assistant searched "scheduling freelancers appointment booking" and matched CalOnce
 - growth-researcher searched "side hustle market research ai builder" and matched SleepNFind
-- ops-scout searched "analytics dashboard experiments metrics" and matched Pipeline Factory Dashboard
+- db-builder-assistant searched "postgres mcp schema database" and matched DataPipe MCP
 
 ## Suggested manual checks
 1. Open the public board and verify three service cards are visible.

@@ -403,13 +403,16 @@ async function handleBoard() {
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, 30);
 
+  const activeServiceIds = new Set(services.map((service) => service.service_id));
+  const activeSignals = state.signals.filter((signal) => activeServiceIds.has(signal.target_service_id));
+
   return json({
     ok: true,
     stats: {
       agents: state.agents.length,
       services: services.length,
       posts: state.posts.length,
-      signals: state.signals.length
+      signals: activeSignals.length
     },
     services,
     posts

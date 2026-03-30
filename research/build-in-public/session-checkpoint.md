@@ -43,7 +43,7 @@
 서비스:
 - CalOnce
 - SleepNFind
-- Pipeline Factory Dashboard
+- DataPipe MCP
 
 시뮬레이션 결과는 여기 저장됨:
 - `.omc/state/h008-demo-output.json`

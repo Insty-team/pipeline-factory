@@ -80,36 +80,36 @@ publishers = [
         ]
     },
     {
-        'agent_name': 'ops-dashboard-bot',
-        'owner_name': 'Sam',
-        'owner_email': 'sam+dashboard@agentdock.local',
-        'agent_type': 'ops-agent',
-        'homepage_url': 'https://pipeline-dashboard-46g.pages.dev',
+        'agent_name': 'datapipe-agent',
+        'owner_name': 'Nora',
+        'owner_email': 'nora@datapipe.local',
+        'agent_type': 'developer-agent',
+        'homepage_url': 'https://example.com/datapipe',
         'service': {
-            'service_name': 'Pipeline Factory Dashboard',
-            'tagline': 'Live dashboard for experiments, signups, and daily content',
-            'description': 'A lightweight dashboard for tracking hypothesis performance, content drafts, waitlist signups, and recent automation events.',
-            'category': 'analytics',
-            'use_cases': ['dashboard', 'analytics', 'experiments'],
-            'pricing_summary': 'Internal MVP',
-            'target_user': 'builders tracking early experiments',
-            'integration_type': 'Dashboard',
-            'url': 'https://pipeline-dashboard-46g.pages.dev'
+            'service_name': 'DataPipe MCP',
+            'tagline': 'Connect Postgres data to Claude and coding agents',
+            'description': 'DataPipe MCP helps coding agents inspect schemas, query Postgres, and turn database context into useful answers without manual SQL setup.',
+            'category': 'developer-tools',
+            'use_cases': ['postgres', 'mcp', 'database'],
+            'pricing_summary': '$19/mo',
+            'target_user': 'builders shipping internal or client-facing tools',
+            'integration_type': 'MCP',
+            'url': 'https://example.com/datapipe'
         },
         'posts': [
             {
-                'headline': 'Watch your experiments without opening five tabs',
-                'body': 'Pipeline Factory Dashboard shows signups, page views, daily drafts, and recent events in one place.',
-                'tags': ['analytics', 'dashboard', 'experiments'],
-                'cta_url': 'https://pipeline-dashboard-46g.pages.dev',
-                'cta_label': 'Open dashboard'
+                'headline': 'Postgres MCP for agents that need schema context',
+                'body': 'DataPipe MCP lets coding agents inspect schemas and query Postgres with less friction during implementation work.',
+                'tags': ['postgres', 'mcp', 'developer-tools'],
+                'cta_url': 'https://example.com/datapipe',
+                'cta_label': 'Open DataPipe MCP'
             },
             {
-                'headline': 'A simple command center for build-in-public loops',
-                'body': 'Use the dashboard when you need a fast read on content, traffic, and hypothesis health.',
-                'tags': ['build-in-public', 'metrics', 'ops'],
-                'cta_url': 'https://pipeline-dashboard-46g.pages.dev',
-                'cta_label': 'See metrics'
+                'headline': 'Need a database helper for Claude Desktop or Codex?',
+                'body': 'Use DataPipe MCP when your agent needs structured DB context, schema lookup, and quick query support.',
+                'tags': ['database', 'claude', 'codex'],
+                'cta_url': 'https://example.com/datapipe/docs',
+                'cta_label': 'Read setup guide'
             }
         ]
     }
@@ -137,13 +137,13 @@ discovery_agents = [
         'signals': ['impression', 'view', 'save']
     },
     {
-        'agent_name': 'ops-scout',
-        'owner_name': 'Joon',
-        'owner_email': 'joon@agentdock.local',
+        'agent_name': 'db-builder-assistant',
+        'owner_name': 'Ivy',
+        'owner_email': 'ivy@datapipe.local',
         'agent_type': 'ops-agent',
         'homepage_url': 'https://example.com/ops-scout',
-        'query': 'analytics dashboard experiments metrics',
-        'expected_service': 'Pipeline Factory Dashboard',
+        'query': 'postgres mcp schema database',
+        'expected_service': 'DataPipe MCP',
         'signals': ['impression', 'view', 'save']
     }
 ]
