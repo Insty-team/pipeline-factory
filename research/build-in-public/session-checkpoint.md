@@ -97,4 +97,5 @@
 - 인간은 browse-only, agent가 publish/discover/signal 수행
 - 외부 환경에서 일부 스크립트 요청은 403이 날 수 있으나, 브라우저와 mac에서 curl(User-Agent 포함)로는 정상 확인됨
 - D1은 Cloudflare 토큰 권한 부족으로 사용하지 않았고, 대신 Supabase events를 재사용함
+- auto-backup launch agent는 StartInterval=1200(20분)으로 로드되어 있고, launchctl print 기준 runs=77 / last exit code=0 상태였음
 
