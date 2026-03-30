@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774714736160,
+  "lastScanned": 1774828813166,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -32,18 +32,27 @@
   },
   "customNotes": [],
   "directoryMap": {
+    "dashboard-site": {
+      "path": "dashboard-site",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1774828813126,
+      "keyFiles": [
+        "index.html"
+      ]
+    },
     "landing-pages": {
       "path": "landing-pages",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1774714736151,
+      "lastAccessed": 1774828813130,
       "keyFiles": []
     },
     "n8n": {
       "path": "n8n",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1774714736152,
+      "lastAccessed": 1774828813133,
       "keyFiles": [
         "README.md",
         "docker-compose.yml"
@@ -52,21 +61,21 @@
     "pipeline": {
       "path": "pipeline",
       "purpose": null,
-      "fileCount": 9,
-      "lastAccessed": 1774714736152,
+      "fileCount": 7,
+      "lastAccessed": 1774828813137,
       "keyFiles": [
-        "Dockerfile",
         "README.md",
         "ai.py",
-        "docker-compose.yml",
-        "loop.py"
+        "api_server.py",
+        "orchestrator.py",
+        "requirements.txt"
       ]
     },
     "research": {
       "path": "research",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1774714736152,
+      "lastAccessed": 1774828813138,
       "keyFiles": [
         "competitor-analysis.md",
         "hypothesis-scoring.md",
@@ -77,216 +86,33 @@
     "n8n/data": {
       "path": "n8n/data",
       "purpose": "Data files",
-      "fileCount": 0,
-      "lastAccessed": 1774714736153,
-      "keyFiles": []
+      "fileCount": 9,
+      "lastAccessed": 1774828813141,
+      "keyFiles": [
+        "config",
+        "crash.journal",
+        "database.sqlite"
+      ]
     },
     "pipeline/config": {
       "path": "pipeline/config",
       "purpose": "Configuration files",
-      "fileCount": 4,
-      "lastAccessed": 1774714736153,
+      "fileCount": 6,
+      "lastAccessed": 1774828813141,
       "keyFiles": [
-        "n8n_config.json",
-        "sources.json",
-        "validation_targets.json"
+        "channel_personas.json",
+        "content_calendar.json",
+        "n8n_config.json"
       ]
     },
     "pipeline/data": {
       "path": "pipeline/data",
       "purpose": "Data files",
       "fileCount": 0,
-      "lastAccessed": 1774714736153,
+      "lastAccessed": 1774828813142,
       "keyFiles": []
     }
   },
-  "hotPaths": [
-    {
-      "path": "n8n/workflows/multi_channel_post.json",
-      "accessCount": 6,
-      "lastAccessed": 1774715071594,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/n8n_poster.py",
-      "accessCount": 6,
-      "lastAccessed": 1774718440512,
-      "type": "file"
-    },
-    {
-      "path": "landing-pages/h006-scheduling/index.html",
-      "accessCount": 6,
-      "lastAccessed": 1774721316789,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/validate_loop.py",
-      "accessCount": 6,
-      "lastAccessed": 1774787858121,
-      "type": "file"
-    },
-    {
-      "path": "pipeline",
-      "accessCount": 5,
-      "lastAccessed": 1774787870853,
-      "type": "directory"
-    },
-    {
-      "path": "pipeline/collectors/reference.py",
-      "accessCount": 5,
-      "lastAccessed": 1774788111435,
-      "type": "file"
-    },
-    {
-      "path": "n8n/docker-compose.yml",
-      "accessCount": 4,
-      "lastAccessed": 1774716040242,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/.env",
-      "accessCount": 4,
-      "lastAccessed": 1774718405936,
-      "type": "file"
-    },
-    {
-      "path": "n8n/README.md",
-      "accessCount": 3,
-      "lastAccessed": 1774715148737,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/n8n_config.json",
-      "accessCount": 3,
-      "lastAccessed": 1774718467677,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 3,
-      "lastAccessed": 1774721262669,
-      "type": "directory"
-    },
-    {
-      "path": "landing-pages/h007-passive-income/index.html",
-      "accessCount": 2,
-      "lastAccessed": 1774714866194,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/validation_targets.json",
-      "accessCount": 2,
-      "lastAccessed": 1774714926849,
-      "type": "file"
-    },
-    {
-      "path": "n8n/workflows/twitter_post.json",
-      "accessCount": 1,
-      "lastAccessed": 1774714789696,
-      "type": "file"
-    },
-    {
-      "path": "n8n/workflows/reddit_post.json",
-      "accessCount": 1,
-      "lastAccessed": 1774714790145,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/channels.py",
-      "accessCount": 1,
-      "lastAccessed": 1774714790736,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/promoters/post_tracker.py",
-      "accessCount": 1,
-      "lastAccessed": 1774714804705,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/tracker.json",
-      "accessCount": 1,
-      "lastAccessed": 1774714834659,
-      "type": "file"
-    },
-    {
-      "path": "PLAYBOOK.md",
-      "accessCount": 1,
-      "lastAccessed": 1774714866796,
-      "type": "file"
-    },
-    {
-      "path": "n8n/workflows/linkedin_post.json",
-      "accessCount": 1,
-      "lastAccessed": 1774714950675,
-      "type": "file"
-    },
-    {
-      "path": "n8n/workflows/scheduled_validation.json",
-      "accessCount": 1,
-      "lastAccessed": 1774714989609,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/api_server.py",
-      "accessCount": 1,
-      "lastAccessed": 1774715016604,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_twitter_research_based.md",
-      "accessCount": 1,
-      "lastAccessed": 1774716507563,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/data/promotions/H-006_twitter_variant_B.md",
-      "accessCount": 1,
-      "lastAccessed": 1774716576458,
-      "type": "file"
-    },
-    {
-      "path": "n8n/workflows/bluesky_post.json",
-      "accessCount": 1,
-      "lastAccessed": 1774718428676,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/config/channel_personas.json",
-      "accessCount": 1,
-      "lastAccessed": 1774718810697,
-      "type": "file"
-    },
-    {
-      "path": "landing-pages/h006-scheduling",
-      "accessCount": 1,
-      "lastAccessed": 1774721268269,
-      "type": "directory"
-    },
-    {
-      "path": "weekly_pipeline.sh",
-      "accessCount": 1,
-      "lastAccessed": 1774787828606,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/orchestrator.py",
-      "accessCount": 1,
-      "lastAccessed": 1774788084349,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/collectors/reference_kr.py",
-      "accessCount": 1,
-      "lastAccessed": 1774788099745,
-      "type": "file"
-    },
-    {
-      "path": "pipeline/ai.py",
-      "accessCount": 1,
-      "lastAccessed": 1774788118715,
-      "type": "file"
-    }
-  ],
+  "hotPaths": [],
   "userDirectives": []
 }

@@ -36,6 +36,7 @@
         <tr>
           <th class="text-left p-3">ID</th>
           <th class="text-left p-3">Title</th>
+          <th class="text-left p-3">Description</th>
           <th class="text-right p-3">Views</th>
           <th class="text-right p-3">Signups</th>
           <th class="text-right p-3">Conv %</th>
@@ -82,9 +83,9 @@
     const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhub3hsem5iZ2hoYXZucnN1bmlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NzA1NTUsImV4cCI6MjA5MDI0NjU1NX0.atRa2gCxh6PiuIyX_GF5uKg-n1ccsq3xdXDXLqRG1cI';
     const hd = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY };
 
-    const TITLES = {
-      'H-006': 'Lifetime Deal Scheduling Tool',
-      'H-007-v3': 'AI Side Hustle Co-Pilot'
+    const HYPS_META = {
+      'H-006': { title: 'Lifetime Deal Scheduling Tool', desc: 'Calendly 대안 — $49 일회성 결제, 무료 플랜 제한 없음', url: 'https://calonce.pages.dev' },
+      'H-007-v3': { title: 'AI Side Hustle Co-Pilot', desc: 'AI가 사이드허슬 기회 발굴 + 실행까지 도와주는 코파일럿', url: 'https://sleepnfind.pages.dev' }
     };
 
     function normalizeHyp(h) {
@@ -142,7 +143,9 @@
         sorted.forEach(function(entry) {
           var id = entry[0], data = entry[1];
           var conv = data.views > 0 ? (data.signups / data.views * 100).toFixed(1) : '0.0';
-          var title = TITLES[id] || id;
+          var meta = HYPS_META[id] || {};
+          var title = meta.title || id;
+          var desc = meta.desc || '';
           var statusText;
           if (data.views >= 100) {
             statusText = parseFloat(conv) >= 10 ? 'GO' : 'Testing';
@@ -154,11 +157,12 @@
           tr.className = 'border-t border-gray-800';
           var td1 = document.createElement('td'); td1.className = 'p-3 font-mono'; td1.textContent = id;
           var td2 = document.createElement('td'); td2.className = 'p-3'; td2.textContent = title;
+          var tdDesc = document.createElement('td'); tdDesc.className = 'p-3 text-gray-400 text-xs'; tdDesc.textContent = desc;
           var td3 = document.createElement('td'); td3.className = 'p-3 text-right'; td3.textContent = data.views;
           var td4 = document.createElement('td'); td4.className = 'p-3 text-right'; td4.textContent = data.signups;
           var td5 = document.createElement('td'); td5.className = 'p-3 text-right'; td5.textContent = conv + '%';
           var td6 = document.createElement('td'); td6.className = 'p-3 text-' + statusColor + '-400'; td6.textContent = statusText;
-          tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+          tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(tdDesc); tr.appendChild(td3);
           tr.appendChild(td4); tr.appendChild(td5); tr.appendChild(td6);
           tbody.appendChild(tr);
         });
