@@ -183,7 +183,7 @@
         var hyps = {};
         events.forEach(function(e) {
           var h = normalizeHyp(e.hypothesis || 'unknown');
-          if (h.indexOf('geo') >= 0 || h.indexOf('monitor') >= 0 || h === 'unknown') return;
+          if (h.indexOf('geo') >= 0 || h.indexOf('monitor') >= 0 || h === 'unknown' || h === 'daily-content') return;
           if (!hyps[h]) hyps[h] = { views: 0, signups: 0 };
           if (e.event === 'page_view') hyps[h].views++;
           if (e.event === 'waitlist_signup') hyps[h].signups++;
