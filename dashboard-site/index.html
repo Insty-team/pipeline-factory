@@ -6,75 +6,90 @@
   <title>Pipeline Factory — Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-950 text-white p-6">
-  <h1 class="text-2xl font-bold mb-2">Pipeline Factory Dashboard</h1>
-  <p class="text-gray-500 mb-6" id="last-updated">Loading...</p>
+<body class="bg-gray-950 text-white p-3 sm:p-6">
+  <h1 class="text-xl sm:text-2xl font-bold mb-1">Pipeline Factory Dashboard</h1>
+  <p class="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6" id="last-updated">Loading...</p>
 
-  <div class="grid grid-cols-4 gap-4 mb-8">
-    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
-      <div class="text-gray-500 text-sm">Active Hypotheses</div>
-      <div class="text-3xl font-bold" id="active-count">-</div>
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 mb-6 sm:mb-8">
+    <div class="bg-gray-900 rounded-xl p-3 sm:p-4 border border-gray-800">
+      <div class="text-gray-500 text-xs sm:text-sm">Active Hypotheses</div>
+      <div class="text-2xl sm:text-3xl font-bold" id="active-count">-</div>
     </div>
-    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
-      <div class="text-gray-500 text-sm">Total Page Views</div>
-      <div class="text-3xl font-bold" id="total-views">-</div>
+    <div class="bg-gray-900 rounded-xl p-3 sm:p-4 border border-gray-800">
+      <div class="text-gray-500 text-xs sm:text-sm">Total Page Views</div>
+      <div class="text-2xl sm:text-3xl font-bold" id="total-views">-</div>
     </div>
-    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
-      <div class="text-gray-500 text-sm">Total Signups</div>
-      <div class="text-3xl font-bold" id="total-signups">-</div>
+    <div class="bg-gray-900 rounded-xl p-3 sm:p-4 border border-gray-800">
+      <div class="text-gray-500 text-xs sm:text-sm">Total Signups</div>
+      <div class="text-2xl sm:text-3xl font-bold" id="total-signups">-</div>
     </div>
-    <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
-      <div class="text-gray-500 text-sm">Avg Conversion</div>
-      <div class="text-3xl font-bold" id="avg-conversion">-</div>
+    <div class="bg-gray-900 rounded-xl p-3 sm:p-4 border border-gray-800">
+      <div class="text-gray-500 text-xs sm:text-sm">Avg Conversion</div>
+      <div class="text-2xl sm:text-3xl font-bold" id="avg-conversion">-</div>
     </div>
   </div>
 
-  <h2 class="text-xl font-bold mb-3">Hypotheses</h2>
-  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden mb-8">
-    <table class="w-full text-sm">
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Hypotheses</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-x-auto mb-6 sm:mb-8">
+    <table class="w-full text-xs sm:text-sm min-w-[600px]">
       <thead class="bg-gray-800">
         <tr>
-          <th class="text-left p-3">ID</th>
-          <th class="text-left p-3">Title</th>
-          <th class="text-left p-3">Description</th>
-          <th class="text-right p-3">Views</th>
-          <th class="text-right p-3">Signups</th>
-          <th class="text-right p-3">Conv %</th>
-          <th class="text-left p-3">Status</th>
+          <th class="text-left p-2 sm:p-3">ID</th>
+          <th class="text-left p-2 sm:p-3">Title</th>
+          <th class="text-left p-2 sm:p-3 hidden sm:table-cell">Description</th>
+          <th class="text-right p-2 sm:p-3">Views</th>
+          <th class="text-right p-2 sm:p-3">Signups</th>
+          <th class="text-right p-2 sm:p-3">Conv</th>
+          <th class="text-left p-2 sm:p-3">Status</th>
         </tr>
       </thead>
       <tbody id="hyp-table"></tbody>
     </table>
   </div>
 
-  <h2 class="text-xl font-bold mb-3">Bluesky Posts</h2>
-  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden mb-8">
-    <table class="w-full text-sm">
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Bluesky Posts</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-x-auto mb-6 sm:mb-8">
+    <table class="w-full text-xs sm:text-sm min-w-[400px]">
       <thead class="bg-gray-800">
         <tr>
-          <th class="text-left p-3">Date</th>
-          <th class="text-left p-3">Post</th>
-          <th class="text-right p-3">Likes</th>
-          <th class="text-right p-3">Replies</th>
-          <th class="text-right p-3">Reposts</th>
+          <th class="text-left p-2 sm:p-3">Date</th>
+          <th class="text-left p-2 sm:p-3">Post</th>
+          <th class="text-right p-2 sm:p-3">L</th>
+          <th class="text-right p-2 sm:p-3">R</th>
+          <th class="text-right p-2 sm:p-3">RP</th>
         </tr>
       </thead>
       <tbody id="bsky-table"></tbody>
     </table>
   </div>
 
-  <h2 class="text-xl font-bold mb-3">Recent Events</h2>
-  <div class="bg-gray-900 rounded-xl border border-gray-800 p-4 mb-8">
-    <div class="space-y-1 text-xs font-mono text-gray-400 max-h-48 overflow-auto" id="recent-events">No events yet</div>
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Waitlist Signups</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 overflow-x-auto mb-6 sm:mb-8">
+    <table class="w-full text-xs sm:text-sm min-w-[400px]">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="text-left p-2 sm:p-3">Date</th>
+          <th class="text-left p-2 sm:p-3">Email</th>
+          <th class="text-left p-2 sm:p-3">Hyp</th>
+          <th class="text-left p-2 sm:p-3">Source</th>
+        </tr>
+      </thead>
+      <tbody id="signup-table"></tbody>
+    </table>
   </div>
 
-  <h2 class="text-xl font-bold mb-3">Automation Status</h2>
-  <div class="bg-gray-900 rounded-xl p-4 border border-gray-800">
-    <div class="space-y-2 text-sm">
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Recent Events</h2>
+  <div class="bg-gray-900 rounded-xl border border-gray-800 p-3 sm:p-4 mb-6 sm:mb-8">
+    <div class="space-y-1 text-[10px] sm:text-xs font-mono text-gray-400 max-h-48 overflow-auto" id="recent-events">No events yet</div>
+  </div>
+
+  <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Automation Status</h2>
+  <div class="bg-gray-900 rounded-xl p-3 sm:p-4 border border-gray-800">
+    <div class="space-y-2 text-xs sm:text-sm">
       <div class="flex justify-between"><span>Auto-backup</span><span class="text-green-400">Every 20min</span></div>
       <div class="flex justify-between"><span>Bluesky Monitor</span><span class="text-green-400">Every 1hr</span></div>
       <div class="flex justify-between"><span>Daily Pipeline</span><span class="text-green-400">Daily 9:00 AM</span></div>
-      <div class="flex justify-between"><span>Weekly Pipeline</span><span class="text-green-400">Fri 8PM / Sat 12AM / Sat 4:10AM</span></div>
+      <div class="flex justify-between gap-2"><span>Weekly Pipeline</span><span class="text-green-400 text-right">Fri 8PM / Sat 12AM / 4:10AM</span></div>
     </div>
   </div>
 
@@ -84,8 +99,8 @@
     const hd = { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY };
 
     const HYPS_META = {
-      'H-006': { title: 'Lifetime Deal Scheduling Tool', desc: 'Calendly 대안 — $49 일회성 결제, 무료 플랜 제한 없음', url: 'https://calonce.pages.dev' },
-      'H-007-v3': { title: 'AI Side Hustle Co-Pilot', desc: 'AI가 사이드허슬 기회 발굴 + 실행까지 도와주는 코파일럿', url: 'https://sleepnfind.pages.dev' }
+      'H-006': { title: 'Lifetime Deal Scheduling Tool', desc: 'Calendly alternative — $49 one-time, no free plan limits', url: 'https://calonce.pages.dev' },
+      'H-007-v3': { title: 'AI Side Hustle Co-Pilot', desc: 'AI finds side hustle opportunities and helps you execute', url: 'https://sleepnfind.pages.dev' }
     };
 
     function normalizeHyp(h) {
@@ -93,15 +108,19 @@
       return h;
     }
 
-    function esc(s) {
-      var d = document.createElement('div');
-      d.textContent = s;
-      return d.innerHTML;
+    function maskEmail(email) {
+      if (!email) return '***';
+      var parts = email.split('@');
+      if (parts.length !== 2) return email.substring(0, 3) + '***';
+      var local = parts[0];
+      var domain = parts[1];
+      var visible = local.substring(0, Math.min(4, local.length));
+      return visible + '***@' + domain;
     }
 
     async function loadData() {
       try {
-        document.getElementById('last-updated').textContent = 'Last updated: ' + new Date().toLocaleString();
+        document.getElementById('last-updated').textContent = 'Updated: ' + new Date().toLocaleString();
 
         var [eventsResp, wlResp, bskyResp] = await Promise.all([
           fetch(SB_URL + '/rest/v1/events?order=created_at.desc&limit=500', { headers: hd }),
@@ -155,13 +174,13 @@
           var statusColor = statusText === 'GO' ? 'green' : (statusText === 'Testing' ? 'yellow' : 'gray');
           var tr = document.createElement('tr');
           tr.className = 'border-t border-gray-800';
-          var td1 = document.createElement('td'); td1.className = 'p-3 font-mono'; td1.textContent = id;
-          var td2 = document.createElement('td'); td2.className = 'p-3'; td2.textContent = title;
-          var tdDesc = document.createElement('td'); tdDesc.className = 'p-3 text-gray-400 text-xs'; tdDesc.textContent = desc;
-          var td3 = document.createElement('td'); td3.className = 'p-3 text-right'; td3.textContent = data.views;
-          var td4 = document.createElement('td'); td4.className = 'p-3 text-right'; td4.textContent = data.signups;
-          var td5 = document.createElement('td'); td5.className = 'p-3 text-right'; td5.textContent = conv + '%';
-          var td6 = document.createElement('td'); td6.className = 'p-3 text-' + statusColor + '-400'; td6.textContent = statusText;
+          var td1 = document.createElement('td'); td1.className = 'p-2 sm:p-3 font-mono'; td1.textContent = id;
+          var td2 = document.createElement('td'); td2.className = 'p-2 sm:p-3'; td2.textContent = title;
+          var tdDesc = document.createElement('td'); tdDesc.className = 'p-2 sm:p-3 text-gray-400 text-xs hidden sm:table-cell'; tdDesc.textContent = desc;
+          var td3 = document.createElement('td'); td3.className = 'p-2 sm:p-3 text-right'; td3.textContent = data.views;
+          var td4 = document.createElement('td'); td4.className = 'p-2 sm:p-3 text-right'; td4.textContent = data.signups;
+          var td5 = document.createElement('td'); td5.className = 'p-2 sm:p-3 text-right'; td5.textContent = conv + '%';
+          var td6 = document.createElement('td'); td6.className = 'p-2 sm:p-3 text-' + statusColor + '-400'; td6.textContent = statusText;
           tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(tdDesc); tr.appendChild(td3);
           tr.appendChild(td4); tr.appendChild(td5); tr.appendChild(td6);
           tbody.appendChild(tr);
@@ -174,17 +193,17 @@
           try {
             var meta = typeof e.metadata === 'string' ? JSON.parse(e.metadata) : (e.metadata || {});
             if (!meta.text) return;
-            var text = meta.text.substring(0, 80);
+            var text = meta.text.substring(0, 60);
             if (seenPosts[text]) return;
             seenPosts[text] = true;
             var date = (meta.created_at || e.created_at || '').substring(0, 10);
             var tr = document.createElement('tr');
             tr.className = 'border-t border-gray-800';
-            var td1 = document.createElement('td'); td1.className = 'p-3'; td1.textContent = date;
-            var td2 = document.createElement('td'); td2.className = 'p-3'; td2.textContent = text + '...';
-            var td3 = document.createElement('td'); td3.className = 'p-3 text-right'; td3.textContent = meta.likes || 0;
-            var td4 = document.createElement('td'); td4.className = 'p-3 text-right'; td4.textContent = meta.replies || 0;
-            var td5 = document.createElement('td'); td5.className = 'p-3 text-right'; td5.textContent = meta.reposts || 0;
+            var td1 = document.createElement('td'); td1.className = 'p-2 sm:p-3'; td1.textContent = date;
+            var td2 = document.createElement('td'); td2.className = 'p-2 sm:p-3'; td2.textContent = text + '...';
+            var td3 = document.createElement('td'); td3.className = 'p-2 sm:p-3 text-right'; td3.textContent = meta.likes || 0;
+            var td4 = document.createElement('td'); td4.className = 'p-2 sm:p-3 text-right'; td4.textContent = meta.replies || 0;
+            var td5 = document.createElement('td'); td5.className = 'p-2 sm:p-3 text-right'; td5.textContent = meta.reposts || 0;
             tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4); tr.appendChild(td5);
             bskyTbody.appendChild(tr);
           } catch(err) {}
@@ -192,11 +211,30 @@
         if (bskyTbody.children.length === 0) {
           var tr = document.createElement('tr');
           var td = document.createElement('td');
-          td.className = 'p-3 text-gray-500';
+          td.className = 'p-2 sm:p-3 text-gray-500';
           td.colSpan = 5;
           td.textContent = 'Waiting for next Bluesky monitor run...';
           tr.appendChild(td);
           bskyTbody.appendChild(tr);
+        }
+
+        // Signup table
+        var signupTbody = document.getElementById('signup-table');
+        signupTbody.innerHTML = '';
+        waitlist.forEach(function(w) {
+          var tr = document.createElement('tr');
+          tr.className = 'border-t border-gray-800';
+          var td1 = document.createElement('td'); td1.className = 'p-2 sm:p-3'; td1.textContent = (w.created_at || '').substring(0, 10);
+          var td2 = document.createElement('td'); td2.className = 'p-2 sm:p-3 font-mono'; td2.textContent = maskEmail(w.email);
+          var td3 = document.createElement('td'); td3.className = 'p-2 sm:p-3'; td3.textContent = normalizeHyp(w.hypothesis || '');
+          var td4 = document.createElement('td'); td4.className = 'p-2 sm:p-3 text-gray-400'; td4.textContent = w.source || 'direct';
+          tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3); tr.appendChild(td4);
+          signupTbody.appendChild(tr);
+        });
+        if (waitlist.length === 0) {
+          var tr = document.createElement('tr');
+          var td = document.createElement('td'); td.className = 'p-2 sm:p-3 text-gray-500'; td.colSpan = 4; td.textContent = 'No signups yet';
+          tr.appendChild(td); signupTbody.appendChild(tr);
         }
 
         var recentDiv = document.getElementById('recent-events');
