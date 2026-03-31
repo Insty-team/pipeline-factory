@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1774828813166,
+  "lastScanned": 1774915239132,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,7 +36,7 @@
       "path": "dashboard-site",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1774828813126,
+      "lastAccessed": 1774915239087,
       "keyFiles": [
         "index.html"
       ]
@@ -45,14 +45,14 @@
       "path": "landing-pages",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1774828813130,
+      "lastAccessed": 1774915239090,
       "keyFiles": []
     },
     "n8n": {
       "path": "n8n",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1774828813133,
+      "lastAccessed": 1774915239091,
       "keyFiles": [
         "README.md",
         "docker-compose.yml"
@@ -62,7 +62,7 @@
       "path": "pipeline",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1774828813137,
+      "lastAccessed": 1774915239093,
       "keyFiles": [
         "README.md",
         "ai.py",
@@ -75,7 +75,7 @@
       "path": "research",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1774828813138,
+      "lastAccessed": 1774915239096,
       "keyFiles": [
         "competitor-analysis.md",
         "hypothesis-scoring.md",
@@ -87,7 +87,7 @@
       "path": "n8n/data",
       "purpose": "Data files",
       "fileCount": 9,
-      "lastAccessed": 1774828813141,
+      "lastAccessed": 1774915239103,
       "keyFiles": [
         "config",
         "crash.journal",
@@ -98,19 +98,12 @@
       "path": "pipeline/config",
       "purpose": "Configuration files",
       "fileCount": 6,
-      "lastAccessed": 1774828813141,
+      "lastAccessed": 1774915239106,
       "keyFiles": [
         "channel_personas.json",
         "content_calendar.json",
         "n8n_config.json"
       ]
-    },
-    "pipeline/data": {
-      "path": "pipeline/data",
-      "purpose": "Data files",
-      "fileCount": 0,
-      "lastAccessed": 1774828813142,
-      "keyFiles": []
     }
   },
   "hotPaths": [],
