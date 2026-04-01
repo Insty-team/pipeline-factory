@@ -83,12 +83,19 @@
     }
   },
   "H-008": {
-    "title": "AgentDock — Open Marketplace for AI Agents",
+    "title": "Glowe / 글로우미 — Med Aesthetics Discovery for Agents",
     "landing_page_dir": "../landing-pages/h008-agentdock",
-    "pages_project": "agentdock",
-    "live_url": "https://agentdock-9vk.pages.dev",
+    "pages_projects": {
+      "en": "glowe-en",
+      "kr": "gloweme-kr"
+    },
+    "live_urls": {
+      "en": "https://glowe-en.pages.dev",
+      "kr": "https://gloweme-kr.pages.dev"
+    },
+    "legacy_url": "https://agentdock-9vk.pages.dev",
     "metric_window_hours": 168,
-    "deployed_at": "2026-03-30T10:12:50.569638",
+    "deployed_at": "2026-04-01T10:30:00+09:00",
     "success_criteria": {
       "min_pageviews": 100,
       "min_waitlist_signups": 15,

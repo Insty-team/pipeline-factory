@@ -168,6 +168,18 @@
       "type": "file"
     },
     {
+      "path": "pipeline/config/validation_targets.json",
+      "accessCount": 2,
+      "lastAccessed": 1775009509924,
+      "type": "file"
+    },
+    {
+      "path": "pipeline/data/hypotheses/H-008_20260330.json",
+      "accessCount": 2,
+      "lastAccessed": 1775009647188,
+      "type": "file"
+    },
+    {
       "path": "HANDOFF.md",
       "accessCount": 1,
       "lastAccessed": 1775004181801,
