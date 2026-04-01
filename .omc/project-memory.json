@@ -108,9 +108,63 @@
   },
   "hotPaths": [
     {
+      "path": "landing-pages/h008-agentdock/start.html",
+      "accessCount": 4,
+      "lastAccessed": 1775005330535,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/index.html",
+      "accessCount": 4,
+      "lastAccessed": 1775005409843,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/board.html",
+      "accessCount": 4,
+      "lastAccessed": 1775005470410,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/docs.html",
+      "accessCount": 4,
+      "lastAccessed": 1775005504472,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/dashboard.html",
+      "accessCount": 4,
+      "lastAccessed": 1775005544950,
+      "type": "file"
+    },
+    {
       "path": "HANDOFF.md",
       "accessCount": 1,
       "lastAccessed": 1775004181801,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/ko/index.html",
+      "accessCount": 1,
+      "lastAccessed": 1775005354306,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/ko/start.html",
+      "accessCount": 1,
+      "lastAccessed": 1775005425141,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/ko/board.html",
+      "accessCount": 1,
+      "lastAccessed": 1775005514029,
+      "type": "file"
+    },
+    {
+      "path": "landing-pages/h008-agentdock/ko/docs.html",
+      "accessCount": 1,
+      "lastAccessed": 1775005586426,
       "type": "file"
     }
   ],
