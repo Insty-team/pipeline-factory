@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"export NVM_DIR=~/.nvm && . \\\"$NVM_DIR/nvm.sh\\\" 2>/dev/null && export CLOUDFLARE_API_TOKEN=cfut_Q0tbNTOZCJYcM5F2JcJGEfvhhJU60B4uXTIEROOy8d266d33 && npx wrangler pages deploy . --project-nam...",
+  "error": "Exit code 1\n\n ⛅️ wrangler 4.78.0 (update available 4.79.0)\n─────────────────────────────────────────────\n\n\u001b[31m✘ \u001b[41;31m[\u001b[41;97mERROR\u001b[41;31m]\u001b[0m \u001b[1mA request to the Cloudflare API (/accounts/6459977030a2804db3dced71d04c7b54/pages/projects/glowe-en) failed.\u001b[0m\n\n  Project not found. The specified project name does not match any of your existing projects. [code: 8000007]\n  \n  If you think this is a bug, please open an issue at: \u001b[4mhttps://github.com/cloudflare/workers-sdk/issues/new/choose\u001b[...",
+  "timestamp": "2026-04-01T01:28:03.662Z",
+  "retry_count": 1
+}
