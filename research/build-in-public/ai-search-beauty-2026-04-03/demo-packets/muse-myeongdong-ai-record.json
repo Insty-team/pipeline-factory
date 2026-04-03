@@ -1,0 +1,43 @@
+{
+  "entity_type": "beauty_clinic_treatment_page",
+  "provider_name": "뮤즈의원",
+  "branch_name": "뮤즈클리닉 명동점",
+  "location": {
+    "country": "KR",
+    "city": "서울",
+    "district": "중구",
+    "address": "서울특별시 중구 퇴계로 97, 고려대연각타워 3층"
+  },
+  "contact": {
+    "phone": "02-754-5599",
+    "kakao": "뮤즈의원명동"
+  },
+  "source_url": "https://myeongdong.museclinic.co.kr/index.php/price/price_view/?middleId=5820",
+  "last_verified_at": "2026-04-03",
+  "treatments": [
+    {
+      "name": "[여성] 겨드랑이 + 인중 제모 5회",
+      "category": "레이저 제모",
+      "price_krw": 29000,
+      "original_price_krw": 50000,
+      "device_or_method": ["아포지플러스", "공중타격방식", "쿨링요법"],
+      "restrictions": ["일요일은 제모 시술 불가"],
+      "booking_cta_visible": true
+    },
+    {
+      "name": "[여성] 브라질리언 제모(항문포함) 5회",
+      "category": "레이저 제모",
+      "price_krw": 250000,
+      "original_price_krw": 360000,
+      "device_or_method": ["아포지플러스", "공중타격방식", "쿨링요법"],
+      "restrictions": ["일요일은 제모 시술 불가"],
+      "booking_cta_visible": true
+    }
+  ],
+  "not_clearly_stated": [
+    "downtime",
+    "consultation requirement",
+    "contraindications",
+    "aftercare details"
+  ]
+}

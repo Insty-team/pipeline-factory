@@ -1,0 +1,33 @@
+{
+  "entity_type": "beauty_clinic_branch_page",
+  "provider_name": "샤인빔의원",
+  "branch_name": "샤인빔클리닉 강남",
+  "location": {
+    "country": "KR",
+    "city": "서울",
+    "district": "강남구",
+    "address": "서울시 강남구 테헤란로1길 10, 세경빌딩 지하1층/2층/4층"
+  },
+  "contact": {
+    "phone": "02-2088-1008",
+    "kakao": "샤인빔의원 강남"
+  },
+  "source_urls": [
+    "https://gangnam.shinebeam.co.kr/ko/pricing/1/treatment",
+    "https://gangnam.shinebeam.co.kr/en"
+  ],
+  "last_verified_at": "2026-04-03",
+  "public_positioning": "샤인빔 클리닉은 제품과 가격을 투명하게 안내합니다.",
+  "treatment_taxonomy": ["레이저 제모"],
+  "booking_cta_visible": true,
+  "not_clearly_stated": [
+    "laser hair removal package names",
+    "laser hair removal prices",
+    "body-part specific offerings",
+    "restrictions and aftercare"
+  ],
+  "next_best_input_needed": [
+    "direct laser hair removal product URL",
+    "official branch booking URL if separate"
+  ]
+}
