@@ -106,6 +106,25 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "HANDOFF.md",
+      "accessCount": 2,
+      "lastAccessed": 1775302939648,
+      "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 1,
+      "lastAccessed": 1775301903248,
+      "type": "directory"
+    },
+    {
+      "path": "PLAYBOOK.md",
+      "accessCount": 1,
+      "lastAccessed": 1775301912975,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
