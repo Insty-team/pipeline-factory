@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775174473153,
+  "lastScanned": 1775260881661,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,7 +36,7 @@
       "path": "dashboard-site",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1775174473094,
+      "lastAccessed": 1775260881620,
       "keyFiles": [
         "index.html"
       ]
@@ -45,14 +45,14 @@
       "path": "landing-pages",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1775174473097,
+      "lastAccessed": 1775260881623,
       "keyFiles": []
     },
     "n8n": {
       "path": "n8n",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1775174473098,
+      "lastAccessed": 1775260881626,
       "keyFiles": [
         "README.md",
         "docker-compose.yml"
@@ -62,7 +62,7 @@
       "path": "pipeline",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1775174473100,
+      "lastAccessed": 1775260881629,
       "keyFiles": [
         "README.md",
         "ai.py",
@@ -75,7 +75,7 @@
       "path": "research",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775174473102,
+      "lastAccessed": 1775260881631,
       "keyFiles": [
         "competitor-analysis.md",
         "hypothesis-scoring.md",
@@ -87,7 +87,7 @@
       "path": "n8n/data",
       "purpose": "Data files",
       "fileCount": 9,
-      "lastAccessed": 1775174473110,
+      "lastAccessed": 1775260881635,
       "keyFiles": [
         "config",
         "crash.journal",
@@ -98,7 +98,7 @@
       "path": "pipeline/config",
       "purpose": "Configuration files",
       "fileCount": 6,
-      "lastAccessed": 1775174473115,
+      "lastAccessed": 1775260881638,
       "keyFiles": [
         "channel_personas.json",
         "content_calendar.json",
