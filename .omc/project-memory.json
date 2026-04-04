@@ -109,8 +109,8 @@
   "hotPaths": [
     {
       "path": "HANDOFF.md",
-      "accessCount": 2,
-      "lastAccessed": 1775302939648,
+      "accessCount": 3,
+      "lastAccessed": 1775302976720,
       "type": "file"
     },
     {
@@ -123,6 +123,30 @@
       "path": "PLAYBOOK.md",
       "accessCount": 1,
       "lastAccessed": 1775301912975,
+      "type": "file"
+    },
+    {
+      "path": "geo-truth-layer/experiments/EXPERIMENT-TRACKER.md",
+      "accessCount": 1,
+      "lastAccessed": 1775303947789,
+      "type": "file"
+    },
+    {
+      "path": "geo-truth-layer/experiments/E-001-reach-kakaotalk.md",
+      "accessCount": 1,
+      "lastAccessed": 1775303972119,
+      "type": "file"
+    },
+    {
+      "path": "geo-truth-layer/experiments/E-002-screenshot-impact.md",
+      "accessCount": 1,
+      "lastAccessed": 1775303991962,
+      "type": "file"
+    },
+    {
+      "path": "geo-truth-layer/experiments/E-003-setup-time-muse.md",
+      "accessCount": 1,
+      "lastAccessed": 1775304008872,
       "type": "file"
     }
   ],
