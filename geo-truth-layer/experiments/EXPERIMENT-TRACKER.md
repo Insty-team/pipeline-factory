@@ -49,7 +49,7 @@ Month 2+:  H-RET                    (유지)
 | E-001 | H-RCH | 카카오톡 DM으로 3곳 도달 테스트 | PLANNED | [E-001](./E-001-reach-kakaotalk.md) |
 | E-002 | H-MKT + H-MSG | 스크린샷 첨부 vs 미첨부 반응 비교 | PLANNED | [E-002](./E-002-screenshot-impact.md) |
 | E-003 | H-DEL | 뮤즈클리닉 셋업 소요시간 측정 | PLANNED | [E-003](./E-003-setup-time-muse.md) |
-
+| E-010 | H-PR | PR 빌딩 30일 실험 (Sam 숏폼) | PLANNED | [E-010](./E-010-pr-building.md) |
 ---
 
 ## 학습 로그 (실험 결과에서 추출)
