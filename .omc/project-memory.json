@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1775260881661,
+  "lastScanned": 1776140695256,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -32,129 +32,47 @@
   },
   "customNotes": [],
   "directoryMap": {
-    "dashboard-site": {
-      "path": "dashboard-site",
-      "purpose": null,
-      "fileCount": 1,
-      "lastAccessed": 1775260881620,
-      "keyFiles": [
-        "index.html"
-      ]
-    },
-    "landing-pages": {
-      "path": "landing-pages",
+    "_legacy": {
+      "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1775260881623,
+      "lastAccessed": 1776140695247,
       "keyFiles": []
     },
-    "n8n": {
-      "path": "n8n",
-      "purpose": null,
-      "fileCount": 2,
-      "lastAccessed": 1775260881626,
-      "keyFiles": [
-        "README.md",
-        "docker-compose.yml"
-      ]
-    },
-    "pipeline": {
-      "path": "pipeline",
-      "purpose": null,
-      "fileCount": 7,
-      "lastAccessed": 1775260881629,
-      "keyFiles": [
-        "README.md",
-        "ai.py",
-        "api_server.py",
-        "orchestrator.py",
-        "requirements.txt"
-      ]
-    },
-    "research": {
-      "path": "research",
+    "geo-truth-layer": {
+      "path": "geo-truth-layer",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1775260881631,
+      "lastAccessed": 1776140695247,
       "keyFiles": [
-        "competitor-analysis.md",
-        "hypothesis-scoring.md",
-        "micro-tool-factory.md",
-        "reddit-pain-points.md"
+        "feedback_accurate_matching.md",
+        "feedback_sell_before_build.md",
+        "geo-launch-plan.md",
+        "project_geo_beauty_service.md"
       ]
     },
-    "n8n/data": {
-      "path": "n8n/data",
-      "purpose": "Data files",
-      "fileCount": 9,
-      "lastAccessed": 1775260881635,
+    "_legacy/docs": {
+      "path": "_legacy/docs",
+      "purpose": "Documentation",
+      "fileCount": 2,
+      "lastAccessed": 1776140695247,
       "keyFiles": [
-        "config",
-        "crash.journal",
-        "database.sqlite"
+        "PIPELINE-V2-CHANGES.md",
+        "PLAYBOOK.md"
       ]
     },
-    "pipeline/config": {
-      "path": "pipeline/config",
-      "purpose": "Configuration files",
-      "fileCount": 6,
-      "lastAccessed": 1775260881638,
+    "_legacy/scripts": {
+      "path": "_legacy/scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 4,
+      "lastAccessed": 1776140695248,
       "keyFiles": [
-        "channel_personas.json",
-        "content_calendar.json",
-        "n8n_config.json"
+        "daily_pipeline.sh",
+        "monitor.sh",
+        "weekly_pipeline.sh"
       ]
     }
   },
-  "hotPaths": [
-    {
-      "path": "HANDOFF.md",
-      "accessCount": 3,
-      "lastAccessed": 1775302976720,
-      "type": "file"
-    },
-    {
-      "path": "",
-      "accessCount": 1,
-      "lastAccessed": 1775301903248,
-      "type": "directory"
-    },
-    {
-      "path": "PLAYBOOK.md",
-      "accessCount": 1,
-      "lastAccessed": 1775301912975,
-      "type": "file"
-    },
-    {
-      "path": "geo-truth-layer/experiments/EXPERIMENT-TRACKER.md",
-      "accessCount": 1,
-      "lastAccessed": 1775303947789,
-      "type": "file"
-    },
-    {
-      "path": "geo-truth-layer/experiments/E-001-reach-kakaotalk.md",
-      "accessCount": 1,
-      "lastAccessed": 1775303972119,
-      "type": "file"
-    },
-    {
-      "path": "geo-truth-layer/experiments/E-002-screenshot-impact.md",
-      "accessCount": 1,
-      "lastAccessed": 1775303991962,
-      "type": "file"
-    },
-    {
-      "path": "geo-truth-layer/experiments/E-003-setup-time-muse.md",
-      "accessCount": 1,
-      "lastAccessed": 1775304008872,
-      "type": "file"
-    },
-    {
-      "path": "geo-truth-layer/geo-launch-plan.md",
-      "accessCount": 1,
-      "lastAccessed": 1775308529026,
-      "type": "file"
-    }
-  ],
+  "hotPaths": [],
   "userDirectives": []
 }
