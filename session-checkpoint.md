@@ -1,6 +1,6 @@
 # 세션 체크포인트 — 2026-04-04
 
-> 2026-04-20 업데이트: AEO/GEO 인사이트를 반영해 `GEO Truth Layer`를 **AI가 병원을 정확히 찾고 설명하게 만드는 공식 정보 운영 서비스** 가설로 재정의. 오늘 실행 lane은 아웃리치 반응 테스트 1개만 유지. 상세 기록: `geo-truth-layer/research/2026-04-20-aeo-geo-official-info-ops.md`.
+> 2026-04-20 업데이트: AEO/GEO 인사이트를 반영해 `GEO Truth Layer`를 **AI가 병원을 정확히 찾고 설명하게 만드는 공식 정보 운영 서비스** 가설로 재정의. 오늘 실행 lane은 아웃리치 반응 테스트 1개만 유지. 상세 기록: `geo-truth-layer/research/2026-04-20/2026-04-20-aeo-geo-official-info-ops.md`.
 
 ## 이번 세션에서 완료한 것
 
