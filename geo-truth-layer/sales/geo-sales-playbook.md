@@ -1,4 +1,9 @@
-# GEO 영업 플레이북
+# GEO 영업 플레이북 (2026-04-03 초안 · 부분적으로 stale)
+
+> ⚠️ **2026-04-27 상태**: 가격 구조(Setup 30~50만 / Monthly 15~20만)와 패키지 정의는 여전히 유효합니다. 단,
+> - **수익 시뮬레이션**(Phase A/B/C 표)은 `STRATEGY.md` 1.3의 P0~P3 로드맵으로 대체되었습니다.
+> - **아웃리치 메시지 템플릿**은 메모리 규칙 위반(`GEO/AEO/schema/llms.txt` 단어 사용)이라 현재 미사용. 최신 톤은 `sales/v3-heal-shinsa/message.md` + `research/2026-04-20/2026-04-20-aeo-geo-official-info-ops.md` 참조.
+> - **첫 타겟 2곳**(뮤즈/샤인빔)은 디스커버리 시점 결정으로 현재 비활성. 활성 타겟은 `HANDOFF.md`의 Wave 1.
 
 Date: 2026-04-03
 Purpose: 클리닉 대상 GEO 서비스 즉시 영업용

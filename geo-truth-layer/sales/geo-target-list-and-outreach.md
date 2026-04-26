@@ -1,4 +1,8 @@
-# GEO 타겟 클리닉 리스트 + 아웃리치 전략
+# GEO 타겟 클리닉 리스트 + 아웃리치 전략 (2026-04-04 초안 · 부분적으로 stale)
+
+> ⚠️ **2026-04-27 상태**: 아래 Tier 1 3곳(메티/유스타일/세진)은 초기 타겟이며, 이미 v2 메시지로 발송 완료(또는 보류) 상태입니다. **현재 활성 타겟은 Wave 1 5곳** (앤드성형/삼성화이트/윤앤정/루트테마/더힐) — 근거: `research/youtube-clinics-geo-audit.md`. 발송 자료는 `sales/v3-heal-shinsa/`에 v3.1 포맷이 있습니다. 메시지 템플릿은 `GEO/AEO/schema/llms.txt` 단어를 쓰지 않는 v2/v3.1 톤으로 갱신되어 `sales/geo-truth-layer-positioning.md`와 `sales/v3-heal-shinsa/message.md`에서 최신본 확인.
+>
+> 본 문서의 Day 1~7 액션 리스트, 메티/유스타일/세진용 메시지는 **디스커버리 시점 기록**으로 보존합니다. 현재 사용 금지.
 
 Date: 2026-04-04
 Purpose: 내일부터 즉시 영업 시작

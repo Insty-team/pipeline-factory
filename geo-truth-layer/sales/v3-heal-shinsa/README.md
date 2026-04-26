@@ -1,6 +1,8 @@
 # v3 더힐피부과의원 신사본점 — 개인화 비주얼 아웃리치
 
 > 2026-04-26 제작 · 더힐피부과의원 신사본점 (thehealskin.co.kr)
+>
+> **Wave 1 컨텍스트**: 이 폴더는 Wave 1 5곳 중 첫 시제품. 나머지 4곳(앤드/삼성화이트/윤앤정/루트테마)도 같은 패턴의 형제 폴더로 생성 예정 — 권장 명명: `sales/v3-andps/`, `sales/v3-samsungwhite/`, `sales/v3-hiynj/`, `sales/v3-themeskin/`.
 
 ## 목적
 
