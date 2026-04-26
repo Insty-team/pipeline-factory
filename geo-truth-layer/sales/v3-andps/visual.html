@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>AI가 본 앤드성형외과</title>
+<style>
+  :root {
+    --ink: #111;
+    --sub: #555;
+    --line: #e6e6e6;
+    --bg: #fafafa;
+    --warn: #c43d3d;
+    --ok: #1f7a4a;
+    --pale: #f3eeea;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #ddd;
+    font-family: "Apple SD Gothic Neo", "Pretendard", -apple-system, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* 카톡 미리보기 친화 1080x1400 (≈4:5.2) */
+  .card {
+    width: 1080px;
+    height: 1400px;
+    margin: 0 auto;
+    background: var(--bg);
+    padding: 56px 70px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .eyebrow {
+    font-size: 26px;
+    color: var(--sub);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .title em {
+    font-style: normal;
+    background: linear-gradient(transparent 60%, var(--pale) 60%);
+    padding: 0 4px;
+  }
+  .row {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 32px;
+  }
+  .row h3 {
+    margin: 0 0 14px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .row .meta {
+    font-size: 20px;
+    color: var(--sub);
+    margin-top: -8px;
+    margin-bottom: 14px;
+  }
+  .check {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    font-size: 24px;
+  }
+  .check:first-of-type { border-top: 0; }
+  .check .label { color: var(--ink); }
+  .check .val {
+    font-weight: 700;
+    font-size: 26px;
+    padding: 4px 14px;
+    border-radius: 999px;
+  }
+  .val.ok   { color: var(--ok);   background: #e8f6ee; }
+  .val.warn { color: var(--warn); background: #fbeaea; }
+  .val.bad  { color: white;       background: var(--warn); }
+
+  .verdict {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 34px;
+    background: white;
+  }
+  .verdict .lead {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .verdict p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.55;
+    color: var(--sub);
+  }
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: #888;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div>
+    <div class="eyebrow">AI 검색 정보 점검</div>
+    <div class="title">
+      <em>앤드성형외과</em><br/>
+      유튜브는 활발한데<br/>
+      AI는 사이트를 못 들어가는 상태입니다.
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>메인 도메인 — andps.co.kr</h3>
+    <div class="meta">2026-04-26 확인 · ChatGPT·Gemini·Claude 봇 모두 동일</div>
+    <div class="check"><span class="label">페이지 응답 (HTTP)</span><span class="val bad">406 차단</span></div>
+    <div class="check"><span class="label">SSL 인증서</span><span class="val warn">self-signed</span></div>
+    <div class="check"><span class="label">AI가 읽을 수 있는 정보</span><span class="val bad">0건</span></div>
+  </div>
+
+  <div class="row">
+    <h3>같은 병원 · 글로벌 도메인 — andps-global.co.kr</h3>
+    <div class="meta">정상 동작 도메인이 따로 있는 것을 확인했습니다</div>
+    <div class="check"><span class="label">페이지 응답 (HTTP)</span><span class="val ok">정상</span></div>
+    <div class="check"><span class="label">SSL 인증서</span><span class="val ok">정상</span></div>
+    <div class="check"><span class="label">AI가 읽을 수 있는 정보</span><span class="val warn">일부</span></div>
+  </div>
+
+  <div class="verdict">
+    <div class="lead">눈서코TV는 잘 굴러가는데, 정작 ChatGPT는</div>
+    <p>
+      "앤드성형외과"를 물어보면 메인 사이트에 들어가지 못해<br/>
+      병원 정체성을 단편적으로만 답하거나, 못 찾는 상태입니다.<br/>
+      홈페이지를 다시 만드는 작업이 아니라,<br/>
+      이미 있는 정보를 AI가 닿을 수 있도록 정리하는 작업입니다.
+    </p>
+  </div>
+
+  <div class="footer">
+    <span>AI 검색 정보 점검 · 무료 짧은 메모</span>
+    <span>2026-04-27</span>
+  </div>
+
+</div>
+</body>
+</html>

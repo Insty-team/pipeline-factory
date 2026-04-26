@@ -73,6 +73,13 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "HANDOFF.md",
+      "accessCount": 1,
+      "lastAccessed": 1777219436025,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }

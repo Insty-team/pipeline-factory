@@ -5,6 +5,7 @@
 > 내부 정의: AI가 병원을 정확히 찾고 설명하게 만드는 공식 정보 운영 서비스
 
 > **🧭 전략 문서**: 단기(월 200~300만) + 장기(Zero to One)는 `geo-truth-layer/STRATEGY.md` 참조. 분기마다 다시 점검할 것.
+> **🗓️ 매일/매주 진척**: `geo-truth-layer/DAILY-LOG.md` — 자기 전 30초 한 줄, 일요일 5분 funnel snapshot.
 
 ---
 
