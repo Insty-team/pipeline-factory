@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<title>AI가 본 더힐피부과의원 신사본점</title>
+<style>
+  :root {
+    --ink: #111;
+    --sub: #555;
+    --line: #e6e6e6;
+    --bg: #fafafa;
+    --warn: #c43d3d;
+    --ok: #1f7a4a;
+    --pale: #f3eeea;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: #ddd;
+    font-family: "Apple SD Gothic Neo", "Pretendard", -apple-system, system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* 카톡 미리보기 친화 1080x1400 (≈4:5.2) */
+  .card {
+    width: 1080px;
+    height: 1400px;
+    margin: 0 auto;
+    background: var(--bg);
+    padding: 56px 70px 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .eyebrow {
+    font-size: 26px;
+    color: var(--sub);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .title em {
+    font-style: normal;
+    background: linear-gradient(transparent 60%, var(--pale) 60%);
+    padding: 0 4px;
+  }
+  .row {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 32px;
+  }
+  .row h3 {
+    margin: 0 0 14px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .row .meta {
+    font-size: 20px;
+    color: var(--sub);
+    margin-top: -8px;
+    margin-bottom: 14px;
+  }
+  .check {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    font-size: 24px;
+  }
+  .check:first-of-type { border-top: 0; }
+  .check .label { color: var(--ink); }
+  .check .val {
+    font-weight: 700;
+    font-size: 26px;
+    padding: 4px 14px;
+    border-radius: 999px;
+  }
+  .val.ok   { color: var(--ok);   background: #e8f6ee; }
+  .val.warn { color: var(--warn); background: #fbeaea; }
+  .val.bad  { color: white;       background: var(--warn); }
+
+  .verdict {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 34px;
+    background: white;
+  }
+  .verdict .lead {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .verdict p {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.55;
+    color: var(--sub);
+  }
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    color: #888;
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div>
+    <div class="eyebrow">AI 검색 정보 점검</div>
+    <div class="title">
+      <em>더힐피부과의원 신사본점</em><br/>
+      홈페이지를 AI가 어떻게 읽는지<br/>
+      혼자 살펴봤습니다.
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>더힐피부과의원 신사본점 페이지</h3>
+    <div class="meta">thehealskin.co.kr · 2026-04-26 확인</div>
+    <div class="check"><span class="label">페이지 제목</span><span class="val ok">있음</span></div>
+    <div class="check"><span class="label">페이지 설명문 (메타)</span><span class="val warn">키워드 나열형</span></div>
+    <div class="check"><span class="label">병원·시술·의사 정보 명시 (구조화 데이터)</span><span class="val bad">없음 (0개)</span></div>
+  </div>
+
+  <div class="row">
+    <h3>같은 카테고리 · 비교군</h3>
+    <div class="meta">강남역 모리스의원 (molessclinic.com)</div>
+    <div class="check"><span class="label">페이지 제목</span><span class="val ok">있음</span></div>
+    <div class="check"><span class="label">페이지 설명문 (메타)</span><span class="val ok">자연 문장</span></div>
+    <div class="check"><span class="label">병원·시술·의사 정보 명시 (구조화 데이터)</span><span class="val ok">있음</span></div>
+  </div>
+
+  <div class="verdict">
+    <div class="lead">AI 입장에서 이 차이는 곧</div>
+    <p>
+      "이 병원이 무엇을 잘하는 곳인지" 헷갈리는지 / 정확히 아는지의 차이입니다.<br/>
+      홈페이지에 정보를 더 쓰는 작업이 아니라, 이미 있는 정보를<br/>
+      AI가 헷갈리지 않게 정리해두는 작업입니다.
+    </p>
+  </div>
+
+  <div class="footer">
+    <span>AI 검색 정보 점검 · 무료 짧은 메모</span>
+    <span>2026-04-26</span>
+  </div>
+
+</div>
+</body>
+</html>
