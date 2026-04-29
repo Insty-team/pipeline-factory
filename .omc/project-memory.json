@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1776140695256,
+  "lastScanned": 1777456784065,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,26 +36,40 @@
       "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1776140695247,
+      "lastAccessed": 1777456784056,
       "keyFiles": []
+    },
+    "business-pivot-2026-04-28": {
+      "path": "business-pivot-2026-04-28",
+      "purpose": null,
+      "fileCount": 5,
+      "lastAccessed": 1777456784056,
+      "keyFiles": [
+        "01-criteria-review.md",
+        "02-pivot-decision.md",
+        "03-action-plan.md",
+        "DAILY-LOG.md",
+        "README.md"
+      ]
     },
     "geo-truth-layer": {
       "path": "geo-truth-layer",
       "purpose": null,
-      "fileCount": 4,
-      "lastAccessed": 1776140695247,
+      "fileCount": 7,
+      "lastAccessed": 1777456784056,
       "keyFiles": [
+        "DAILY-LOG.md",
+        "STRATEGY.md",
         "feedback_accurate_matching.md",
         "feedback_sell_before_build.md",
-        "geo-launch-plan.md",
-        "project_geo_beauty_service.md"
+        "geo-launch-plan.md"
       ]
     },
     "_legacy/docs": {
       "path": "_legacy/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1776140695247,
+      "lastAccessed": 1777456784057,
       "keyFiles": [
         "PIPELINE-V2-CHANGES.md",
         "PLAYBOOK.md"
@@ -65,7 +79,7 @@
       "path": "_legacy/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 4,
-      "lastAccessed": 1776140695248,
+      "lastAccessed": 1777456784057,
       "keyFiles": [
         "daily_pipeline.sh",
         "monitor.sh",
@@ -73,13 +87,6 @@
       ]
     }
   },
-  "hotPaths": [
-    {
-      "path": "HANDOFF.md",
-      "accessCount": 1,
-      "lastAccessed": 1777219436025,
-      "type": "file"
-    }
-  ],
+  "hotPaths": [],
   "userDirectives": []
 }
