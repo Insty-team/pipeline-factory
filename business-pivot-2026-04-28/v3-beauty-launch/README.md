@@ -14,9 +14,10 @@
 - [01-strategy-and-package.md](01-strategy-and-package.md) — 패키지 정의 + 가격 + 차별화 근거 + 무료→유료 전환 시나리오
 - [02-targets.md](02-targets.md) — 10곳 후보 풀 + Top 2 + 톤별 DM 템플릿 + 응답 추적표
 - [03-build-checklist.md](03-build-checklist.md) — 시제품 구성 + 도구 셋업 + 1주 액션
-- [04-references.md](04-references.md) — 벤치마크 (퀄리티 레퍼런스) — 사용자가 채워나갈 영역
+- [04-references.md](04-references.md) — 벤치마크 + 검증된 학습 링크 + 함정 7가지
 - [05-progress-log.md](05-progress-log.md) — **매일 1줄, 주간 회고, 마일스톤 추적** ⭐
 - [06-metrics-and-milestones.md](06-metrics-and-milestones.md) — KPI 정의 + 200~1000만 단계별 계획
+- [07-prototype-workflow.md](07-prototype-workflow.md) — **@nail_beige 시제품 단계별 매뉴얼** (이번 주말 따라할 것) ⭐
 
 ## 기존 트랙(GEO/의료기관)과의 관계
 
@@ -24,11 +25,11 @@
 - 메모리 `project_outreach_status.md`의 GEO 아웃리치(메티/유스타일나인/세진/더힐)는 **의료기관**이라 별개 트랙 — 영업 메시지/타겟/패키지 다 다름.
 - 두 트랙 병행 가능. 단 시간 예산상 v3에 60~70% 투입 권장.
 
-## 다음 액션 (이번 주말 4~6시간)
+## 다음 액션 (이번 주말 6~7시간) — **1곳 집중**
 
-1. CapCut/Vrew/Canva Pro 셋업 (1시간)
-2. @nail_beige 시제품 1세트 만들기 (3시간) — 캡션 5 + 카드뉴스 1세트 + 릴스 1편 + DM 자동응답 데모
-3. DM 발송 (15분)
-4. 응답 추적 시트 시작 (10분)
+1. 도구 셋업 (1시간) — 미리캔버스, CapCut, VLLO, Vrew (모두 무료)
+2. **@nail_beige 시제품 1세트 완성** (5~6시간) — Phase 1~7 매뉴얼 그대로
+3. DM 발송 (5/3 일 22~23시)
+4. 회고 작성 + 응답 추적
 
-상세는 [03-build-checklist.md](03-build-checklist.md).
+⚠️ **5곳 동시 X. 1곳에 정성 → 워크플로 갈고 닦은 후 다음 가게는 4~5h로 단축.** 상세는 [07-prototype-workflow.md](07-prototype-workflow.md).

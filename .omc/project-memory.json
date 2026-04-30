@@ -89,6 +89,24 @@
   },
   "hotPaths": [
     {
+      "path": "business-pivot-2026-04-28/v3-beauty-launch/README.md",
+      "accessCount": 4,
+      "lastAccessed": 1777515538797,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v3-beauty-launch/04-references.md",
+      "accessCount": 3,
+      "lastAccessed": 1777515485810,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v3-beauty-launch/02-targets.md",
+      "accessCount": 2,
+      "lastAccessed": 1777515508420,
+      "type": "file"
+    },
+    {
       "path": "business-pivot-2026-04-28/v2-zero-to-one/06-beauty-niche-validation.md",
       "accessCount": 1,
       "lastAccessed": 1777509221644,
@@ -107,21 +125,9 @@
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/README.md",
-      "accessCount": 1,
-      "lastAccessed": 1777513118131,
-      "type": "file"
-    },
-    {
       "path": "business-pivot-2026-04-28/v3-beauty-launch/01-strategy-and-package.md",
       "accessCount": 1,
       "lastAccessed": 1777513172812,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/02-targets.md",
-      "accessCount": 1,
-      "lastAccessed": 1777513224614,
       "type": "file"
     },
     {
@@ -140,6 +146,12 @@
       "path": "business-pivot-2026-04-28/v3-beauty-launch/06-metrics-and-milestones.md",
       "accessCount": 1,
       "lastAccessed": 1777513373789,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v3-beauty-launch/07-prototype-workflow.md",
+      "accessCount": 1,
+      "lastAccessed": 1777515664760,
       "type": "file"
     }
   ],

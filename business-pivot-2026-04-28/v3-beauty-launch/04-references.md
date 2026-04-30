@@ -51,36 +51,71 @@
 | 1 | @nail_beige | (확인 필요) | (확인 필요) | (확인 필요) |
 | 2 | (추가) | | | |
 
-## 5. AI 도구 활용 사례 / 튜토리얼
+## 5. AI 도구 활용 사례 / 튜토리얼 (검증된 링크)
 
-> 학습 우선순위순.
+> 2026-04-30 시장조사 결과 반영. 학습 우선순위순.
 
-### CapCut
+### 미리캔버스 (카드뉴스 — 한국 1인샵 표준)
 
-- [ ] 유튜브 검색 "CapCut 인스타 릴스 템플릿 사용법" 1편 — 추천 채널/링크: ___________
-- [ ] CapCut 공식 템플릿 모음 (네일/뷰티 키워드 검색)
-- [ ] 한국 마케터의 CapCut 강의 1편
+- [10분 카드뉴스 가이드](https://buzaari.com/entry/SNS-카드-뉴스-미리캔버스로-10분만에-만드는법) — Day 1 학습용
+- [미리캔버스 카드뉴스 템플릿](https://www.miricanvas.com/ko/template/card_news) — 템플릿 둘러보기
+- [곰픽 카드뉴스 (대안)](https://www.gomlab.com/blog/387) — 미리캔버스 안 맞을 때
 
-### Vrew
+### CapCut (릴스)
 
-- [ ] Vrew 공식 튜토리얼 (한국어 자막)
-- [ ] 자막 스타일링 강의 1편
+- [CapCut 공식 한국어 튜토리얼](https://www.capcut.com/ko-kr/resource/capcut-tutorial-for-beginners)
+- [캡컷 10분 릴스 가이드](https://www.jaenung.net/tree/2063)
+- [인스타 릴스 왕초보 (YouTube)](https://www.youtube.com/watch?v=mAtpu-dEpVw) — Day 3 학습
+- [키프레임 사진→영상 (TikTok)](https://www.tiktok.com/@v_ong_/video/7372400396796464400) — 비포애프터 핵심 기법
 
-### Canva
+### VLLO (한국 1위 모바일 영상 편집)
 
-- [ ] Canva 한국어 인스타 카드뉴스 템플릿 모음
-- [ ] 카드뉴스 디자인 원칙 강의 1편
+- [VLLO 공식](https://www.vllo.io/) — 점주가 직접 쓸 때 추천
+
+### Vrew (자막 자동, 한국제)
+
+- [ ] Vrew 공식 튜토리얼 — 채워넣기
+
+### 발행 도구
+
+- [Meta Business Suite 가이드](https://openads.co.kr/content/contentDetail?contsId=9006) — Day 2 학습
+
+### AI 카드뉴스 자동 (베타 시작 후)
+
+- [캐럿(Carat) 블로그 — AI 카드뉴스 마케팅](https://carat.im/blog/ai-card-news-marketing)
+- [RoboMD 인스타 관리](https://robomd.io/sub/home_robomd_instagram.html) — Meta 공식 파트너
+
+### 자동화 워크플로 (M2~M3 학습)
+
+- [Make 인스타 자동화 4가지 (임패커스)](https://blog.impakers.club/2025/08/01/make-instagram-post-automation/)
+- [n8n으로 인스타 콘텐츠 자동생성 (gpters)](https://www.gpters.org/nocode/post/digital-marketing-n8n-automatically-bubCk81qH6pt8ka)
+- [n8n 인스타 포스팅 (노마드)](https://nomadcoders.co/community/thread/11228)
+- [노코드 1일 1피드 182시간 절약](https://www.gpters.org/nocode/post/automate-1-feed-per-rrudX3LNcuyObAZ)
+- [n8n 완벽가이드](https://www.magicaiprompts.com/docs/automation/n8n-usage-guide/)
+- [반자동 추천 (브런치)](https://brunch.co.kr/@6280ce27834d483/22)
 
 ### ChatGPT/Claude — 캡션 프롬프트
 
-- [ ] 우리 자체 프롬프트 1세트 (`prompts/caption-v1.md`로 정리 예정)
+- [ ] 우리 자체 프롬프트 1세트 (`work/nail-beige/02-captions/prompt-v1.md`)
 - [ ] 좋은 인스타 캡션 100개 모아서 프롬프트 학습 자료로
 
-### 챗봇 (DM 자동응답)
+### 챗봇 (DM 자동응답, 베타 시작 시)
 
 - [ ] 채널톡 1인샵 셋업 가이드
 - [ ] Manychat 인스타 DM 챗봇 셋업
 - [ ] 카카오 챗봇 빌더 — 1인샵 운영자용
+
+### 1주 학습 커리큘럼 (검증된 링크 순서)
+
+| Day | 주제 | 링크 |
+|---|---|---|
+| 1 | 미리캔버스 + 카드뉴스 1개 | [10분 가이드](https://buzaari.com/entry/SNS-카드-뉴스-미리캔버스로-10분만에-만드는법) |
+| 2 | Meta Business Suite 예약 발행 | [가이드](https://openads.co.kr/content/contentDetail?contsId=9006) |
+| 3 | CapCut 왕초보, 10분 릴스 1개 | [YouTube](https://www.youtube.com/watch?v=mAtpu-dEpVw) |
+| 4 | 키프레임 사진→영상 비포애프터 | [TikTok](https://www.tiktok.com/@v_ong_/video/7372400396796464400) |
+| 5 | 캐럿/RoboMD AI 자동생성 시연 | [비교 글](https://carat.im/blog/ai-card-news-marketing) |
+| 6 | Make 인스타 자동화 시나리오 1개 | [임패커스](https://blog.impakers.club/2025/08/01/make-instagram-post-automation/) |
+| 7 | n8n 가이드 | [매직AI프롬프트](https://www.magicaiprompts.com/docs/automation/n8n-usage-guide/) |
 
 ## 6. 경쟁자 / 대행사 직거래 모니터링
 
@@ -98,7 +133,24 @@
 | 출처 | 점주 표현 | 우리가 풀 수 있는 부분 |
 |---|---|---|
 | (네이버 카페 "자영업") | (예) "릴스 만드는 데 2시간씩 걸려요" | AI 캡션·자막 자동화로 30분 |
+| highoutputclub | "매번 뭘 올릴지 고민, 시간 부족, 그냥 올리는 콘텐츠가 됨" | 콘텐츠 기획 + 자동화 |
 | | | |
+
+### 함정 7가지 (2026-04-30 시장조사 — 우리 패키지 설계할 때 회피)
+
+1. **콘텐츠 고갈** — 점주 1순위 고민. 매번 뭘 올릴지 모름. → 우리는 시술 컨셉 시리즈로 묶어 제공
+2. **AI 자동 생성물의 광고 톤** — 메모리 `feedback_promo_tone` 일관. → **AI 초안 + 사람 다듬기** 필수, "광고스럽지 않은 결" 강조
+3. **자동 팔로우/좋아요/콜드 DM = 계정 정지 위험** — Mirra·아이보스 다수 경고. → 우리 챗봇은 "1차 응답"만, 자동 영업 X
+4. **카드뉴스 동질화** — 미리캔버스 무료 템플릿이 다 비슷함. → **각 가게 브랜드 키트 1세트** 만들어 차별화
+5. **시술 결과 왜곡** — 과도 보정 = "실제 가니 다름" 컴플레인 트리거. → 보정은 자연스럽게, 원본 화질 보존
+6. **완전 자동화 환상** — 한국 블로거 다수가 "반자동이 정답" 결론. → 포지셔닝: "반자동 + 1인 손길"
+7. **트렌드 음원 30일 수명** — 같은 템플릿에 음원만 바꿔서 재활용. → 베타 운영 시 자동화 가능
+
+### 사업 기회 (조사 결과)
+
+⭐ **한국 1인샵 점주가 직접 자동화한 사례 = 거의 없음**. 자동화 후기는 마케터·블로거·뉴스레터 운영자 위주. 이게 우리 사업의 진짜 빈자리. 패키지 메시지로 활용 가능:
+
+> "다른 업종은 다 자동화 시작했는데, 네일/에스테틱 1인샵 사장님들만 아직 손으로 다 하고 계세요."
 
 ## 8. 의료법 / 식약처 가이드 (피부관리실 진입 시)
 
