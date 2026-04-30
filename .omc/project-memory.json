@@ -87,6 +87,13 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "business-pivot-2026-04-28/v2-zero-to-one/06-beauty-niche-validation.md",
+      "accessCount": 1,
+      "lastAccessed": 1777509221644,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
