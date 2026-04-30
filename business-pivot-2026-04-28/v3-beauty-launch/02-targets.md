@@ -57,6 +57,69 @@
 - 프롬미강남 — 가맹/체인
 - 강남뷰티에스테틱 — 규모 큼
 
+## 2-2. 확장 풀 20곳 (2026-04-30 발굴, 첫 발송 후 페이스 따라 발송)
+
+> ⚠️ **DM 발송 전 5분 재확인 필수**: 인스타 직접 들어가서 1인샵 명시 / 최근 1개월 활동 / DM 열림 / 팔로워 수 검증.
+
+### 네일샵 10곳 (다양한 상권 + niche)
+
+| # | 가게 | 핸들 | 위치 | 팔로워 | niche | 1인샵 추정 근거 |
+|---|---|---|---|---|---|---|
+| N1 | 오유네일 | [@ounailshop](https://www.instagram.com/ounailshop/) | 마포 합정/연남 | ~13K | 일반 + 손톱연장 | 게시물 4,500+개·1인 작가 톤 |
+| N2 | 공간네일 잠실점 | [@gonggan_jamsil](https://www.instagram.com/gonggan_jamsil/) | 송파 잠실 | 확인 필요 | 일반 + 드릴케어 | ⚠️ 체인 가능성 — 첫 DM에서 확인 |
+| N3 | 우리네일상 | [@woorinailsang](https://www.instagram.com/woorinailsang/) | 송파 잠실/강동 | 확인 필요 | 케어/스파 (습식·통젤) | "습식케어 전문"·NOGA인증샵 |
+| N4 | 라라네일 명동 | [@lalanail_myeongdong](https://www.instagram.com/lalanail_myeongdong/) | 중구 명동 | ~9K | 가성비 1인샵 | 동시 4인 시술·소규모 |
+| N5 | 더네일인 명동 | [@thenailinmyeongdong](https://www.instagram.com/thenailinmyeongdong/) | 중구 명동 | ~1.3K | 손톱연장·내성발톱 | "연장네일/내성발톱관리" 단일점 |
+| N6 | 네일아울렛 홍대 | [@nailoutlet_hongdae](https://www.instagram.com/nailoutlet_hongdae/) | 마포 홍대 | ~2.8K | 가성비 1인샵 | 단일 매장·운영시간 10-23시 |
+| N7 | 르비쥬네일 | [@lebijou_js](https://www.instagram.com/lebijou_js/) | 강남역 | 확인 필요 | 손톱연장 (물어뜯는 손톱 특화) | "물어뜯는 손톱연장 전문" |
+| N8 | 9층네일 스튜디오 | [@9.nailstudio](https://www.instagram.com/9.nailstudio/) | 중구 을지로/명동 | 확인 필요 | 일반 젤네일 | 다지역·소규모 스튜디오 |
+| N9 | 소이네일 | [@so2._.nail](https://www.instagram.com/so2._.nail/) | 강남 역삼 | 확인 필요 | 손톱연장·오버레이 | "네일연장전문 오버레이전문" |
+| N10 | 뽐네일 | [@bbomnail1](https://www.instagram.com/bbomnail1/) | 관악 서울대입구 | 확인 필요 | 가성비 1인샵 (대학가) | 서울대입구 단일점 |
+
+### 에스테틱/피부관리실 10곳
+
+| # | 가게 | 핸들 | 위치 | 팔로워 | niche | 1인샵 추정 근거 |
+|---|---|---|---|---|---|---|
+| E1 | 크리스찬 유앤브이 | [@christian.unv](https://www.instagram.com/christian.unv/) | 용산 한남 | ~12K | 두피/헤드 스파 | 오승현 대표 1인 창업 보도, 보그/하퍼스바자 노출 |
+| E2 | 에스테틱 노엘 | [@aesthetic_noel_](https://www.instagram.com/aesthetic_noel_/) | 강남 논현 | 확인 필요 | 안티에이징·웨딩 | "수기 윤곽관리" 1:1 프라이빗 원장 |
+| E3 | 클로이 에스테틱 | [@chloe.aesthetic__](https://www.instagram.com/chloe.aesthetic__/) | 강남 선릉 | 확인 필요 | 모공·리프팅 (엔더몰로지) | 1인 원장·"클로이" 개인 브랜딩 |
+| E4 | 어나더핸드 | [@anotherhand__official](https://www.instagram.com/anotherhand__official/) | 강남 논현 | 확인 필요 | 작은얼굴 (소얼굴) | "작은얼굴 에스테틱" 시그니처 단일 |
+| E5 | 청온 에스테틱 | [@cheong_on_official](https://www.instagram.com/cheong_on_official/) | 강남 양재/도곡 | 확인 필요 | 페이셜 + 체형관리 | "에스테틱 피부·체형" 단일점 |
+| E6 | 빛나래 에스테틱 | [@bitnarae___](https://www.instagram.com/bitnarae___/) | 강남 | 확인 필요 | 일반 페이셜·피부개선 | "대표원장 빛나래" 개인 브랜딩 |
+| E7 | 꼼에스테틱 | [@comme__official](https://www.instagram.com/comme__official/) | 송파 잠실 | ~22K | 산소·LED·기기관리 | 젠더리스 컨셉 단일 매장 |
+| E8 | 박은영 에스테틱 | [@park_aestheticsny](https://www.instagram.com/park_aestheticsny/) | 서울 (확인 필요) | 확인 필요 | 안티에이징·바디 | 원장 이름 브랜딩 |
+| E9 | 뷰티블르바드 | [@btblvd0718](https://www.instagram.com/btblvd0718/) | 서울 | 확인 필요 | 등관리·바디 (스파 결합) | "에스테틱&스파" 단독 톤 |
+| E10 | 플로우스파 | [@flowspa_](https://www.instagram.com/flowspa_/) | 강남 | 확인 필요 | 한국식 페이셜·헤드/페이셜 | ⚠️ 외국인 타겟 프라이빗·직원 2~3명 가능성 |
+
+### 두 번째 발송 추천 Top 3 per category
+
+**네일 Top 3 (다음 시제품용)**
+1. **N1 오유네일** — 네일베이지와 페르소나·상권 가장 유사 → 결과 비교 검증용 최적
+2. **N2 공간네일 잠실점** — 다른 상권 + 드릴케어 niche (체인 여부 첫 DM에서 확인)
+3. **N3 우리네일상** — NOGA 인증 등 객관 신뢰 시그널
+
+**에스테틱 Top 3**
+1. **E1 크리스찬 유앤브이** — 1인 창업 스토리 명확, niche(두피스파) 강력, 미디어 노출
+2. **E2 에스테틱 노엘** — 1:1 수기 윤곽 + 강남 논현 핵심
+3. **E3 클로이 에스테틱** — 엔더몰로지 기기 특화, 시그니처 시술 카피 만들기 쉬움
+
+### 추가 발굴용 검색 키워드 / 소스
+
+**네이버/구글 키워드 (다른 상권 확장):**
+- 홍대 1인 네일샵 인스타 / 연남동 네일샵 / 합정 네일샵 / 신사 네일샵 / 강남역 손톱연장 / 잠실 네일샵 / 명동 네일샵 / 한남동 네일샵 / 익선동 네일샵 / 판교 네일샵 / 분당 정자 네일샵
+- 강남 페이셜 1인 / 신사 가로수길 피부관리 / 잠실 등관리 / 한남 두피스파 / 압구정 안티에이징 에스테틱 / 분당 1인 피부관리실 / 성수 1인 에스테틱 / 모공관리 1인샵 서울 / RF 리프팅 1인샵 / 헤드스파 강남
+
+**인스타 해시태그:**
+#홍대네일 #연남네일 #합정네일 #한남네일 #신사네일 #익선동네일 #잠실네일 #판교네일 #분당네일 #1인네일샵 #손톱연장전문 #젤네일 #웨딩네일
+#서울에스테틱 #강남에스테틱 #1인샵피부관리 #등관리 #모공관리 #리프팅관리 #두피스파 #헤드스파 #LED페이셜 #안티에이징관리
+
+**한국 카페/블로그/플랫폼:**
+- 네이버카페 "여우야놀자" (네일 정보)
+- 네이버카페 "다이어트는 내일부터" (피부/에스테틱 후기)
+- 네이버블로그 "강남언니" 매거진
+- 언니의파우치 unnie.moneple.com (네일)
+- 카카오뷰 "에스테틱쇼핑"
+
 ## 3. DM 템플릿 (가게별 톤)
 
 ### 공통 원칙 (메모리 `feedback_promo_tone`, `feedback_accurate_matching`)
