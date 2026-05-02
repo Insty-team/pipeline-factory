@@ -1,0 +1,7 @@
+{
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://blog.naver.com/PostView.naver?blogId=uareline&logNo=224268992896\",\"prompt\":\"유어라인 블로그 글 내용 추출 — 제목, 본문, 해시태그, 작성일\"}",
+  "error": "Claude Code is unable to fetch from blog.naver.com",
+  "timestamp": "2026-05-02T15:03:50.293Z",
+  "retry_count": 3
+}
