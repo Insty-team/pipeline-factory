@@ -90,20 +90,32 @@
   "hotPaths": [
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
-      "accessCount": 5,
-      "lastAccessed": 1777735844182,
+      "accessCount": 8,
+      "lastAccessed": 1777737756628,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
+      "accessCount": 7,
+      "lastAccessed": 1777737767463,
       "type": "file"
     },
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
-      "accessCount": 4,
-      "lastAccessed": 1777736447148,
+      "accessCount": 6,
+      "lastAccessed": 1777737773366,
       "type": "file"
     },
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/README.md",
+      "accessCount": 4,
+      "lastAccessed": 1777737158296,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/05-uareline-usage-scenario.md",
       "accessCount": 3,
-      "lastAccessed": 1777736441064,
+      "lastAccessed": 1777737763009,
       "type": "file"
     },
     {
@@ -320,12 +332,6 @@
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/04-next-action-guide.md",
       "accessCount": 1,
       "lastAccessed": 1777735944289,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
-      "accessCount": 1,
-      "lastAccessed": 1777736437296,
       "type": "file"
     }
   ],

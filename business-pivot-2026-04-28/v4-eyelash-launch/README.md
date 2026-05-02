@@ -13,6 +13,7 @@
 | `02-target-uareline-prototype.md` | **유어라인 specific 시제품 계획**: 데이터 수집·사장 톤 학습·모듈 제작·DM·베타 운영 | ✅ 작성 |
 | `03-progress-log.md` | **시간별 진행 로그** — 새 세션에서 picking up 가능 | ✅ 진행 중 |
 | `04-next-action-guide.md` | **사용자 관점 다음 액션 가이드** — Day 2~5 분담·준비물·의사결정 | ✅ 작성 (2026-05-03) |
+| `05-uareline-usage-scenario.md` | **사장님 사용 시나리오 시뮬레이션** — 하루·일주일·4주 동안 어떻게 쓰고 어떻게 결정하는지 | ✅ 작성 (2026-05-03) |
 | `discovery/place_list.md` | 동작구 사당·이수 권역 후보 14곳 (네이버 지도) | ✅ |
 | `discovery/shop-evaluations.md` | Top 3 후보 비교 분석 (유어라인·꼬모래쉬·디보떼) | ✅ |
 | `discovery/uareline-data.md` | **유어라인 Day 1 데이터 종합** — 리뷰/블로그/인스타 분석 | ✅ 작성 (2026-05-03) |
