@@ -89,6 +89,12 @@
   },
   "hotPaths": [
     {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/01-launch-plan.md",
+      "accessCount": 8,
+      "lastAccessed": 1777731890127,
+      "type": "file"
+    },
+    {
       "path": "business-pivot-2026-04-28/v3-beauty-launch/README.md",
       "accessCount": 4,
       "lastAccessed": 1777515538797,
@@ -164,12 +170,6 @@
       "path": "business-pivot-2026-04-28/references/2026-05-02-naver-trend-analysis.md",
       "accessCount": 1,
       "lastAccessed": 1777726548945,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/01-launch-plan.md",
-      "accessCount": 1,
-      "lastAccessed": 1777726838341,
       "type": "file"
     },
     {
