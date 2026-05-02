@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1777456784065,
+  "lastScanned": 1777735058100,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,27 +36,27 @@
       "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1777456784056,
+      "lastAccessed": 1777735058090,
       "keyFiles": []
     },
     "business-pivot-2026-04-28": {
       "path": "business-pivot-2026-04-28",
       "purpose": null,
-      "fileCount": 5,
-      "lastAccessed": 1777456784056,
+      "fileCount": 8,
+      "lastAccessed": 1777735058090,
       "keyFiles": [
         "01-criteria-review.md",
         "02-pivot-decision.md",
         "03-action-plan.md",
-        "DAILY-LOG.md",
-        "README.md"
+        "04-unified-criteria.md",
+        "05-new-item-candidates.md"
       ]
     },
     "geo-truth-layer": {
       "path": "geo-truth-layer",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1777456784056,
+      "lastAccessed": 1777735058090,
       "keyFiles": [
         "DAILY-LOG.md",
         "STRATEGY.md",
@@ -69,7 +69,7 @@
       "path": "_legacy/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1777456784057,
+      "lastAccessed": 1777735058091,
       "keyFiles": [
         "PIPELINE-V2-CHANGES.md",
         "PLAYBOOK.md"
@@ -79,7 +79,7 @@
       "path": "_legacy/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 4,
-      "lastAccessed": 1777456784057,
+      "lastAccessed": 1777735058091,
       "keyFiles": [
         "daily_pipeline.sh",
         "monitor.sh",
@@ -89,123 +89,33 @@
   },
   "hotPaths": [
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/01-launch-plan.md",
-      "accessCount": 8,
-      "lastAccessed": 1777731890127,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/README.md",
-      "accessCount": 4,
-      "lastAccessed": 1777515538797,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/04-references.md",
-      "accessCount": 3,
-      "lastAccessed": 1777515485810,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/02-targets.md",
-      "accessCount": 3,
-      "lastAccessed": 1777516768400,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/05-new-item-candidates.md",
-      "accessCount": 2,
-      "lastAccessed": 1777726587796,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v2-zero-to-one/06-beauty-niche-validation.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
       "accessCount": 1,
-      "lastAccessed": 1777509221644,
+      "lastAccessed": 1777735143331,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/DAILY-LOG.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/네이버블로그게시글/url_list.txt",
       "accessCount": 1,
-      "lastAccessed": 1777513070515,
+      "lastAccessed": 1777735154239,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/README.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/네이버지도_리뷰/review_list.txt",
       "accessCount": 1,
-      "lastAccessed": 1777513070869,
+      "lastAccessed": 1777735154550,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/01-strategy-and-package.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/discovery/uareline-data.md",
       "accessCount": 1,
-      "lastAccessed": 1777513172812,
-      "type": "file"
-    },
-    {
-      "path": "business-pipeline-2026-04-28/v3-beauty-launch/04-references.md",
-      "accessCount": 1,
-      "lastAccessed": 1777513307229,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/05-progress-log.md",
-      "accessCount": 1,
-      "lastAccessed": 1777513328859,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/06-metrics-and-milestones.md",
-      "accessCount": 1,
-      "lastAccessed": 1777513373789,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v3-beauty-launch/07-prototype-workflow.md",
-      "accessCount": 1,
-      "lastAccessed": 1777515664760,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/references/2026-05-02-naver-trend-analysis.md",
-      "accessCount": 1,
-      "lastAccessed": 1777726548945,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/place_list",
-      "accessCount": 1,
-      "lastAccessed": 1777728846258,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/업체별 정보",
-      "accessCount": 1,
-      "lastAccessed": 1777730545202,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/README.md",
-      "accessCount": 1,
-      "lastAccessed": 1777732163836,
+      "lastAccessed": 1777735253518,
       "type": "file"
     },
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
       "accessCount": 1,
-      "lastAccessed": 1777732221306,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
-      "accessCount": 1,
-      "lastAccessed": 1777732353218,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타ID.txt",
-      "accessCount": 1,
-      "lastAccessed": 1777734221608,
+      "lastAccessed": 1777735272208,
       "type": "file"
     }
   ],
