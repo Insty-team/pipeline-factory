@@ -90,8 +90,26 @@
   "hotPaths": [
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
-      "accessCount": 1,
-      "lastAccessed": 1777735143331,
+      "accessCount": 5,
+      "lastAccessed": 1777735844182,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
+      "accessCount": 4,
+      "lastAccessed": 1777736447148,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/README.md",
+      "accessCount": 3,
+      "lastAccessed": 1777736441064,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/discovery/uareline-data.md",
+      "accessCount": 2,
+      "lastAccessed": 1777735720106,
       "type": "file"
     },
     {
@@ -107,15 +125,207 @@
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/discovery/uareline-data.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/_crawl_blogs.py",
       "accessCount": 1,
-      "lastAccessed": 1777735253518,
+      "lastAccessed": 1777735540388,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.54.03.png",
       "accessCount": 1,
-      "lastAccessed": 1777735272208,
+      "lastAccessed": 1777735543593,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.30.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735544331,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.48.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735545099,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.58.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735545906,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.05.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735546432,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.15.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735564602,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.24.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735565383,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.31.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735565923,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.38.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735566694,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.48.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735567529,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.56.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735568240,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.04.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735569245,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.13.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735569784,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.23.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735570631,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.32.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735571316,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.42.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735592240,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.48.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735592918,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.54.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735593643,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.03.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735594502,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.11.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735595196,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.18.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735595994,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.26.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735596660,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.33.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735597442,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.41.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735598266,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.48.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735598876,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.55.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735609034,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.02.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735609644,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.29.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735610460,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.37.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735611278,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.42.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735611999,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.48.png",
+      "accessCount": 1,
+      "lastAccessed": 1777735612887,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/04-next-action-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1777735944289,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
+      "accessCount": 1,
+      "lastAccessed": 1777736437296,
       "type": "file"
     }
   ],

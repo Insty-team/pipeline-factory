@@ -8,17 +8,22 @@
 
 | 파일 / 폴더 | 역할 | 상태 |
 |---|---|---|
+| `00-checklist.md` | **한눈에 진행 상황** — 시제품→DM→베타→commission 전체 체크박스 | ✅ 작성 (2026-05-03) |
 | `01-launch-plan.md` | **전략 문서**: vertical 정의, 페인 6개, 모듈 11개, commission 가격 모델, 시나리오 | ✅ v2 (효용성 commission) |
 | `02-target-uareline-prototype.md` | **유어라인 specific 시제품 계획**: 데이터 수집·사장 톤 학습·모듈 제작·DM·베타 운영 | ✅ 작성 |
 | `03-progress-log.md` | **시간별 진행 로그** — 새 세션에서 picking up 가능 | ✅ 진행 중 |
+| `04-next-action-guide.md` | **사용자 관점 다음 액션 가이드** — Day 2~5 분담·준비물·의사결정 | ✅ 작성 (2026-05-03) |
 | `discovery/place_list.md` | 동작구 사당·이수 권역 후보 14곳 (네이버 지도) | ✅ |
 | `discovery/shop-evaluations.md` | Top 3 후보 비교 분석 (유어라인·꼬모래쉬·디보떼) | ✅ |
+| `discovery/uareline-data.md` | **유어라인 Day 1 데이터 종합** — 리뷰/블로그/인스타 분석 | ✅ 작성 (2026-05-03) |
+| `Day1_data_collection/` | 사용자 raw 수집 데이터 (인스타 PNG·블로그 URL·플레이스 리뷰) | ✅ |
 
 ## 진행 순서
 
 1. ✅ `01-launch-plan.md` v2 완료
-2. ⏭️ **`02-target-uareline-prototype.md` 따라 시제품 제작**
-3. ⏭️ DM 발송 → 4주 베타 → commission 협상
+2. ✅ Day 1 데이터 수집 + `discovery/uareline-data.md` + `02-` v2 정정 완료
+3. ⏭️ **`04-next-action-guide.md` 따라 Day 2~5 시제품 제작**
+4. ⏭️ DM 발송 → 4주 베타 → commission 협상
 
 ## 새 세션 시작 시 빠른 컨텍스트
 
