@@ -89,21 +89,21 @@
   },
   "hotPaths": [
     {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
+      "accessCount": 10,
+      "lastAccessed": 1777907659414,
+      "type": "file"
+    },
+    {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
       "accessCount": 8,
       "lastAccessed": 1777737756628,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
-      "accessCount": 7,
-      "lastAccessed": 1777737767463,
-      "type": "file"
-    },
-    {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
-      "accessCount": 6,
-      "lastAccessed": 1777737773366,
+      "accessCount": 7,
+      "lastAccessed": 1777907670582,
       "type": "file"
     },
     {
@@ -332,6 +332,12 @@
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/04-next-action-guide.md",
       "accessCount": 1,
       "lastAccessed": 1777735944289,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-prompts.md",
+      "accessCount": 1,
+      "lastAccessed": 1777907650116,
       "type": "file"
     }
   ],
