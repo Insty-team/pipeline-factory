@@ -90,14 +90,20 @@
   "hotPaths": [
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
-      "accessCount": 10,
-      "lastAccessed": 1777907659414,
+      "accessCount": 13,
+      "lastAccessed": 1777911507944,
       "type": "file"
     },
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
+      "accessCount": 12,
+      "lastAccessed": 1777911517083,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-sample-blog.md",
       "accessCount": 10,
-      "lastAccessed": 1777909872752,
+      "lastAccessed": 1777910789650,
       "type": "file"
     },
     {
@@ -344,12 +350,6 @@
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/feeback.txt",
       "accessCount": 1,
       "lastAccessed": 1777908349176,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-sample-blog.md",
-      "accessCount": 1,
-      "lastAccessed": 1777909800402,
       "type": "file"
     },
     {
