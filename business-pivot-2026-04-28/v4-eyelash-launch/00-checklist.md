@@ -70,13 +70,15 @@
 - [x] 🤖 워크플로우 다이어그램 + 코드 스켈레톤
 - [x] 산출: `prototypes/uareline/insta-blog-demo.md`
 
-### M7 — 디자인 카드뉴스 (3-방식 비교)
-- [ ] 👤 레퍼런스 스샷 받기 (사용자 — 검색 링크 우리가 제공)
-- [ ] 🤖 (a) 텍스트 구상만 — 5장 콘셉트
-- [ ] 🤖 (b) HTML/CSS + Puppeteer 자동화 — 데모 5장 PNG
-- [ ] 🤖 (c) GPT image gen — 5장 (배경·일러스트만, 시술 사진 X)
-- [ ] 🤖 메디핑크 캠페인 5장 (W8 대응)
-- [ ] 산출: `prototypes/uareline/design-cards-{a,b,c}/`
+### M7 — 디자인 카드뉴스 (레퍼런스 분석 → 3세트 영구 자산 방식)
+- [x] 👤 레퍼런스 14장 받음 (`prototypes/디자인reference/` — 메뉴판 3 + 클립아트 11)
+- [x] 🤖 14장 역프롬프트 + 디자인 시스템 5종 추출 → `prototypes/uareline/design-cards-reference.md`
+- [x] 🤖 GPT image gen 워크플로우 3종 정리 (Pillow / Canva / HTML+Puppeteer)
+- [ ] 👤 세트별 1순위 ref 결정 (가격표 A1 vs A2 / 메디핑크 B1~B5 톤 / 모델 사진)
+- [ ] 🤖 세트 1·2·3 한국어 텍스트 콘텐츠 16장 작성
+- [ ] 🤝 GPT image gen으로 배경 16장 생성 (사용자 1~2h)
+- [ ] 🤖 Pillow overlay 코드 + 한국어 텍스트 합성 자동화 → 최종 PNG 16장
+- [ ] 산출: `prototypes/uareline/design-cards/{set1_pricing,set2_curl_compare,set3_medipink}/`
 
 ---
 
@@ -192,11 +194,11 @@
 | 1. 사전 전략·후보 | 5/5 | ✅ 완료 |
 | 2. Day 1 데이터 | 8/8 | ✅ 완료 |
 | 3. Day 2 사장 톤 + 카탈로그 | 9/9 | ✅ 완료 |
-| 4. Day 3 모듈 시제품 | 15/20 | ⏳ M7만 남음 (사용자 레퍼런스 대기) |
+| 4. Day 3 모듈 시제품 | 18/23 | ⏳ M7 콘텐츠·이미지 생성·overlay 합성 5건만 남음 |
 | 5. Day 4 인프라·대시보드·리포트 | 0/14 | ⏸️ 대기 |
 | 6. Day 5 DM | 0/8 | ⏸️ 대기 |
 | 7. 답장 대기 | 0/4 | ⏸️ 대기 |
 | 8. 베타 첫 미팅 | 0/6 | ⏸️ 대기 |
 | 9. 4주 운영 (4단계 cadence) | 0/11 | ⏸️ 대기 |
 | 10. 결과 B·Commission | 0/6 | ⏸️ 대기 |
-| **합계** | **37/91 (41%)** | **M7만 남음 → 사용자 카드뉴스 레퍼런스 스샷 받으면 즉시 진행** |
+| **합계** | **40/94 (43%)** | **M7 ref 분석 완료 → 세트 1순위 결정 + 콘텐츠 작성 + GPT 이미지 생성 진행** |
