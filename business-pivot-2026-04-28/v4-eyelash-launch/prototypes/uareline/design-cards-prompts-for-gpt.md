@@ -36,7 +36,7 @@ prototypes/uareline/design-cards/
     ├── 3B_effect_5steps.png                    # 5단계 효과
     ├── 3C_pricing_package.png                  # 패키지 가격
     ├── 3D_before_after.png                     # Before/After 비교
-    └── 3E_cta_event.png                        # CTA + 7월 오픈
+    └── 3E_cta_event.png                        # CTA + 캠페인 안내
 ```
 
 ### Step 3. 저장 완료 알림 (한 줄)
@@ -75,7 +75,7 @@ ABSOLUTELY NO TEXT — only background, decorative dotted border, blank placehol
 - 좌측 라벨 6개: Natural / Cute / Sexy / Mix / Glamorous / 디자인명
 - 우측 헤더: `EYELASH` / `EYELASH PERM`
 - 우측 메뉴 11종 + 가격
-- 하단 푸터: `1:1 예약제 · KC인증 글루 · 010-4908-6511`
+- 하단 푸터: `1:1 예약제 · KC인증 글루 · 0507-1320-6511`
 
 #### Color
 배경 #FFF5F8 / 핑크 #E89BAE / 텍스트 #5A4A4A / 보조선 #999999
@@ -342,8 +342,8 @@ NO TEXT.
 #### 한국어 overlay
 - 톱: `궁금하신 점은 편하게 물어보세요♡`
 - 박스 헤드: `1:1 상담 → 디자인 결정`
-- 박스 행 1: 📞 `010-4908-6511 (카톡/문자)`
-- 박스 행 2: 💬 `@ure.line 인스타 DM`
+- 박스 행 1: 📞 `0507-1320-6511 (네이버 예약)`
+- 박스 행 2: 💬 `@ure.line 인스타 DM 또는 카카오 채널`
 
 ---
 
@@ -370,7 +370,7 @@ NO TEXT IN IMAGE.
 #### 한국어 overlay
 - 영문 서브: `Your Line · Medi Pink` (Italianno 28pt, 화이트)
 - 메인 헤드: `잃어버린 자신감, / 다시 핑크빛으로` (Cafe24 Ohsquare Bold 36pt, 화이트)
-- 풋: `유어라인 · 7월 오픈 기념 캠페인` (Pretendard Light 14pt)
+- 풋: `유어라인 · 메디핑크 캠페인` (Pretendard Light 14pt)
 
 ---
 
@@ -422,7 +422,7 @@ NO TEXT.
 - 박스 2 (풀, 강조):
   - `Full Care` / `6회` / `540,000원`
   - 부제: `완전 케어 / 추천 패키지`
-- 풋: `* 정확한 가격은 부위·상태에 따라 방문 상담 / 7월 오픈 기념 5% 할인`
+- 풋: `* 정확한 가격은 부위·상태에 따라 방문 상담 / 첫 시술 시 무료 상담 1회`
 
 ---
 
@@ -449,7 +449,7 @@ NO TEXT.
 
 ---
 
-### Card 3E — CTA + 7월 오픈 (4:5)
+### Card 3E — CTA + 캠페인 안내 (4:5)
 **저장: `set3_medipink/raw/3E_cta_event.png`**
 
 #### English prompt
@@ -467,12 +467,12 @@ NO TEXT.
 ```
 
 #### 한국어 overlay
-- 원형 배지: `7월 오픈 / 5% off`
-- 박스 헤드: `메디핑크 첫 상담 무료`
-- 박스 행 1: 📅 `2026년 7월 오픈 예정`
-- 박스 행 2: 📍 `유어라인 신규 매장 (이수·사당)`
-- 박스 행 3: 💬 `010-4908-6511 / @ure.line`
-- 풋: `* 사전 상담 받으시면 오픈 즉시 우선 예약`
+- 원형 배지: `메디핑크 / 첫 상담 무료`
+- 박스 헤드: `메디핑크 캠페인 안내`
+- 박스 행 1: 📋 `방문 상담 후 부위·상태 맞춤 추천`
+- 박스 행 2: 📍 `유어라인 (이수·사당, 1:1 예약제)`
+- 박스 행 3: 💬 `0507-1320-6511 / @ure.line / 카카오 채널`
+- 풋: `* 단골 손님께 우선 안내 / 신규 손님도 환영합니다`
 
 ---
 
