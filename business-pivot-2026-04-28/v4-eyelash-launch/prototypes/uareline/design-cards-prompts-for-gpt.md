@@ -75,7 +75,7 @@ ABSOLUTELY NO TEXT — only background, decorative dotted border, blank placehol
 - 좌측 라벨 6개: Natural / Cute / Sexy / Mix / Glamorous / 디자인명
 - 우측 헤더: `EYELASH` / `EYELASH PERM`
 - 우측 메뉴 11종 + 가격
-- 하단 푸터: `1:1 예약제 · KC인증 글루 · 0507-1320-6511`
+- 하단 푸터: `100% 예약제 및 1:1 단독시술 · 0507-1320-6511` (사장 본인 블로그 시그니처)
 
 #### Color
 배경 #FFF5F8 / 핑크 #E89BAE / 텍스트 #5A4A4A / 보조선 #999999
@@ -520,4 +520,4 @@ NO TEXT.
 - 디자인 시스템·컬러 hex·역프롬프트 풀 분석: `prototypes/uareline/design-cards-reference.md`
 - 사장 톤 한국어 콘텐츠 시드: `prototypes/uareline-prompts.md` v3
 - 매뉴 11종 + 가격: `02-target-uareline-prototype.md` §1
-- 사장 운영 정보: `02-target-uareline-prototype.md` §1 (1:1·KC인증·7월오픈·010전화)
+- 사장 운영 정보: `02-target-uareline-prototype.md` §1 (4타임·사장 블로그 시그니처)

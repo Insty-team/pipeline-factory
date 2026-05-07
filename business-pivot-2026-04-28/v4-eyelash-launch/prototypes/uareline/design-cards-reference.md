@@ -59,7 +59,7 @@ Style: Korean magazine editorial meets pastel beauty branding.
 - 좌측 라벨: Natural / Cute / Sexy / Mix / Glamorous / 디자인 이름
 - 우측 헤더: "EYELASH" / "EYELASH PERM" — 영문 sans-serif 14pt
 - 우측 테이블: 메뉴명·가격 11종 (Pretendard Medium 12pt, 가격 Bold)
-- 하단: "1:1 예약제·KC인증·0507-1320-6511" 푸터
+- 하단: "100% 예약제 및 1:1 단독시술 · 0507-1320-6511" 푸터 (사장 본인 블로그 시그니처)
 
 **컬러 팔레트**: `#FFF5F8` (배경) / `#E89BAE` (핑크) / `#666666` (텍스트) / `#999999` (보조선)
 **타이포 힌트**: 헤드라인 — 카페24 단정해 / 본문 — Pretendard Medium / 가격 — Pretendard Bold
