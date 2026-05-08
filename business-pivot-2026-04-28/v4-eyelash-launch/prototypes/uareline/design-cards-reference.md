@@ -56,10 +56,13 @@ Top center HEADLINE — Korean handwritten calligraphy, render exactly:
   elegant hand-drawn pink script (#E89BAE), ~64pt.
 
 Left half: 6 photo-realistic eyelash design illustrations
-arranged in a 2x3 grid. Below each illustration, a clean
-Korean/English sans-serif label (Pretendard-like, 12pt, #666666):
-  Row 1: "Natural"   "Cute"   "Sexy"
-  Row 2: "Mix"   "Glamorous"   "디자인 이름"
+arranged in a 2x3 grid, each representing a different service type
+(glue extension half-volume, glue extension max-volume, LED extension,
+perm-point extension, nourishing perm, monolid perm).
+Below each illustration, a clean Korean sans-serif label
+(Pretendard Medium 12pt, #5A4A4A) — render exactly:
+  Row 1: "글루연장 하프 (50%)"   "글루연장 맥스 (90%)"   "LED연장"
+  Row 2: "펌포인트 연장"   "속눈썹 영양펌"   "무쌍 펌"
 
 Right half: clean two-column price table, thin gray dividers (#999999).
 English serif italic section header (16pt, #B8868F): "EYELASH"
