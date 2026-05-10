@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"\\\\\\nrmdir archive_v2 && \\\\\\necho \\\"=== 1. revised/set2 6장 → final/ ===\\\" && \\\\\\nmv revised/set2/2A_cover_revised.png final/2A_cover.png && \\\\\\nmv revised/set2/2B_jcurl_revised.png final/2B...",
+  "error": "Exit code 1\n=== 1. revised/set2 6장 → final/ ===\n=== 2. revised/set3 5장 → final/ (3C typo 수정) ===\n=== 3. 빈 폴더 정리 ===\nrmdir: revised/set3: Directory not empty\nrmdir: revised: Directory not empty",
+  "timestamp": "2026-05-10T13:08:17.796Z",
+  "retry_count": 1
+}

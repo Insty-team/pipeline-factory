@@ -90,8 +90,8 @@
   "hotPaths": [
     {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
-      "accessCount": 13,
-      "lastAccessed": 1777911507944,
+      "accessCount": 17,
+      "lastAccessed": 1778418570869,
       "type": "file"
     },
     {
@@ -362,6 +362,30 @@
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-sample-alimtok.md",
       "accessCount": 1,
       "lastAccessed": 1777909861810,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/design-cards-review-guide.md",
+      "accessCount": 1,
+      "lastAccessed": 1778418622212,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/chatbot-30q.md",
+      "accessCount": 1,
+      "lastAccessed": 1778418653706,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/reviews-replies.md",
+      "accessCount": 1,
+      "lastAccessed": 1778418654138,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/insta-blog-demo.md",
+      "accessCount": 1,
+      "lastAccessed": 1778418654834,
       "type": "file"
     }
   ],

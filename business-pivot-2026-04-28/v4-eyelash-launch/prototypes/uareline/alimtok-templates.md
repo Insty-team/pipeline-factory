@@ -222,7 +222,9 @@ from datetime import datetime
 
 ALIGO_API_KEY = "<발급받은 키>"
 ALIGO_USER_ID = "uareline_owner"
-SENDER = "01049086511"  # 발신 프로파일
+SENDER = "05071320651"  # 발신 프로파일 — 네이버 0507-1320-6511 통일 (010 출처 미확정 → 미사용)
+# 주의: 알림톡 발신 프로파일 등록 시 카카오에서 사업자 명의의 실제 휴대폰 번호 요구 가능.
+# 사장 미팅 시 발신용 사업자 휴대폰 번호 확인 필요. 안내 콜백은 0507-1320-6511 유지.
 
 def send_alimtok(template_id: str, receiver: str, variables: dict):
     """카카오 알림톡 발송. 사전 승인 받은 템플릿만 가능."""

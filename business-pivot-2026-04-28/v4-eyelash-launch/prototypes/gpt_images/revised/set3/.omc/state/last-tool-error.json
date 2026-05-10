@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch/prototypes/gpt_images && \\\\\\nmkdir -p archive_v2 && \\\\\\necho \\\"=== 1. v2 stale 11장 → archive_v2/ ===\\\" &...",
+  "error": "Exit code 1\n=== 1. v2 stale 11장 → archive_v2/ ===\nmv: rename 2A_cover.png to archive_v2/2A_cover.png: No such file or directory\nmv: rename 2B_jcurl.png to archive_v2/2B_jcurl.png: No such file or directory\nmv: rename 2C_ccurl.png to archive_v2/2C_ccurl.png: No such file or directory\nmv: rename 2D_dcurl.png to archive_v2/2D_dcurl.png: No such file or directory\nmv: rename 2E_eyetype_match.png to archive_v2/2E_eyetype_match.png: No such file or directory\nmv: rename 2F_cta.png to archive_v2/2F_cta.p...",
+  "timestamp": "2026-05-10T13:07:45.231Z",
+  "retry_count": 1
+}

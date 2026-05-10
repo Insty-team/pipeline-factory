@@ -2,7 +2,7 @@
 
 > 한눈에 진행 상황 확인용. 진행 시 변경 가능.
 > 👤 사용자 / 🤖 Claude / 🤝 같이.
-> 마지막 갱신: 2026-05-03
+> 마지막 갱신: 2026-05-10 (Day 3 M7 16장 완료 → final/ 통합)
 
 ---
 
@@ -70,15 +70,15 @@
 - [x] 🤖 워크플로우 다이어그램 + 코드 스켈레톤
 - [x] 산출: `prototypes/uareline/insta-blog-demo.md`
 
-### M7 — 디자인 카드뉴스 (레퍼런스 분석 → 3세트 영구 자산 방식)
+### M7 — 디자인 카드뉴스 (레퍼런스 분석 → 3세트 영구 자산 방식) ✅
 - [x] 👤 레퍼런스 14장 받음 (`prototypes/디자인reference/` — 메뉴판 3 + 클립아트 11)
-- [x] 🤖 14장 역프롬프트 + 디자인 시스템 5종 추출 → `prototypes/uareline/design-cards-reference.md`
-- [x] 🤖 GPT image gen 워크플로우 3종 정리 (Pillow / Canva / HTML+Puppeteer)
-- [ ] 👤 세트별 1순위 ref 결정 (가격표 A1 vs A2 / 메디핑크 B1~B5 톤 / 모델 사진)
-- [ ] 🤖 세트 1·2·3 한국어 텍스트 콘텐츠 16장 작성
-- [ ] 🤝 GPT image gen으로 배경 16장 생성 (사용자 1~2h)
-- [ ] 🤖 Pillow overlay 코드 + 한국어 텍스트 합성 자동화 → 최종 PNG 16장
-- [ ] 산출: `prototypes/uareline/design-cards/{set1_pricing,set2_curl_compare,set3_medipink}/`
+- [x] 🤖 14장 역프롬프트 + 디자인 시스템 5종 추출 → `prototypes/uareline/design-cards-reference.md` (v2 텍스트-인-이미지)
+- [x] 🤖 GPT image gen 워크플로우 정리 (v2: 텍스트-인-이미지 1단계 / Pillow fallback 예비)
+- [x] 👤 세트별 1순위 ref 결정 (D1=c 가로+세로 / D2=b 유어라인 핑크 / D3=d 라벤더)
+- [x] 🤖 세트 1·2·3 한국어 텍스트 콘텐츠 16장 작성 + 폰트 톤 가이드 (B-1·B-2)
+- [x] 🤝 GPT image gen으로 16장 생성 → 1차 결과물 분석 → 11장 재생성 (폰트 톤 cute→editorial)
+- [x] ~~Pillow overlay 코드~~ → v3 텍스트-인-이미지로 전환되어 불필요 (모든 한글 텍스트 GPT 직접 렌더)
+- [x] 산출: `prototypes/gpt_images/final/` (16장 PNG) + `prompts-v3-개선판.md`
 
 ---
 
@@ -194,11 +194,11 @@
 | 1. 사전 전략·후보 | 5/5 | ✅ 완료 |
 | 2. Day 1 데이터 | 8/8 | ✅ 완료 |
 | 3. Day 2 사장 톤 + 카탈로그 | 9/9 | ✅ 완료 |
-| 4. Day 3 모듈 시제품 | 18/23 | ⏳ M7 콘텐츠·이미지 생성·overlay 합성 5건만 남음 |
+| 4. Day 3 모듈 시제품 | 23/23 | ✅ 완료 (M7 16장 final/ 저장) |
 | 5. Day 4 인프라·대시보드·리포트 | 0/14 | ⏸️ 대기 |
 | 6. Day 5 DM | 0/8 | ⏸️ 대기 |
 | 7. 답장 대기 | 0/4 | ⏸️ 대기 |
 | 8. 베타 첫 미팅 | 0/6 | ⏸️ 대기 |
 | 9. 4주 운영 (4단계 cadence) | 0/11 | ⏸️ 대기 |
 | 10. 결과 B·Commission | 0/6 | ⏸️ 대기 |
-| **합계** | **40/94 (43%)** | **M7 ref 분석 완료 → 세트 1순위 결정 + 콘텐츠 작성 + GPT 이미지 생성 진행** |
+| **합계** | **45/94 (48%)** | **Day 3 모듈 시제품 5종 완료 → Day 3 잔여 피드백 반영 + Day 4 진행 예정** |
