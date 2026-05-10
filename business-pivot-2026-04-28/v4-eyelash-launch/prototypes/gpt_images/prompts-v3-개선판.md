@@ -208,6 +208,11 @@ condensed (like G마켓 산스 Bold or Pretendard ExtraBold) — NOT rounded,
 NOT cute. ~30pt, #5A4A4A, centered:
   "내 눈매별 추천 컬"
 
+Just below the headline — small horizontal legend bar in clean Korean
+sans-serif (Pretendard Medium 12pt, #5A4A4A, centered, with small
+spacing between items):
+  "⭐⭐ 강추    ◎ 가능    × 비추"
+
 Center: 4x4 matrix table with soft rounded square cells (16px radius),
 white fill, thin pink border (#E89BAE, 1px).
 
