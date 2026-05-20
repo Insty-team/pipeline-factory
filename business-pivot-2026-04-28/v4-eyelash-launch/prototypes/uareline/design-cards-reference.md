@@ -1,9 +1,9 @@
-# M7 카드뉴스 디자인 레퍼런스 분석 + 역프롬프트 (v2 — 텍스트-인-이미지)
+# 카드뉴스 디자인 레퍼런스 분석 + 역프롬프트 (v2 — 텍스트-인-이미지)
 
 > Day 3 산출물 — v1 2026-05-05 / **v2 2026-05-08** (텍스트-인-이미지 전환)
 > Input: `prototypes/디자인reference/` 14장 (메뉴판 3장 + 클립아트코리아 11장)
 > 사용처: GPT image gen 한 번에 완성 — 영문 prompt에 한국어 텍스트 직접 명시
-> 모듈 통합 위치: `02-target-uareline-prototype.md` §3 M7
+> 모듈 통합 위치: `02-target-uareline-prototype.md` §3 카드뉴스
 
 ---
 
@@ -704,7 +704,7 @@ GPT 한 번에 정확한 한국어 렌더링이 어려울 때:
 
 ---
 
-## 4. 사용자 작업 워크플로우 (M7 진행 — v2)
+## 4. 사용자 작업 워크플로우 (카드뉴스 진행 — v2)
 
 ### Phase 1 — 컨셉 결정 (사용자 결정 5분)
 1. 본 문서의 **유어라인 매핑** 표 확인
@@ -760,7 +760,7 @@ v1 대비 1~2h 단축 (Pillow 코드를 16장 모두에 쓰지 않아도 됨).
 - 사용자 시술 사진 4장: `sample_pictures_0505/`
 - 사장 인스타 31장 (모델 sample): `Day1_data_collection/인스타 게시물/`
 - 사장 톤 프롬프트 v3 (텍스트 콘텐츠 시드): `prototypes/uareline-prompts.md`
-- M1+M2 통합: `prototypes/uareline/insta-blog-demo.md`
+- 콘텐츠 자동: `prototypes/uareline/insta-blog-demo.md`
 - (Pillow fallback용) Pretendard 무료 폰트: https://github.com/orioncactus/pretendard
 - (Pillow fallback용) 카페24 무료 폰트: https://fonts.cafe24.com
 - (Pillow fallback용) G마켓 산스 무료: https://corp.gmarket.com/fonts/

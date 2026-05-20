@@ -1,11 +1,11 @@
-# M5 — 알림톡 자동화 워크플로우 + 카카오 사전 승인 절차
+# 알림톡 발송 — 알림톡 자동화 워크플로우 + 카카오 사전 승인 절차
 
 > Day 3 산출물 — 2026-05-05
 > 카탈로그(템플릿) 12종은 이미 작성: `prototypes/uareline-sample-alimtok.md`
 > 이 문서: **자동화 인프라 + 카카오 알림톡 사전 승인 절차** 정리
 >
 > 시드: `prototypes/uareline-prompts.md` v3 §4 알림톡 프롬프트
-> 모듈 통합 위치: `02-target-uareline-prototype.md` §3 M5
+> 모듈 통합 위치: `02-target-uareline-prototype.md` §3 알림톡 발송
 
 ---
 
@@ -67,9 +67,9 @@
 | 노쇼 감지 | C1 | 노쇼일 저녁 19:00 | 사장 1탭 표시 또는 자동 (예약시간+30분 후 미체크) |
 | 변경 요청 | C2 | 즉시 (사장 1탭) | 카톡 채널 미리 정한 키워드 ("변경") |
 | 휴무 1주 전 | C3 | 휴무 D-7 | 사장 휴무 캘린더 |
-| 메디핑크 신규 | D1 | 주 1회 (수요일 14시) | M9 단골 LTV — 메디핑크 비시술 단골 추출 |
+| 메디핑크 신규 | D1 | 주 1회 (수요일 14시) | 단골 분석 LTV — 메디핑크 비시술 단골 추출 |
 | 영양제 D+42 | D2 | D+42 11:00 | 영양제 구매 DB (사장 입력) |
-| 6주+ 이탈 | D3 | 주 1회 (월요일 09시) | M9 cycle 분석 — 6주+ 미방문 단골 |
+| 6주+ 이탈 | D3 | 주 1회 (월요일 09시) | 단골 분석 cycle 분석 — 6주+ 미방문 단골 |
 
 ---
 
@@ -161,7 +161,7 @@
 
 ---
 
-## 3. 베타 4주 cadence (M5 운영)
+## 3. 베타 4주 cadence (알림톡 발송 운영)
 
 ### 3-1. 셋업 phase (베타 시작 전 1주, 사장 미팅 직후)
 
@@ -397,5 +397,5 @@ jobs:
 - 알림톡 프롬프트 v3: `prototypes/uareline-prompts.md` §4
 - 알리고 알림톡 가이드: https://smartsms.aligo.in
 - 카카오톡 비즈니스: https://business.kakao.com/info/kakaotalkchannel/
-- M9 단골 LTV (D1·D3 데이터 소스): `prototypes/uareline/ltv-analysis.md` (Day 4)
-- M10b 일간 카톡 1줄 (사장 일일 확인 인터페이스): Day 4
+- 단골 분석 LTV (D1·D3 데이터 소스): `prototypes/uareline/ltv-analysis.md` (Day 4)
+- 일간 1줄 일간 카톡 1줄 (사장 일일 확인 인터페이스): Day 4

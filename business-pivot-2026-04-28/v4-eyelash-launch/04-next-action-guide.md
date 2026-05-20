@@ -35,14 +35,14 @@ Day 5 (DM 발송)
 | Day | 모듈 | Claude (자동) | 사용자 (직접 해야 함) | 소요 | 산출 위치 |
 |---|---|---|---|---|---|
 | **Day 2** | 사장 톤 프롬프트 | ✅ 답글 30+ + 인스타 캡션 + 블로그 long-form 5건 → 프롬프트 4종 자동 작성 | 5분 검수 (사장 톤 같은지) | Claude 1h / 사용자 5분 | `prototypes/uareline-prompts.md` |
-| **Day 3** | M6 답글 10건 backfill | ✅ 25.9~26.4 누락 후기 10건 답글 자동 작성 | 검수 → 사장에게 "이런 톤으로 답글 자동화 어떠세요" 샘플 전달 | Claude 1.5h / 사용자 10분 | `prototypes/uareline/reviews-replies.md` |
-| **Day 3** | M5 알림톡 5종 | ✅ 확정/1일전/당일/D+1/D+28 템플릿 작성 + 카카오 알림톡 사전 승인 절차 정리 | 0 (Day 5에 사장과 합의) | Claude 1h | `prototypes/uareline/alimtok-templates.md` |
-| **Day 3** | M4 챗봇 30Q | ✅ 가격·디자인·알러지·세안·재방문·메디핑크 30Q&A + GPT 프롬프트 | 0 | Claude 2h | `prototypes/uareline/chatbot-30q.md` |
-| **Day 3** | **M1+M2 통합 워크플로우** | ✅ 인스타 캡션 5종 + 블로그 1편 데모 + 해시태그 풀 + 워크플로우 다이어그램 | **시술 사진 1장 카톡 캡쳐** (데모 input — §3 참조) | Claude 2h / 사용자 5분 | `prototypes/uareline/insta-blog-demo.md` |
-| **Day 3** | M7 카드뉴스 (텍스트만) | ✅ 6장 카드뉴스 카피 + 메디핑크 캠페인 시리즈 5장 카피 | **디자인 (이미지화)** — Canva/Figma 또는 외주, 또는 사용자가 직접 | Claude 2h / 사용자 1~2h | `prototypes/uareline/design-cards-copy.md` |
+| **Day 3** | 답글 자동 10건 backfill | ✅ 25.9~26.4 누락 후기 10건 답글 자동 작성 | 검수 → 사장에게 "이런 톤으로 답글 자동화 어떠세요" 샘플 전달 | Claude 1.5h / 사용자 10분 | `prototypes/uareline/reviews-replies.md` |
+| **Day 3** | 알림톡 발송 5종 | ✅ 확정/1일전/당일/D+1/D+28 템플릿 작성 + 카카오 알림톡 사전 승인 절차 정리 | 0 (Day 5에 사장과 합의) | Claude 1h | `prototypes/uareline/alimtok-templates.md` |
+| **Day 3** | 챗봇 응답 30Q | ✅ 가격·디자인·알러지·세안·재방문·메디핑크 30Q&A + GPT 프롬프트 | 0 | Claude 2h | `prototypes/uareline/chatbot-30q.md` |
+| **Day 3** | **콘텐츠 자동 워크플로우** | ✅ 인스타 캡션 5종 + 블로그 1편 데모 + 해시태그 풀 + 워크플로우 다이어그램 | **시술 사진 1장 카톡 캡쳐** (데모 input — §3 참조) | Claude 2h / 사용자 5분 | `prototypes/uareline/insta-blog-demo.md` |
+| **Day 3** | 카드뉴스 (텍스트만) | ✅ 6장 카드뉴스 카피 + 메디핑크 캠페인 시리즈 5장 카피 | **디자인 (이미지화)** — Canva/Figma 또는 외주, 또는 사용자가 직접 | Claude 2h / 사용자 1~2h | `prototypes/uareline/design-cards-copy.md` |
 | **Day 4** | 측정 인프라 (Google Sheet) | ✅ 시트 템플릿 작성 (URL 포함) | Google 계정 로그인 후 시트 복사 | Claude 1h / 사용자 5분 | `prototypes/uareline/measurement-sheet.md` |
-| **Day 4** | M9 LTV 분석 1장 | ✅ 단골 후기 데이터 기반 cycle 분석 + 회원권 데이터 입력 폼 | 0 (회원권 raw는 베타 시작 후 사장 합의 필요) | Claude 1.5h | `prototypes/uareline/ltv-analysis.md` |
-| **Day 4** | M10 통합 진단 리포트 | ✅ 1장 PDF 콘텐츠 (현재 → 적용 시 추정) | 0 | Claude 1.5h | `reports/uareline-prototype-report.md` |
+| **Day 4** | 단골 분석 분석 1장 | ✅ 단골 후기 데이터 기반 cycle 분석 + 회원권 데이터 입력 폼 | 0 (회원권 raw는 베타 시작 후 사장 합의 필요) | Claude 1.5h | `prototypes/uareline/ltv-analysis.md` |
+| **Day 4** | 리포트 통합 진단 리포트 | ✅ 1장 PDF 콘텐츠 (현재 → 적용 시 추정) | 0 | Claude 1.5h | `reports/uareline-prototype-report.md` |
 | **Day 5** | DM 발송 | ✅ DM 메시지 + 첨부 패키징 가이드 | **인스타 ure.line DM 직접 발송** + 첨부 (PDF/이미지) | Claude 30분 / 사용자 30분 | (사용자 직접) |
 
 **총 소요**:
@@ -55,7 +55,7 @@ Day 5 (DM 발송)
 
 ### 준비물 1 (필수, Day 3 전): **시술 사진 1장**
 
-- 용도: M1+M2 통합 워크플로우 데모 (사장에게 "사진 1장 카톡 → 인스타+블로그 자동" 보여주기)
+- 용도: 콘텐츠 자동 워크플로우 데모 (사장에게 "사진 1장 카톡 → 인스타+블로그 자동" 보여주기)
 - 어디서: 유어라인 인스타 ure.line 게시물 캡쳐 1장 또는 사용자 본인이 시술 받은 사진 (있으면)
 - 워터마크 없는 깨끗한 원본이면 더 좋음 (없으면 워터마크 있어도 됨)
 - 저장 경로: `Day1_data_collection/sample_photo.jpg`
@@ -83,7 +83,7 @@ Day 5 (DM 발송)
 | # | 결정 | 선택지 | 추천 | 결정 시점 |
 |---|---|---|---|---|
 | D1 | Day 2 자동 진행 OK? | 시작 / 잠시 보류 | 시작 (사장 톤 시드 충분) | **지금** |
-| D2 | M7 카드뉴스 디자인 도구 | Canva / Figma / 외주 / 나중에 | Canva 또는 "나중에" | Day 3 시작 전 |
+| D2 | 카드뉴스 디자인 도구 | Canva / Figma / 외주 / 나중에 | Canva 또는 "나중에" | Day 3 시작 전 |
 | D3 | DM 발송 채널 우선순위 | 인스타 1순위 / 카카오·블로그 동시 | 인스타 1순위 (사장 직접 운영 채널) | Day 5 |
 | D4 | 4주 베타 measurements 회원권 데이터 요청 시점 | 시제품 동봉 / 미팅 후 / 베타 시작 후 | 미팅 후 (KPI 합의와 묶어서) | DM 답장 후 |
 | D5 | 베타 commission 협상 시 후기 1줄 vs commission 우선순위 | 후기 우선 / commission 우선 | 후기 우선 (소개·교육 옵션 살아있게) | 4주 종료 시 |
@@ -92,7 +92,7 @@ Day 5 (DM 발송)
 
 ## 5. Claude가 막힐 때 사용자에게 물어볼 것 (예상)
 
-- 시술 사진 받기 전엔 M1+M2 데모 못 끝냄 → 받을 때까지 다른 모듈 진행
+- 시술 사진 받기 전엔 콘텐츠 자동 데모 못 끝냄 → 받을 때까지 다른 모듈 진행
 - 사장 톤 프롬프트 4종 작성 후 사용자 5분 검수 — "이런 톤이면 사장님이 본인 글이라고 받아들일까?" 1줄 피드백
 - 카드뉴스 텍스트 작성 후 디자인 도구 결정 (D2)
 - DM 메시지 최종본 사용자 검수 — 보내기 전에 1번만 같이 봄

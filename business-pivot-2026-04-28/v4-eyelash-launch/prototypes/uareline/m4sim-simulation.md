@@ -1,8 +1,8 @@
-# M4-sim — AI 시술 시뮬레이션 (속눈썹 컬·풍성도 + 메디핑크 Before/After)
+# AI 시뮬 — AI 시술 시뮬레이션 (속눈썹 컬·풍성도 + 메디핑크 Before/After)
 
 > Day 3 추가 산출물 — 2026-05-10
-> 시드: M4 카카오 챗봇 + 사장 인스타 31장 시술 사진 + 사장 시술 결과 사진 (`sample_pictures_0505/`)
-> 통합 위치: `02-target-uareline-prototype.md` §3 M4-sim (M4 챗봇의 시각적 확장)
+> 시드: 챗봇 응답 카카오 챗봇 + 사장 인스타 31장 시술 사진 + 사장 시술 결과 사진 (`sample_pictures_0505/`)
+> 통합 위치: `02-target-uareline-prototype.md` §3 AI 시뮬 (챗봇 응답의 시각적 확장)
 >
 > **목적**: 신규 손님 첫 시술 frustration 해결 + 사장 컨설팅 시간 30분 → 10분
 > **차별화**: 1인 속눈썹샵 unique selling point — 동네 경쟁샵·체인 모두 미보유
@@ -19,7 +19,7 @@
 | 입력 | 손님 셀카 1장 (눈 또는 부위) |
 | 출력 | 비교 이미지 4장 (원본 + 시뮬 3장) — 카드 1장으로 합성 |
 | 응답 시간 | ~10초 (GPT-image-1 inpainting 기준) |
-| 통합 | (a) 카카오 챗봇 (M4) DM 자동 응답 / (b) 사장 컨설팅 도구 (Streamlit 미니앱) |
+| 통합 | (a) 카카오 챗봇 (챗봇 응답) DM 자동 응답 / (b) 사장 컨설팅 도구 (Streamlit 미니앱) |
 | 정확도 목표 | 속눈썹 80%+ / 메디핑크 60%+ (참고용 명시) |
 | 비용 (베타 4주, 200건 가정) | ~$30~140 |
 | 자동화 비율 | 90% (셀카 → 시뮬 → 회신, 사장 개입 X) |
@@ -402,14 +402,14 @@ export default {
 
 ---
 
-## 9. M4·M7과 시너지
+## 9. 챗봇 응답·카드뉴스와 시너지
 
-### 9-1. M4 (챗봇)와 시너지
+### 9-1. 챗봇 응답 (챗봇)와 시너지
 - 텍스트 답변 후 "시뮬도 가능" 자연 유도
 - 챗봇이 시뮬 트리거 자동 인식 ("어울려"·"미리보기"·"시뮬")
 
-### 9-2. M7 (카드뉴스)와 시너지
-- M7 컬 비교 카드 (2A·2B·2C·2D)에 "AI 시뮬 받기 → DM" CTA 추가
+### 9-2. 카드뉴스 (카드뉴스)와 시너지
+- 카드뉴스 컬 비교 카드 (2A·2B·2C·2D)에 "AI 시뮬 받기 → DM" CTA 추가
 - 사장 인스타 게시 시 "AI 시뮬 무료 체험" hook 강조 → 도달 ↑
 
 ### 9-3. 마케팅 hook (DM 발송 시)
@@ -434,12 +434,12 @@ export default {
 
 ## 11. 외부 참조
 
-- M4 챗봇 30Q&A: `prototypes/uareline/chatbot-30q.md`
-- M7 카드뉴스 (컬 비교 시너지): `prototypes/uareline/design-cards-prompts-for-gpt.md`
+- 챗봇 응답 30Q&A: `prototypes/uareline/chatbot-30q.md`
+- 카드뉴스 (컬 비교 시너지): `prototypes/uareline/design-cards-prompts-for-gpt.md`
 - 사장 시술 사진 raw: `Day1_data_collection/인스타 게시물/`
 - 사장 본인 사진 (LoRA 학습용): `sample_pictures_0505/`
 - GPT-image-1 inpainting: https://platform.openai.com/docs/guides/images/edits
-- Cloudflare Worker (M4 인프라): https://workers.cloudflare.com
+- Cloudflare Worker (챗봇 응답 인프라): https://workers.cloudflare.com
 - Replicate (SD + LoRA 학습): https://replicate.com
 
 ---
@@ -472,7 +472,7 @@ export default {
 | 4분할 카드 합성 (Pillow/HTML+Puppeteer) | 1h | 합성 함수 |
 | 디스클레이머 워터마크 (3중) | 0.5h | 워터마크 자동 |
 | 사장 컨설팅 도구 (Streamlit 미니앱) | 1.5h | 미니앱 1페이지 |
-| 챗봇 (M4) 통합 — 시뮬 트리거 추가 | 1h | M4 worker 갱신 |
+| 챗봇 (챗봇 응답) 통합 — 시뮬 트리거 추가 | 1h | 챗봇 응답 worker 갱신 |
 | 테스트 (사장 본인 사진으로 5건) | 1h | 정확도 측정 |
 | **합계** | **~8h** | |
 

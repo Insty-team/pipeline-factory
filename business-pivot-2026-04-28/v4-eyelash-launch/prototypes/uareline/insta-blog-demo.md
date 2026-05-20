@@ -1,4 +1,4 @@
-# M1+M2 통합 — 인스타+블로그 동시 게시 워크플로우 데모
+# 콘텐츠 자동 — 인스타+블로그 동시 게시 워크플로우 데모
 
 > Day 3 산출물 — 2026-05-05
 > Input: 사용자가 보낸 인스타 시술 사진 3장 (`sample_pictures_0505/`)
@@ -217,7 +217,7 @@ C컬 펌 - 단골님 재방문 감사해요♡
 #유어라인 #C컬펌 #영양펌 #이수역속눈썹펌 #단골 #1인샵
 ```
 
-#### C4 — 디자인 컨설팅 강조 (M7 카드뉴스 시너지)
+#### C4 — 디자인 컨설팅 강조 (카드뉴스 시너지)
 ```
 C컬 펌 - 손님 눈매에 맞춘 디자인!
 1:1 단독 시술이라 한 분께 집중해드릴 수 있어요~
@@ -410,7 +410,7 @@ LED 시술로 유지력을 더 높이고 싶으신 분
 사장 → 시술 → 사진 찍기 → 사장 카톡 (이미지 1장 + "C컬 펌" 1단어)
                                       ↓
                                 ┌────────────────────────┐
-                                │ M1+M2 통합 워크플로우 (자동) │
+                                │ 콘텐츠 자동 통합 워크플로우 (자동) │
                                 │                            │
                                 │ [Step 1] 사진 vision 분석    │
                                 │   - 시술 종류 자동 분류 (펌/연장) │
@@ -455,7 +455,7 @@ LED 시술로 유지력을 더 높이고 싶으신 분
 | 워터마크 합성 | Python Pillow | 무료 |
 | 인스타 게시 | Meta Graph API (비즈니스 계정) | 무료 |
 | 블로그 게시 | 네이버 오픈 API + 사장 OAuth | 무료 |
-| 사장 검수 인터페이스 | 카카오톡 챗봇 (M4 인프라 재사용) | 무료 |
+| 사장 검수 인터페이스 | 카카오톡 챗봇 (챗봇 응답 인프라 재사용) | 무료 |
 | **베타 4주 합** | | **<$3** |
 
 ---
@@ -495,7 +495,7 @@ LED 시술로 유지력을 더 높이고 싶으신 분
 
 ## 7. 자동화 코드 스켈레톤 (참고)
 
-### 7-1. M1+M2 통합 파이프라인 (Python)
+### 7-1. 콘텐츠 자동 파이프라인 (Python)
 
 ```python
 import anthropic
@@ -597,7 +597,7 @@ def post_to_naver_blog(title: str, body: str, tags: list[str]):
 
 - 사장 톤 프롬프트 v3: `prototypes/uareline-prompts.md`
 - 사진 input: `sample_pictures_0505/`
-- M7 카드뉴스 (디자인 컨설팅): `prototypes/uareline/design-cards-{a,b,c}/`
-- M10a 대시보드 (게시 KPI 기록): Day 4 산출물
+- 카드뉴스 (디자인 컨설팅): `prototypes/uareline/design-cards-{a,b,c}/`
+- 대시보드 대시보드 (게시 KPI 기록): Day 4 산출물
 - Meta Graph API: https://developers.facebook.com/docs/instagram-api
 - 네이버 블로그 OpenAPI: https://developers.naver.com/docs/serviceapi/blog/
