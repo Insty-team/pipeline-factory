@@ -42,7 +42,7 @@ st.markdown(
 )
 
 # ───────── 데이터 로드 ─────────
-BASE = Path(__file__).parent
+BASE = Path(__file__).resolve().parent  # 절대 경로 — streamlit 환경 호환
 
 
 @st.cache_data(ttl=300)
