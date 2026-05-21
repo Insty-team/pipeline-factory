@@ -34,14 +34,14 @@ Day 5 (DM 발송)
 
 | Day | 모듈 | Claude (자동) | 사용자 (직접 해야 함) | 소요 | 산출 위치 |
 |---|---|---|---|---|---|
-| **Day 2** | 사장 톤 프롬프트 | ✅ 답글 30+ + 인스타 캡션 + 블로그 long-form 5건 → 프롬프트 4종 자동 작성 | 5분 검수 (사장 톤 같은지) | Claude 1h / 사용자 5분 | `prototypes/uareline-prompts.md` |
-| **Day 3** | 답글 자동 10건 backfill | ✅ 25.9~26.4 누락 후기 10건 답글 자동 작성 | 검수 → 사장에게 "이런 톤으로 답글 자동화 어떠세요" 샘플 전달 | Claude 1.5h / 사용자 10분 | `prototypes/uareline/reviews-replies.md` |
-| **Day 3** | 알림톡 발송 5종 | ✅ 확정/1일전/당일/D+1/D+28 템플릿 작성 + 카카오 알림톡 사전 승인 절차 정리 | 0 (Day 5에 사장과 합의) | Claude 1h | `prototypes/uareline/alimtok-templates.md` |
-| **Day 3** | 챗봇 응답 30Q | ✅ 가격·디자인·알러지·세안·재방문·메디핑크 30Q&A + GPT 프롬프트 | 0 | Claude 2h | `prototypes/uareline/chatbot-30q.md` |
-| **Day 3** | **콘텐츠 자동 워크플로우** | ✅ 인스타 캡션 5종 + 블로그 1편 데모 + 해시태그 풀 + 워크플로우 다이어그램 | **시술 사진 1장 카톡 캡쳐** (데모 input — §3 참조) | Claude 2h / 사용자 5분 | `prototypes/uareline/insta-blog-demo.md` |
-| **Day 3** | 카드뉴스 (텍스트만) | ✅ 6장 카드뉴스 카피 + 메디핑크 캠페인 시리즈 5장 카피 | **디자인 (이미지화)** — Canva/Figma 또는 외주, 또는 사용자가 직접 | Claude 2h / 사용자 1~2h | `prototypes/uareline/design-cards-copy.md` |
-| **Day 4** | 측정 인프라 (Google Sheet) | ✅ 시트 템플릿 작성 (URL 포함) | Google 계정 로그인 후 시트 복사 | Claude 1h / 사용자 5분 | `prototypes/uareline/measurement-sheet.md` |
-| **Day 4** | 단골 분석 분석 1장 | ✅ 단골 후기 데이터 기반 cycle 분석 + 회원권 데이터 입력 폼 | 0 (회원권 raw는 베타 시작 후 사장 합의 필요) | Claude 1.5h | `prototypes/uareline/ltv-analysis.md` |
+| **Day 2** | 사장 톤 프롬프트 | ✅ 답글 30+ + 인스타 캡션 + 블로그 long-form 5건 → 프롬프트 4종 자동 작성 | 5분 검수 (사장 톤 같은지) | Claude 1h / 사용자 5분 | `prototypes/seeds/seeds/uareline-prompts.md` |
+| **Day 3** | 답글 자동 10건 backfill | ✅ 25.9~26.4 누락 후기 10건 답글 자동 작성 | 검수 → 사장에게 "이런 톤으로 답글 자동화 어떠세요" 샘플 전달 | Claude 1.5h / 사용자 10분 | `prototypes/modules/reply/reviews-replies.md` |
+| **Day 3** | 알림톡 발송 5종 | ✅ 확정/1일전/당일/D+1/D+28 템플릿 작성 + 카카오 알림톡 사전 승인 절차 정리 | 0 (Day 5에 사장과 합의) | Claude 1h | `prototypes/modules/alimtok/alimtok-templates.md` |
+| **Day 3** | 챗봇 응답 30Q | ✅ 가격·디자인·알러지·세안·재방문·메디핑크 30Q&A + GPT 프롬프트 | 0 | Claude 2h | `prototypes/modules/chatbot/chatbot-30q.md` |
+| **Day 3** | **콘텐츠 자동 워크플로우** | ✅ 인스타 캡션 5종 + 블로그 1편 데모 + 해시태그 풀 + 워크플로우 다이어그램 | **시술 사진 1장 카톡 캡쳐** (데모 input — §3 참조) | Claude 2h / 사용자 5분 | `prototypes/modules/content/insta-blog-demo.md` |
+| **Day 3** | 카드뉴스 (텍스트만) | ✅ 6장 카드뉴스 카피 + 메디핑크 캠페인 시리즈 5장 카피 | **디자인 (이미지화)** — Canva/Figma 또는 외주, 또는 사용자가 직접 | Claude 2h / 사용자 1~2h | `prototypes/modules/design-cards-copy.md` |
+| **Day 4** | 측정 인프라 (Google Sheet) | ✅ 시트 템플릿 작성 (URL 포함) | Google 계정 로그인 후 시트 복사 | Claude 1h / 사용자 5분 | `prototypes/modules/infra/measurement-sheet.md` |
+| **Day 4** | 단골 분석 분석 1장 | ✅ 단골 후기 데이터 기반 cycle 분석 + 회원권 데이터 입력 폼 | 0 (회원권 raw는 베타 시작 후 사장 합의 필요) | Claude 1.5h | `prototypes/modules/ltv-analysis.md` |
 | **Day 4** | 리포트 통합 진단 리포트 | ✅ 1장 PDF 콘텐츠 (현재 → 적용 시 추정) | 0 | Claude 1.5h | `reports/uareline-prototype-report.md` |
 | **Day 5** | DM 발송 | ✅ DM 메시지 + 첨부 패키징 가이드 | **인스타 ure.line DM 직접 발송** + 첨부 (PDF/이미지) | Claude 30분 / 사용자 30분 | (사용자 직접) |
 

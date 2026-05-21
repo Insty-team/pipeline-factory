@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"echo \\\"=== loyalty-analysis.md 구조 ===\\\"; wc -l /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/loyalty-analysis.md; grep -n \\\"^## \\\" /U...",
-  "error": "Exit code 1\n=== loyalty-analysis.md 구조 ===\n     491 /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/loyalty-analysis.md\n12:## 0. 작업 결과 요약\n26:## 1. 데이터 소스 & Tier 시나리오\n61:## 2. 단골 cycle 분석 (28일 가설 검증)\n108:## 3. 이탈 위험 식별 로직\n170:## 4. 단골 LTV 추정\n198:## 5. acquisition 채널 분석 (\"어디서 보고?\")\n219:## 6. 회원권 만료 임박 캠페인\n251:## 7. 알림 트리거 매트릭스 (단골 분석 → 알림톡 발송)\n266:## 8. 코드 스켈레톤\n425:## 9. KPI 측정\n438:## 10. 다른 모듈과 시너지\n458:## 11. 사장 검수 체크리스트 (Tier 단계별)\n481:## 12. 외...",
-  "timestamp": "2026-05-21T12:06:16.207Z",
+  "tool_input_preview": "{\"command\":\"cd /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch/prototypes && \\\\\\necho \\\"=== Step 1: 새 폴더 구조 생성 ===\\\" && \\\\\\nmkdir -p modules/{chatbot,sim,alimtok,reply...",
+  "error": "Exit code 1\n=== Step 1: 새 폴더 구조 생성 ===\n✓ 14개 폴더 생성\n\n=== Step 2A: 모듈 산출물 이동 ===\n✓ 모듈 산출물 12개 이동\n\n=== Step 2B: seeds/ ===\n✓ Day 2 시드 4개 이동\n\n=== Step 2C: feedback/ + 오타 수정 ===\n✓ 피드백 8개 이동·이름 표준화\n\n=== Step 2D: reference/ ===\n✓ 디자인 ref 14장 이동\n\n=== Step 3: 빈 폴더 정리 ===",
+  "timestamp": "2026-05-21T12:18:44.976Z",
   "retry_count": 1
 }

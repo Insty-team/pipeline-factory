@@ -167,7 +167,7 @@
 | AI 프롬프트 작성 (캡션·답글·블로그·알림톡 각각) | 1.5h | 4개 프롬프트 템플릿 |
 | 테스트 (사장 톤으로 5개 샘플 생성 → 본인 검수) | 0.5h | 검증된 프롬프트 |
 
-**저장 위치**: `prototypes/uareline-prompts.md` (신규).
+**저장 위치**: `prototypes/seeds/seeds/uareline-prompts.md` (신규).
 
 ### Day 3 — 모듈 시제품 제작 (10h)
 
@@ -182,7 +182,7 @@
 | **콘텐츠 자동**: 인스타 캡션 5종 자동 생성 데모 (사장 톤, 시술 사진 1장 기준) | 1h | 캡션 5종 + 해시태그 |
 | **콘텐츠 자동**: 블로그 AI 초안 1편 (사장 30분 편집 가능 ver) | 1.5h | 블로그 1편 (편집 표시) |
 
-**저장 위치**: `prototypes/uareline/` (신규 폴더).
+**저장 위치**: `prototypes/modules/` (신규 폴더).
 
 ### Day 4 — 측정 인프라 + 통합 리포트 (3h)
 
@@ -348,7 +348,7 @@ v4-eyelash-launch/
 │   ├── shop-evaluations.md        ✅
 │   └── uareline-data.md           ⏭️ Day 1 결과
 ├── prototypes/
-│   ├── uareline-prompts.md        ⏭️ Day 2 결과
+│   ├── seeds/uareline-prompts.md        ⏭️ Day 2 결과
 │   └── uareline/
 │       ├── reviews-replies.md     ⏭️ 답글 자동
 │       ├── alimtok-templates.md   ⏭️ 알림톡 발송

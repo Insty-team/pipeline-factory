@@ -35,10 +35,10 @@
 - [x] 🤖 인스타 캡션 프롬프트 (v3 — 펌·연장 시그니처 분기)
 - [x] 🤖 블로그 long-form 프롬프트 (v3)
 - [x] 🤖 알림톡 프롬프트 (v3 — 원본 X 명시)
-- [x] 🤖 4종 프롬프트 + 테스트 샘플 5개 → `prototypes/uareline-prompts.md`
-- [x] 🤖 블로그 long-form 5건 raw 정리 → `prototypes/uareline-blog-originals.md`
-- [x] 🤖 블로그 카탈로그 7편 → `prototypes/uareline-sample-blog.md` (v3.1 — 분류·로테이션·피드백)
-- [x] 🤖 알림톡 카탈로그 12종 → `prototypes/uareline-sample-alimtok.md`
+- [x] 🤖 4종 프롬프트 + 테스트 샘플 5개 → `prototypes/seeds/seeds/uareline-prompts.md`
+- [x] 🤖 블로그 long-form 5건 raw 정리 → `prototypes/seeds/uareline-blog-originals.md`
+- [x] 🤖 블로그 카탈로그 7편 → `prototypes/seeds/uareline-sample-blog.md` (v3.1 — 분류·로테이션·피드백)
+- [x] 🤖 알림톡 카탈로그 12종 → `prototypes/seeds/uareline-sample-alimtok.md`
 - [x] 👤 5분 검수 (3차 피드백 — OCR 정정·채널별 톤·카탈로그 분류 모두 반영)
 
 ---
@@ -51,27 +51,27 @@
 ### 답글 자동 — 후기 답글 backfill + 자동화 ✅
 - [x] 🤖 25-09 ~ 26-04 누락 후기 10건 답글 작성
 - [x] 🤖 답글 자동화 워크플로우 (Apify + Claude Haiku + 사장 1탭 검수)
-- [x] 산출: `prototypes/uareline/reviews-replies.md`
+- [x] 산출: `prototypes/modules/reply/reviews-replies.md`
 
 ### 알림톡 발송 — 알림톡 자동화 워크플로우 ✅
 - [x] 🤖 12종 카탈로그 (이미 Day 2 완료)
 - [x] 🤖 자동화 트리거 매트릭스 + 카카오 사전 승인 절차 + 알리고 솔루션 셋업
-- [x] 산출: `prototypes/uareline/alimtok-templates.md`
+- [x] 산출: `prototypes/modules/alimtok/alimtok-templates.md`
 
 ### 챗봇 응답 — 카카오 GPT 챗봇 30Q ✅
 - [x] 🤖 가격·디자인·알러지·세안·재방문·메디핑크·예약 30Q&A
 - [x] 🤖 시스템 프롬프트 + Claude Haiku 4.5 + Cloudflare Worker 인프라
-- [x] 산출: `prototypes/uareline/chatbot-30q.md`
+- [x] 산출: `prototypes/modules/chatbot/chatbot-30q.md`
 
 ### 콘텐츠 자동 — 인스타+블로그 동시 게시 워크플로우 ✅
 - [x] 👤 시술 사진 3장 받음 (`sample_pictures_0505/` — 펌·연장·전후)
 - [x] 🤖 인스타 캡션 15편 (사진 3장 × 5종) + 시술 종류 분기
 - [x] 🤖 블로그 long-form 3편 (700자 × 3)
 - [x] 🤖 워크플로우 다이어그램 + 코드 스켈레톤
-- [x] 산출: `prototypes/uareline/insta-blog-demo.md`
+- [x] 산출: `prototypes/modules/content/insta-blog-demo.md`
 
 ### AI 시뮬 — AI 시술 시뮬레이션 ⭐ NEW (Day 4 전 추가, ~8h)
-- [x] 🤖 모듈 설계 문서 (시뮬 3종 + 디스클레이머 3중 + 비용·KPI) → `prototypes/uareline/m4sim-simulation.md`
+- [x] 🤖 모듈 설계 문서 (시뮬 3종 + 디스클레이머 3중 + 비용·KPI) → `prototypes/modules/sim/m4sim-simulation.md`
 - [ ] 🤖 코드 스켈레톤 (Cloudflare Worker — 챗봇 응답 인프라 재사용)
 - [ ] 🤖 얼굴/눈 detection 마스킹 로직 (face-api.js 또는 OpenCV.js)
 - [ ] 🤖 4분할 카드 합성 함수 (Pillow 또는 HTML+Puppeteer) + 디스클레이머 워터마크
@@ -81,14 +81,14 @@
 - [ ] 산출: 코드 스켈레톤 + 미니앱 + 사장 검수 체크리스트
 
 ### 카드뉴스 — 디자인 카드뉴스 (레퍼런스 분석 → 3세트 영구 자산 방식) ✅
-- [x] 👤 레퍼런스 14장 받음 (`prototypes/디자인reference/` — 메뉴판 3 + 클립아트 11)
-- [x] 🤖 14장 역프롬프트 + 디자인 시스템 5종 추출 → `prototypes/uareline/design-cards-reference.md` (v2 텍스트-인-이미지)
+- [x] 👤 레퍼런스 14장 받음 (`prototypes/reference/` — 메뉴판 3 + 클립아트 11)
+- [x] 🤖 14장 역프롬프트 + 디자인 시스템 5종 추출 → `prototypes/modules/cards/design-cards-reference.md` (v2 텍스트-인-이미지)
 - [x] 🤖 GPT image gen 워크플로우 정리 (v2: 텍스트-인-이미지 1단계 / Pillow fallback 예비)
 - [x] 👤 세트별 1순위 ref 결정 (D1=c 가로+세로 / D2=b 유어라인 핑크 / D3=d 라벤더)
 - [x] 🤖 세트 1·2·3 한국어 텍스트 콘텐츠 16장 작성 + 폰트 톤 가이드 (B-1·B-2)
 - [x] 🤝 GPT image gen으로 16장 생성 → 1차 결과물 분석 → 11장 재생성 (폰트 톤 cute→editorial)
 - [x] ~~Pillow overlay 코드~~ → v3 텍스트-인-이미지로 전환되어 불필요 (모든 한글 텍스트 GPT 직접 렌더)
-- [x] 산출: `prototypes/gpt_images/final/` (16장 PNG) + `prompts-v3-개선판.md`
+- [x] 산출: `prototypes/modules/cards/images/` (16장 PNG) + `prompts-v3-개선판.md`
 
 ---
 
@@ -98,24 +98,24 @@
 - [ ] 🤖 Google Sheet 템플릿 (일별 노쇼·예약·신규·재방문·후기·챗봇·알림톡)
 - [ ] 🤖 단골 입력 폼 (사장 자율, 회원권 데이터 입력용)
 - [ ] 🤖 "어디서 보고 오셨어요?" SOP 1줄 가이드
-- [ ] 산출: `prototypes/uareline/measurement-sheet.md`
+- [ ] 산출: `prototypes/modules/infra/measurement-sheet.md`
 
 ### 단골 분석 — 단골 LTV 분석
 - [ ] 🤖 후기 데이터 + 회원권 가설 기반 단골 cycle 분석 1장
-- [ ] 산출: `prototypes/uareline/ltv-analysis.md`
+- [ ] 산출: `prototypes/modules/ltv-analysis.md`
 
 ### 대시보드 — 실시간 대시보드 웹페이지 (전용 웹) ⭐
 - [ ] 🤖 Streamlit 앱 코드 (Google Sheet API 연결)
 - [ ] 🤖 1페이지 구성: 오늘 / 이번 주 / 이탈 위험 단골 / 4주 베타 누적 매출 기여
 - [ ] 🤖 Streamlit Cloud 무료 호스팅 배포
 - [ ] 🤖 URL 단축 + 사장 모바일 즐겨찾기 가이드
-- [ ] 산출: `prototypes/uareline/dashboard/` (코드) + 배포 URL
+- [ ] 산출: `prototypes/modules/dashboard/` (코드) + 배포 URL
 
 ### 일간 1줄 — 일간 카톡 1줄 텍스트 자동 생성기
 - [ ] 🤖 매일 전날 데이터 → 1줄 자동 생성 스크립트 (베타 동안은 사용자가 직접 카톡 발송)
 - [ ] 🤖 1줄 + **대시보드 링크 1줄** 포함 템플릿
 - [ ] 🤖 8시 알람 셋업 가이드 (사용자용)
-- [ ] 산출: `prototypes/uareline/daily-1liner.md`
+- [ ] 산출: `prototypes/modules/daily-1liner.md`
 
 ### 진단 리포트 (A) — DM 첨부 진단 리포트 ⭐
 - [ ] 🤖 1장 PDF 콘텐츠 (현재 상태 → 풀패키지 적용 시 추정)

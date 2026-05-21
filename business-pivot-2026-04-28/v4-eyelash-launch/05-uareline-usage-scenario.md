@@ -273,6 +273,6 @@
 
 - 모듈 상세: `02-target-uareline-prototype.md` §3 (콘텐츠 자동~분기 컨설팅)
 - Day별 작업: `00-checklist.md`
-- 사장 톤 가이드 (Day 2 산출물): `prototypes/uareline-prompts.md` (예정)
+- 사장 톤 가이드 (Day 2 산출물): `prototypes/seeds/seeds/uareline-prompts.md` (예정)
 - 진단 리포트 A (DM 첨부): `reports/uareline-diagnosis-report-A.md` (Day 4)
 - 결과 리포트 B (4주 종료): `reports/uareline-result-report-B.md` (베타 종료 시)

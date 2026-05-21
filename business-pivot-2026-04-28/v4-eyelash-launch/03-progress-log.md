@@ -271,7 +271,7 @@
 
 ### Phase 19 — Day 2 사장 톤 프롬프트 4종 작성 (2026-05-05)
 
-**산출**: `prototypes/uareline-prompts.md` (신규, ~500줄)
+**산출**: `prototypes/seeds/seeds/uareline-prompts.md` (신규, ~500줄)
 - 톤 가이드 7섹션 (어미·이모지·시그니처 어휘·시술 멘트·시즌 멘트·호칭·금지어)
 - 답글 프롬프트 (답글 자동) — 시스템 + few-shot 3개 + input format
 - 인스타 캡션 프롬프트 (콘텐츠 자동) — 5줄 템플릿 엄격 + few-shot 3개 + 해시태그 풀
@@ -297,8 +297,8 @@
 5. 알림톡 원본 사장 데이터 X — 명시 필요
 
 **산출**:
-- `prototypes/uareline-blog-originals.md` 신규 (5건 long-form 본문, 사람 읽기용)
-- `prototypes/uareline-prompts.md` v2 정정:
+- `prototypes/seeds/uareline-blog-originals.md` 신규 (5건 long-form 본문, 사람 읽기용)
+- `prototypes/seeds/seeds/uareline-prompts.md` v2 정정:
   - v1→v2 7가지 정정 사항 표
   - OCR 오류 정정 (인스타 시그니처 멘트·마무리)
   - 답글 길이 5줄 → 1~3줄
@@ -347,7 +347,7 @@
 **사용자 요청**: 샘플 3 (블로그) + 샘플 4 (알림톡) 더 상세하게.
 
 **산출**:
-- `prototypes/uareline-sample-blog.md`: 7편 카탈로그
+- `prototypes/seeds/uareline-sample-blog.md`: 7편 카탈로그
   - B1·B2·B7: 시술 후기 짧은 글 (300~350자)
   - B3: 메뉴 소개 표준 (450자)
   - B4: long-form 셀프 PR 무쌍 펌 특화 (800자) — SEO 핵심
@@ -355,7 +355,7 @@
   - B6: 부가 상품 추천 펑키 블랙 영양제 (350자)
   - 4주 게시 가이드: 11~13편 가능 (사장 현재 월 2건 → 5~6배)
 
-- `prototypes/uareline-sample-alimtok.md`: 12종 카탈로그
+- `prototypes/seeds/uareline-sample-alimtok.md`: 12종 카탈로그
   - A1~A5: 예약 lifecycle 5종 (코어)
   - B1~B3: 신규 환영 / 5번째·10번째 단골 분기
   - C1~C3: 노쇼 follow-up / 변경 응답 / 휴무 안내
@@ -392,11 +392,11 @@
 ### Phase 26 — Day 3 모듈 시제품 본격 + 카드뉴스 디자인 ref 분석 (2026-05-05)
 
 **완성 산출물 5종**:
-- `prototypes/uareline/reviews-replies.md` — 답글 자동 10건 backfill (어미 5종 분산·키워드 받아치기 10/10) + 자동화 워크플로우 + 베타 4주 cadence
-- `prototypes/uareline/alimtok-templates.md` — 알림톡 발송 자동화 트리거 11종 + 카카오 사전 승인 절차 (알리고) + 정보성/광고성 분류 + 비용 표
-- `prototypes/uareline/chatbot-30q.md` — 챗봇 응답 30Q&A (가격·디자인·알러지·세안·재방문·메디핑크·예약) + Cloudflare Worker + Escalate 5종
-- `prototypes/uareline/insta-blog-demo.md` — 콘텐츠 자동 인스타 캡션 15편 + 블로그 long-form 3편 + 워크플로우 다이어그램 (사장 6h/주 → 4분/주 = 99% 절감)
-- `prototypes/uareline/design-cards-reference.md` — 카드뉴스 레퍼런스 14장 역프롬프트 + 디자인 시스템 5종 + GPT image 워크플로우 3종
+- `prototypes/modules/reply/reviews-replies.md` — 답글 자동 10건 backfill (어미 5종 분산·키워드 받아치기 10/10) + 자동화 워크플로우 + 베타 4주 cadence
+- `prototypes/modules/alimtok/alimtok-templates.md` — 알림톡 발송 자동화 트리거 11종 + 카카오 사전 승인 절차 (알리고) + 정보성/광고성 분류 + 비용 표
+- `prototypes/modules/chatbot/chatbot-30q.md` — 챗봇 응답 30Q&A (가격·디자인·알러지·세안·재방문·메디핑크·예약) + Cloudflare Worker + Escalate 5종
+- `prototypes/modules/content/insta-blog-demo.md` — 콘텐츠 자동 인스타 캡션 15편 + 블로그 long-form 3편 + 워크플로우 다이어그램 (사장 6h/주 → 4분/주 = 99% 절감)
+- `prototypes/modules/cards/design-cards-reference.md` — 카드뉴스 레퍼런스 14장 역프롬프트 + 디자인 시스템 5종 + GPT image 워크플로우 3종
 
 **02 문서 v3 업데이트**:
 - 인스타 전후사진 캡션에서 운영 디테일 5종 신규 발견 → 02 §1 프로필 표·§2 강점 (S8/S9/S10 추가)·§5 DM 메시지 v3 (7월 오픈 앵글) 반영
@@ -432,10 +432,10 @@
 - 3차 피드백 → v3.1 (카탈로그 분류·로테이션·피드백 워크플로우)
 
 **Day 2 최종 산출**:
-- `prototypes/uareline-prompts.md` v3 — 4종 프롬프트 + 5 샘플
-- `prototypes/uareline-blog-originals.md` — 사장 long-form 5건 raw
-- `prototypes/uareline-sample-blog.md` v3.1 — 7편 카탈로그 (분류·로테이션·피드백)
-- `prototypes/uareline-sample-alimtok.md` — 12종 카탈로그
+- `prototypes/seeds/seeds/uareline-prompts.md` v3 — 4종 프롬프트 + 5 샘플
+- `prototypes/seeds/uareline-blog-originals.md` — 사장 long-form 5건 raw
+- `prototypes/seeds/uareline-sample-blog.md` v3.1 — 7편 카탈로그 (분류·로테이션·피드백)
+- `prototypes/seeds/uareline-sample-alimtok.md` — 12종 카탈로그
 
 **진행률**: 18/83 → 22/86 (26%, 체크리스트 항목 +3).
 
