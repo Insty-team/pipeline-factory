@@ -2,7 +2,7 @@
 
 > 한눈에 진행 상황 확인용. 진행 시 변경 가능.
 > 👤 사용자 / 🤖 Claude / 🤝 같이.
-> 마지막 갱신: 2026-05-10 (Day 3 카드뉴스 16장 완료 → final/ 통합)
+> 마지막 갱신: 2026-05-22 (Day 4 완료 — 5 산출물 + 모듈 명명 체계 통일)
 
 ---
 
@@ -92,35 +92,36 @@
 
 ---
 
-## 📈 5. Day 4 — 측정 인프라 + 대시보드 + 리포트 (~6h)
+## 📈 5. Day 4 — 측정 인프라 + 대시보드 + 리포트 (~6h) ✅
 
-### 데이터 인프라 (모든 모듈의 기반)
-- [ ] 🤖 Google Sheet 템플릿 (일별 노쇼·예약·신규·재방문·후기·챗봇·알림톡)
-- [ ] 🤖 단골 입력 폼 (사장 자율, 회원권 데이터 입력용)
-- [ ] 🤖 "어디서 보고 오셨어요?" SOP 1줄 가이드
-- [ ] 산출: `prototypes/modules/infra/measurement-sheet.md`
+### 데이터 인프라 (모든 모듈의 기반) ✅
+- [x] 🤖 Google Sheet 템플릿 7개 시트 (일별·손님·시뮬·챗봇·후기·알림톡·회원권) — 가상 데이터 포함
+- [x] 🤖 단골 입력 폼 (회원권 시트 + 사장 CSV 업로드 가이드)
+- [x] 🤖 "어디서 보고 오셨어요?" SOP 1줄 가이드 (점진적 expansion 3 Tier 명시)
+- [x] 산출: `prototypes/modules/infra/measurement-sheet.md`
 
-### 단골 분석 — 단골 LTV 분석
-- [ ] 🤖 후기 데이터 + 회원권 가설 기반 단골 cycle 분석 1장
-- [ ] 산출: `prototypes/modules/ltv-analysis.md`
+### 단골 분석 — 단골 LTV 분석 ✅
+- [x] 🤖 단골 cycle 28일 가설 검증 + 이탈 위험 식별 로직 + LTV by Tier
+- [x] 🤖 가상 회원 DB 66명 생성 (영업용 prototype 데모)
+- [x] 산출: `prototypes/modules/loyalty/loyalty-analysis.md` + `virtual-customer-db.csv`
 
-### 대시보드 — 실시간 대시보드 웹페이지 (전용 웹) ⭐
-- [ ] 🤖 Streamlit 앱 코드 (Google Sheet API 연결)
-- [ ] 🤖 1페이지 구성: 오늘 / 이번 주 / 이탈 위험 단골 / 4주 베타 누적 매출 기여
-- [ ] 🤖 Streamlit Cloud 무료 호스팅 배포
-- [ ] 🤖 URL 단축 + 사장 모바일 즐겨찾기 가이드
-- [ ] 산출: `prototypes/modules/dashboard/` (코드) + 배포 URL
+### 대시보드 — 실시간 대시보드 웹페이지 (전용 웹) ⭐ ✅
+- [x] 🤖 Streamlit 앱 코드 (`app.py`, ~210줄, 6 섹션)
+- [x] 🤖 1페이지 구성: 오늘 / AI 시뮬 / 이탈 위험 / 단골 자산 / 매출 기여 / 트렌드
+- [x] 🤖 모바일 친화 UX (centered layout, 핑크 톤, 큰 metric)
+- [x] 🤖 가상 데이터로 즉시 데모 가능 + 로컬 검증 완료
+- [x] 산출: `prototypes/modules/dashboard/{app.py, dashboard-design.md, sample-daily-data.csv, requirements.txt}`
 
-### 일간 1줄 — 일간 카톡 1줄 텍스트 자동 생성기
-- [ ] 🤖 매일 전날 데이터 → 1줄 자동 생성 스크립트 (베타 동안은 사용자가 직접 카톡 발송)
-- [ ] 🤖 1줄 + **대시보드 링크 1줄** 포함 템플릿
-- [ ] 🤖 8시 알람 셋업 가이드 (사용자용)
-- [ ] 산출: `prototypes/modules/daily-1liner.md`
+### 일간 1줄 — 일간 카톡 1줄 텍스트 자동 생성기 ✅
+- [x] 🤖 매일 전날 데이터 → 1줄 자동 생성 (`generator.py` — 주차별 인사이트 분기)
+- [x] 🤖 1줄 + **대시보드 링크 1줄** 포함 템플릿 (4 주차 × 4 패턴)
+- [x] 🤖 cron 셋업 가이드 (macOS cron / GitHub Actions 2 옵션)
+- [x] 산출: `prototypes/modules/daily/daily-1liner.md` + `generator.py`
 
-### 진단 리포트 (A) — DM 첨부 진단 리포트 ⭐
-- [ ] 🤖 1장 PDF 콘텐츠 (현재 상태 → 풀패키지 적용 시 추정)
-- [ ] 🤖 약점 8개·강점 7개 + 4주 KPI 목표
-- [ ] 산출: `reports/uareline-diagnosis-report-A.md` (PDF로 export)
+### 진단 리포트 (A) — DM 첨부 진단 리포트 ⭐ ✅
+- [x] 🤖 1~2장 PDF 콘텐츠 (현재 상태 → 풀패키지 적용 시 추정)
+- [x] 🤖 약점 8개·강점 8개 + 4주 KPI 목표 + commission 모델 + 데모 시연 안내
+- [x] 산출: `prototypes/modules/report/diagnosis-report-A.md` (PDF로 export 예정)
 
 ---
 
@@ -206,10 +207,10 @@
 | 3. Day 2 사장 톤 + 카탈로그 | 9/9 | ✅ 완료 |
 | 4. Day 3 모듈 시제품 | 23/23 | ✅ 완료 (카드뉴스 16장 final/ 저장) |
 | 4.5. Day 3 add-on — AI 시뮬 시뮬 | 1/8 | ⭐ 모듈 설계 완료, 구현 7건 진행 예정 |
-| 5. Day 4 인프라·대시보드·리포트 | 0/14 | ⏸️ 대기 |
-| 6. Day 5 DM | 0/8 | ⏸️ 대기 |
+| 5. Day 4 인프라·대시보드·리포트 | 14/14 | ✅ 완료 (5 산출물 — 데이터 인프라·단골 분석·대시보드·일간 1줄·진단 리포트 A) |
+| 6. Day 5 DM | 0/8 | ⏸️ 데모 셋업 + DM 발송 대기 |
 | 7. 답장 대기 | 0/4 | ⏸️ 대기 |
 | 8. 베타 첫 미팅 | 0/6 | ⏸️ 대기 |
 | 9. 4주 운영 (4단계 cadence) | 0/11 | ⏸️ 대기 |
 | 10. 결과 B·Commission | 0/6 | ⏸️ 대기 |
-| **합계** | **46/102 (45%)** | **Day 3 모듈 시제품 5종 완료 + AI 시뮬 모듈 설계 추가 → 구현 7건 + Day 4 진행 예정** |
+| **합계** | **60/102 (59%)** | **Day 4 완료 → 데모 계정 셋업 가이드 + Day 5 DM 발송 준비** |
