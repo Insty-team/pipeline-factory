@@ -10,7 +10,7 @@ import {
   Loader2,
   ArrowLeftRight,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { TopAppBar } from "@/components/common/TopAppBar";
 import { Button } from "@/components/ui/button";
@@ -34,10 +34,37 @@ export default function SimPage() {
   const [service, setService] = useState<ServiceKey>("glue-half");
   const [model, setModel] = useState<ModelKey>("gpt-image-2");
   const [loading, setLoading] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
   const [resultUrl, setResultUrl] = useState<string | null>(null);
+  const [framedBeforeUrl, setFramedBeforeUrl] = useState<string | null>(null);
   const [showBefore, setShowBefore] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<MaskCanvasHandle>(null);
+
+  useEffect(() => {
+    if (!loading) {
+      setElapsed(0);
+      return;
+    }
+    const startedAt = Date.now();
+    const id = setInterval(() => {
+      setElapsed(Math.floor((Date.now() - startedAt) / 1000));
+    }, 250);
+    return () => clearInterval(id);
+  }, [loading]);
+
+  const ETA_SECONDS = 90;
+  const progressPct = Math.min(95, Math.round((elapsed / ETA_SECONDS) * 100));
+  const stageLabel =
+    elapsed < 5
+      ? "사진 분석 중..."
+      : elapsed < 25
+        ? "AI가 시술 효과 그리는 중..."
+        : elapsed < 60
+          ? "디테일 보정 중..."
+          : elapsed < 100
+            ? "마지막 마무리 중..."
+            : "조금만 더 기다려주세요...";
 
   async function handlePreset(src: string) {
     setResultUrl(null);
@@ -69,6 +96,7 @@ export default function SimPage() {
     try {
       const form = new FormData();
       const imageBlob = await canvasRef.current.exportImagePng();
+      setFramedBeforeUrl(URL.createObjectURL(imageBlob));
       form.append("image", new File([imageBlob], "selfie.png", { type: "image/png" }));
       if (hasMask) {
         const maskBlob = await canvasRef.current.exportMaskPng();
@@ -250,6 +278,34 @@ export default function SimPage() {
                 ))}
               </div>
 
+              {loading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-2xl bg-pink-50/70 border border-pink-200/60 p-3 space-y-2"
+                >
+                  <div className="flex items-center justify-between text-xs font-semibold text-pink-900/80">
+                    <span className="flex items-center gap-1.5">
+                      <Loader2 className="w-3.5 h-3.5 animate-spin text-pink-600" />
+                      {stageLabel}
+                    </span>
+                    <span className="tabular-nums text-pink-700">
+                      {elapsed}s / ~{ETA_SECONDS}s
+                    </span>
+                  </div>
+                  <div className="h-2 bg-white/70 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full bg-gradient-to-r from-pink-400 to-pink-600"
+                      animate={{ width: `${progressPct}%` }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                    />
+                  </div>
+                  <div className="text-[10px] text-pink-900/60 leading-relaxed">
+                    💖 평균 1~2분 소요돼요. 영업 데모 자리에서는 미리 생성된 결과를 사용해도 좋아요.
+                  </div>
+                </motion.div>
+              )}
+
               <Button
                 onClick={handleGenerate}
                 disabled={loading}
@@ -257,7 +313,7 @@ export default function SimPage() {
               >
                 {loading ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin" /> 생성 중... (10~30초)
+                    <Loader2 className="w-4 h-4 animate-spin" /> 생성 중... ({elapsed}s)
                   </>
                 ) : (
                   <>
@@ -292,9 +348,9 @@ export default function SimPage() {
                 <div className="relative aspect-square rounded-2xl overflow-hidden bg-pink-50">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={showBefore ? imageUrl! : resultUrl}
+                    src={showBefore ? (framedBeforeUrl ?? imageUrl!) : resultUrl}
                     alt="결과"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="flex gap-2">
