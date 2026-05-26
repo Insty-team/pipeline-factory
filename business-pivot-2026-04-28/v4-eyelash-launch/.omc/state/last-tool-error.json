@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"cd /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch/prototypes && \\\\\\necho \\\"=== Step 1: 새 폴더 구조 생성 ===\\\" && \\\\\\nmkdir -p modules/{chatbot,sim,alimtok,reply...",
-  "error": "Exit code 1\n=== Step 1: 새 폴더 구조 생성 ===\n✓ 14개 폴더 생성\n\n=== Step 2A: 모듈 산출물 이동 ===\n✓ 모듈 산출물 12개 이동\n\n=== Step 2B: seeds/ ===\n✓ Day 2 시드 4개 이동\n\n=== Step 2C: feedback/ + 오타 수정 ===\n✓ 피드백 8개 이동·이름 표준화\n\n=== Step 2D: reference/ ===\n✓ 디자인 ref 14장 이동\n\n=== Step 3: 빈 폴더 정리 ===",
-  "timestamp": "2026-05-21T12:18:44.976Z",
+  "tool_input_preview": "{\"command\":\"sleep 4 && echo \\\"=== 모든 페이지 HTTP 상태 ===\\\"; for path in / /c /c/sim /c/chat /c/reserve /c/coupon /c/menu /o /o/inbox /o/content /o/alimtok /o/reply /o/daily; do\\n  code=$(curl -s -o /dev/n...",
+  "error": "Exit code 127\n=== 모든 페이지 HTTP 상태 ===\n(eval):2: command not found: curl\n    /\n(eval):2: command not found: curl\n    /c\n(eval):2: command not found: curl\n    /c/sim\n(eval):2: command not found: curl\n    /c/chat\n(eval):2: command not found: curl\n    /c/reserve\n(eval):2: command not found: curl\n    /c/coupon\n(eval):2: command not found: curl\n    /c/menu\n(eval):2: command not found: curl\n    /o\n(eval):2: command not found: curl\n    /o/inbox\n(eval):2: command not found: curl\n    /o/content\n(eval):2: c...",
+  "timestamp": "2026-05-26T01:33:08.523Z",
   "retry_count": 1
 }
