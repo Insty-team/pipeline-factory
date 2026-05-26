@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1777735058100,
+  "lastScanned": 1779779589216,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,14 +36,14 @@
       "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1777735058090,
+      "lastAccessed": 1779779589208,
       "keyFiles": []
     },
     "business-pivot-2026-04-28": {
       "path": "business-pivot-2026-04-28",
       "purpose": null,
       "fileCount": 8,
-      "lastAccessed": 1777735058090,
+      "lastAccessed": 1779779589208,
       "keyFiles": [
         "01-criteria-review.md",
         "02-pivot-decision.md",
@@ -56,7 +56,7 @@
       "path": "geo-truth-layer",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1777735058090,
+      "lastAccessed": 1779779589209,
       "keyFiles": [
         "DAILY-LOG.md",
         "STRATEGY.md",
@@ -69,7 +69,7 @@
       "path": "_legacy/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1777735058091,
+      "lastAccessed": 1779779589209,
       "keyFiles": [
         "PIPELINE-V2-CHANGES.md",
         "PLAYBOOK.md"
@@ -79,7 +79,7 @@
       "path": "_legacy/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 4,
-      "lastAccessed": 1777735058091,
+      "lastAccessed": 1779779589209,
       "keyFiles": [
         "daily_pipeline.sh",
         "monitor.sh",
@@ -89,303 +89,15 @@
   },
   "hotPaths": [
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/00-checklist.md",
-      "accessCount": 26,
-      "lastAccessed": 1779411687264,
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/coupon/page.tsx",
+      "accessCount": 5,
+      "lastAccessed": 1779779637223,
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/03-progress-log.md",
-      "accessCount": 12,
-      "lastAccessed": 1777911517083,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-sample-blog.md",
-      "accessCount": 10,
-      "lastAccessed": 1777910789650,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/02-target-uareline-prototype.md",
-      "accessCount": 10,
-      "lastAccessed": 1778420504954,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/README.md",
-      "accessCount": 4,
-      "lastAccessed": 1777737158296,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/05-uareline-usage-scenario.md",
-      "accessCount": 3,
-      "lastAccessed": 1777737763009,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-prompts.md",
-      "accessCount": 3,
-      "lastAccessed": 1777909471965,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/gpt_images/prompts-v3-개선판.md",
-      "accessCount": 3,
-      "lastAccessed": 1778417177990,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/discovery/uareline-data.md",
-      "accessCount": 2,
-      "lastAccessed": 1777735720106,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/네이버블로그게시글/url_list.txt",
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/components/ui/button.tsx",
       "accessCount": 1,
-      "lastAccessed": 1777735154239,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/네이버지도_리뷰/review_list.txt",
-      "accessCount": 1,
-      "lastAccessed": 1777735154550,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/_crawl_blogs.py",
-      "accessCount": 1,
-      "lastAccessed": 1777735540388,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.54.03.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735543593,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.30.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735544331,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.48.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735545099,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.55.58.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735545906,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.05.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735546432,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.15.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735564602,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.24.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735565383,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.31.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735565923,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.38.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735566694,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.48.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735567529,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.56.56.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735568240,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.04.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735569245,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.13.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735569784,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.23.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735570631,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.32.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735571316,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.42.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735592240,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.48.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735592918,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.57.54.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735593643,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.03.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735594502,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.11.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735595196,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.18.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735595994,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.26.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735596660,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.33.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735597442,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.41.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735598266,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.48.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735598876,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.58.55.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735609034,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.02.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735609644,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.29.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735610460,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.37.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735611278,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.42.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735611999,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/Day1_data_collection/인스타 게시물/스크린샷 2026-05-02 오후 11.59.48.png",
-      "accessCount": 1,
-      "lastAccessed": 1777735612887,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/04-next-action-guide.md",
-      "accessCount": 1,
-      "lastAccessed": 1777735944289,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/feeback.txt",
-      "accessCount": 1,
-      "lastAccessed": 1777908349176,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline-sample-alimtok.md",
-      "accessCount": 1,
-      "lastAccessed": 1777909861810,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/design-cards-review-guide.md",
-      "accessCount": 1,
-      "lastAccessed": 1778418622212,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/chatbot-30q.md",
-      "accessCount": 1,
-      "lastAccessed": 1778418653706,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/reviews-replies.md",
-      "accessCount": 1,
-      "lastAccessed": 1778418654138,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/uareline/insta-blog-demo.md",
-      "accessCount": 1,
-      "lastAccessed": 1778418654834,
+      "lastAccessed": 1779779597508,
       "type": "file"
     }
   ],

@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"sleep 4 && echo \\\"=== 모든 페이지 HTTP 상태 ===\\\"; for path in / /c /c/sim /c/chat /c/reserve /c/coupon /c/menu /o /o/inbox /o/content /o/alimtok /o/reply /o/daily; do\\n  code=$(curl -s -o /dev/n...",
-  "error": "Exit code 127\n=== 모든 페이지 HTTP 상태 ===\n(eval):2: command not found: curl\n    /\n(eval):2: command not found: curl\n    /c\n(eval):2: command not found: curl\n    /c/sim\n(eval):2: command not found: curl\n    /c/chat\n(eval):2: command not found: curl\n    /c/reserve\n(eval):2: command not found: curl\n    /c/coupon\n(eval):2: command not found: curl\n    /c/menu\n(eval):2: command not found: curl\n    /o\n(eval):2: command not found: curl\n    /o/inbox\n(eval):2: command not found: curl\n    /o/content\n(eval):2: c...",
-  "timestamp": "2026-05-26T01:33:08.523Z",
-  "retry_count": 1
+  "tool_input_preview": "{\"command\":\"echo \\\"OPENAI_API_KEY: ${OPENAI_API_KEY:+SET (${#OPENAI_API_KEY} chars)}${OPENAI_API_KEY:-NOT SET}\\\"; echo \\\"ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:+SET}\\\"; echo \\\"---shell rc files---\\\"; ...",
+  "error": "Exit code 2\nOPENAI_API_KEY: NOT SET\nANTHROPIC_API_KEY: \n---shell rc files---",
+  "timestamp": "2026-05-26T07:16:03.050Z",
+  "retry_count": 2
 }

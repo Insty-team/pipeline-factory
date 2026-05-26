@@ -1,0 +1,11 @@
+{
+  "name": "유어라인",
+  "short_name": "유어라인",
+  "description": "1:1 단독시술 속눈썹 전문샵 · AI 시술 시뮬레이션",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF5F8",
+  "theme_color": "#E89BAE",
+  "lang": "ko",
+  "icons": []
+}

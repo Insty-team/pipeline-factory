@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Gift, Copy, Check } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 import { TopAppBar } from "@/components/common/TopAppBar";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { toast } from "sonner";
 
 export default function CouponPage() {
@@ -123,9 +124,12 @@ export default function CouponPage() {
           transition={{ delay: 0.4 }}
           className="mt-4"
         >
-          <Button asChild size="lg" className="w-full h-12 rounded-2xl">
-            <a href="/c/reserve">바로 예약하기 →</a>
-          </Button>
+          <Link
+            href="/c/reserve"
+            className={buttonVariants({ size: "lg", className: "w-full h-12 rounded-2xl" })}
+          >
+            바로 예약하기 →
+          </Link>
         </motion.div>
       </div>
     </>
