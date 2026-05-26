@@ -62,14 +62,16 @@ export default function SimPage() {
 
   async function handleGenerate() {
     if (!imageFile) return toast.error("먼저 사진을 선택해주세요");
-    const hasMask = canvasRef.current?.hasStrokes() ?? false;
+    if (!canvasRef.current) return toast.error("캔버스 준비 중");
+    const hasMask = canvasRef.current.hasStrokes();
     setLoading(true);
     setResultUrl(null);
     try {
       const form = new FormData();
-      form.append("image", imageFile);
+      const imageBlob = await canvasRef.current.exportImagePng();
+      form.append("image", new File([imageBlob], "selfie.png", { type: "image/png" }));
       if (hasMask) {
-        const maskBlob = await canvasRef.current!.exportMaskPng();
+        const maskBlob = await canvasRef.current.exportMaskPng();
         form.append("mask", new File([maskBlob], "mask.png", { type: "image/png" }));
       }
       form.append("service", service);

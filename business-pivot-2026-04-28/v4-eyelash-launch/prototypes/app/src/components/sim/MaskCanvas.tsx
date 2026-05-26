@@ -3,6 +3,7 @@
 import { useEffect, useRef, useImperativeHandle, forwardRef } from "react";
 
 export type MaskCanvasHandle = {
+  exportImagePng: () => Promise<Blob>;
   exportMaskPng: () => Promise<Blob>;
   clear: () => void;
   hasStrokes: () => boolean;
@@ -14,7 +15,7 @@ type Props = {
 };
 
 export const MaskCanvas = forwardRef<MaskCanvasHandle, Props>(function MaskCanvas(
-  { imageUrl, size = 512 },
+  { imageUrl, size = 1024 },
   ref
 ) {
   const bgRef = useRef<HTMLCanvasElement>(null);
@@ -42,6 +43,16 @@ export const MaskCanvas = forwardRef<MaskCanvasHandle, Props>(function MaskCanva
   }, [imageUrl, size]);
 
   useImperativeHandle(ref, () => ({
+    async exportImagePng() {
+      const out = document.createElement("canvas");
+      out.width = size;
+      out.height = size;
+      const c = out.getContext("2d")!;
+      c.drawImage(bgRef.current!, 0, 0);
+      return await new Promise<Blob>((res) =>
+        out.toBlob((b) => res(b!), "image/png")
+      );
+    },
     async exportMaskPng() {
       const out = document.createElement("canvas");
       out.width = size;
@@ -93,7 +104,7 @@ export const MaskCanvas = forwardRef<MaskCanvasHandle, Props>(function MaskCanva
     const p = getPos(e);
     const ctx = fgRef.current!.getContext("2d")!;
     ctx.strokeStyle = "rgba(232, 155, 174, 0.55)";
-    ctx.lineWidth = 36;
+    ctx.lineWidth = Math.round(size * 0.07);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.beginPath();
