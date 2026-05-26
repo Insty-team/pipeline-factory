@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ls /Users/mac/.claude/projects/-Users-mac-projects/memory/ 2>/dev/null; echo \\\"---MEMORY.md---\\\"; cat /Users/mac/.claude/projects/-Users-mac-projects/memory/MEMORY.md 2>/dev/null\",\"descrip...",
+  "error": "Exit code 1\n---MEMORY.md---",
+  "timestamp": "2026-05-26T08:38:02.330Z",
+  "retry_count": 1
+}
