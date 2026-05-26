@@ -99,6 +99,12 @@
       "accessCount": 1,
       "lastAccessed": 1779779597508,
       "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/.env.local",
+      "accessCount": 1,
+      "lastAccessed": 1779780084833,
+      "type": "file"
     }
   ],
   "userDirectives": []
