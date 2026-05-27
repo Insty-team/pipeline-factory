@@ -113,6 +113,18 @@
       "type": "file"
     },
     {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/chat/page.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1779847478269,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/lib/chatbot-prompts.ts",
+      "accessCount": 2,
+      "lastAccessed": 1779847464267,
+      "type": "file"
+    },
+    {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/components/ui/button.tsx",
       "accessCount": 1,
       "lastAccessed": 1779779597508,
@@ -155,15 +167,15 @@
       "type": "file"
     },
     {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/chat/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1779847046611,
-      "type": "file"
-    },
-    {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/modules/chatbot/chatbot-30q.md",
       "accessCount": 1,
       "lastAccessed": 1779847047244,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/api/chat/route.ts",
+      "accessCount": 1,
+      "lastAccessed": 1779847176008,
       "type": "file"
     }
   ],
