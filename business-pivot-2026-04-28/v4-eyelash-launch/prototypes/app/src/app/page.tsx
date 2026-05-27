@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, BarChart3, ArrowRight } from "lucide-react";
+import { Sparkles, BarChart3, ArrowRight, FileText } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -107,6 +107,33 @@ export default function HomePage() {
               </div>
             </div>
           </motion.div>
+        </Link>
+      </motion.div>
+
+      {/* 영업용 — 진단 리포트 직접 진입 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        className="w-full max-w-md mt-4"
+      >
+        <Link href="/o/report">
+          <div className="group flex items-center justify-between gap-3 rounded-2xl bg-white/70 backdrop-blur border border-pink-100/60 px-5 py-3.5 shadow-sm hover:shadow-md hover:bg-white transition-all cursor-pointer">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center flex-shrink-0">
+                <FileText className="w-4 h-4 text-pink-600" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[10px] text-pink-500 font-semibold uppercase tracking-wider">
+                  Sales Material
+                </div>
+                <div className="text-sm font-bold text-foreground truncate">
+                  💕 사장님 4주 베타 진단 리포트
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-pink-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+          </div>
         </Link>
       </motion.div>
 

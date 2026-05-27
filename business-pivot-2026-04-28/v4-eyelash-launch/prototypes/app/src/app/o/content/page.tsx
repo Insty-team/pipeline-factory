@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import {
+  ArrowUpRight,
   Camera,
   CheckCircle2,
   Image as ImageIcon,
@@ -10,6 +11,7 @@ import {
   Upload,
   Wand2,
 } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { TopAppBar } from "@/components/common/TopAppBar";
@@ -243,20 +245,8 @@ export default function ContentPage() {
 
               {/* 인스타 미리보기 */}
               <div className="bg-white rounded-2xl border border-pink-100/60 overflow-hidden shadow-sm">
-                <div className="px-4 py-3 flex items-center justify-between border-b border-pink-50">
-                  <span className="text-xs font-bold text-pink-700 flex items-center gap-1.5">
-                    📸 인스타 캡션
-                  </span>
-                  {published.find((p) => p.channel === "instagram") ? (
-                    <a
-                      href={published.find((p) => p.channel === "instagram")!.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[11px] font-semibold text-green-600 flex items-center gap-1"
-                    >
-                      <CheckCircle2 className="w-3 h-3" /> 게시됨 — 열기
-                    </a>
-                  ) : null}
+                <div className="px-4 py-3 border-b border-pink-50">
+                  <span className="text-xs font-bold text-pink-700">📸 인스타 캡션</span>
                 </div>
                 <div className="p-4 space-y-3">
                   <p className="text-sm leading-relaxed whitespace-pre-line text-foreground/90">
@@ -267,40 +257,43 @@ export default function ContentPage() {
                       {result.instagram_hashtags.join(" ")}
                     </div>
                   )}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handlePublish("instagram")}
-                    disabled={publishing === "instagram"}
-                    className="w-full mt-1"
-                  >
-                    {publishing === "instagram" ? (
-                      <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" /> 게시 중...
-                      </>
-                    ) : (
-                      <>📸 인스타 게시</>
-                    )}
-                  </Button>
+                  {published.find((p) => p.channel === "instagram") ? (
+                    <Link
+                      href={published.find((p) => p.channel === "instagram")!.url}
+                      className="flex items-center justify-between w-full h-12 px-4 mt-1 rounded-xl bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-md active:scale-[0.98] transition"
+                    >
+                      <span className="flex items-center gap-2 text-sm font-bold">
+                        <CheckCircle2 className="w-4 h-4" />
+                        인스타에 게시 완료
+                      </span>
+                      <span className="flex items-center gap-1 text-xs font-semibold">
+                        게시물 열기 <ArrowUpRight className="w-3.5 h-3.5" />
+                      </span>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handlePublish("instagram")}
+                      disabled={publishing === "instagram"}
+                      className="w-full mt-1"
+                    >
+                      {publishing === "instagram" ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" /> 게시 중...
+                        </>
+                      ) : (
+                        <>📸 인스타 게시</>
+                      )}
+                    </Button>
+                  )}
                 </div>
               </div>
 
               {/* 블로그 미리보기 */}
               <div className="bg-white rounded-2xl border border-pink-100/60 overflow-hidden shadow-sm">
-                <div className="px-4 py-3 flex items-center justify-between border-b border-pink-50">
-                  <span className="text-xs font-bold text-green-700 flex items-center gap-1.5">
-                    📝 네이버 블로그
-                  </span>
-                  {published.find((p) => p.channel === "naver") ? (
-                    <a
-                      href={published.find((p) => p.channel === "naver")!.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[11px] font-semibold text-green-600 flex items-center gap-1"
-                    >
-                      <CheckCircle2 className="w-3 h-3" /> 게시됨 — 열기
-                    </a>
-                  ) : null}
+                <div className="px-4 py-3 border-b border-pink-50">
+                  <span className="text-xs font-bold text-green-700">📝 네이버 블로그</span>
                 </div>
                 <div className="p-4 space-y-3">
                   <div className="text-sm font-bold text-foreground">{result.blog_title}</div>
@@ -312,21 +305,36 @@ export default function ContentPage() {
                       {result.blog_hashtags.join(" ")}
                     </div>
                   )}
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handlePublish("naver")}
-                    disabled={publishing === "naver"}
-                    className="w-full mt-1"
-                  >
-                    {publishing === "naver" ? (
-                      <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" /> 게시 중...
-                      </>
-                    ) : (
-                      <>📝 네이버 블로그 게시</>
-                    )}
-                  </Button>
+                  {published.find((p) => p.channel === "naver") ? (
+                    <Link
+                      href={published.find((p) => p.channel === "naver")!.url}
+                      className="flex items-center justify-between w-full h-12 px-4 mt-1 rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md active:scale-[0.98] transition"
+                    >
+                      <span className="flex items-center gap-2 text-sm font-bold">
+                        <CheckCircle2 className="w-4 h-4" />
+                        블로그에 게시 완료
+                      </span>
+                      <span className="flex items-center gap-1 text-xs font-semibold">
+                        포스트 열기 <ArrowUpRight className="w-3.5 h-3.5" />
+                      </span>
+                    </Link>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handlePublish("naver")}
+                      disabled={publishing === "naver"}
+                      className="w-full mt-1"
+                    >
+                      {publishing === "naver" ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" /> 게시 중...
+                        </>
+                      ) : (
+                        <>📝 네이버 블로그 게시</>
+                      )}
+                    </Button>
+                  )}
                 </div>
               </div>
 

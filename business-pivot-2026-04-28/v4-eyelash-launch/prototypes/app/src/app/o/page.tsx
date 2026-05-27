@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, AlertTriangle, Sparkles, Wallet, Calendar } from "lucide-react";
+import Link from "next/link";
+import { TrendingUp, AlertTriangle, Sparkles, Wallet, Calendar, FileText, ArrowRight } from "lucide-react";
 import { customers, daily, BETA_START } from "@/lib/data";
 import {
   topChurnRisk,
@@ -56,6 +57,33 @@ export default function OwnerDashboardPage() {
       </header>
 
       <div className="px-5 space-y-5">
+        {/* 진단 리포트 배너 */}
+        <motion.section
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.02 }}
+        >
+          <Link href="/o/report">
+            <div className="group flex items-center gap-3 rounded-2xl bg-white border border-pink-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center flex-shrink-0">
+                <FileText className="w-5 h-5 text-pink-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] text-pink-500 font-semibold uppercase tracking-wider">
+                  Diagnosis Report
+                </div>
+                <div className="text-sm font-bold text-foreground">
+                  💕 사장님 4주 베타 진단 리포트
+                </div>
+                <div className="text-[11px] text-muted-foreground mt-0.5">
+                  강점 8 · 약점 8 · 9 모듈 · KPI · Commission
+                </div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-pink-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+            </div>
+          </Link>
+        </motion.section>
+
         {/* 일간 1줄 카드 */}
         <motion.section
           initial={{ opacity: 0, y: 10 }}
