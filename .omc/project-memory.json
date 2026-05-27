@@ -89,6 +89,12 @@
   },
   "hotPaths": [
     {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/report/page.tsx",
+      "accessCount": 7,
+      "lastAccessed": 1779842239865,
+      "type": "file"
+    },
+    {
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/coupon/page.tsx",
       "accessCount": 5,
       "lastAccessed": 1779779637223,
@@ -110,6 +116,12 @@
       "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/sim/page.tsx",
       "accessCount": 1,
       "lastAccessed": 1779781051568,
+      "type": "file"
+    },
+    {
+      "path": "business-pivot-2026-04-28/v4-eyelash-launch/07-session-resume.md",
+      "accessCount": 1,
+      "lastAccessed": 1779842046346,
       "type": "file"
     }
   ],

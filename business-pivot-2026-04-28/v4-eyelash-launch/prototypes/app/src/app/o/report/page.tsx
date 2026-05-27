@@ -75,13 +75,14 @@ const REVENUE = [
 ];
 
 const COMMISSION = [
-  { module: "✨ AI 시뮬 → 신규 예약", amount: "1건당 3~5만" },
-  { module: "💬 챗봇 → 신규 예약", amount: "잡은 예약 매출의 20%" },
-  { module: "📢 알림톡 노쇼 회수", amount: "회수 매출의 25%" },
-  { module: "💌 답글 → 신규 후기", amount: "1건당 2~5만" },
-  { module: "💎 단골 회복", amount: "1명당 10~20만" },
-  { module: "🎨 메디핑크 신규 시술", amount: "1건당 2만" },
+  { module: "✨ AI 시뮬 → 신규 예약", amount: "발생 매출의 7% (1회)" },
+  { module: "💬 챗봇 → 시술 중 놓침 회수", amount: "회수 매출의 7% (1회)" },
+  { module: "📢 알림톡 → 노쇼 회수", amount: "회수 매출의 10%" },
+  { module: "💎 단골 회복 (이탈→재방문)", amount: "향후 3개월 매출의 5%" },
+  { module: "🎨 메디핑크 신규 시술", amount: "발생 매출의 7%" },
 ];
+
+const COMMISSION_FREE = ["💌 답글 자동", "📸 콘텐츠 자동", "📊 대시보드", "📅 일간 1줄"];
 
 export default function ReportPage() {
   return (
@@ -316,7 +317,7 @@ export default function ReportPage() {
           </div>
         </div>
         <p className="mt-3 max-w-2xl mx-auto text-center text-[11px] text-foreground/60 px-2">
-          → 4주 후 사장님과 같이 측정값 검수 후 <b>commission 협상</b> 진행
+          → 4주 후 사장님과 같이 측정값 확인 → <b>실제 발생·회수된 매출에만 commission 정산</b>
         </p>
       </section>
 
@@ -361,7 +362,7 @@ export default function ReportPage() {
             { when: "D-Day 미팅", task: "30분 — 카카오 채널 개설 5분 + 회원권 데이터 카톡 1장 + 카드뉴스 검수 5분 + 합의" },
             { when: "매일", task: "30초 — 카톡 1줄 (\"어제 노쇼 1, 신규 2\") + 일간 1줄 대시보드 1탭 (옵션)" },
             { when: "매주 (선택)", task: "3분 — 주간 5줄 리포트 보기 + 답장 1줄 (피드백)" },
-            { when: "4주 종료", task: "1시간 — 결과 리포트 검수 + commission 협상" },
+            { when: "4주 종료", task: "1시간 — 결과 리포트 검수 + 발생·회수 매출 확인 후 commission 정산" },
           ].map((s) => (
             <div
               key={s.when}
@@ -383,29 +384,68 @@ export default function ReportPage() {
         <SectionHeader
           num="7"
           title="Commission 모델"
-          subtitle="사장님 부담 0 — 실제 효과만큼만"
+          subtitle="베타 4주 무료 · 이후엔 실제로 발생·회수된 매출의 일부만"
           icon={Gift}
           accent="rose"
         />
         <div className="max-w-2xl mx-auto bg-white rounded-3xl p-5 border border-rose-100/70 shadow-sm mt-5">
           <div className="text-center text-sm font-bold text-rose-700 mb-4 bg-rose-50/60 rounded-xl py-2">
-            💝 매출 늘어난 만큼만 commission 받습니다
+            💝 매출 늘어난 만큼만, 그것도 아주 일부만 받습니다
           </div>
           <div className="space-y-2">
             {COMMISSION.map((c) => (
               <div
                 key={c.module}
-                className="flex items-center justify-between py-2 border-b border-rose-50 last:border-0"
+                className="flex items-center justify-between gap-3 py-2 border-b border-rose-50 last:border-0"
               >
                 <span className="text-[13px] text-foreground/80">{c.module}</span>
-                <span className="text-sm font-semibold text-rose-700">{c.amount}</span>
+                <span className="text-sm font-semibold text-rose-700 whitespace-nowrap">
+                  {c.amount}
+                </span>
               </div>
             ))}
           </div>
-          <div className="mt-4 pt-4 border-t border-rose-100 text-center text-[12px] text-rose-700 leading-relaxed font-medium">
-            🌸 베타 0원. 4주 측정값 기반 협상.
-            <br />
-            베타 적자면 commission 0.
+
+          <div className="mt-4 rounded-2xl bg-emerald-50/60 border border-emerald-100 px-4 py-3">
+            <div className="text-[12px] font-bold text-emerald-700 mb-1.5">
+              🎁 패키지 가입 시 무료 — commission 0
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {COMMISSION_FREE.map((m) => (
+                <span
+                  key={m}
+                  className="text-[11px] font-medium text-emerald-700 bg-white/70 border border-emerald-100 rounded-full px-2 py-0.5"
+                >
+                  {m}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-rose-100 space-y-2">
+            <div className="rounded-xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 px-4 py-3 text-center">
+              <div className="text-[13px] font-bold text-rose-700">
+                🌸 베타 4주 동안 사장님 부담 0원
+              </div>
+              <div className="text-[11px] text-rose-700/80 mt-0.5 leading-relaxed">
+                도구·운영·인프라 모두 저희가 제공합니다
+              </div>
+            </div>
+            <div className="rounded-xl bg-emerald-50/70 border border-emerald-100 px-4 py-3 text-center">
+              <div className="text-[13px] font-bold text-emerald-700">
+                📌 베타 결과 적자면 저희는 돈을 받지 않습니다
+              </div>
+              <div className="text-[11px] text-emerald-700/80 mt-0.5 leading-relaxed">
+                실제로 매출이 늘었을 때만 commission. 마이너스면 0원.
+              </div>
+            </div>
+            <div className="text-[11px] text-foreground/60 text-center pt-1 leading-relaxed">
+              4주 측정값을 사장님과 함께 확인 후 적용
+              <br />
+              <span className="text-foreground/50">
+                (단골 회복 5%는 재방문 후 3개월 누적 매출 기준)
+              </span>
+            </div>
           </div>
         </div>
       </section>

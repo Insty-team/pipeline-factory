@@ -1,7 +1,7 @@
 {
-  "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"echo \\\"OPENAI_API_KEY: ${OPENAI_API_KEY:+SET (${#OPENAI_API_KEY} chars)}${OPENAI_API_KEY:-NOT SET}\\\"; echo \\\"ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:+SET}\\\"; echo \\\"---shell rc files---\\\"; ...",
-  "error": "Exit code 2\nOPENAI_API_KEY: NOT SET\nANTHROPIC_API_KEY: \n---shell rc files---",
-  "timestamp": "2026-05-26T07:16:03.050Z",
+  "tool_name": "Read",
+  "tool_input_preview": "{\"file_path\":\"/Users/mac/.claude/projects/-Users-mac-projects-pipeline-factory/memory/feedback_commission_pricing.md\"}",
+  "error": "File does not exist. Note: your current working directory is /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch.",
+  "timestamp": "2026-05-27T00:34:10.911Z",
   "retry_count": 2
 }
