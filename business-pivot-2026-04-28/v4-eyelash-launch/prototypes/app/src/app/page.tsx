@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Sparkles, BarChart3, ArrowRight, FileText } from "lucide-react";
+import { Sparkles, BarChart3, ArrowRight, FileText, Palette } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -133,6 +133,33 @@ export default function HomePage() {
               </div>
             </div>
             <ArrowRight className="w-4 h-4 text-pink-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+          </div>
+        </Link>
+      </motion.div>
+
+      {/* 영업용 — 카드뉴스 샘플 진입 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
+        className="w-full max-w-md mt-3"
+      >
+        <Link href="/o/cards">
+          <div className="group flex items-center justify-between gap-3 rounded-2xl bg-white/70 backdrop-blur border border-pink-100/60 px-5 py-3.5 shadow-sm hover:shadow-md hover:bg-white transition-all cursor-pointer">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-fuchsia-100 to-rose-100 flex items-center justify-center flex-shrink-0">
+                <Palette className="w-4 h-4 text-fuchsia-600" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[10px] text-fuchsia-500 font-semibold uppercase tracking-wider">
+                  Sales Material
+                </div>
+                <div className="text-sm font-bold text-foreground truncate">
+                  🎨 인스타 카드뉴스 16장 샘플
+                </div>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-fuchsia-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
           </div>
         </Link>
       </motion.div>

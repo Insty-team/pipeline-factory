@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { TrendingUp, AlertTriangle, Sparkles, Wallet, Calendar, FileText, ArrowRight } from "lucide-react";
+import { TrendingUp, AlertTriangle, Sparkles, Wallet, Calendar, FileText, ArrowRight, Palette } from "lucide-react";
 import { customers, daily, BETA_START } from "@/lib/data";
 import {
   topChurnRisk,
@@ -80,6 +80,33 @@ export default function OwnerDashboardPage() {
                 </div>
               </div>
               <ArrowRight className="w-4 h-4 text-pink-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
+            </div>
+          </Link>
+        </motion.section>
+
+        {/* 카드뉴스 샘플 배너 */}
+        <motion.section
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.03 }}
+        >
+          <Link href="/o/cards">
+            <div className="group flex items-center gap-3 rounded-2xl bg-white border border-fuchsia-100 p-4 shadow-sm hover:shadow-md transition-all cursor-pointer">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-fuchsia-100 to-rose-100 flex items-center justify-center flex-shrink-0">
+                <Palette className="w-5 h-5 text-fuchsia-600" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] text-fuchsia-500 font-semibold uppercase tracking-wider">
+                  Cards Demo
+                </div>
+                <div className="text-sm font-bold text-foreground">
+                  🎨 인스타 카드뉴스 16장 샘플
+                </div>
+                <div className="text-[11px] text-muted-foreground mt-0.5">
+                  가격표 4 · 컬 비교 6 · 메디핑크 5 + 가로 메뉴판 1
+                </div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-fuchsia-600 group-hover:translate-x-0.5 transition-transform flex-shrink-0" />
             </div>
           </Link>
         </motion.section>
