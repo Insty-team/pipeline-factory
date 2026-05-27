@@ -384,7 +384,7 @@ export default function ReportPage() {
         <SectionHeader
           num="7"
           title="Commission 모델"
-          subtitle="베타 4주 무료 · 이후엔 실제로 발생·회수된 매출의 일부만"
+          subtitle="베타 4주 무료 · 유료 전환 의무 없음 · 4주 후 사장님이 결정"
           icon={Gift}
           accent="rose"
         />
@@ -439,8 +439,18 @@ export default function ReportPage() {
                 실제로 매출이 늘었을 때만 commission. 마이너스면 0원.
               </div>
             </div>
+            <div className="rounded-xl bg-indigo-50/70 border border-indigo-100 px-4 py-3 text-center">
+              <div className="text-[13px] font-bold text-indigo-700">
+                💙 4주 끝나고 유료 전환은 사장님 선택이에요
+              </div>
+              <div className="text-[11px] text-indigo-700/80 mt-0.5 leading-relaxed">
+                의무 없음. 효과 충분히 느끼셨다 싶을 때만 commission 정산을 시작합니다.
+                <br />
+                마음 안 드시면 그냥 4주로 마무리해도 부담 없어요. ♡
+              </div>
+            </div>
             <div className="text-[11px] text-foreground/60 text-center pt-1 leading-relaxed">
-              4주 측정값을 사장님과 함께 확인 후 적용
+              🤝 4주 끝나면 사장님과 함께 결과 보고 결정 — 강제·자동 전환 없습니다
               <br />
               <span className="text-foreground/50">
                 (단골 회복 5%는 재방문 후 3개월 누적 매출 기준)
