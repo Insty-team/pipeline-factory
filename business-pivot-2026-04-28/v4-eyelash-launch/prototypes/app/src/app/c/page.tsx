@@ -9,6 +9,7 @@ import {
   Gift,
   ImageIcon,
   ArrowRight,
+  Inbox,
 } from "lucide-react";
 
 const menuItems = [
@@ -30,6 +31,16 @@ const menuItems = [
     gradient: "from-pink-100 to-pink-200",
     accent: "text-pink-600",
     bg: "bg-pink-50",
+  },
+  {
+    href: "/c/inbox",
+    label: "받은 알림",
+    desc: "유어라인 알림 — 예약·재방문·혜택",
+    icon: Inbox,
+    gradient: "from-rose-200 to-pink-200",
+    accent: "text-rose-600",
+    bg: "bg-rose-50",
+    badge: "📥",
   },
   {
     href: "/c/reserve",

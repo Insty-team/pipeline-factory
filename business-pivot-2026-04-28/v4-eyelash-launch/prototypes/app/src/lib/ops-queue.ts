@@ -11,14 +11,21 @@ export type AlimtokPayload = {
   customerName?: string;
   customerHandle?: string;
   message?: string;
+  category?: "reservation" | "post-visit" | "loyalty" | "marketing";
+  cta?: { label: string; href: string };
+  delivered?: boolean;
+  readAt?: string;
 };
 
 export type ReplyPayload = {
+  reviewId: string;
   nickname: string;
   visits?: number;
+  rating?: number;
   reviewText: string;
   replyText: string;
   channel: "naver" | "instagram";
+  approvedAt?: string;
 };
 
 export type QueueItem = {
