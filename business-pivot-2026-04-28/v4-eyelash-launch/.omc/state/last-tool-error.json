@@ -1,7 +1,7 @@
 {
-  "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"/Users/mac/.claude/projects/-Users-mac-projects-pipeline-factory/memory/feedback_commission_pricing.md\"}",
-  "error": "File does not exist. Note: your current working directory is /Users/mac/projects/pipeline-factory/business-pivot-2026-04-28/v4-eyelash-launch.",
-  "timestamp": "2026-05-27T00:34:10.911Z",
-  "retry_count": 2
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"curl -s -o /dev/null -w \\\"10.50.1.120:3000  HTTP %{http_code}  ·  %{time_total}s\\\\n\\\" http://10.50.1.120:3000/ --max-time 5; echo \\\"--- mac ip 확인 ---\\\"; ipconfig getifaddr en0 2>/dev/null;...",
+  "error": "Exit code 1\n10.50.1.120:3000  HTTP 000  ·  5.001676s\n--- mac ip 확인 ---\n172.30.1.30",
+  "timestamp": "2026-05-30T10:28:54.569Z",
+  "retry_count": 1
 }
