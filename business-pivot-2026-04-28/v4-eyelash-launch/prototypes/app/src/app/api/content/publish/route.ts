@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { mockPosts, newPostId, type MockPost } from "@/lib/mock-posts-store";
+import { addEvent } from "@/lib/events-store";
 
 export const runtime = "nodejs";
 
@@ -32,6 +33,14 @@ export async function POST(req: NextRequest) {
       createdAt: Date.now(),
     };
     mockPosts.set(id, post);
+
+    await addEvent(
+      "content-published",
+      "사장",
+      `콘텐츠 자동 — ${body.serviceLabel} 게시 (${body.channel === "instagram" ? "인스타" : "네이버"})`,
+      { link: `/mock/${body.channel}/${id}` },
+    );
+
     return Response.json({
       id,
       url: `/mock/${body.channel}/${id}`,

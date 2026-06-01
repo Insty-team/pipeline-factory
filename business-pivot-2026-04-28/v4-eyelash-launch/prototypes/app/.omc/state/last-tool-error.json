@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"ls /Users/mac/.claude/projects/-Users-mac-projects/memory/ 2>/dev/null; echo \\\"---MEMORY.md---\\\"; cat /Users/mac/.claude/projects/-Users-mac-projects/memory/MEMORY.md 2>/dev/null\",\"descrip...",
-  "error": "Exit code 1\n---MEMORY.md---",
-  "timestamp": "2026-05-26T08:38:02.330Z",
+  "tool_input_preview": "{\"command\":\"sleep 3\\necho \\\"--- routes ---\\\"\\nfor r in o c c/inbox c/chat c/sim o/alimtok o/reply o/cards o/report o/daily ops; do\\n  curl -s -o /dev/null -w \\\"%{http_code} /$r\\\\n\\\" http://localhost:3...",
+  "error": "Exit code 1\n--- routes ---\n200 /o\n200 /c\n200 /c/inbox\n200 /c/chat\n200 /c/sim\n200 /o/alimtok\n200 /o/reply\n200 /o/cards\n200 /o/report\n307 /o/daily\n200 /ops\n--- reset queue/events ---\n--- send alimtok (test event emission) ---\n--- events after alimtok ---\n<!DOCTYPE html><html lang=\"ko\" class=\"h-full antialiased\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=5\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/0wm-y5c0d3nm9.css\" data-...",
+  "timestamp": "2026-06-01T01:42:49.325Z",
   "retry_count": 1
 }

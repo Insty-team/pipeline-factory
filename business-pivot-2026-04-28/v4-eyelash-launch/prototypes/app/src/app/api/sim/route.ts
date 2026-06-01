@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import OpenAI, { toFile } from "openai";
 import { SERVICES, type ServiceKey, type ModelKey } from "@/lib/sim-prompts";
+import { addEvent } from "@/lib/events-store";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -46,6 +47,13 @@ export async function POST(request: NextRequest) {
     if (!first) {
       return Response.json({ error: "no result" }, { status: 502 });
     }
+
+    await addEvent(
+      "sim",
+      "손님",
+      `AI 시뮬 — ${service.label} 결과 도착`,
+      { link: "/c/sim" },
+    );
 
     return Response.json({
       url: first.url ?? null,

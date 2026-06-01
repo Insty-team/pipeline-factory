@@ -6,6 +6,7 @@ import {
   type QueueType,
   type ReplyPayload,
 } from "@/lib/ops-queue";
+import { addEvent } from "@/lib/events-store";
 
 export const runtime = "nodejs";
 
@@ -34,6 +35,24 @@ export async function POST(req: NextRequest) {
       body.shopName ?? "유어라인",
       body.payload,
     );
+
+    if (item.type === "alimtok") {
+      const p = item.payload as AlimtokPayload;
+      await addEvent(
+        "alimtok-sent",
+        "사장",
+        `${p.channel} ${p.templateName} → ${p.customerName ?? "손님"} 인박스 도착`,
+        { link: "/c/inbox" },
+      );
+    } else if (item.type === "reply") {
+      const p = item.payload as ReplyPayload;
+      await addEvent(
+        "review-approved",
+        "사장",
+        `${p.nickname} 후기 답글 승인 → Sam 게시 대기`,
+        { link: "/ops" },
+      );
+    }
 
     return Response.json({ ok: true, item });
   } catch (err) {

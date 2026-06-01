@@ -98,6 +98,35 @@ export default function CustomerInboxPage() {
     return () => clearInterval(t);
   }, [fetchInbox]);
 
+  useEffect(() => {
+    if (messages.length === 0) return;
+    fetch("/api/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "inbox-open",
+        actor: "손님",
+        summary: `인박스 열람 — ${messages.length}건 알림 확인`,
+        link: "/c/inbox",
+      }),
+    }).catch(() => {});
+    // intentionally only fires once per visit when first messages arrive
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function trackCtaClick(msg: InboxMessage) {
+    fetch("/api/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "inbox-cta",
+        actor: "손님",
+        summary: `${msg.templateName} → "${msg.cta?.label ?? "CTA"}" 탭`,
+        link: msg.cta?.href,
+      }),
+    }).catch(() => {});
+  }
+
   const unreadCount = messages.filter((m) => !m.read).length;
 
   return (
@@ -190,6 +219,7 @@ export default function CustomerInboxPage() {
                   {m.cta && (
                     <Link
                       href={m.cta.href}
+                      onClick={() => trackCtaClick(m)}
                       className="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm font-bold py-2.5 rounded-2xl hover:opacity-95 transition"
                     >
                       {m.cta.label} <ChevronRight className="w-4 h-4" />

@@ -5,6 +5,7 @@ import {
   ESCALATE_REPLY,
   detectEscalation,
 } from "@/lib/chatbot-prompts";
+import { addEvent } from "@/lib/events-store";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -26,6 +27,12 @@ export async function POST(req: NextRequest) {
 
     const hit = detectEscalation(last.content);
     if (hit) {
+      await addEvent(
+        "chat-escalated",
+        "손님",
+        `챗봇 escalate — "${last.content.slice(0, 28)}…" (키워드: ${hit})`,
+        { link: "/o/inbox" },
+      );
       return Response.json({
         reply: ESCALATE_REPLY,
         escalated: true,
@@ -50,6 +57,13 @@ export async function POST(req: NextRequest) {
         { status: 502 },
       );
     }
+
+    await addEvent(
+      "chat",
+      "손님",
+      `챗봇 → "${last.content.slice(0, 24)}…" 자동 응답`,
+      { link: "/c/chat" },
+    );
 
     return Response.json({ reply, escalated: false });
   } catch (err) {
