@@ -12,7 +12,8 @@ export type EventType =
   | "review-posted"
   | "content-published"
   | "alimtok-sent"
-  | "loyalty-care";
+  | "loyalty-care"
+  | "reservation";
 
 export type ActivityEvent = {
   id: string;
@@ -22,6 +23,8 @@ export type ActivityEvent = {
   summary: string;
   link?: string;
   createdAt: string;
+  handled?: boolean;
+  handledAt?: string;
   meta?: Record<string, unknown>;
 };
 
@@ -41,6 +44,7 @@ const TYPE_EMOJI: Record<EventType, string> = {
   "content-published": "📸",
   "alimtok-sent": "📢",
   "loyalty-care": "💎",
+  reservation: "📅",
 };
 
 async function ensureFile() {
@@ -70,6 +74,16 @@ async function writeEvents(events: ActivityEvent[]) {
 
 function newId() {
   return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+export async function markEventHandled(id: string): Promise<ActivityEvent | null> {
+  const events = await readEvents();
+  const ev = events.find((e) => e.id === id);
+  if (!ev) return null;
+  ev.handled = true;
+  ev.handledAt = new Date().toISOString();
+  await writeEvents(events);
+  return ev;
 }
 
 export async function addEvent(

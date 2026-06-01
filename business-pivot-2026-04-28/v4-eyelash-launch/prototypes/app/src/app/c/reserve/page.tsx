@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { CalendarDays, Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { CalendarDays, Clock, Loader2, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
+import Link from "next/link";
 import { TopAppBar } from "@/components/common/TopAppBar";
 import { Button } from "@/components/ui/button";
 
@@ -22,6 +24,42 @@ export default function ReservePage() {
   const [selMenu, setSelMenu] = useState("g-max");
   const [selDate, setSelDate] = useState(1);
   const [selTime, setSelTime] = useState("13:00");
+  const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const menu = menus.find((m) => m.id === selMenu)!;
+  const dateLabel = dates[selDate];
+
+  async function submit() {
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "reservation",
+          actor: "손님",
+          summary: `예약 신청 — ${menu.name} · ${dateLabel} ${selTime}`,
+          link: "/o/inbox",
+          meta: {
+            menuId: menu.id,
+            menuName: menu.name,
+            price: menu.price,
+            date: dateLabel,
+            time: selTime,
+          },
+        }),
+      });
+      if (!res.ok) throw new Error("예약 신청 실패");
+      toast.success("✅ 예약 신청 보냈어요. 곧 사장님이 확정해드릴게요♡");
+      setDone(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "예약 실패";
+      toast.error(msg);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <>
@@ -117,22 +155,76 @@ export default function ReservePage() {
           </div>
         </motion.section>
 
-        {/* CTA */}
+        {/* 요약 + CTA */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="sticky bottom-24 pt-4"
         >
-          <Button
-            size="lg"
-            className="w-full h-14 rounded-2xl text-base font-bold shadow-xl"
-          >
-            예약 신청
-          </Button>
-          <p className="text-[10px] text-muted-foreground text-center mt-2">
-            🚧 Stage 2.7에서 예약 → 사장 받은 요청으로 전달
-          </p>
+          <AnimatePresence mode="wait">
+            {done ? (
+              <motion.div
+                key="done"
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="rounded-2xl bg-emerald-50 border-2 border-emerald-200 p-5 text-center shadow-lg"
+              >
+                <CheckCircle2 className="w-8 h-8 text-emerald-600 mx-auto mb-2" />
+                <div className="text-base font-bold text-emerald-700 mb-1">
+                  예약 신청 보냈어요♡
+                </div>
+                <div className="text-[12px] text-emerald-700/80 leading-relaxed">
+                  {menu.name}
+                  <br />
+                  {dateLabel} · {selTime}
+                </div>
+                <div className="text-[11px] text-emerald-700/60 mt-2">
+                  사장님이 곧 확정하시면 인박스로 알림이 와요
+                </div>
+                <Link
+                  href="/c/inbox"
+                  className="mt-3 inline-flex items-center gap-1 text-[12px] font-bold text-emerald-700 hover:underline"
+                >
+                  📥 인박스로 가기
+                </Link>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <div className="bg-white rounded-2xl border border-pink-100 p-3 mb-3 text-[12px] text-foreground/70 flex items-center justify-between">
+                  <span>
+                    {menu.name} · {dateLabel} {selTime}
+                  </span>
+                  <span className="font-bold text-pink-600">
+                    {menu.price.toLocaleString()}원
+                  </span>
+                </div>
+                <Button
+                  size="lg"
+                  onClick={submit}
+                  disabled={submitting}
+                  className="w-full h-14 rounded-2xl text-base font-bold shadow-xl"
+                >
+                  {submitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      신청 중...
+                    </>
+                  ) : (
+                    "예약 신청"
+                  )}
+                </Button>
+                <p className="text-[10px] text-muted-foreground text-center mt-2">
+                  📥 사장님 대시보드 실시간 활동에 즉시 표시됩니다
+                </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </>

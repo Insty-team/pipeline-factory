@@ -195,14 +195,18 @@ export default function AlimtokPage() {
 
   return (
     <>
-      <TopAppBar title="📢 알림톡 · 친구톡" />
+      <TopAppBar title="⚙️ 알림톡 템플릿 설정" />
       <div className="px-5 py-5">
-        <div className="bg-gradient-to-br from-pink-50 to-rose-50/60 border border-pink-100 rounded-2xl p-4 mb-4">
-          <div className="text-sm font-bold text-pink-700 mb-1">
-            💌 12종 메시지 — 앱 인박스에 즉시 도착
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-4">
+          <div className="text-sm font-bold text-slate-800 mb-1">
+            🔧 12종 템플릿 편집·검토
           </div>
-          <p className="text-[12px] text-pink-700/70 leading-relaxed">
-            손님 앱 설치 시 알림 0원 + 풀 UX (예약·시뮬 버튼 포함). 미설치는 카카오 알림톡 fallback.
+          <p className="text-[12px] text-slate-600 leading-relaxed">
+            트리거 기반 자동 발송 (default ON). 매일 발송 예정 리스트는{" "}
+            <a href="/o/inbox" className="text-pink-600 font-semibold underline">
+              할 일 인박스
+            </a>{" "}
+            에서 확인하세요. 이 페이지는 메시지 본문 수정·수동 테스트 발송용.
           </p>
         </div>
 

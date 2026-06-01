@@ -13,6 +13,7 @@ export type AlimtokPayload = {
   message?: string;
   category?: "reservation" | "post-visit" | "loyalty" | "marketing";
   cta?: { label: string; href: string };
+  scheduledId?: string;
   delivered?: boolean;
   readAt?: string;
 };
