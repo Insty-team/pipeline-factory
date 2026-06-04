@@ -35,14 +35,65 @@ const STRENGTHS = [
 ];
 
 const WEAKNESSES = [
-  { id: "W1", label: "후기 답글 8개월 중단", data: "25.8.10 이후 0건", loss: "단골 이탈 + 신규 후기 ↓", critical: true },
-  { id: "W2", label: "4주 재방문 알림 X", data: "단골 cycle 28일 추정", loss: "단골 cycle 깨짐" },
-  { id: "W3", label: "카카오 자동응답 X", data: "시술 중 DM 놓침", loss: "신규 예약 손실" },
-  { id: "W4", label: "통합 리포트 X", data: "데이터 의사결정 부재", loss: "—" },
-  { id: "W5", label: "단골 LTV 분석 X", data: "회원권 DB 있지만 활용 X", loss: "이탈 위험 단골 발견 못 함" },
-  { id: "W6", label: "블로그 SEO 태그 89% 누락", data: "28건 중 24건 태그 0~1개", loss: "검색 노출 추정 -3~8건/월", critical: true },
-  { id: "W7", label: "인스타·블로그 비동기", data: "콘텐츠 노동 중복", loss: "시간 ↓" },
-  { id: "W8", label: "메디핑크 push vs 인지 gap", data: "블로그 6건 push, 후기 키워드 X", loss: "신메뉴 매출 정체", critical: true },
+  {
+    id: "W1",
+    label: "후기 답글 8개월 중단",
+    data: "25.8.10 이후 0건",
+    loss: "단골 이탈 + 신규 후기 ↓",
+    critical: true,
+    addressedBy: ["💌 답글 자동"],
+  },
+  {
+    id: "W2",
+    label: "4주 재방문 알림 X",
+    data: "단골 cycle 28일 추정",
+    loss: "단골 cycle 깨짐",
+    addressedBy: ["📢 알림톡 A5/D2", "💎 단골 분석"],
+  },
+  {
+    id: "W3",
+    label: "카카오 자동응답 X",
+    data: "시술 중 DM 놓침",
+    loss: "신규 예약 손실",
+    addressedBy: ["💬 챗봇 응답"],
+  },
+  {
+    id: "W4",
+    label: "통합 리포트 X",
+    data: "데이터 의사결정 부재",
+    loss: "—",
+    addressedBy: ["📊 대시보드", "📅 일간 1줄"],
+  },
+  {
+    id: "W5",
+    label: "단골 LTV 분석 X",
+    data: "회원권 DB 있지만 활용 X",
+    loss: "이탈 위험 단골 발견 못 함",
+    addressedBy: ["💎 단골 분석", "📊 대시보드"],
+  },
+  {
+    id: "W6",
+    label: "블로그 SEO 태그 89% 누락",
+    data: "28건 중 24건 태그 0~1개",
+    loss: "검색 노출 추정 -3~8건/월",
+    critical: true,
+    addressedBy: ["📸 콘텐츠 자동"],
+  },
+  {
+    id: "W7",
+    label: "인스타·블로그 비동기",
+    data: "콘텐츠 노동 중복",
+    loss: "시간 ↓",
+    addressedBy: ["📸 콘텐츠 자동"],
+  },
+  {
+    id: "W8",
+    label: "메디핑크 push vs 인지 gap",
+    data: "블로그 6건 push, 후기 키워드 X",
+    loss: "신메뉴 매출 정체",
+    critical: true,
+    addressedBy: ["🎨 카드뉴스 (메디핑크 5장)", "📸 콘텐츠 자동"],
+  },
 ];
 
 const MODULES = [
@@ -213,10 +264,38 @@ export default function ReportPage() {
                   <div className="text-[11px] text-rose-600/90 mt-0.5 font-medium">
                     📉 추정 손실: {w.loss}
                   </div>
+                  <div className="mt-2 pt-2 border-t border-pink-100/60">
+                    <div className="text-[10px] font-bold text-emerald-700 mb-1 flex items-center gap-1">
+                      <span>→</span> 보완 모듈
+                    </div>
+                    <div className="flex flex-wrap gap-1">
+                      {w.addressedBy.map((m) => (
+                        <span
+                          key={m}
+                          className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/70 rounded-full px-2 py-0.5"
+                        >
+                          {m}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* AI 시뮬 — 약점 보완 아닌 USP */}
+        <div className="max-w-3xl mx-auto mt-4">
+          <div className="rounded-2xl bg-gradient-to-br from-fuchsia-50 to-pink-50/60 border border-fuchsia-200/60 p-4">
+            <div className="text-[11px] font-bold text-fuchsia-700 mb-1">
+              ✨ AI 시뮬 — 약점 보완이 아닌 신규 매출 창출 USP
+            </div>
+            <p className="text-[11px] text-fuchsia-700/80 leading-relaxed">
+              동네 경쟁샵·체인 모두 미보유. 손님 카톡 셀카 → J·C·D컬 5~10초 자동 회신.
+              기존 약점 보완보다 <b>신규 유입 자체를 새로 만드는</b> 모듈이라 별도 분류했어요.
+            </p>
+          </div>
         </div>
       </section>
 

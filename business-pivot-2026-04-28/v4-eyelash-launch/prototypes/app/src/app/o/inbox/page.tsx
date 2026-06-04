@@ -189,7 +189,10 @@ export default function OwnerInboxPage() {
             category: "reservation",
             customerName: "손님",
             message: `예약 확정됐어요♡\n시간: ${meta.date ?? ""} ${meta.time ?? ""}\n메뉴: ${meta.menuName ?? ""}\n변경 필요 시 앱에서 바로 알려주세요~`,
-            cta: { label: "예약 상세 보기", href: "/c/reserve" },
+            cta: {
+              label: "예약 상세 보기",
+              href: `/c/reserve?confirmed=1&menu=${encodeURIComponent(meta.menuName ?? "")}&date=${encodeURIComponent(meta.date ?? "")}&time=${encodeURIComponent(meta.time ?? "")}&price=${encodeURIComponent(meta.price ?? "")}`,
+            },
           },
         }),
       });
@@ -611,7 +614,7 @@ function CareModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-3"
+          className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center px-3 pt-3 pb-28 sm:pb-3"
         >
           <motion.div
             initial={{ y: 40, opacity: 0 }}

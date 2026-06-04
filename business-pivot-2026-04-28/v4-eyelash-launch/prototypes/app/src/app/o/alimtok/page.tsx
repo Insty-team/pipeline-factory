@@ -49,8 +49,11 @@ const templates: Template[] = [
     trigger: "09:00",
     color: "pink",
     category: "reservation",
-    defaultMessage: "○○님 오늘 __시 예약 다시 한 번 안내드려요~ 안경·콘택트는 미리 빼주세요♡",
-    cta: { label: "위치·전화", href: "/c/menu" },
+    defaultMessage: "○○님~ 오늘 __시 ___ 예약이에요♡\n안경·콘택트렌즈는 시술 전에 미리 빼주시구, 메이크업도 가볍게 와주시면 좋아요~\n혹시 시간 변경 필요하시면 미리 카톡 주세요!",
+    cta: {
+      label: "📍 네이버 지도로 길찾기",
+      href: "https://map.naver.com/p/search/유어라인%20이수속눈썹",
+    },
   },
   {
     id: "A4",
@@ -60,7 +63,7 @@ const templates: Template[] = [
     color: "pink",
     category: "post-visit",
     defaultMessage: "○○님 어제 시술 만족스러우셨길 바라요♡ 잠깐 시간 되시면 후기 한 줄 부탁드려요~ 다음 시술 때 영양제 챙겨드릴게요!",
-    cta: { label: "후기 남기기", href: "/c/menu" },
+    cta: { label: "✍️ 후기 남기기", href: "/c/review" },
   },
   {
     id: "A5",
@@ -119,7 +122,7 @@ const templates: Template[] = [
     color: "lavender",
     category: "marketing",
     defaultMessage: "○○님~ 출산·마찰로 어두워진 컬러 케어, 통증 거의 없는 메디컬 멜라닌 케어 한번 받아보세요♡ 첫 방문 상담은 무료예요!",
-    cta: { label: "메디핑크 보기", href: "/c/sim" },
+    cta: { label: "💎 메디핑크 자세히 보기", href: "/c/menu" },
   },
   {
     id: "D2",

@@ -1,7 +1,7 @@
 {
   "tool_name": "Bash",
-  "tool_input_preview": "{\"command\":\"echo \\\"--- local prod ---\\\"\\ncurl -s -o /dev/null -w \\\"HTTP %{http_code} · %{time_total}s\\\\n\\\" http://localhost:3000/ --max-time 3\\necho \\\"--- tunnel ---\\\"\\ncurl -s -o /dev/null -w \\\"HTTP ...",
-  "error": "Exit code 1\n--- local prod ---\nHTTP 200 · 0.009734s\n--- tunnel ---\nHTTP 000 · 0.010901s\n--- processes ---\n44301 cloudflared tunnel --url\n44297 /bin/zsh -c source\n--- current IP ---\n10.50.2.163",
-  "timestamp": "2026-06-04T00:19:48.144Z",
+  "tool_input_preview": "{\"command\":\"sleep 10\\necho \\\"--- prod ---\\\"\\ntail -2 /private/tmp/claude-501/-Users-mac-projects-pipeline-factory-business-pivot-2026-04-28-v4-eyelash-launch/35b6633c-61da-4423-a681-89972d673fb1/tasks...",
+  "error": "Exit code 3\n--- prod ---\n- Network:       http://10.50.2.163:3000\n✓ Ready in 91ms\n--- tunnel ---\nURL: \n--- routes ---\n000 /c/review\n000 /c/reserve\n000 /c/inbox\n000 /o/inbox\n--- confirmed view ---\n000 /c/reserve?confirmed=1",
+  "timestamp": "2026-06-04T00:40:54.710Z",
   "retry_count": 1
 }

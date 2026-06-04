@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { CalendarDays, Clock, Loader2, CheckCircle2 } from "lucide-react";
+import { CalendarDays, Clock, Loader2, CheckCircle2, MapPin, Phone, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { TopAppBar } from "@/components/common/TopAppBar";
@@ -21,6 +22,161 @@ const timeSlots = ["11:00", "13:00", "15:00", "17:00"];
 const dates = ["오늘", "내일", "+2일", "+3일", "+4일"];
 
 export default function ReservePage() {
+  return (
+    <Suspense fallback={<div className="p-8 text-center text-pink-500">로딩 중...</div>}>
+      <ReserveContent />
+    </Suspense>
+  );
+}
+
+function ConfirmedView({
+  menu,
+  date,
+  time,
+  price,
+}: {
+  menu: string;
+  date: string;
+  time: string;
+  price?: string;
+}) {
+  return (
+    <>
+      <TopAppBar title="✅ 예약 확정" showBack />
+      <div className="px-5 py-6 space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-br from-emerald-500 to-emerald-400 text-white rounded-3xl p-6 shadow-xl text-center relative overflow-hidden"
+        >
+          <div className="absolute -right-6 -top-6 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+          <div className="relative">
+            <CheckCircle2 className="w-10 h-10 mx-auto mb-2" />
+            <div className="text-[10px] font-bold text-white/85 uppercase tracking-wider mb-1">
+              Reservation Confirmed
+            </div>
+            <div className="text-2xl font-black mb-1">예약 확정됐어요♡</div>
+            <div className="text-[12px] text-white/85">
+              사장님이 직접 확정해주셨어요
+            </div>
+          </div>
+        </motion.div>
+
+        <div className="bg-white rounded-2xl border border-pink-100 shadow-sm p-5 space-y-3">
+          <div className="flex items-center justify-between pb-3 border-b border-pink-50">
+            <span className="text-[12px] text-muted-foreground">메뉴</span>
+            <span className="text-sm font-bold text-foreground">
+              {menu || "글루연장 맥스"}
+            </span>
+          </div>
+          <div className="flex items-center justify-between pb-3 border-b border-pink-50">
+            <span className="text-[12px] text-muted-foreground flex items-center gap-1">
+              <CalendarDays className="w-3 h-3" /> 날짜
+            </span>
+            <span className="text-sm font-bold text-foreground">
+              {date || "내일"}
+            </span>
+          </div>
+          <div className="flex items-center justify-between pb-3 border-b border-pink-50">
+            <span className="text-[12px] text-muted-foreground flex items-center gap-1">
+              <Clock className="w-3 h-3" /> 시간
+            </span>
+            <span className="text-sm font-bold text-foreground">
+              {time || "13:00"}
+            </span>
+          </div>
+          {price && (
+            <div className="flex items-center justify-between pb-3 border-b border-pink-50">
+              <span className="text-[12px] text-muted-foreground">금액</span>
+              <span className="text-sm font-bold text-pink-600">
+                {Number(price).toLocaleString()}원
+              </span>
+            </div>
+          )}
+          <div className="flex items-center justify-between">
+            <span className="text-[12px] text-muted-foreground">시술 시간</span>
+            <span className="text-[12px] font-medium text-foreground">
+              약 2.5h · 1:1 단독
+            </span>
+          </div>
+        </div>
+
+        <div className="bg-pink-50/60 border border-pink-100 rounded-2xl p-4 space-y-2">
+          <div className="text-[12px] font-bold text-pink-700 mb-1">
+            💕 방문 전 안내
+          </div>
+          <ul className="text-[12px] text-pink-700/80 leading-relaxed space-y-1">
+            <li>· 안경·콘택트렌즈는 시술 전 미리 빼주세요</li>
+            <li>· 메이크업은 가볍게 와주세요</li>
+            <li>· 시간 변경 필요하면 미리 카톡 주세요♡</li>
+          </ul>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <a
+            href="https://map.naver.com/p/search/유어라인%20이수속눈썹"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white border border-pink-100 rounded-2xl p-4 text-center hover:bg-pink-50/30 transition"
+          >
+            <MapPin className="w-5 h-5 text-pink-600 mx-auto mb-1" />
+            <div className="text-[12px] font-bold text-foreground">
+              네이버 지도
+            </div>
+            <div className="text-[10px] text-muted-foreground">길찾기</div>
+          </a>
+          <a
+            href="tel:0507-1320-6511"
+            className="bg-white border border-pink-100 rounded-2xl p-4 text-center hover:bg-pink-50/30 transition"
+          >
+            <Phone className="w-5 h-5 text-pink-600 mx-auto mb-1" />
+            <div className="text-[12px] font-bold text-foreground">
+              0507-1320-6511
+            </div>
+            <div className="text-[10px] text-muted-foreground">전화하기</div>
+          </a>
+        </div>
+
+        <Link
+          href="/c/sim"
+          className="block bg-gradient-to-br from-pink-500 to-fuchsia-500 text-white rounded-2xl p-4 shadow-lg text-center"
+        >
+          <Sparkles className="w-5 h-5 mx-auto mb-1.5" />
+          <div className="text-sm font-bold">
+            방문 전 AI 시뮬로 디자인 미리 보기
+          </div>
+          <div className="text-[11px] text-white/85 mt-0.5">
+            셀카 1장이면 J·C·D컬 5초 미리보기♡
+          </div>
+        </Link>
+
+        <Link
+          href="/c/inbox"
+          className="block text-center text-[12px] text-muted-foreground py-2"
+        >
+          ← 인박스로 돌아가기
+        </Link>
+      </div>
+    </>
+  );
+}
+
+function ReserveContent() {
+  const params = useSearchParams();
+  if (params.get("confirmed") === "1") {
+    return (
+      <ConfirmedView
+        menu={params.get("menu") ?? ""}
+        date={params.get("date") ?? ""}
+        time={params.get("time") ?? ""}
+        price={params.get("price") ?? undefined}
+      />
+    );
+  }
+  return <ReserveForm />;
+}
+
+function ReserveForm() {
   const [selMenu, setSelMenu] = useState("g-max");
   const [selDate, setSelDate] = useState(1);
   const [selTime, setSelTime] = useState("13:00");

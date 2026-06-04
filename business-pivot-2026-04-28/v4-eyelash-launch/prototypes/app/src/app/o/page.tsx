@@ -520,7 +520,7 @@ function LoyaltyCareModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center p-3"
+          className="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center px-3 pt-3 pb-28 sm:pb-3"
         >
           <motion.div
             initial={{ y: 40, opacity: 0 }}

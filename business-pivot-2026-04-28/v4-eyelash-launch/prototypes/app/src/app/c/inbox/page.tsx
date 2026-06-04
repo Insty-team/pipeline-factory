@@ -98,8 +98,12 @@ export default function CustomerInboxPage() {
     return () => clearInterval(t);
   }, [fetchInbox]);
 
+  const [didMarkRead, setDidMarkRead] = useState(false);
+
   useEffect(() => {
-    if (messages.length === 0) return;
+    if (messages.length === 0 || didMarkRead) return;
+    setDidMarkRead(true);
+
     fetch("/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -110,9 +114,11 @@ export default function CustomerInboxPage() {
         link: "/c/inbox",
       }),
     }).catch(() => {});
-    // intentionally only fires once per visit when first messages arrive
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    fetch("/api/inbox/read", { method: "POST" })
+      .then(() => fetchInbox())
+      .catch(() => {});
+  }, [messages.length, didMarkRead, fetchInbox]);
 
   function trackCtaClick(msg: InboxMessage) {
     fetch("/api/events", {
