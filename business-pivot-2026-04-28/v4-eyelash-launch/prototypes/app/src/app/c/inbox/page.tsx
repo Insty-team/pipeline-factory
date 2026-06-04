@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Inbox as InboxIcon,
   Loader2,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import { TopAppBar } from "@/components/common/TopAppBar";
@@ -98,12 +99,11 @@ export default function CustomerInboxPage() {
     return () => clearInterval(t);
   }, [fetchInbox]);
 
-  const [didMarkRead, setDidMarkRead] = useState(false);
+  const [didLogOpen, setDidLogOpen] = useState(false);
 
   useEffect(() => {
-    if (messages.length === 0 || didMarkRead) return;
-    setDidMarkRead(true);
-
+    if (messages.length === 0 || didLogOpen) return;
+    setDidLogOpen(true);
     fetch("/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -114,11 +114,16 @@ export default function CustomerInboxPage() {
         link: "/c/inbox",
       }),
     }).catch(() => {});
+  }, [messages.length, didLogOpen]);
 
-    fetch("/api/inbox/read", { method: "POST" })
-      .then(() => fetchInbox())
-      .catch(() => {});
-  }, [messages.length, didMarkRead, fetchInbox]);
+  async function markOneRead(id: string) {
+    try {
+      await fetch(`/api/inbox/${id}/read`, { method: "POST" });
+      setMessages((prev) =>
+        prev.map((m) => (m.id === id ? { ...m, read: true } : m)),
+      );
+    } catch {}
+  }
 
   function trackCtaClick(msg: InboxMessage) {
     fetch("/api/events", {
@@ -184,7 +189,12 @@ export default function CustomerInboxPage() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: Math.min(idx * 0.04, 0.2) }}
-                className={`bg-white rounded-3xl border ${s.borderClass} shadow-sm overflow-hidden`}
+                onClick={() => {
+                  if (!m.read) markOneRead(m.id);
+                }}
+                className={`bg-white rounded-3xl border ${s.borderClass} shadow-sm overflow-hidden cursor-pointer transition-opacity ${
+                  m.read ? "opacity-75" : ""
+                }`}
               >
                 <div
                   className={`px-4 pt-4 pb-3 bg-gradient-to-br ${s.glowFrom} to-white`}
@@ -213,8 +223,22 @@ export default function CustomerInboxPage() {
                         {m.templateName}
                       </div>
                     </div>
-                    {!m.read && (
-                      <span className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0" />
+                    {!m.read ? (
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          markOneRead(m.id);
+                        }}
+                        className="flex-shrink-0 inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-full px-2 py-0.5 hover:bg-rose-100"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                        새 알림
+                      </button>
+                    ) : (
+                      <span className="flex-shrink-0 inline-flex items-center gap-0.5 text-[10px] font-semibold text-emerald-700">
+                        <Check className="w-3 h-3" />
+                        읽음
+                      </span>
                     )}
                   </div>
                 </div>
@@ -225,7 +249,13 @@ export default function CustomerInboxPage() {
                   {m.cta && (
                     <Link
                       href={m.cta.href}
-                      onClick={() => trackCtaClick(m)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!m.read) markOneRead(m.id);
+                        trackCtaClick(m);
+                      }}
+                      target={m.cta.href.startsWith("http") ? "_blank" : undefined}
+                      rel={m.cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="mt-3 inline-flex items-center justify-center gap-1.5 w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm font-bold py-2.5 rounded-2xl hover:opacity-95 transition"
                     >
                       {m.cta.label} <ChevronRight className="w-4 h-4" />

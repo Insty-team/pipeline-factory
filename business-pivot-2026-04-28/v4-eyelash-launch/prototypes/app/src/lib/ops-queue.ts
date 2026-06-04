@@ -89,6 +89,18 @@ export async function addQueueItem(
   return item;
 }
 
+export async function markAlimtokReadById(id: string): Promise<QueueItem | null> {
+  const items = await readQueue();
+  const item = items.find((i) => i.id === id && i.type === "alimtok");
+  if (!item) return null;
+  const p = item.payload as AlimtokPayload;
+  if (!p.readAt) {
+    p.readAt = new Date().toISOString();
+    await writeQueue(items);
+  }
+  return item;
+}
+
 export async function markAlimtokRead(): Promise<number> {
   const items = await readQueue();
   let count = 0;
