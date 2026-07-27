@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1779779589216,
+  "lastScanned": 1785125411027,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,14 +36,14 @@
       "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1779779589208,
+      "lastAccessed": 1785125411009,
       "keyFiles": []
     },
     "business-pivot-2026-04-28": {
       "path": "business-pivot-2026-04-28",
       "purpose": null,
-      "fileCount": 8,
-      "lastAccessed": 1779779589208,
+      "fileCount": 9,
+      "lastAccessed": 1785125411010,
       "keyFiles": [
         "01-criteria-review.md",
         "02-pivot-decision.md",
@@ -56,7 +56,7 @@
       "path": "geo-truth-layer",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1779779589209,
+      "lastAccessed": 1785125411010,
       "keyFiles": [
         "DAILY-LOG.md",
         "STRATEGY.md",
@@ -69,7 +69,7 @@
       "path": "_legacy/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1779779589209,
+      "lastAccessed": 1785125411011,
       "keyFiles": [
         "PIPELINE-V2-CHANGES.md",
         "PLAYBOOK.md"
@@ -79,7 +79,7 @@
       "path": "_legacy/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 4,
-      "lastAccessed": 1779779589209,
+      "lastAccessed": 1785125411011,
       "keyFiles": [
         "daily_pipeline.sh",
         "monitor.sh",
@@ -87,181 +87,6 @@
       ]
     }
   },
-  "hotPaths": [
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/report/page.tsx",
-      "accessCount": 9,
-      "lastAccessed": 1779842592045,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/alimtok/page.tsx",
-      "accessCount": 6,
-      "lastAccessed": 1780011082133,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/coupon/page.tsx",
-      "accessCount": 5,
-      "lastAccessed": 1779779637223,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/page.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1779844830397,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/page.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1779844851838,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/chat/page.tsx",
-      "accessCount": 4,
-      "lastAccessed": 1779847478269,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/page.tsx",
-      "accessCount": 3,
-      "lastAccessed": 1780011229896,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/lib/chatbot-prompts.ts",
-      "accessCount": 2,
-      "lastAccessed": 1779847464267,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/lib/ops-queue.ts",
-      "accessCount": 2,
-      "lastAccessed": 1780010953899,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/reply/page.tsx",
-      "accessCount": 2,
-      "lastAccessed": 1780011175746,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/components/ui/button.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1779779597508,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/.env.local",
-      "accessCount": 1,
-      "lastAccessed": 1779780084833,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/sim/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1779781051568,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/07-session-resume.md",
-      "accessCount": 1,
-      "lastAccessed": 1779842046346,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/modules/cards/design-cards-prompts-for-gpt.md",
-      "accessCount": 1,
-      "lastAccessed": 1779843649468,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/modules/cards/design-cards-reference.md",
-      "accessCount": 1,
-      "lastAccessed": 1779843650290,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/cards/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1779844773562,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/modules/chatbot/chatbot-30q.md",
-      "accessCount": 1,
-      "lastAccessed": 1779847047244,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/api/chat/route.ts",
-      "accessCount": 1,
-      "lastAccessed": 1779847176008,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/08-demo-video-script.md",
-      "accessCount": 1,
-      "lastAccessed": 1779878523897,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/inbox/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1780007438567,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/o/daily/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1780007439002,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/api/ops/queue/route.ts",
-      "accessCount": 1,
-      "lastAccessed": 1780010172453,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/api/ops/queue/[id]/done/route.ts",
-      "accessCount": 1,
-      "lastAccessed": 1780010177883,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/ops/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1780010220553,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/api/inbox/route.ts",
-      "accessCount": 1,
-      "lastAccessed": 1780010962646,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/c/inbox/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1780011000672,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/lib/seed-reviews.ts",
-      "accessCount": 1,
-      "lastAccessed": 1780011123715,
-      "type": "file"
-    },
-    {
-      "path": "business-pivot-2026-04-28/v4-eyelash-launch/prototypes/app/src/app/mock/naver-review/[id]/page.tsx",
-      "accessCount": 1,
-      "lastAccessed": 1780011200558,
-      "type": "file"
-    }
-  ],
+  "hotPaths": [],
   "userDirectives": []
 }
