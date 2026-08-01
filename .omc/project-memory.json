@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1785125411027,
+  "lastScanned": 1785561337856,
   "projectRoot": "/Users/mac/projects/pipeline-factory",
   "techStack": {
     "languages": [],
@@ -36,14 +36,14 @@
       "path": "_legacy",
       "purpose": null,
       "fileCount": 0,
-      "lastAccessed": 1785125411009,
+      "lastAccessed": 1785561337848,
       "keyFiles": []
     },
     "business-pivot-2026-04-28": {
       "path": "business-pivot-2026-04-28",
       "purpose": null,
       "fileCount": 9,
-      "lastAccessed": 1785125411010,
+      "lastAccessed": 1785561337848,
       "keyFiles": [
         "01-criteria-review.md",
         "02-pivot-decision.md",
@@ -56,7 +56,7 @@
       "path": "geo-truth-layer",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1785125411010,
+      "lastAccessed": 1785561337848,
       "keyFiles": [
         "DAILY-LOG.md",
         "STRATEGY.md",
@@ -65,11 +65,18 @@
         "geo-launch-plan.md"
       ]
     },
+    "n8n": {
+      "path": "n8n",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1785561337849,
+      "keyFiles": []
+    },
     "_legacy/docs": {
       "path": "_legacy/docs",
       "purpose": "Documentation",
       "fileCount": 2,
-      "lastAccessed": 1785125411011,
+      "lastAccessed": 1785561337849,
       "keyFiles": [
         "PIPELINE-V2-CHANGES.md",
         "PLAYBOOK.md"
@@ -79,11 +86,22 @@
       "path": "_legacy/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 4,
-      "lastAccessed": 1785125411011,
+      "lastAccessed": 1785561337849,
       "keyFiles": [
         "daily_pipeline.sh",
         "monitor.sh",
         "weekly_pipeline.sh"
+      ]
+    },
+    "n8n/data": {
+      "path": "n8n/data",
+      "purpose": "Data files",
+      "fileCount": 5,
+      "lastAccessed": 1785561337849,
+      "keyFiles": [
+        "config",
+        "database.sqlite",
+        "database.sqlite-shm"
       ]
     }
   },
